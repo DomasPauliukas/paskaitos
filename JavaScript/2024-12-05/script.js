@@ -19,6 +19,25 @@ console.log(name + ' ' + pavarde + ' yra is ' + miestas + '.')
 console.log(`Sveiki, ${name} ${pavarde} yra is ${miestas}.`)
 
 // Pratimas 1
+
+//Deklaruokite du kintamuosius: admin ir name.
+//name priskirkite reikšmę „Jonas".
+//Nukopijuokite reikšmę iš name į admin.
+//Parodykite admin reikšmę naudodami alert (turi išvesti „Jonas").
+
 let names = 'Jonas'
 let admin = names
 alert (admin)
+
+// Pratimas 2
+//Sukurkite kintamąjį su mūsų planetos pavadinimu. Kaip pavadintumėte tokį kintamąjį?
+
+let planet = 'Earth'; // ATS -> let ourPlanetName = 'earth'
+
+//Sukurkite kintamąjį, kad išsaugotumėte dabartinio svetainės lankytojo vardą. Kaip pavadintumėte tą kintamąjį?
+
+let currentUserName = 'Jonas'
+
+// Pratimas 3
+
+
