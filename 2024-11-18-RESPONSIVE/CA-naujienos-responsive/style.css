@@ -1,0 +1,334 @@
+header {
+  background-color: white;
+}
+header .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 0 20px;
+  flex-wrap: wrap;
+}
+@media (max-width: 1000px) {
+  header .header {
+    justify-content: center;
+  }
+}
+@media (max-width: 1000px) {
+  header .header .header-logo img {
+    height: 70px;
+  }
+}
+header .header .header-nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  padding-left: 25px;
+}
+@media (max-width: 1000px) {
+  header .header .header-nav a {
+    display: none;
+  }
+}
+header .header .header-nav a.button {
+  background-color: rgb(72, 75, 241);
+  color: white;
+  padding: 10px 30px;
+  margin-left: 25px;
+  border-radius: 50px;
+}
+
+.buttons-on-top {
+  text-align: end;
+  margin-top: 20px;
+}
+@media (max-width: 1000px) {
+  .buttons-on-top {
+    text-align: center;
+  }
+}
+.buttons-on-top a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  margin-left: -3px;
+  background-color: rgb(246, 244, 244);
+  padding: 20px 25px;
+}
+.buttons-on-top a .blue-button {
+  background-color: rgb(72, 75, 241);
+  color: white;
+}
+
+h1 {
+  font-size: 40px;
+}
+@media (max-width: 700px) {
+  h1 {
+    text-align: center;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: rgb(227, 227, 227);
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  background-color: rgb(227, 227, 227);
+  padding-top: 30px;
+  padding-bottom: 150px;
+}
+@media (max-width: 900px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.naujienos {
+  grid-column: span 1;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+}
+
+.naujienos-big {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+@media (max-width: 700px) {
+  .naujienos-big {
+    grid-template-columns: 1fr;
+  }
+}
+.naujienos-big .item {
+  background-color: white;
+}
+.naujienos-big .item img {
+  width: 100%;
+  height: 280px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.naujienos-big .item .item-info {
+  padding: 40px 40px 60px;
+}
+.naujienos-big .item .item-info h3 {
+  font-size: 30px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.naujienos-small {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 25px;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+  font-size: 13px;
+  font-weight: lighter;
+}
+@media (max-width: 700px) {
+  .naujienos-small {
+    grid-template-columns: 1fr;
+  }
+}
+.naujienos-small .item {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+  padding-bottom: 25px;
+}
+.naujienos-small .item img {
+  width: 100%;
+}
+.naujienos-small .item .testing span:nth-child(1) {
+  color: rgb(42, 42, 255);
+  font-weight: 600;
+}
+
+.visos-naujienos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 0px 25px;
+}
+.visos-naujienos img {
+  width: 3%;
+}
+
+.podcastai {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  row-gap: 25px;
+}
+.podcastai .item {
+  display: grid;
+}
+.podcastai .item .item-top {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  justify-items: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+.podcastai .item .item-top .spotify-img img {
+  width: 100%;
+}
+.podcastai .item .item-top .trukme {
+  grid-column: 2/span 1;
+}
+.podcastai .item .item-bottom {
+  background-color: white;
+  padding: 20px;
+}
+.podcastai .item .item-bottom h4 {
+  margin: 0px;
+}
+
+.renginiai .item {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.renginiai .item .renginiai-photo img {
+  width: 100%;
+  height: 260px;
+  margin-bottom: -40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.renginiai .item .renginiai-data {
+  background-color: white;
+  border-radius: 10px;
+  display: grid;
+  width: 20%;
+  grid-template-rows: 2fr 1fr;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  margin-left: 30px;
+  margin-bottom: -50px;
+  overflow: hidden;
+}
+.renginiai .item .renginiai-data .data-number {
+  font-size: x-large;
+  font-weight: 700;
+}
+.renginiai .item .renginiai-data .data-pink {
+  background-color: rgb(230, 66, 197);
+  color: white;
+  padding: 5px 0px;
+}
+.renginiai .item .renginiai-adresas {
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  padding: 70px 30px 30px 30px;
+}
+.renginiai .item .renginiai-adresas h3 {
+  font-size: 24px;
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+
+.renginiai {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+
+.vaizdo-irasai {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: flex-start;
+  gap: 25px;
+  font-size: 12px;
+}
+.vaizdo-irasai h1 {
+  grid-column: span 2;
+}
+.vaizdo-irasai .item:nth-child(2) {
+  grid-column: span 2;
+  font-size: 22px;
+}
+.vaizdo-irasai .item:nth-child(2) iframe {
+  height: 400px;
+}
+.vaizdo-irasai .item:last-child {
+  grid-column: span 2;
+}
+
+footer {
+  background-image: url(footer.svg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 35%;
+  background-color: black;
+  padding-bottom: 200px;
+}
+footer .footer-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+}
+footer .footer-wrap .footer-logo {
+  grid-column: span 3;
+  padding: 100px 0px;
+}
+footer .footer-wrap .footer-links {
+  padding-bottom: 200px;
+}
+footer .footer-wrap .footer-links ul {
+  list-style-type: none;
+  padding: 0px;
+}
+footer .footer-wrap .footer-links ul li {
+  padding-bottom: 20px;
+  color: rgb(162, 162, 162);
+}
+footer .footer-wrap .footer-address {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+footer .footer-wrap .footer-address span {
+  color: white;
+}
+footer .footer-wrap .footer-address a {
+  text-decoration: none;
+  color: rgb(162, 162, 162);
+}
+footer .footer-wrap .footer-socials {
+  text-align: center;
+}
+footer .footer-wrap .footer-rights {
+  grid-column: span 2;
+  color: rgb(162, 162, 162);
+}
+footer .footer-wrap .footer-privacy {
+  padding-left: 100px;
+}
+footer .footer-wrap .footer-privacy a {
+  text-decoration: none;
+  color: rgb(162, 162, 162);
+}/*# sourceMappingURL=Naujienos.css.map */

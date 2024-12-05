@@ -1,0 +1,398 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: rgb(227, 227, 227);
+
+}
+.container{
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+header{
+    background-color: white;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0 20px;
+    flex-wrap: wrap;
+}
+header .header-nav a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    padding-left: 25px;
+}
+.header-nav .button{
+    background-color: rgb(72, 75, 241);
+    color: white;
+    padding: 10px 30px;
+    margin-left: 25px;
+    border-radius: 50px;
+}
+
+section{
+    text-align: end;
+    margin-top: 20px;
+    
+}
+section a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    margin-left: -3px;
+    background-color: rgb(246, 244, 244);
+    padding: 20px 25px;
+
+}
+.blue-button{
+    background-color: rgb(72, 75, 241);
+    color: white;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    background-color: rgb(227, 227, 227);
+    padding-top: 30px;
+    padding-bottom: 150px;
+
+}
+h1{
+    font-size: 40px;
+    display: ;
+}
+
+.naujienos{
+    grid-column: span 1;
+    column-gap: 25px;
+}
+.naujienos-big{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+.naujienos-big h3{
+    font-size: 30px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.naujienos-big .item{
+    background-color: white;
+}
+
+.naujienos-big .item-info{
+    padding: 40px 40px 60px;
+
+}
+.naujienos-big img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.naujienos-small {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 25px;
+    column-gap: 25px;
+    font-size: 13px;
+    font-weight: lighter;
+}
+.naujienos-small .item{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 25px;
+    padding-bottom: 25px;
+}
+.naujienos-small .item img{
+    width: 100%;
+}
+.naujienos span:nth-child(1){
+    color: rgb(42, 42, 255);
+    font-weight: 600;
+}
+.visos-naujienos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 0px 25px;
+}
+.visos-naujienos img{
+    width: 3%;
+}
+
+.vaizdo-irasai{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: flex-start;
+    gap: 25px;
+    font-size: 12px;
+}
+.vaizdo-irasai h1{
+    grid-column: span 2;
+}
+.vaizdo-irasai .item:nth-child(2){
+    grid-column: span 2;
+    font-size: 22px;
+    
+}
+.vaizdo-irasai .item:nth-child(2) iframe{
+    height: 400px;
+}
+
+.vaizdo-irasai .item:last-child{
+    grid-column: span 2;
+}
+
+.podcastai{
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    row-gap: 25px;
+}
+.podcastai .spotify-img img{
+    width: 100%;
+}
+.podcastai .item{
+    display: grid;
+}
+.podcastai .item-top{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    justify-items: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+.podcastai .item-top .trukme{
+    grid-column: 2 / span 1 ;
+}
+.podcastai .item-bottom{
+    background-color: white;
+    padding: 20px;
+}
+.podcastai .item-bottom h4{
+    margin: 0px;
+}
+
+.renginiai{
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+}
+
+.renginiai .item{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+}
+.renginiai .renginiai-data{
+    background-color: white;
+    border-radius: 10px;
+    display: grid;
+    width: 20%;
+    grid-template-rows: 2fr 1fr;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    margin-left: 30px;  
+    margin-bottom: -50px;
+    overflow: hidden;
+}
+
+.renginiai .renginiai-photo img{
+   width: 100%;
+   height: 260px;
+   margin-bottom: -40px;
+   object-fit: cover;
+
+}
+.renginiai-data .data-number{
+    font-size: x-large;
+    font-weight: 700;
+}
+.renginiai-data .data-pink{
+    background-color: rgb(230, 66, 197);
+    color: white;
+    padding: 5px 0px;
+}
+.renginiai .renginiai-adresas{
+   background-color: black;
+   color: white;
+   font-size: 12px;
+   padding: 70px 30px 30px 30px;
+}
+.renginiai .item h3{
+    font-size: 24px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+footer{
+    background-image: url(footer.svg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 35%;
+    background-color: black;
+    padding-bottom: 200px;
+}
+
+.footer-wrap{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+.footer-logo{
+    grid-column: span 3;
+    padding: 100px 0px;
+}
+.footer-links{
+    padding-bottom: 200px;
+}
+.footer-links ul{
+    list-style-type: none;
+    padding: 0px;
+
+}
+.footer-links ul li{
+    padding-bottom: 20px;
+    color: rgb(162, 162, 162);
+}
+
+.footer-address{
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+
+}
+.footer-address span{
+    color: white;
+}
+.footer-address a{
+    text-decoration: none;
+    color: rgb(162, 162, 162);
+
+}
+.footer-socials{
+    text-align: center;
+}
+
+.footer-rights{
+    grid-column: span 2;
+    color: rgb(162, 162, 162);
+}
+.footer-rights a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-privacy{
+    padding-left: 100px;
+}
+.footer-privacy a{
+    text-decoration: none;
+    color: rgb(162, 162, 162);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .naujienos{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.naujienos-big{
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.naujienos-big img{
+    width: 100%;
+}
+.naujienos-big .item{
+    border: 2px solid green;
+}
+
+.naujienos-small{
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.naujienos-small .item img{
+    width: 100%;
+}
+.naujienos-small .item:nth-child(1) img{
+    width: 60%;
+}
+.naujienos-small .item{
+    border: 2px red solid;
+    display: flex;
+    flex-direction: row;
+} */

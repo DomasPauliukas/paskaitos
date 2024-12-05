@@ -1,0 +1,65 @@
+*, *::before, *::after {
+box-sizing: border-box;
+}
+
+body{
+    font-family: "Figtree", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: hsl(47, 88%, 63%);
+    padding: 10%;
+}
+
+.text-wrap{
+    width: 36%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    border: solid 2px ;
+    box-shadow: 10px 10px;
+    border-radius: 20px;
+    background-color: white;
+    
+}
+
+.logo{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.learning{
+    font-weight: 800;
+    display: inline-block;
+    background-color: hsl(47, 88%, 63%);
+    padding: 1%;
+    border-radius: 5px;
+    margin-bottom: 0px;
+}
+
+h1{
+    font-weight: 800;
+}
+
+.main-info{
+    color: hsl(0, 0%, 42%);
+    padding-right: 10%;
+}
+
+.outro{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.greg-photo{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    
+
+}
+
+.greg-name{
+    font-weight: 800;
+}
+

@@ -1,0 +1,62 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+.blue{
+    background-color: blue;
+}
+.green{
+    background-color: greenyellow;
+}
+.purple{
+    background-color: plum;
+}
+.yellow{
+    background-color: yellow;
+}
+.red{
+    background-color: red;
+}
+
+.BOX{
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    background-color: rgb(237, 234, 234);
+    
+}
+
+.container{
+    width: 1000px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr;
+}
+.container .item:nth-child(1){
+    grid-column: 1 / span 2;
+}
+.container .item:nth-child(2){
+    grid-column: 2 / span 2;
+    grid-row: 2;
+}
+.container .item:nth-child(3){
+    grid-column: 4;
+    grid-row: 1 / span 2;
+}
+.container .item{
+    display: grid;
+    grid-template-rows: 1fr 2fr 3fr;
+}
+.container .item .item2:nth-child(1){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.container .item .item2 .tem3:nth-child(2){
+    display: grid;
+    grid-template-rows: 1fr 1f;
+}

@@ -1,0 +1,327 @@
+@use 'scss/responsive';
+@use 'scss/variables';
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+.blue-word{
+    color: variables.$color-primary;
+}
+header{
+    .header-top{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        }
+        .header-top-title{
+            font-weight: 900;
+        }
+        .page-navigators{
+            display: flex;
+            justify-content: center;
+            column-gap: 15px;
+            display: none;
+            a{
+                text-decoration: none;
+                color: black
+            }
+            @include responsive.lg{
+                display: flex;
+            }
+        }
+
+    .header-bottom{
+        height: 90vh;
+        background-color: variables.$color-primary;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        padding: 0px 40px;
+        text-align: center;
+        @include responsive.lg{
+            background-image: url(images/lg-view.webp);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+    
+        h1{
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: lighter;
+        }
+        p{
+            font-size: 13px;
+            margin-top: 0px;
+            line-height: 2;
+
+        }
+        button{
+            color: white;
+            background-color: variables.$color-primary;
+            border: 1px solid #9e9b9b;
+            box-shadow: 0px 0px 0px 2px rgb(0 0 0 / 10%);
+        }
+    }
+}
+
+main{
+
+    .About-us{
+        padding: 30px 20px 50px;
+        h2{
+            text-align: center;
+            letter-spacing: 5px;
+            padding: 30px;
+            font-weight: normal;
+        }
+        img{
+            width: 100%;
+        }
+        h3{
+            font-weight: lighter;
+            margin-top: 30px;
+        }
+        p{
+            font-size: 13px;
+        }
+        nav a{
+            text-decoration: none;
+            color: blue;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .about-us-content-wrapper{
+            @include responsive.lg{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .image-wrapper{
+                    border: 5px solid variables.$color-primary;
+                    width: 45%;
+                    
+                    img{
+                    display: block;
+                    width: 100%;
+                    position: relative;
+                    bottom: -15px;
+                    right: -15px;
+                    }
+                }
+                .about-us-text-wrapper{
+                    width: 45%;
+                    text-align: justify;
+                }
+            }
+
+        }
+    }
+
+    .Our-services{
+        padding: 70px 0px;
+        background-color: #f1f1f1;
+        h2{
+            text-align: center;
+            letter-spacing: 5px;
+            padding: 30px;
+            font-weight: normal;
+        }
+        .services{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            @include responsive.lg{
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 15px;
+                align-items: baseline;
+            }
+            .services-item{
+                text-align: center;
+                &:nth-child(3){
+                    grid-column: span 2;
+                    width: 55%;
+                    @include responsive.lg{
+                        grid-column: 3;
+                        width: 100%;
+                    }
+                }
+                img{
+                    width: 15%;
+                }
+                h3{
+                    font-weight: normal;
+                }
+                p{
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
+    .Featured-tours{
+        padding: 0px 20px;
+        h2{
+            text-align: center;
+            letter-spacing: 5px;
+            padding: 30px;
+            font-weight: normal;
+        }
+        .tours-wrapper{
+            display: flex;
+            flex-direction: column;
+            row-gap: 40px;
+            @include responsive.md{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            @include responsive.lg{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 15px;
+            }
+            .tours-item{
+                position: relative;
+                box-shadow:  0px 0px 2px rgba(0 0 0 / 50%);
+                .tours-item-date{
+                    background-color: variables.$color-primary;
+                    font-weight: 700;
+                    display: inline;
+                    padding: 3px;
+                    position: absolute;
+                    top: 10px;
+                    font-size: 13px;
+                }
+                img{
+                    width: 100%;
+                }
+                h4{
+                    padding: 0px 10px;
+
+                }
+                .tours-item-navigation{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0px 10px 20px;
+                    .tours-item-location{
+                        width: 50%;
+                        img{
+                            width: 10%;
+                        }
+                    }
+                    .tours-item-price{
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+        .all-tours-nav{
+            text-align: center;
+            padding: 30px;
+            font-size: 13px;
+            a{
+                text-decoration: none;
+                font-weight: 600;
+                color: blue;
+            }
+        }
+    }
+
+    .our-galery{
+        h2{
+            text-align: center;
+            letter-spacing: 5px;
+            padding: 30px;
+            font-weight: normal;
+            background-color: #f1f1f1;
+            margin: 0px;
+        }
+        .all-images{
+            @include responsive.md{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            @include responsive.lg{
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+            }
+            img{
+                width: 100%;
+                border-bottom: 5px solid variables.$color-primary;
+                display: block;
+                height: 100%;
+
+            }
+        }
+    }
+}
+
+footer{
+    .subscription-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        background-color: variables.$color-primary;
+        @include responsive.lg{
+            grid-template-columns: 2fr 1.5fr;
+        }
+        .subscription-title{
+            color: white;
+            padding-bottom: 40px;
+            padding: 0px 10px 40px;
+            h2{
+                font-weight: normal;
+                letter-spacing: 5px;
+                line-height: 1.5;
+                text-align: center;
+            }
+            h4{
+                font-weight: normal;
+            }
+        }
+        .subscription-space{
+            align-content: center;
+            position: relative;
+
+            input.email-sapce {
+                width: 100%;
+            }
+            .submit-button{
+                border: none;
+                position: absolute;
+                right: 2px;
+                padding: 4px 10px;
+            }
+        }
+    }
+    .socials-wrapper{
+        color: white;
+        font-size: 13px;
+        background-color: #272424;
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+        padding: 50px 0px;
+        text-align: center;
+        .back-to-themes{
+            display: flex;
+            justify-content: center;
+            column-gap: 15px;
+            a{
+                text-decoration: none;
+                color: white;
+            }
+        }
+        .footer-socials{
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+}
+

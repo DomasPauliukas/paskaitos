@@ -1,0 +1,58 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+.text-wrapper{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo-wrap{
+    text-align: center;
+}
+.logo-picture{
+    width: 25%;
+
+}
+
+.header-links{
+    background-color: green;
+    padding: 10px 0px;
+    text-align: center;
+    
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    margin: 0px 20px;
+    
+}
+
+h2{
+    background-color: green;
+    padding: 8px;
+    color: white;
+}
+
+.main-wrap{
+    padding: 20px;
+    background-color: rgb(201, 200, 200);
+    
+}
+
+.contact-wrap{
+    background-color: aquamarine;
+    padding: 20px;
+}
+
+
+.dekstop-picture{
+    width: 100%;
+}
+

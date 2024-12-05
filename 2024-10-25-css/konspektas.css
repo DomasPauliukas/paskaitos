@@ -1,0 +1,113 @@
+/* 
+CSS sintaksė
+
+selector {
+        property-KEY: property-Value;
+        }   
+google ->css plates - flukeout.github.io - zaidimukas
+
+Selektoriai::
+
+h3 {} h4{}
+button {}
+
+Kad parinkti, kuriems elementams naudoti css:  
+
+pvz: <p class="pirma-klase"> HTML- rasome per bruksneli viska.
+
+Klase pazymime su '.' Ta pacia klase galima naudoti keliems skirtingas elementams
+ID zymime su #
+
+
+pvz. <p class="pirma-klase">
+<h3 class="pirma-klase">
+
+.pirma-klase {} -- visiems elementams su klase pakeis
+Jei ne visiems elementams --> h3.pirma-klase {} (be tarpo tarp h3 ir .) 
+TARPELIS BUNA KAI KELI SELEKTORIAI
+
+span {} -- VISUS SPANUS
+p span {} -- spanus tik PARAGRAFUOSE
+
+div h6.pirma-klase -- paims h6 su klase kuris yra tik dive
+
+ul li {} -- visus UL esancius li paveiks net jei jame yra  ol kuriame yra li. 
+
+li {color: black;}
+ul > li {} -- > tiesioginius li elemetus paveikia. 
+
+---
+PSEUDOSELEKTORIAI (:)
+Pakeisti visus pirmus Li elementus
+li:first-of-type {}
+:nth-of-type (1/2/3/4) (even) (odd) - Parinks 1/2/3 arba lyginius arba nelyginius
+
+CSS properties -> MDN
+
+**BORDER** - remeliai
+
+jei nurodai border: 1 visam veikia, border: 1 2 (virsus/apacia ir sonai), border 1 2 3 (virsus, desine ir kaire, apacia), border: 1 2 3 4 (virsus, desine, apacia, kaire)
+
+***STYLE property PRIVALOMAS ***
+shorthand --> ka apima, ta pati padaro ka kiti properties. Vienu kodu vietoj 4 kodu.
+1 ( a b c d ) bus tas pats kaip
+a1 - a
+a2 - b
+a3 - c
+a4 - d 
+BORDER - pagal laikrodzio rodykle. jei nenurodai stiliaus
+
+border-style:
+1.border-top-style
+2.border-right-style
+3.border-bottom-style
+4.border-left-style
+
+border-color: black purple (jei tik du, paims top/bttm ir left/right) O jei tris top, right/left, bottom
+1.border-top-color
+2.border-right-color
+3.border-bottom-color
+4.border-left-color
+
+border-width: 10px 1px 20px 30px
+1.border-top-width
+2.border-right-width
+3.border-bottom-width
+4.border-left-width
+
+border: 10px dashed purple (VISUS APJUNGE VIENAME)
+
+border-bottom (TIK apacios galima visus naudoti style/spalva/plotis)
+
+**MARGIN** tarpeliai UZ REMELiu
+
+margin: 50px
+
+vel yra top/right/bottom/left
+
+**PADDING** Tarpeliai viduje iki remeliu
+
+padding: 50 (is visu pusiu)
+
+top/right/bottom/left
+
+**BORDER-RADIUS** apvalina kampus
+
+**TEXT-TRANSFORM**
+:capitalize pirmos raides didziosios
+:uppercase visos didziosios
+:lowercase
+
+**TEXT-DECORATION**
+privaloma (?)text-decoration-line: underline 
+:overline
+:line-through
+text-decoration-color: blue
+text-decoration-thickness: 10px
+text-decoration-style: dotted
+ARBA -->
+
+text-decoration: underline dotted blue 10px
+
+
+*/

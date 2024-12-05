@@ -1,0 +1,73 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    background-color: hsl(0, 0%, 8%);
+    margin: 0%;
+    padding-top: 100px;
+}
+
+div{
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3%;
+    text-align: center;
+    color: white;
+    background-color: hsl(0, 0%, 12%);
+    border-radius: 10%;
+}
+   
+
+
+
+img{
+    border-radius: 80%;
+    height: 40%;
+    width: 40%;
+}
+
+
+h1{
+    font-weight: 700;
+
+    
+  
+
+}
+
+p:first-of-type{
+    font-size: 14px;
+    font-weight: 400;
+    color: hsl(75, 94%, 57%);
+
+
+}
+
+p:last-of-type{
+    font-size: 14px;
+    font-weight: 400;
+
+}
+
+ul{
+    list-style: none;
+    font-weight: 600;
+    padding-left: 0;
+
+}
+
+
+a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 2%;
+    margin: 3%;
+    border-radius: 10%; 
+    background-color: hsl(0, 0%, 20%);
+}
+    

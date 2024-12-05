@@ -1,0 +1,260 @@
+/* 
+
+CSS Sintaksė:
+
+selector {
+    property-KEY: property-VALUE;
+}
+
+*/
+
+h3 {
+    color: brown;
+    background-color: aqua;
+}
+
+h4 {
+    background-color: aquamarine;
+}
+
+h5 {
+    color: yellowgreen;
+}
+
+button {
+    background-color: black;
+    color: white;
+}
+
+.pirma-klase {
+    color: blue;
+}
+
+h6.pirma-klase {   
+    font-size: 30px;
+}
+
+div h6.pirma-klase {
+    text-decoration: line-through;
+}
+
+span {
+    text-decoration: underline;
+}
+
+p span {
+    color: green;
+}
+
+li {
+    color: black;
+}
+
+ul > li {
+    color: blueviolet;
+}
+
+section > p {
+    background-color: bisque;
+}
+
+#headings {
+    border: 2px solid black;
+}
+
+li:first-of-type {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+    padding: 3px;
+}
+
+tr:nth-of-type(odd) {
+    background-color: #d3d3d3;
+}
+
+tr:last-of-type {
+    font-weight: bold;
+}
+
+.test {
+
+    /* BORDER */
+
+    /* border-top-style: dashed;
+    border-right-style: dotted;
+    border-bottom-style: solid;
+    border-left-style: double; */
+
+    /* border-style: dashed dotted solid double; */
+
+    /* border-top-color: green;
+    border-right-color: orange;
+    border-bottom-color: purple;
+    border-left-color: red; */
+
+    /* border-color: green orange purple red; */
+
+    /* border-top-width: 10px;
+    border-right-width: 1px;
+    border-bottom-width: 20px;
+    border-left-width: 5px; */
+
+    /* border-width: 10px 1px 20px 5px; */
+
+    /* border-style: dashed;
+    border-color: purple;
+    border-width: 10px; */
+
+    /* border: dashed; */
+    /* border: 10px dashed; */
+    /* border: dashed purple; */
+    border: 5px solid purple;
+
+    /* MARGIN */
+    /* margin-top: 50px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+    margin-left: 0; */
+
+    margin: 50px 20px 100px 0;
+
+    /* PADDING */
+
+    /* padding-top: 15px;
+    padding-right: 50px;
+    padding-bottom: 30px;
+    padding-left: 5px; */
+
+    padding: 15px 50px 30px 5px;
+
+    /* BORDER RADIUS */
+
+    /* border-top-left-radius: 20px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 50px; */
+
+    border-radius: 20px 30px 10px 50px;
+
+    text-transform: capitalize;
+}
+
+#test {
+    /* text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: green;
+    text-decoration-thickness: 5px;
+     */
+
+    text-decoration: underline dotted green 5px;
+}
+
+
+/*  2 PASKAITA ****
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        div {
+            color: white;
+            padding: 50px;
+            background-image: url('image.jpg');
+            background-color: black;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        ***************************************************************
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadows</title>
+
+    <style>
+        h1 {
+            text-shadow: 1px 2px 1px red;
+        }
+
+        div {
+            background-color: green;
+            padding: 20px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+
+            /* x-axis, y-axis, color */
+            /* box-shadow: 5px 5px black; */
+
+            /* x-axis, y-axis, blur-radius, color */
+            /* box-shadow: 5px 5px 5px black; */
+            
+            /* x-axis, y-axis, blur-radius, spread-radius color 
+            box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.2);
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <div>
+        <h2>Pavadinimas</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla maxime saepe, veritatis molestiae laborum cupiditate?</p>
+        <button>Click</button>
+    </div>
+</body>
+</html>
+
+ *********************************************************************************
+FONT
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadows</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            font-family: "Roboto", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        h1, h2, h3 {
+            font-family: "Roboto", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        p, ul, ol {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-style: italic;
+        }

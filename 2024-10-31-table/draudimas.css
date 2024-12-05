@@ -1,0 +1,113 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+header{
+    background-color: black;
+    margin-bottom: 0px;
+}
+
+.intro{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: black;
+}
+
+h1{
+    text-align: left;
+    color: white;
+}
+
+.shortcuts{
+    background-color: rgb(212, 154, 39);
+    text-align: right;
+    padding: 10px;
+}
+
+.shortcuts a{
+    color: white;
+    text-decoration: none;
+    padding: 7px;
+}
+
+.main{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main nav{
+    text-align: center;
+}
+.main nav a{
+    padding: 5px 30px;
+    border: 1px rgb(255, 0, 0) solid;
+    border-radius: 8px;
+    background-color: red;
+    color: white;
+}
+
+.blue{
+    background-color: rgb(16, 16, 107);
+}
+.table{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    padding-bottom: 15px;
+
+}
+
+.table h2{
+    padding-top: 20px;
+    
+}
+
+table{
+    width: 100%;
+    border: 1px solid red;
+    border-collapse: collapse;
+}
+th{
+    border: 3px solid red;
+}
+td{
+    border: 3px red solid;
+    padding: 5px;
+}
+tr td:nth-of-type(odd){
+    text-align: center;
+}
+tr td:nth-of-type(even){
+    text-align: right;
+    font-weight: 700;
+}
+tr td:last-of-type{
+    text-align: right;
+    font-weight: 700;
+}
+
+.bottom{
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 15px;
+}
+
+.navigation-up{
+    padding-left: 350px;
+}
+
+
+footer{
+    text-align: center;
+    background-color: rgb(212, 154, 39);
+    padding: 15px;
+    color: white;
+}
+
+
+

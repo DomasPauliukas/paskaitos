@@ -1,0 +1,318 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.blue-word {
+  color: #7373ff;
+}
+
+header .header-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+header .header-top-title {
+  font-weight: 900;
+}
+header .page-navigators {
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+  display: none;
+}
+header .page-navigators a {
+  text-decoration: none;
+  color: black;
+}
+@media (min-width: 800px) {
+  header .page-navigators {
+    display: flex;
+  }
+}
+header .header-bottom {
+  height: 90vh;
+  background-color: #7373ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 0px 40px;
+  text-align: center;
+}
+@media (min-width: 800px) {
+  header .header-bottom {
+    background-image: url(images/lg-view.webp);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+header .header-bottom h1 {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: lighter;
+}
+header .header-bottom p {
+  font-size: 13px;
+  margin-top: 0px;
+  line-height: 2;
+}
+header .header-bottom button {
+  color: white;
+  background-color: #7373ff;
+  border: 1px solid #9e9b9b;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1);
+}
+
+main .About-us {
+  padding: 30px 20px 50px;
+}
+main .About-us h2 {
+  text-align: center;
+  letter-spacing: 5px;
+  padding: 30px;
+  font-weight: normal;
+}
+main .About-us img {
+  width: 100%;
+}
+main .About-us h3 {
+  font-weight: lighter;
+  margin-top: 30px;
+}
+main .About-us p {
+  font-size: 13px;
+}
+main .About-us nav a {
+  text-decoration: none;
+  color: blue;
+  font-size: 13px;
+  font-weight: 600;
+}
+@media (min-width: 800px) {
+  main .About-us .about-us-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  main .About-us .about-us-content-wrapper .image-wrapper {
+    border: 5px solid #7373ff;
+    width: 45%;
+  }
+  main .About-us .about-us-content-wrapper .image-wrapper img {
+    display: block;
+    width: 100%;
+    position: relative;
+    bottom: -15px;
+    right: -15px;
+  }
+  main .About-us .about-us-content-wrapper .about-us-text-wrapper {
+    width: 45%;
+    text-align: justify;
+  }
+}
+main .Our-services {
+  padding: 70px 0px;
+  background-color: #f1f1f1;
+}
+main .Our-services h2 {
+  text-align: center;
+  letter-spacing: 5px;
+  padding: 30px;
+  font-weight: normal;
+}
+main .Our-services .services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+@media (min-width: 800px) {
+  main .Our-services .services {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    align-items: baseline;
+  }
+}
+main .Our-services .services .services-item {
+  text-align: center;
+}
+main .Our-services .services .services-item:nth-child(3) {
+  grid-column: span 2;
+  width: 55%;
+}
+@media (min-width: 800px) {
+  main .Our-services .services .services-item:nth-child(3) {
+    grid-column: 3;
+    width: 100%;
+  }
+}
+main .Our-services .services .services-item img {
+  width: 15%;
+}
+main .Our-services .services .services-item h3 {
+  font-weight: normal;
+}
+main .Our-services .services .services-item p {
+  font-size: 13px;
+}
+main .Featured-tours {
+  padding: 0px 20px;
+}
+main .Featured-tours h2 {
+  text-align: center;
+  letter-spacing: 5px;
+  padding: 30px;
+  font-weight: normal;
+}
+main .Featured-tours .tours-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+@media (min-width: 600px) {
+  main .Featured-tours .tours-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+}
+@media (min-width: 800px) {
+  main .Featured-tours .tours-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+  }
+}
+main .Featured-tours .tours-wrapper .tours-item {
+  position: relative;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+main .Featured-tours .tours-wrapper .tours-item .tours-item-date {
+  background-color: #7373ff;
+  font-weight: 700;
+  display: inline;
+  padding: 3px;
+  position: absolute;
+  top: 10px;
+  font-size: 13px;
+}
+main .Featured-tours .tours-wrapper .tours-item img {
+  width: 100%;
+}
+main .Featured-tours .tours-wrapper .tours-item h4 {
+  padding: 0px 10px;
+}
+main .Featured-tours .tours-wrapper .tours-item .tours-item-navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px 20px;
+}
+main .Featured-tours .tours-wrapper .tours-item .tours-item-navigation .tours-item-location {
+  width: 50%;
+}
+main .Featured-tours .tours-wrapper .tours-item .tours-item-navigation .tours-item-location img {
+  width: 10%;
+}
+main .Featured-tours .tours-wrapper .tours-item .tours-item-navigation .tours-item-price {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+main .Featured-tours .all-tours-nav {
+  text-align: center;
+  padding: 30px;
+  font-size: 13px;
+}
+main .Featured-tours .all-tours-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: blue;
+}
+main .our-galery h2 {
+  text-align: center;
+  letter-spacing: 5px;
+  padding: 30px;
+  font-weight: normal;
+  background-color: #f1f1f1;
+  margin: 0px;
+}
+@media (min-width: 600px) {
+  main .our-galery .all-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 800px) {
+  main .our-galery .all-images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+main .our-galery .all-images img {
+  width: 100%;
+  border-bottom: 5px solid #7373ff;
+  display: block;
+  height: 100%;
+}
+
+footer .subscription-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  background-color: #7373ff;
+}
+@media (min-width: 800px) {
+  footer .subscription-wrapper {
+    grid-template-columns: 2fr 1.5fr;
+  }
+}
+footer .subscription-wrapper .subscription-title {
+  color: white;
+  padding-bottom: 40px;
+  padding: 0px 10px 40px;
+}
+footer .subscription-wrapper .subscription-title h2 {
+  font-weight: normal;
+  letter-spacing: 5px;
+  line-height: 1.5;
+  text-align: center;
+}
+footer .subscription-wrapper .subscription-title h4 {
+  font-weight: normal;
+}
+footer .subscription-wrapper .subscription-space {
+  align-content: center;
+  position: relative;
+}
+footer .subscription-wrapper .subscription-space input.email-sapce {
+  width: 100%;
+}
+footer .subscription-wrapper .subscription-space .submit-button {
+  border: none;
+  position: absolute;
+  right: 2px;
+  padding: 4px 10px;
+}
+footer .socials-wrapper {
+  color: white;
+  font-size: 13px;
+  background-color: #272424;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  padding: 50px 0px;
+  text-align: center;
+}
+footer .socials-wrapper .back-to-themes {
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+footer .socials-wrapper .back-to-themes a {
+  text-decoration: none;
+  color: white;
+}
+footer .socials-wrapper .footer-socials a {
+  text-decoration: none;
+}/*# sourceMappingURL=style.css.map */
