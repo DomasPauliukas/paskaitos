@@ -17,3 +17,8 @@ console.log(amzius)
 
 console.log(name + ' ' + pavarde + ' yra is ' + miestas + '.')
 console.log(`Sveiki, ${name} ${pavarde} yra is ${miestas}.`)
+
+// Pratimas 1
+let names = 'Jonas'
+let admin = names
+alert (admin)
