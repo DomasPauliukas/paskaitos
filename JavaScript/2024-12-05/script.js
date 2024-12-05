@@ -1,13 +1,13 @@
 console.log('labas')
 console.log('')
 
-let name = 'John'
-let pavarde = "Doe"
+let name = 'John' //let - iskviecia kintamaji
+let pavarde = "Doe" // name, pavarde, miestas, amzius - tai kintamieji
 let miestas = `Kaunas`
 let amzius = 32
-let yraStudentas = true
+let yraStudentas = true //jei kintamasis daugiau nei vienas zodis, pirma raide mazoji, visi kiti is didziosios
 
-console.log(name, typeof name)
+console.log(name, typeof name) // typeof nurodo duomenu tipa
 console.log(amzius, typeof amzius)
 console.log(yraStudentas,typeof yraStudentas)
 
