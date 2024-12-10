@@ -8,10 +8,11 @@
 
 // 1. Padaugina skaičių iš 2.
 
-            // for (let i = 1 ; i <=100 ; i++){
-            //     let times2 = i * 2
-            //     console.log(`${i}*2 = ${times2}`)
-            //   }
+for (let i = 1 ; i <= 100 ; i++){
+    let answer = i * 2
+    let output = `${i} * 2 = ${answer}`
+    console.log(output)
+  }
 
             // for (let i=100; i>0; i--){
             //     let times2 = i * 2
@@ -68,10 +69,11 @@
 
 // 6. Pakelia skaičių kūbu.
 
-            // for (let i=1 ; i<=100 ; i+=1){
-            //     let cube = i ** 3
-            //     console.log(`${i}*3*3 = ${cube}`)
-            // }
+for (let i = 1 ; i <= 100 ; i++){
+    let answer = i**3
+    let output = `${i} * 3 * 3 = ${answer}`
+    console.log(output)
+  }
 
             // for (let i = 100 ; i > 0 ; i--){
             //     let cube = i**3
