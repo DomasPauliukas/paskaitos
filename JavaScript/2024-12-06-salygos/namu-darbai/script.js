@@ -6,7 +6,9 @@
 
 // 3. Jeigu slaptažodis neturi grotažymių (#), tai parašyti: „Slaptažodis privalo turėti grotažymes"
 
-let password = 'fsdfdfsdf'
+let originalPasword = 'dasdasdasdasd'
+let password = originalPasword.trim() //nuima tuscius stringus priekyje ir gale.
+
 if (password.length < 16 ){
     console.log ('slaptazodis yra per trumpas. Jis privalo buti bent 16 simboliu ilgumo')
 } else if (password.length <= 20){
@@ -15,12 +17,14 @@ if (password.length < 16 ){
     console.log ('Slaptažodis tinkamas')
 }
 
-if (password.length >= 21 && password.includes('#')){
-    console.log ('Slaptažodis tinkamas');
-} else if (password.length >= 16 && password.includes('#')){
-    console.log ('Slaptažodis yra tinkamas. Tačiau rekomenduojama jog jis būtų bent 21 simbolio ilgumo.');
+if (!password.includes('#')){
+    console.log('Slaptazodis privalo tureti # simboli')
+} else if (password.length < 16 ){
+    console.log ('slaptazodis yra per trumpas. Jis privalo buti bent 16 simboliu ilgumo')
+} else if (password.length <= 20){
+    console.log ('Slaptažodis yra tinkamas. Tačiau rekomenduojama jog jis būtų bent 21 simbolio ilgumo.')
 } else {
-    console.log ('Slaptazodis privalo buti bent 16 simboliu ir tureti "#" simboli')
+    console.log ('Slaptažodis tinkamas')
 }
 
 // AMŽIUS
@@ -30,16 +34,16 @@ if (password.length >= 21 && password.includes('#')){
 // 3. 11-14 metų eina į pagrindinę.
 // 4. 15-18 metų eina į gimnaziją.
 // 5. 19+ mokyklą baigė.
-let age = 6
+let age = 'p13'
 
 
-if (age <= 6) {
+if (age < 7) {
     console.log('i mokykla neina')
-} else if (age <= 10) {
+} else if (age < 11) {
     console.log('eina i pradine klase')
-} else if (age <= 14) {
+} else if (age < 15) {
     console.log('ein i pagrindine')
-} else if (age <= 18) {
+} else if (age < 19) {
     console.log('eina i gimnazija')
 } else {
     console.log('mokykla baige')
@@ -49,19 +53,19 @@ if (age <= 6) {
 // 6.2. Jeigu amžius yra daugau nei 120, tai parašyti jog įvestas amžius yra per didelis.
 
 if (age < 0) {
-    console.log ('įvestas amžius yra per mažas') 
-} else if (age <= 6) {
+    console.log('įvestas amžius yra per mažas') 
+} else if (age < 7) {
     console.log('i mokykla neina')
-} else if (age <= 10) {
+} else if (age < 11) {
     console.log('eina i pradine klase')
-} else if (age <= 14) {
+} else if (age < 15) {
     console.log('eina i pagrindine')
-} else if (age <= 18) {
+} else if (age < 19) {
     console.log('eina i gimnazija')
-} else if (age > 120){
-    console.log('įvestas amžius yra per didelis')
+} else if (age < 120){
+    console.log('baige')
 } else {
-    console.log('mokykla baige')
+    console.log('Ivestas amzius yra per didelis')
 }
 
 
@@ -73,60 +77,64 @@ if (age < 0) {
 if (typeof age !== "number"){
     console.log('Netinkamai nurodytas amžius, amžius privalo būti skaičius.')
 } else if (age < 0) {
-    console.log ('įvestas amžius yra per mažas') 
+    console.error ('įvestas amžius yra per mažas') 
 } else if (age < 6) {
     console.log('i mokykla neina')
-} else if (age === 6) {
+} else if (age < 7) {
     console.log('Į mokyklą tikriausiai neina, tačiau gali būti ir pirmokas.')
 } else if (age < 10) {
     console.log('eina i pradine klase')
-} else if (age === 10) {
+} else if (age < 11) {
     console.log('Tikriausiai mokosi pradinėje, tačiau gali būti ir penktokas.')
 } else if (age < 14) {
     console.log('eina i pagrindine')
-} else if (age === 14){
+} else if (age < 15){
     console.log('Tikriausiai mokosi pagrindinėje, tačiau gali būti ir devintokas.')
 } else if (age < 18) {
     console.log('eina i gimnazija')
-} else if (age === 18) {
+} else if (age < 19) {
     console.log('Tikriausiai mokosi gimnazijoje, tačiau mokyklą gali būti ir baigęs.')
-} else if (age > 120){
-    console.log('įvestas amžius yra per didelis')
-} else {
+} else if (age < 120){
     console.log('mokykla baige')
+} else {
+    console.error('Ivestas amzius per didelis')
 }
 
 // 8. Jeigu įvestas ne amžius (t.y. ne skaičius), tai parašyti: "Netinkamai nurodytas amžius, amžius privalo būti skaičius."
-if (typeof age !== "number"){
-    console.log('Netinkamai nurodytas amžius, amžius privalo būti skaičius.')
-}
+
+// if (typeof age !== "number"){
+//     console.log('Netinkamai nurodytas amžius, amžius privalo būti skaičius.')
+// }
 // 9. Panaudoti prompt funkciją amžiui įvesti.
 
-let ages = prompt ('Iveskite asmens amziu', '')
+let ages = Number(prompt('Iveskite asmens amziu'))
+console.log(ages)
+console.log(typeof ages)
 
-
-if (ages < 0) {
-    console.log ('įvestas amžius yra per mažas') 
+if (isNaN(ages)) {
+  console.log('Netinkamai nurodytas amžius, amžius privalo būti skaičius.')
+} else if (ages < 0) {
+  console.error('įvestas amžius yra per mažas')
 } else if (ages < 6) {
-    console.log('i mokykla neina')
-} else if (ages == 6) {
-    console.log('Į mokyklą tikriausiai neina, tačiau gali būti ir pirmokas.')
+  console.log('i mokykla neina')
+} else if (ages < 7) {
+  console.log('Į mokyklą tikriausiai neina, tačiau gali būti ir pirmokas.')
 } else if (ages < 10) {
-    console.log('eina i pradine klase')
-} else if (ages == 10) {
-    console.log('Tikriausiai mokosi pradinėje, tačiau gali būti ir penktokas.')
+  console.log('eina i pradine klase')
+} else if (ages < 11) {
+  console.log('Tikriausiai mokosi pradinėje, tačiau gali būti ir penktokas.')
 } else if (ages < 14) {
-    console.log('eina i pagrindine')
-} else if (ages == 14){
-    console.log('Tikriausiai mokosi pagrindinėje, tačiau gali būti ir devintokas.')
+  console.log('eina i pagrindine')
+} else if (ages < 15) {
+  console.log('Tikriausiai mokosi pagrindinėje, tačiau gali būti ir devintokas.')
 } else if (ages < 18) {
-    console.log('eina i gimnazija')
-} else if (ages == 18) {
-    console.log('Tikriausiai mokosi gimnazijoje, tačiau mokyklą gali būti ir baigęs.')
-} else if (ages > 120){
-    console.log('įvestas amžius yra per didelis')
+  console.log('eina i gimnazija')
+} else if (ages < 19) {
+  console.log('Tikriausiai mokosi gimnazijoje, tačiau mokyklą gali būti ir baigęs.')
+} else if (ages < 120) {
+  console.log('mokykla baige')
 } else {
-    console.log('mokykla baige')
+  console.error('ivestas amzius per didelis')
 }
 
 // GALVOSŪKIS: sukurti galvosūkį su keletu klausimu
@@ -139,20 +147,20 @@ if (ages < 0) {
 // 3. Patekai i kita lygi: antras atsakymas buvo neteisingas, o pirmas buvo teisingas.
 // 4. Nepatekai i kita lygi: abu atsakymai buvo neteisingi.
 
-let playerAnswer11 = 1
-let playerAnswer12 = 1
+let playerAnswer11 = 2
+let playerAnswer12 = 3
 
 let correctAnswer11 = 1
 let correctAnswer12 = 2
 
 if (correctAnswer11 === playerAnswer11 && correctAnswer12 === playerAnswer12) {
-    console.log('Patekai i kita lygi: abu atsakymai teisingi')
-} else if (correctAnswer11 === playerAnswer11 && correctAnswer12 !== playerAnswer12){
-    console.log('Patekai i kita lygi: antras atsakymas buvo neteisingas, o pirmas buvo teisingas.')
-} else if (correctAnswer11 !== playerAnswer11 && correctAnswer12 === playerAnswer12){
-    console.log('Patekai i kita lygi: pirmas atsakymas buvo neteisingas, o antras buvo teisingas.')
-} else{
-    console.log('Nepatekai i kita lygi: abu atsakymai buvo neteisingi')
+  console.log('Patekai i kita lygi: abu atsakymai teisingi')
+} else if (correctAnswer11 === playerAnswer11) {
+  console.log('Patekai i kita lygi: antras atsakymas buvo neteisingas, o pirmas buvo teisingas.')
+} else if (correctAnswer12 === playerAnswer12) {
+  console.log('Patekai i kita lygi: pirmas atsakymas buvo neteisingas, o antras buvo teisingas.')
+} else {
+  console.log('Nepatekai i kita lygi: abu atsakymai buvo neteisingi')
 }
 
 // ANTRAS LYGIS:
@@ -164,20 +172,20 @@ if (correctAnswer11 === playerAnswer11 && correctAnswer12 === playerAnswer12) {
 // 3. Nepatekai i kita lygi: antras atsakymas buvo neteisingas, o pirmas buvo teisingas.
 // 4. Nepatekai i kita lygi: abu atsakymai buvo neteisingi.
 
-let playerAnswer21 = 1
-let playerAnswer22 = 1
+let playerAnswer21 = 2
+let playerAnswer22 = 3
 
 let correctAnswer21 = 1
 let correctAnswer22 = 2
 
 if (correctAnswer21 === playerAnswer21 && correctAnswer22 === playerAnswer22) {
-    console.log('Patekai i kita lygi: abu atsakymai teisingi.')
-} else if (correctAnswer21 !== playerAnswer21 && correctAnswer22 === playerAnswer22){
-    console.log('Nepatekai i kita lygi: pirmas atsakymas buvo neteisingas, o antras buvo teisingas.')
-} else if (correctAnswer21 === playerAnswer21 && correctAnswer22 !== playerAnswer22){
-    console.log('Nepatekai i kita lygi: antras atsakymas buvo neteisingas, o pirmas buvo teisingas.')
-} else{
-    console.log('Nepatekai i kita lygi: abu atsakymai buvo neteisingi.')
+  console.log('Patekai i kita lygi: abu atsakymai teisingi.')
+} else if (correctAnswer22 === playerAnswer22) {
+  console.log('Nepatekai i kita lygi: pirmas atsakymas buvo neteisingas, o antras buvo teisingas.')
+} else if (correctAnswer21 === playerAnswer21) {
+  console.log('Nepatekai i kita lygi: antras atsakymas buvo neteisingas, o pirmas buvo teisingas.')
+} else {
+  console.log('Nepatekai i kita lygi: abu atsakymai buvo neteisingi.')
 }
 
 // TREČIAS LYGIS: 
@@ -187,62 +195,93 @@ if (correctAnswer21 === playerAnswer21 && correctAnswer22 === playerAnswer22) {
 
 let playerAnswer31 = 1
 let playerAnswer32 = 1
-let playerAnswer33 = 2
+let playerAnswer33 = 1
 
 let correctAnswer31 = 1
-let correctAnswer32 = 1
-let correctAnswer33 = 1
+let correctAnswer32 = 3
+let correctAnswer33 = 3
 
-if (correctAnswer31 === playerAnswer31 && correctAnswer32 === playerAnswer32 && correctAnswer33 === playerAnswer33){
-    console.log('pateikai i kita lygi: atsakei i visus klausimus teisingai')
-} else if (correctAnswer31 === playerAnswer31 && correctAnswer32 === playerAnswer32 && correctAnswer33 !== playerAnswer33){
-    console.log('patekai i kita lygi, bet trecias klausimas atsakytas neteisingai')
-} else if (correctAnswer31 === playerAnswer31 && correctAnswer32 !== playerAnswer32 && correctAnswer33 === playerAnswer33){
-    console.log('patekai i kita lygi, bet antras klausimas atsakytas neteisingai')
-} else if (correctAnswer31 !== playerAnswer31 && correctAnswer32 === playerAnswer32 && correctAnswer33 === playerAnswer33){
-    console.log('patekai i kita lygi, bet pirmas klausimas atsakytas neteisingai')
-} else if (correctAnswer31 === playerAnswer31 && correctAnswer32 !== playerAnswer32 && correctAnswer33 !== playerAnswer33){
-    console.log('nepatekai i kita lygi: tik pirmas klausimas atsakytas teisingai')
-} else if (correctAnswer31 !== playerAnswer31 && correctAnswer32 === playerAnswer32 && correctAnswer33 !== playerAnswer33){
-    console.log('nepatekai i kita lygi: tik antras klausimas atsakytas teisingai')
-} else if (correctAnswer31 !== playerAnswer31 && correctAnswer32 !== playerAnswer32 && correctAnswer33 === playerAnswer33){
-    console.log('nepatekai i kita lygi: tik trecias klausimas atsakytas teisingai')
+if (correctAnswer31 === playerAnswer31 && correctAnswer32 === playerAnswer32 && correctAnswer33 === playerAnswer33) {
+  console.log('pateikai i kita lygi: atsakei i visus klausimus teisingai')
+} else if (correctAnswer31 === playerAnswer31 && correctAnswer32 === playerAnswer32) {
+  console.log('patekai i kita lygi, bet trecias klausimas atsakytas neteisingai')
+} else if (correctAnswer31 === playerAnswer31 && correctAnswer33 === playerAnswer33) {
+  console.log('patekai i kita lygi, bet antras klausimas atsakytas neteisingai')
+} else if (correctAnswer32 === playerAnswer32 && correctAnswer33 === playerAnswer33) {
+  console.log('patekai i kita lygi, bet pirmas klausimas atsakytas neteisingai')
+} else if (correctAnswer31 === playerAnswer31) {
+  console.log('nepatekai i kita lygi: tik pirmas klausimas atsakytas teisingai')
+} else if (correctAnswer32 === playerAnswer32) {
+  console.log('nepatekai i kita lygi: tik antras klausimas atsakytas teisingai')
+} else if (correctAnswer33 === playerAnswer33) {
+  console.log('nepatekai i kita lygi: tik trecias klausimas atsakytas teisingai')
 } else {
-    console.log('nepatekai i kita lygi: visi atsakymai neteisingi')
+  console.log('nepatekai i kita lygi: visi atsakymai neteisingi')
 }
 
 
 // PASISVEIKINIMAS:
-let userLoggedIn = false
-let userName = 'John'
-let time = 10
-let itsBirthday = true
+// let userLoggedIn = false
+// let userName = 'John'
+// let time = 10
+// let itsBirthday = true
 // 1. Jeigu vartotojas prisijungęs (true/false), tai prie pasisveikinimo reikia prirašyti jo vardą, pvz. „Good Morning, John.".
 // 2. Jeigu vartotojas nėra prisijungęs, tai išvesti tik tekstą „Good Morning".
 
-if ((userLoggedIn === true) && (itsBirthday === true) && (time >= 5) && (time <=12)){
-    console.log(`Good Morning, ${userName} and have a great birthday!`)
-} else if ((userLoggedIn === true) && (itsBirthday === true) && (time > 12) && (time <=18)){
-    console.log(`Good Afternoon, ${userName} and have a great birthday!`)
-} else if ((userLoggedIn === true) && (itsBirthday === true) && (time >= 19) || (time <=4)){
-    console.log(`Good Evening, ${userName} and have a great birthday!`)
-} else if ((userLoggedIn === true) && (itsBirthday !== true) && (time >= 5) && (time <=12)){
-    console.log(`Good Morning, ${userName}`)
-} else if ((userLoggedIn === true) && (itsBirthday !== true) && (time > 12) && (time <=18)){
-    console.log(`Good Afternoon, ${userName}`)
-} else if ((userLoggedIn === true) && (itsBirthday !== true) && (time >= 19) || (time <=4)){
-    console.log(`Good Evening, ${userName}`)
-} else if (userLoggedIn !== true && (time >= 5) && (time <=12)){
-    console.log(`Good Morning`)
-} else if (userLoggedIn !== true && (time > 12) && (time <=18)){
-    console.log(`Good Afternoon`)
-} else if (userLoggedIn !== true && (time >= 19) || (time <=4)){
-    console.log(`Good Evening`)
-}
-
+// if ((userLoggedIn) && (itsBirthday) && (time >= 5) && (time <= 12)) {
+//     console.log(`Good Morning, ${userName} and have a great birthday!`)
+//   } else if ((userLoggedIn) && (itsBirthday) && (time > 12) && (time <= 18)) {
+//     console.log(`Good Afternoon, ${userName} and have a great birthday!`)
+//   } else if ((userLoggedIn) && (itsBirthday) && (time >= 19) || (time <= 4)) {
+//     console.log(`Good Evening, ${userName} and have a great birthday!`)
+//   } else if ((userLoggedIn) && (!itsBirthday) && (time >= 5) && (time <= 12)) {
+//     console.log(`Good Morning, ${userName}`)
+//   } else if ((userLoggedIn) && (!itsBirthday) && (time > 12) && (time <= 18)) {
+//     console.log(`Good Afternoon, ${userName}`)
+//   } else if ((userLoggedIn) && (!itsBirthday) && (time >= 19) || (time <= 4)) {
+//     console.log(`Good Evening, ${userName}`)
+//   } else if (!userLoggedIn && (time >= 5) && (time <= 12)) {
+//     console.log(`Good Morning`)
+//   } else if (!userLoggedIn && (time > 12) && (time <= 18)) {
+//     console.log(`Good Afternoon`)
+//   } else if (!userLoggedIn && (time >= 19) || (time <= 4)) {
+//     console.log(`Good Evening`)
+//   }
 
 // 3. Priklausomai nuo paros laiko, pasisveikinimas turėtų būti skirtingas:
 // 3.1. 5-12 val. „Good Morning"
 // 3.2. 13-18 val. „Good Afternoon"
 // 3.3. 19-4 val. „Good Evening"
 // 4. Jeigu vartotojas yra ir prisijungęs, ir šiandien yra jo gimtadienis, tai prie pasisveikinimo dar turi būti parašytas ir pasveikinimas, pvz.: „Good Morning, Tom and have a great birthday!"
+
+let userLoggedIn = false
+let userName = 'John'
+let time = 10
+let itsBirthday = true
+
+let name = ``
+let birthdayText = ``
+let greetingText = ``
+
+
+
+if (time >= 5 && time < 13){
+    greetingText = `Good Morning`
+} else if (time >= 13 && time < 19){
+    greetingText = `Good Afternoon`
+} else if ((time >= 19 && time < 24) || (time >= 0 && time < 5)){
+    greetingText = `Good Evening`
+}    else{
+    greetingText = `Helo`
+}
+
+if (userLoggedIn && userName){
+    name = `, ${userName}`
+}
+
+if (userLoggedIn && itsBirthday){
+    birthdayText = `  and have a great birthday!`
+}
+
+let output = greetingText + name + birthdayText
+console.log(output)
