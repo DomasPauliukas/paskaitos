@@ -149,19 +149,23 @@ console.log(newData27)
 let newData28 = data.slice(7,19)
 console.log(newData28)
 
+
 // 2.29. Gauti pirmus penkis ir paskutinius šešis masyvo narius. Šiuos narius gauti viename masyve. Reikės atlikti daugiau veiksmų nei prieš tai uždaviniuose.
 
 let newData29One = data.slice(0,5)
 let newData29Two = data.slice(-6)
-let newData29 = `${newData29One} ${newData29Two}`
+let newData29 = [newData29One + newData29Two]
 console.log(newData29)
+
 
 // 2.30. Gauti masyvo narius nuo 3 iki 5 ir nuo 15 iki 17. Šiuos narius gauti viename masyve. Reikės atlikti daugiau veiksmų nei prieš tai uždaviniuose.
 
 let newData30One = data.slice(2,5)
 let newData30Two = data.slice(14,17)
-let newData30 = `${newData30One},${newData30Two}`
+let newData30 = [newData30One + newData30Two]
 console.log(newData30)
 
-let testing = newData30.slice(0)
+
+
+let testing = newData30.slice(0,2)
 console.log(testing)
