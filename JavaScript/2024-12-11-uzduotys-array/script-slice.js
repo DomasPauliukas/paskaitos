@@ -167,5 +167,5 @@ console.log(newData30)
 
 
 
-let testing = newData30.slice(0,2)
-console.log(testing)
+// let testing = newData30.slice(0,2)
+// console.log(testing)
