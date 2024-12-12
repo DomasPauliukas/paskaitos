@@ -387,6 +387,10 @@ console.log(filteredData61)
 
 // 3.62. Gauti tik tekstus (string), kurie turi daugiau nei vieną raidę t.
 
+let filteredData62 = data.filter(function (num) {
+    return   num.indexOf('t') !== num.lastIndexOf('t')
+})
+console.log(filteredData62)
 
 
 // 3.63. Gauti tik tekstus (string), kurie turi raidžių junginį st.
