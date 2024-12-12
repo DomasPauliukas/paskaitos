@@ -10,27 +10,21 @@ console.log(data)
 // issikelti tik skaicius :
 
 let test1 = data.filter(function(num){
-    return num = Number(num <= 0 || num >= 0) /* ar taip priskirti 0 prie skaiciu? */
+    return typeof num === "number"
 })
 console.log(test1)
 
 
 let test2 = data.filter(function(num){
-    return num != Number(num)  /* ( num = String(num) neveikia ??) */
+    return typeof num === 'string'
 })
 console.log(test2)
-
-let test3 = test2.filter(function(item){
-    return item.length <= 3
-})
-
-console.log(test3)
 
 
 // 3.1. Gauti tik teigiamus skaičius.
 
 let filteredData1 = data.filter(function(num){
-    return num >= 0
+    return num > 0
     
 })
 console.log(filteredData1)
@@ -314,3 +308,209 @@ console.log(filteredData49)
 
 let filteredData50 = data.filter(num => num >= -333 && num <= 888 && num % 3 === 0 && num != 0)
 console.log(filteredData50)
+
+
+
+
+
+
+// 3.51. Gauti tik skaičius.
+
+let filteredData51 = data.filter(function(num){
+    return typeof num === 'number'
+})
+console.log(filteredData51)
+
+// 3.52. Gauti tik tekstus (string).
+
+let filteredData52 = data.filter(num => typeof num === 'string')
+console.log(filteredData52)
+
+data = filteredData52
+
+// 3.53. Gauti tik tekstus (string), kurie turi daugiau nei 5 simbolius.
+
+let filteredData53 = data.filter(num => num.length > 5)
+console.log(filteredData53)
+
+// 3.54. Gauti tik tekstus (string), kurie turi mažiau arba lygiai 5 simbolius.
+
+let filteredData54 = data.filter(num => num.length <= 5)
+console.log(filteredData54)
+
+// 3.55. Gauti tik tekstus (string), kurie turi mažiau nei 7 simbolius.
+
+let filteredData55 = data.filter(num => num.length < 7)
+console.log(filteredData55)
+
+// 3.56. Gauti tik tekstus (string), kurie turi raidę t.
+
+let filteredData56 = data.filter(function(num){
+    return num.includes('t')
+})
+console.log(filteredData56)
+
+// 3.57. Gauti tik tekstus (string), kurie turi raidę y.
+
+let filteredData57 = data.filter(function(num){
+    return num.includes('y')
+})
+console.log(filteredData57)
+
+// 3.58. Gauti tik tekstus (string), kurie turi raides e arba a.
+
+let filteredData58 = data.filter(function(num){
+    return num.includes('e') || num.includes('a')
+})
+console.log(filteredData58)
+
+// 3.59. Gauti tik tekstus (string), kurie turi raides t ir i.
+
+let filteredData59 = data.filter(function(num){
+    return num.includes('t') && num.includes('i')
+})
+console.log(filteredData59)
+
+// 3.60. Gauti tik tekstus (string), kurie turi raide t, bet neturi raidės k.
+
+let filteredData60 = data.filter(function(num){
+    return num.includes('t') && !num.includes('k')
+})
+console.log(filteredData60)
+
+// 3.61. Gauti tik tekstus (string), kurie turi raide a, bet neturi raidės s.
+
+let filteredData61 = data.filter(function(num){
+    return num.includes('a') && !num.includes('s')
+})
+console.log(filteredData61)
+
+// 3.62. Gauti tik tekstus (string), kurie turi daugiau nei vieną raidę t.
+
+
+
+// 3.63. Gauti tik tekstus (string), kurie turi raidžių junginį st.
+
+let filteredData63 = data.filter(function(num){
+    return num.includes('st')
+})
+console.log(filteredData63)
+
+// 3.64. Gauti tik tekstus (string), kurie turi raidžių junginį nd.
+
+let filteredData64 = data.filter(function(num){
+    return num.includes('nd')
+})
+console.log(filteredData64)
+
+// 3.65. Gauti tik tekstus (string), kurie neturi raidės s.
+
+let filteredData65 = data.filter(function(num){
+    return !num.includes('s')
+})
+console.log(filteredData65)
+
+// 3.66. Gauti tik tekstus (string), kurie neturi raidės t.
+
+let filteredData66 = data.filter(function(num){
+    return !num.includes('t')
+})
+console.log(filteredData66)
+
+// 3.67. Gauti tik tekstus (string), kurie neturi raidės r ir l.
+
+let filteredData67 = data.filter(function(num){
+    return !num.includes('r') && !num.includes('l')
+})
+console.log(filteredData67)
+
+// 3.68. Gauti tik tekstus (string), kurie prasideda skaičiumi.
+
+let filteredData68 = data.filter(function(num){
+    return Number(num.at(0))
+})
+console.log(filteredData68)
+
+// 3.69. Gauti tik tekstus (string), kurie prasideda raide s.
+
+let filteredData69 = data.filter(function(num){
+    return num.at(0) === 's'
+})
+console.log(filteredData69)
+
+// 3.70. Gauti tik tekstus (string), kurie prasideda raide o.
+
+let filteredData70 = data.filter(function(num){
+    return num.at(0) === 'o'
+})
+console.log(filteredData70)
+
+// 3.71. Gauti tik tekstus (string), kurie baigiasi raide d.
+
+let filteredData71 = data.filter(function(num){
+    return num.at(-1) === 'd'
+})
+console.log(filteredData71)
+
+// 3.72. Gauti tik tekstus (string), kurie baigiasi raide s.
+
+let filteredData72 = data.filter(function(num){
+    return num.at(-1) === 's'
+})
+console.log(filteredData72)
+
+// 3.73. Gauti tik tekstus (string), kurie turi daugiau nei 4 simbolius ir turi raidę o.
+
+
+let filteredData73 = data.filter(function(num){
+    return num.length > 4 && num.includes('o')
+})
+console.log(filteredData73)
+
+// 3.74. Gauti tik tekstus (string), kurie turi daugiau arba lygiai 5 simbolius ir turi raidę a.
+
+let filteredData74 = data.filter(function(num){
+    return num.length >= 4 && num.includes('a')
+})
+console.log(filteredData74)
+
+// 3.75. Gauti tik tekstus (string), kurie turi porinį simbolių skaičių.
+
+let filteredData75 = data.filter(function(num){
+    num.length % 2 === 0
+    return
+})
+console.log(filteredData75)
+
+// 3.76. Gauti tik tekstus (string), kurie turi neporinį simbolių skaičių ir turi raidę s.
+
+let filteredData76 = data.filter(function(num){
+   return num.length % 2 !== 0 && num.includes('s')
+})
+console.log(filteredData76)
+
+// 3.77. Gauti tik tekstus (string), kurių trečias simbolis yra a.
+
+let filteredData77 = data.filter(num => num.at(2).includes('a'))
+console.log(filteredData77)
+
+// 3.78. Gauti tik tekstus (string), kurių ketvirtas simbolis yra l.
+
+let filteredData78 = data.filter(function(num){
+    return num.length > 3 && num.at(3).includes('l')
+})
+console.log(filteredData78)
+
+// 3.79. Gauti tik tekstus (string), kurių penktas simbolis nėra t ir kurie turi daugiau simbolių nei 4.
+
+let filteredData79 = data.filter(function(num){
+    return num.length > 4 && !num.at(4).includes('t')
+})
+console.log(filteredData79)
+
+// 3.80. Gauti tik tekstus (string), kurių pirmas simbolis nėra e, kurie turi mažiau simbolių nei 6 ir kurie neprasideda skaičiumi.
+
+let filteredData80 = data.filter(function(num){
+    return num.length < 6 && !num.at(0).includes('e') && isNaN(Number(num.at(0)))
+})
+console.log(filteredData80)

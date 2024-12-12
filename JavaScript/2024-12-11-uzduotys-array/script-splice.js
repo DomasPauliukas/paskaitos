@@ -19,16 +19,8 @@ console.log(data)
 
 // 1.3. Rasti vidurinį masyvo narį ir jį pašalinti.
 
-let middleNumber = data[Math.round((data.length - 1) / 2)]
-console.log(middleNumber)
-
-if (data.indexOf(middleNumber) === data.lastIndexOf(middleNumber)){
-
-    console.log(data.indexOf(middleNumber))
-}
-
-data.splice(10,1)
-console.log(data)
+data.splice(Math.floor(data.length / 2), 1);
+console.log(data);
 
 // 1.4. Pašalinti priešpaskutinį masyvo narį.
 
@@ -92,11 +84,7 @@ console.log(data)
 
 // 1.16. Į masyvo vidurį pridėti skaičių 0.
 
-let middleNumber2 = data[Math.round(data.length) / 2]
-console.log(middleNumber2)
-console.log(data.indexOf(33))
-
-data.splice(13,0,0)
+data.splice(data.length / 2 , 0, 0)
 console.log(data)
 
 // 1.17. Pašalinti pirmą masyvo narį.

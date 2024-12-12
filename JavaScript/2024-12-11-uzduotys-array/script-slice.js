@@ -37,11 +37,8 @@ console.log(newData6)
 
 // 2.7. Gauti vidurinį masyvo narį.
 
-let middleNumber = data[Math.round((data.length - 1) / 2)]
-console.log(middleNumber)
-console.log(data.indexOf(0))
-
-let newData7 = data.slice(13,14)
+let middleNumber = Math.floor(data.length / 2)
+let newData7 = data.slice(middleNumber, middleNumber + 1)
 console.log(newData7)
 
 // 2.8. Gauti pirmus tris masyvo narius.
@@ -154,18 +151,22 @@ console.log(newData28)
 
 let newData29One = data.slice(0,5)
 let newData29Two = data.slice(-6)
-let newData29 = [newData29One + newData29Two]
+let newData29 = [...newData29One, ...newData29Two]
 console.log(newData29)
+
+// let newData29 = newData29One.concat(newData29Two)
+
+// let newData29 = [newData29One, newData29Two].flat()
 
 
 // 2.30. Gauti masyvo narius nuo 3 iki 5 ir nuo 15 iki 17. Šiuos narius gauti viename masyve. Reikės atlikti daugiau veiksmų nei prieš tai uždaviniuose.
 
 let newData30One = data.slice(2,5)
 let newData30Two = data.slice(14,17)
-let newData30 = [newData30One + newData30Two]
+let newData30 = [...newData30One, ...newData30Two]
 console.log(newData30)
 
+// let newData30 = newData30One.concat(newData30Two)
 
+// let newData30 = [newData30One, newData30Two].flat()
 
-// let testing = newData30.slice(0,2)
-// console.log(testing)
