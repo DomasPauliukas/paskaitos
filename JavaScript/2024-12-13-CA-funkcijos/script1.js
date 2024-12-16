@@ -294,3 +294,40 @@ console.log(reversedWord('Kompiuteris'))
 //   }
   
 //   console.log(reverseString("labas")); // "sabaL"
+
+
+
+Parašykite funkciją arPalindromas, kuri tikrina, ar žodis yra palindromas. Funkcija turi grąžinti true, jei žodis yra palindromas, priešingu ateju  - false.
+
+console.log(isPalindrome("savas")); // true
+
+function arPalindromas(word) {
+    let testWord = word.split('').reverse().join('')
+    if (testWord === word) {
+      return true
+    }
+    return false
+  }
+  console.log(arPalindromas('savas'))
+
+
+
+  Skaičių piramidė
+  
+  Sukurkite funkciją printPyramid, kuri spausdina skaičių piramidę iki nurodyto aukščio. Pavyzdžiui, 3 auktštų piramidė atrodo taip:
+  
+  1
+  22
+  333
+
+  const printPyramid = (height) => {
+    for (let i = 1; i <= height; i++) {
+      let line = '';
+      for (let j = 0; j < i; j++) {
+        line += i;
+      }
+      console.log(line);
+    }
+  }
+  
+  printPyramid(3)
