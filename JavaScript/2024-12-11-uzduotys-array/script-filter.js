@@ -387,13 +387,38 @@ console.log(filteredData61)
 
 // 3.62. Gauti tik tekstus (string), kurie turi daugiau nei vieną raidę t.
 
-let filteredData62 = data.filter(function (num) {
-    return   num.indexOf('t') !== num.lastIndexOf('t')
+1) let filteredData62 = data.filter(function (num) {
+    return  typeof num === 'string' && num.indexOf('t') !== num.lastIndexOf('t')
 })
 console.log(filteredData62)
 
 
+
+2) let newData = data.filter(function(item) {
+  
+    if (typeof item === 'string'){
+  
+      let letterCount = 0
+  
+      for (let i = 0 ; i < item.length ; i++){
+  
+        if (item[i] === 't'){
+          letterCount++
+        }
+        if (letterCount > 1){
+          return true
+        }
+      }
+      return letterCount > 1
+    }
+  })
+  console.log(newData)
+
+3) 
+
+
 // 3.63. Gauti tik tekstus (string), kurie turi raidžių junginį st.
+
 
 let filteredData63 = data.filter(function(num){
     return num.includes('st')
