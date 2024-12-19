@@ -44,7 +44,7 @@ UŽDUOTIS:
         workingLocations: ['Lietuva', 'Latvija', 'Estija'],
         activityAreas: ['marketing', 'science', 'new-tech'],
         contacts: {
-          phone: 861422278,
+          phone: '+37061422278',
           email: 'domas0319@gmail.com',
           address: {
             country: 'Lietuva',
@@ -54,6 +54,15 @@ UŽDUOTIS:
             },
          },
         getAdress: function(){
+  // let street = this.contacts.address.street
+  // let apartment = this.contacts.address.apartment
+  // ir tada isvesti i return
+  // arba
+
+  // arba let { street, apartment, city, country} = this.contacts.address
+
+  // arba
+
           return `${this.contacts.address.street} ${this.contacts.address.apartment}, ${this.contacts.address.city}, ${this.contacts.address.country}`
         },
         isNVO: function (){
@@ -63,17 +72,17 @@ UŽDUOTIS:
           return this.nvo = false
         },
         changeNVO: function (){
-          if (this.nvo === true){
+          if (this.nvo){
             return this.nvo = false
           } else {
             return this.nvo = true
           }
         },
         locations: function (){
-          return `imone veikia siose salyse: ${this.workingLocations.toString()}`
+          return `imone veikia siose salyse: ${this.workingLocations.join(', ')}`
         },
         areas: function (){
-          return `imone dirba siose srityse: ${this.activityAreas.toString()}`
+          return `imone dirba siose srityse: ${this.activityAreas.join(', ')}`
         },
         addCountry: function (country){
           this.workingLocations.push(country)
@@ -122,7 +131,7 @@ company2Obj.opened = 1995
 company2Obj.companyCode = 123456789
 company2Obj.employees = 830
 company2Obj.ceo = 'Domas Pauliukas'
-company2Obj.nvo = true
+company2Obj.nvo = false
 company2Obj.workingLocations = ['Estija', 'Bulgarija', 'Kroatija', 'Lietuva']
 company2Obj.activityAreas = ['Marketing', 'Sales', 'Technology']
 let contactsObj = {
@@ -137,52 +146,61 @@ let contactsObj = {
 }
 company2Obj.contacts = contactsObj
 
-let getAddress = function () {
-  return `${contactsObj.address.street} ${contactsObj.address.apartment}, ${contactsObj.address.city}, ${contactsObj.address.country}.`
+company2Obj.getAddress = function () {
+  // let street = this.contacts.address.street
+  // let apartment = this.contacts.address.apartment
+  // ir tada isvesti i return
+  // arba
+
+  // arba let { street, apartment, city, country} = this.contacts.address
+
+  // arba
+
+  return `${this.contacts.address.street} ${this.contacts.address.apartment}, ${this.contacts.address.city}, ${this.contacts.address.country}`
 }
-let isNVO = function () {
-  return company2Obj.nvo = true
+company2Obj.isNVO = function () {
+  return this.nvo = true
 }
-let isNotNVO = function () {
-  return company2Obj.nvo = false
+company2Obj.isNotNVO = function () {
+  return this.nvo = false
 }
-let changeNVO = function () {
-  if (company2Obj.nvo === true){
-    return company2Obj.nvo = false
+company2Obj.changeNVO = function () {
+  if (this.nvo) {
+    return this.nvo = false
+  } else {
+    return this.nvo = true
   }
-  if (company2Obj.nvo === false) {
-    return company2Obj.nvo = true
-  }
 }
-let allLocations = function () {
- let countriesString = company2Obj.workingLocations.join(', ')
- return `imone veikia siose salyse: ${countriesString}`
+company2Obj.allLocations = function () {
+  return `imone veikia siose salyse: ${this.workingLocations.join(', ')}`
 }
-let allAreas = function () {
-  let activitiesString = company2Obj.activityAreas.join(', ')
-  return `imone atlieka sias sritis: ${activitiesString}`
+company2Obj.allAreas = function () {
+  return `imone dirba siose srityse: ${this.activityAreas.join(', ')}`
 }
-let addCountry = function (country) {
-  return company2Obj.workingLocations.push(country)
+company2Obj.addCountry = function (country) {
+  this.workingLocations.push(country)
+  return this.workingLocations
 }
-let addActivity = function (activity) {
-  return company2Obj.activityAreas.push(activity)
+company2Obj.addActivity = function (activity) {
+  this.activityAreas.push(activity)
+  return this.activityAreas
 }
-let removeCountry = function (country){
+company2Obj.removeCountry = function (country) {
   company2Obj.workingLocations = company2Obj.workingLocations.filter(num => num !== country)
 }
-let removeActivity = function (activity) {
+company2Obj.removeActivity = function (activity) {
   company2Obj.activityAreas = company2Obj.activityAreas.filter(num => num !== activity)
 }
-console.log(getAddress())
-console.log(isNVO())
-console.log(isNotNVO())
-console.log(changeNVO())
-console.log(allLocations())
-console.log(allAreas())
-addCountry('Germany')
-addActivity('Advertising')
-removeCountry('Estija')
-removeActivity('Marketing')
 
 console.log(company2Obj)
+
+console.log(company2Obj.changeNVO())
+console.log(company2Obj.getAddress())
+console.log(company2Obj.isNVO())
+console.log(company2Obj.isNotNVO())
+console.log(company2Obj.allLocations())
+console.log(company2Obj.allAreas())
+company2Obj.addCountry('Germany')
+company2Obj.addActivity('Advertising')
+company2Obj.removeCountry('Estija')
+company2Obj.removeActivity('Marketing')
