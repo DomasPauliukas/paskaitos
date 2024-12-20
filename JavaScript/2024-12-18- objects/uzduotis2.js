@@ -194,15 +194,30 @@ let function78 = (element) => element.slice(4,15)
 // 7.9. Gauti kas antro masyvo nario reikšmes.
 
 let function79 = function (element) {
-    let result = []
-    for (let i = 0 ; i < element.length ; i++){
-      if (i % 2 === 0){
-        result.push(element[i])
-      }
-    }
-    return result
+  for (let i = 0 ; i < element.length ;i+=2){
+    console.log(element[i])
   }
-  console.log(function79(posts))
+}
+function79(posts)
+
+// let function79 = function (element) {
+//   element.forEach( (num, index) => {
+//     if (index % 2 === 0){
+//       console.log(num)
+//     }
+//   })
+// }
+// function79(posts)
+
+  //   let result = []
+  //   for (let i = 0 ; i < element.length ; i++){
+  //     if (i % 2 === 0){
+  //       result.push(element[i])
+  //     }
+  //   }
+  //   return result
+  // }
+  // console.log(function79(posts))
   
 
 // 7.10. Gauti pirmo ir paskutinio masyvo narių reikšmes.
