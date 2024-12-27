@@ -42,3 +42,19 @@ console.log(carObj.printCarInfo())
 // // "Name: Petras, Position: Manager"
 
 
+Sukurkite funkciją printEmployeeInfo, kuri priima objektą, kuriame yra darbuotojų vardai kaip raktai ir jų pareigos kaip reikšmės. Funkcija turi atspausdinti kiekvieno darbuotojo vardą ir pareigas.
+
+Rezultatas
+
+printEmployeeInfo({ "Jonas": "Engineer", "Petras": "Manager" });
+// "Name: Jonas, Position: Engineer"
+// "Name: Petras, Position: Manager"
+
+
+let printEmployeeInfo = function (employee) {
+    return {
+        name,
+        position,
+    }
+}
+console.log(printEmployeeInfo())

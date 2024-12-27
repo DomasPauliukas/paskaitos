@@ -113,4 +113,39 @@ console.log(planTrip([30, 70, 90]))
     console.log(planTrip([30, 70, 90]))
 
 
+// Aptarnavimo eilės optimizavimas
     
+// Jūs dirbate restorane ir turite optimizuoti užsakymų aptarnavimo eilę. Sukurkite funkciją optimizeQueue, kuri surikiuoja užsakymus pagal jų dydį (mažiausi pirmi). Kiekvienas užsakymas yra objektas, turintis id ir size savybes. Funkcija grąžina masyvą su surikiuotais užsakymų ID.
+    
+// Rezultatas   
+    
+// console.log(optimizeQueue([{ id: 1, size: 5 }, { id: 2, size: 3 }, { id: 3, size: 8 }])); // [2, 1, 3]
+
+
+// let optimizeQueue = function () {
+
+// }
+
+// console.log(optimizeQueue([{ id: 1, size: 5 }, { id: 2, size: 3 }, { id: 3, size: 8 }]))
+
+let optimizeQueue = function (obj) {
+  obj.sort((a,b) => a.size - b.size).forEach(item => console.log(item.id))
+  }
+  
+  optimizeQueue([{ id: 1, size: 5 }, { id: 2, size: 3 }, { id: 3, size: 8 }])
+
+
+  // Dažniausiai pasikartojantis
+  // sudėtingas
+  
+  // Sukurkite funkciją findMostFrequent, kuri nustato ir grąžina dažniausiai pasitaikantį elementą masyve.
+  
+  // Rezultatas
+  
+  
+  // console.log(findMostFrequent([3, 7, 3, 1, 3, 7, 1, 1, 1, 1, 3])); // 1
+
+  let findMostFrequent = function (numArr) {
+
+  }
+  findMostFrequent([3, 7, 3, 1, 3, 7, 1, 1, 1, 1, 3])
