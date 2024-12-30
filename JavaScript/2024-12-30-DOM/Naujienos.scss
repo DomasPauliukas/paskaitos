@@ -1,0 +1,46 @@
+@use 'naujienos/responsive' as r;
+@use 'naujienos/variables';
+@use 'naujienos/header';
+@use 'naujienos/main-layout';
+@use 'naujienos/naujienos-section';
+@use 'naujienos/naujienos-items';
+@use 'naujienos/podcastai-items';
+@use 'naujienos/renginiai-items';
+@use 'naujienos/renginiai-section';
+@use 'naujienos/vaizdo-irasai-section';
+@use 'naujienos/footer';
+
+.sticker-navigation{
+    position: fixed;
+    bottom: 0;
+    right: -190px;
+    margin: 0px 10px 10px 0px;
+    z-index: 100;
+    display: block;
+
+
+    img{
+        width: 40%;
+        animation-name: spinner;
+        animation-duration: 7s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    @keyframes spinner {
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(359deg);}
+        
+    }    
+}
+.sticker-navigation::after{
+    content: "";
+    background-image: url(images/arrow.svg);
+    position: absolute;
+    bottom: 57px;
+    height: 30px;
+    width: 30px;
+    background-repeat: no-repeat;
+    right: 241px;
+}
+
+

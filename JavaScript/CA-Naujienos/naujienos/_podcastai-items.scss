@@ -1,0 +1,40 @@
+.podcastai{
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    row-gap: 25px;
+
+    .item{
+        display: grid;
+
+            .item-top{
+                display: grid;
+                grid-template-columns: 1fr 4fr 1fr;
+                justify-items: center;
+                align-items: center;
+                background-color: black;
+                color: white;
+
+                  .spotify-img{
+                       img{
+                           width: 100%;
+                      }
+                    }
+
+                  .trukme{
+                        grid-column: 2 / span 1 ;
+                    }
+    
+            }
+
+            .item-bottom{
+                     background-color: white;
+                     padding: 20px;
+
+                     h4{
+                        margin: 0px;
+                     }
+            }
+    }
+}
