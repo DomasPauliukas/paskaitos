@@ -260,8 +260,14 @@ renginiaiNaujienos.append(renginiaiNaujienosImage)
 
 
 let stickerNavigation = document.createElement('a')
+stickerNavigation.classList.add('sticker-navigation')
 stickerNavigation.href = '#'
 content.append(stickerNavigation)
+
+let stickerImage = document.createElement('img')
+stickerImage.classList.add('sticker-image')
+stickerImage.src = "images/site-contact-form-button.png"
+stickerNavigation.append(stickerImage)
 
 
 
@@ -283,11 +289,18 @@ function createElement (className, text, elementType = 'div') {
     return element
 }
 
-function createNavigationsList (text) {
-    let headerLinks = document.createElement('a')
-    headerLinks.href = '#'
-    headerLinks.textContent = text
-    return headerLinks
+function createNavigationsList (textArray) {
+    let fragment = document.createDocumentFragment()
+
+    for (let i = 0 ; i < textArray.length ; i++){
+
+        let headerLinks = document.createElement('a')
+        headerLinks.href = '#'
+        headerLinks.textContent = textArray[i]
+        
+        fragment.append(headerLinks)
+    }
+    return fragment
 }
 
 function createNaujienosItems (data) {
@@ -348,6 +361,7 @@ function createPodcastItem (data) {
 
     let playIcon = document.createElement('img')
     playIcon.src = "images/8666551_play_circle_icon.svg"
+    playIconWrapper.append(playIcon)
 
     let itemBottom = createElement('item-bottom')
     item.append(itemBottom)
@@ -382,7 +396,7 @@ function createVaizdoIrasaiItem (data) {
 function createRenginiaiItem (data) {
     let {imageSrc, day, month, address, title} = data
 
-    let item = createElement()
+    let item = createElement('item')
 
     if (imageSrc) {
 
