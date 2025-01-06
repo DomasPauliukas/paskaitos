@@ -15,6 +15,30 @@ formList.addEventListener('submit', (event) => {
     const ITScore = form['IT-knowledge'].value
     const typeGroup = form['TYPE-number'].value
 
+    if (!name || !surname || !age || !email){
+        if(!name) {
+            form['name-text'].classList.add('error')
+        }
+        if(!surname) {
+            form['surname-text'].classList.add('error')
+        }
+        if(!age) {
+            form.age.classList.add('error')
+        }
+        if(!email) {
+            form.email.classList.add('error')
+        }
+        alert ('Name, Surname, Age and Email are must to fill')
+        return
+    } else {
+        form['name-text'].classList.remove('error')
+        form['surname-text'].classList.remove('error')
+        form.age.classList.remove('error')
+        form.email.classList.remove('error')
+
+
+    }
+
     const outputText = `Name: ${name}, Surname: ${surname}, Age: ${age}, Phone: ${phone}, Email: ${email}, IT knowledge: ${ITScore}, TYPE group number: ${typeGroup}`
 
     const studentItem = document.createElement('div')
@@ -27,6 +51,7 @@ formList.addEventListener('submit', (event) => {
 
     const ITLanguagesElements = form.querySelectorAll('[name="itLanguages"]:checked')
 
+    if (ITLanguagesElements.length > 0){
     const languagesList = document.createElement('ul')
     languagesList.textContent = 'Dominančios kalbos: '
     studentInfo.append(languagesList)
@@ -37,7 +62,7 @@ formList.addEventListener('submit', (event) => {
     languageItem.textContent = element.value
     languagesList.append(languageItem)
     })
-
+    }
 })
 
 let ITValue = document.querySelector('.ITFormValue')
