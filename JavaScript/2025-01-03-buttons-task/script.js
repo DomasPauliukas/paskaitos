@@ -1,3 +1,9 @@
+// cia Apendinau po kiekvienu. bet galima kai sukuri pirma diva, prideti prie jo visus vienu kodu :
+// mainwrapper.appent(
+// pvz.1,
+// pvz.2,
+// pvz.3)   ir t.t. ir cia galima keitineti eiles tvarka, kada po kurio elemento append kad butu.
+
 let initialValue = 5
 let numberText = document.createElement('h3')
 numberText.textContent = initialValue
@@ -70,15 +76,8 @@ let resetButton = createButton('Reset')
 buttonPlus5.after(resetButton)
 resetButton.addEventListener('click', () => {
     
-    buttonMinus.removeAttribute('disabled')
-    buttonPlus.removeAttribute('disabled')
-    button2Plus.removeAttribute('disabled')
-    button2Minus.removeAttribute('disabled')
-    buttonPlus5.removeAttribute('disabled')
-    buttonMinus5.removeAttribute('disabled')
-    
     numberText.textContent = initialValue
-    numberText.style.color = 'initial'
+    updateButtonsState()
 })
 
 
@@ -168,6 +167,9 @@ task18DIV.append(SmallNum)
 
 
 function updateButtonsState() {
+
+    inputTask.value = numberText.textContent
+
     let currentValue = Number(numberText.textContent);
     
     if (currentValue >= 5) {
