@@ -40,9 +40,6 @@ formList.addEventListener('submit', (event) => {
 
     // }
 
-    // const outputText = `Name: ${name}, Surname: ${surname}, Age: ${age}, Phone: ****, Email: ****, IT knowledge: ${ITScore}, TYPE group number: ${typeGroup}`
-
-
     const studentItem = document.createElement('div')
     studentItem.classList.add('student-item')
 
@@ -90,54 +87,47 @@ formList.addEventListener('submit', (event) => {
     studentsList.prepend(studentItem)
     form.reset()
 
-    const createdElementAlert = document.createElement('div')
-    createdElementAlert.classList.add('alert')
-    createdElementAlert.textContent = `Student ${name} ${surname} was created succesfully!`
-    studentsList.prepend(createdElementAlert)
-
-    createdElementAlert.addEventListener('animationend', () => {
-        createdElementAlert.style.display = "none"
-    })
-
-
+    
     const showButton = document.createElement('button')
     showButton.textContent = 'Show details'
     studentItem.append(showButton)
-
-    const hideButton = document.createElement('button')
-    hideButton.textContent = 'Hide details'
-    studentItem.append(hideButton)
-
+    
     showButton.addEventListener('click', () => {
-        // showButton.textContent = 'Hide details'
-        studentPhone.textContent = `Phone number: ${phone}`
-        studentEmail.textContent = `Email address: ${email}`
-
+        if (studentPhone.textContent === `Phone number: ${phone}` && studentEmail.textContent === `Email address: ${email}`) {
+            showButton.textContent = 'Show details'
+            studentPhone.textContent = `Phone number: ****`
+            studentEmail.textContent = `Email address: ****`
+        } else {
+            showButton.textContent = 'Hide details'
+            studentPhone.textContent = `Phone number: ${phone}`
+            studentEmail.textContent = `Email address: ${email}`
+        }
     })
-
-    hideButton.addEventListener('click', () => {
-        studentPhone.textContent = 'Phone number: ****'
-        studentEmail.textContent = 'Email address: ****'
-    })
+    const createOutputText = `Student ${name} ${surname} was created succesfully!`
+    const createdElementAlert = alertText(createOutputText, 'green') 
 
     const deleteStudent = document.createElement('button')
     deleteStudent.textContent = 'Delete Student Information'
     studentItem.append(deleteStudent)
-
+    
     deleteStudent.addEventListener('click', () => {
         studentItem.style.display = 'none'
-
-    const deletedElementAlert = document.createElement('div')
-    deletedElementAlert.textContent = `Student's information is deleted`
-    deletedElementAlert.classList.add('alert')
-    deletedElementAlert.style.color = 'red'
-    studentsList.prepend(deletedElementAlert)
-
-    deletedElementAlert.addEventListener('animationend', () => {
-        deletedElementAlert.style.display = "none"
-    })
+        
+    const deleteOutputText = `Student's information is deleted`
+    const deletedElementAlert = alertText(deleteOutputText, 'red') 
     })
 })
+function alertText (text, colour) {
+    let element = document.createElement('div')
+    element.classList.add('alert')
+    element.textContent = text
+    element.style.color = colour
+    studentsList.prepend(element)
+
+    element.addEventListener('animationed', () => {
+        element.style.display = "none"
+    })
+}
 
 let ITValue = document.querySelector('.ITFormValue')
 ITValue.textContent = formList.querySelector('#IT-knowledge').value + ' balai'
