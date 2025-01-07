@@ -90,7 +90,7 @@ formList.addEventListener('submit', (event) => {
     studentsList.prepend(studentItem)
     form.reset()
 
-    const createdElementAlert = document.createElement('span')
+    const createdElementAlert = document.createElement('div')
     createdElementAlert.classList.add('alert')
     createdElementAlert.textContent = `Student ${name} ${surname} was created succesfully!`
     studentsList.prepend(createdElementAlert)
@@ -127,7 +127,7 @@ formList.addEventListener('submit', (event) => {
     deleteStudent.addEventListener('click', () => {
         studentItem.style.display = 'none'
 
-    const deletedElementAlert = document.createElement('span')
+    const deletedElementAlert = document.createElement('div')
     deletedElementAlert.textContent = `Student's information is deleted`
     deletedElementAlert.classList.add('alert')
     deletedElementAlert.style.color = 'red'
