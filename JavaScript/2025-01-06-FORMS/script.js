@@ -15,35 +15,36 @@ formList.addEventListener('submit', (event) => {
     const ITScore = form['IT-knowledge'].value
     const typeGroup = form['TYPE-number'].value
 
-    if (!name || !surname || !age || !email){
-        if(!name) {
-            form['name-text'].classList.add('error')
-        }
-        if(!surname) {
-            form['surname-text'].classList.add('error')
-        }
-        if(!age) {
-            form.age.classList.add('error')
-        }
-        if(!email) {
-            form.email.classList.add('error')
-        }
-        alert ('Name, Surname, Age and Email are must to fill')
-        return
-    } else {
-        form['name-text'].classList.remove('error')
-        form['surname-text'].classList.remove('error')
-        form.age.classList.remove('error')
-        form.email.classList.remove('error')
+    //PADARIAU SU REQUIRED PRIE INPUT
+    // if (!name || !surname || !age || !email){
+    //     if(!name) {
+    //         form['name-text'].classList.add('error')
+    //     }
+    //     if(!surname) {
+    //         form['surname-text'].classList.add('error')
+    //     }
+    //     if(!age) {
+    //         form.age.classList.add('error')
+    //     }
+    //     if(!email) {
+    //         form.email.classList.add('error')
+    //     }
+    //     alert ('Name, Surname, Age and Email are must to fill')
+    //     return
+    // } else {
+    //     form['name-text'].classList.remove('error')
+    //     form['surname-text'].classList.remove('error')
+    //     form.age.classList.remove('error')
+    //     form.email.classList.remove('error')
 
 
-    }
+    // }
 
     const outputText = `Name: ${name}, Surname: ${surname}, Age: ${age}, Phone: ${phone}, Email: ${email}, IT knowledge: ${ITScore}, TYPE group number: ${typeGroup}`
 
     const studentItem = document.createElement('div')
     studentItem.classList.add('student-item')
-    studentsList.prepend(studentItem)
+    
 
     const studentInfo = document.createElement('p')
     studentInfo.textContent = outputText
@@ -63,6 +64,9 @@ formList.addEventListener('submit', (event) => {
     languagesList.append(languageItem)
     })
     }
+
+    studentsList.prepend(studentItem)
+    form.reset()
 })
 
 let ITValue = document.querySelector('.ITFormValue')

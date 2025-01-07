@@ -11,17 +11,17 @@
         <form id="contacts">
             <div class="contact-wrap">
                 <label for="name-text">Vardas: </label>
-                <input type="text" name="person-name" id="name-text" maxlength="20">
+                <input type="text" name="person-name" id="name-text" maxlength="20" required>
             </div>
 
             <div class="contact-wrap">
                 <label for="surname-text">Pavarde: </label>
-                <input type="text" name="person-surname" id="surname-text">
+                <input type="text" name="person-surname" id="surname-text" required>
             </div>
             
             <div class="contact-wrap">
                 <label for="age">Amzius:</label>
-                <input type="number" name="person-age" id="age" min="0" max="100">
+                <input type="number" name="person-age" id="age" min="0" max="100" required>
             </div>
 
             <div class="contact-wrap">
@@ -31,7 +31,7 @@
 
             <div class="contact-wrap">
                 <label for="email">El. pasto adresas:</label>
-                <input type="email" name="person-email" id="email">
+                <input type="email" name="person-email" id="email" required>
             </div>
 
             <div class="contact-wrap">
@@ -43,7 +43,7 @@
             <fieldset style="border: none; padding-left: 0;">
                 <legend style="padding-top: 10px;">Pasirinkite TYPE grupes numeri:</legend>
 
-                <input type="radio" name="TYPE-number" id="TYPE-number1" value="20">
+                <input type="radio" name="TYPE-number" id="TYPE-number1" value="20" checked>
                 <label for="TYPE-number1">20gr.</label>
 
                 <input type="radio" name="TYPE-number" id="TYPE-number2" value="21">
@@ -58,30 +58,30 @@
                 <input type="radio" name="TYPE-number" id="TYPE-number5" value="24">
                 <label for="TYPE-number5">24gr.</label>
 
-                <input type="radio" name="TYPE-number" id="TYPE-number6" value="25" checked>
+                <input type="radio" name="TYPE-number" id="TYPE-number6" value="25">
                 <label for="TYPE-number6">25gr.</label>
             </fieldset>
 
             <fieldset style="border: none; padding-left: 0;">
                 <legend>Dominancios programavimo kalbos:</legend>
                     <div>
-                        <label for="">JavaScript</label>
                         <input type="checkbox" name="itLanguages" id="JavaScript" value="JavaScript">
+                        <label for="">JavaScript</label>
                     </div>
 
                     <div>
-                        <label for="">Python</label>
                         <input type="checkbox" name="itLanguages" id="Python" value="Python">
+                        <label for="">Python</label>
                     </div>
 
                     <div>
-                        <label for="">Java</label>
                         <input type="checkbox" name="itLanguages" id="Java" value="Java">
+                        <label for="">Java</label>
                     </div>
 
                     <div>
-                        <label for="">C++</label>
                         <input type="checkbox" name="itLanguages" id="C++" value="C++">
+                        <label for="">C++</label>
                     </div>
             </fieldset>
 
