@@ -1,3 +1,16 @@
 .error{
     border: 2px solid red;
 }
+
+.alert{
+    color: green;
+    animation-name: makeitdissapear;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes makeitdissapear {
+    to{
+        visibility: hidden;
+    }
+}
