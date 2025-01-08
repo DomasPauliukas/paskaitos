@@ -2,6 +2,8 @@ let formList = document.querySelector('#contacts')
 
 const studentsList = document.querySelector('#students-list')
 
+setITKnowledgeOutputHandler ()
+
 formList.addEventListener('submit', (event) => {
     event.preventDefault() //kad nepersikrautu puslapis
    
@@ -86,52 +88,63 @@ formList.addEventListener('submit', (event) => {
 
     studentsList.prepend(studentItem)
     form.reset()
-
+    setITKnowledgeOutputHandler ()
+    
     
     const showButton = document.createElement('button')
     showButton.textContent = 'Show details'
     studentItem.append(showButton)
+
+    let privateInfoHidden = true
     
     showButton.addEventListener('click', () => {
-        if (studentPhone.textContent === `Phone number: ${phone}` && studentEmail.textContent === `Email address: ${email}`) {
-            showButton.textContent = 'Show details'
-            studentPhone.textContent = `Phone number: ****`
-            studentEmail.textContent = `Email address: ****`
-        } else {
+
+        if (privateInfoHidden){
             showButton.textContent = 'Hide details'
             studentPhone.textContent = `Phone number: ${phone}`
             studentEmail.textContent = `Email address: ${email}`
+        } else {
+            showButton.textContent = 'Show details'
+            studentPhone.textContent = `Phone number: ****`
+            studentEmail.textContent = `Email address: ****`
         }
+        privateInfoHidden = !privateInfoHidden
     })
+
+
     const createOutputText = `Student ${name} ${surname} was created succesfully!`
-    const createdElementAlert = alertText(createOutputText, 'green') 
+    alertText(createOutputText, 'green') 
 
     const deleteStudent = document.createElement('button')
     deleteStudent.textContent = 'Delete Student Information'
     studentItem.append(deleteStudent)
     
     deleteStudent.addEventListener('click', () => {
-        studentItem.style.display = 'none'
-        
-    const deleteOutputText = `Student's information is deleted`
-    const deletedElementAlert = alertText(deleteOutputText, 'red') 
+        const deleteOutputText = `Student's information is deleted`
+        alertText(deleteOutputText, 'red') 
+
+        studentItem.remove()
     })
 })
+
 function alertText (text, colour) {
     let element = document.createElement('div')
-    element.classList.add('alert')
     element.textContent = text
     element.style.color = colour
     studentsList.prepend(element)
 
-    element.addEventListener('animationed', () => {
-        element.style.display = "none"
+    setTimeout(()=>{
+        element.textContent = ''
+        element.remove()
+    }, 5000)
+}
+function setITKnowledgeOutputHandler () {
+    const ITValueInput = document.querySelector('#IT-knowledge')
+    const ITValueOutput = document.querySelector('.ITFormValue')
+
+    ITValueOutput.textContent = ITValueInput.value
+
+    ITValueInput.addEventListener('input', () => {
+        ITValueOutput.textContent = ITValueInput.value
     })
 }
-
-let ITValue = document.querySelector('.ITFormValue')
-ITValue.textContent = formList.querySelector('#IT-knowledge').value + ' balai'
-
-formList.querySelector('#IT-knowledge').addEventListener('input', (event) => {
-    ITValue.textContent = event.target.value + ' balai'
-})
