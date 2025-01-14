@@ -33,7 +33,6 @@ form.addEventListener('submit', (event) => {
     event.preventDefault()
 
     const breed = event.target.elements.breed.value
-    console.log(breed)
 
     fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
         .then(res => res.json())
@@ -42,4 +41,8 @@ form.addEventListener('submit', (event) => {
             imageWrapper.src = imageSrc
             imageWrapper.alt = breed
         })
+        .catch(err => {
+            console.log('sugedo')
+        })
+
 })
