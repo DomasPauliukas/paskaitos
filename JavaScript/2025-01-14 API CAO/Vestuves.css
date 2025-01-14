@@ -1,0 +1,34 @@
+#tableForm {
+    border: 3px solid brown;
+    border-collapse: collapse;
+}
+
+.title {
+    padding: 10px;
+    font-size: 20px;
+    border: 2px solid brown;
+
+}
+
+.first {
+    color: rgb(73, 73, 75);
+    font-weight: 900;
+    font-size: 18px;
+    border: 1px solid brown;
+
+}
+
+.second {
+    text-align: center;
+    font-weight: 900;
+    font-size: 22px;
+    border: 1px solid brown;
+
+}
+
+.green {
+    color: rgb(3, 173, 3);
+}
+.red {
+    color: red;
+}
