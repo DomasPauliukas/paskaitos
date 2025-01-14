@@ -8,37 +8,45 @@ fetch(`https://party-wedding.glitch.me/v1/wedding`)
     .then(data => {
 
         data.forEach(object => {
-            console.log(object)
             const name = object.name
             const plusOne = object.plusOne
             const attend = object.attending
 
-            const singleLine = document.createElement('tr')
-            tableBody.append(singleLine)
-
-            const firstTD = document.createElement('td')
-            firstTD.classList.add('first')
-            firstTD.textContent = name
-            singleLine.append(firstTD)
-            const secondTD = document.createElement('td')
-            secondTD.classList.add('second')
-            if (plusOne){
-                secondTD.classList.add('green')
-                secondTD.textContent = '+'
-            } else {
-                secondTD.classList.add('red')
-                secondTD.textContent = '-'
-            }
-            singleLine.append(secondTD)
-            const thirdTD = document.createElement('td')
-            thirdTD.classList.add('second')
-            if (attend) {
-                thirdTD.classList.add('green')
-                thirdTD.textContent = '+'
-            } else {
-                thirdTD.classList.add('red')
-                thirdTD.textContent = '-'
-            }
-            singleLine.append(thirdTD)
+            createAList(name, plusOne, attend)
         })
     })
+    .catch(err => {
+        const errorText = document.createElement('p')
+        errorText.textContent = 'Something went wrong...'
+        table.append(errorText)
+    })
+
+function createAList (name, plusOne, attend) {
+    const singleLine = document.createElement('tr')
+    tableBody.append(singleLine)
+
+    const firstTD = document.createElement('td')
+    firstTD.classList.add('first')
+    firstTD.textContent = name
+    singleLine.append(firstTD)
+    const secondTD = document.createElement('td')
+    secondTD.classList.add('second')
+    if (plusOne){
+        secondTD.classList.add('green')
+        secondTD.textContent = '+'
+    } else {
+        secondTD.classList.add('red')
+        secondTD.textContent = '-'
+    }
+    singleLine.append(secondTD)
+    const thirdTD = document.createElement('td')
+    thirdTD.classList.add('second')
+    if (attend) {
+        thirdTD.classList.add('green')
+        thirdTD.textContent = '+'
+    } else {
+        thirdTD.classList.add('red')
+        thirdTD.textContent = '-'
+    }
+    singleLine.append(thirdTD)
+}
