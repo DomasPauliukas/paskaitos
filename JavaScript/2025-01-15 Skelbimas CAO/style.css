@@ -1,0 +1,77 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+#propertyWrapper{
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 15px;
+    row-gap: 15px;
+}
+.titleWrap{
+    background-color: aquamarine;
+    color:  rgb(90, 86, 86);
+    padding: 20px 0px 20px 150px;
+}
+
+.filterSection {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 150px;
+}
+
+button.filterButton {
+    background-color: rgb(240, 236, 236);
+    border: none;
+    box-shadow: 1px 1px 4px 0px;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+
+
+.addPropertyWrap {
+    text-align: end;
+    padding: 50px 90px;
+}
+
+.addProperty {
+    border: 1px solid rgb(6, 197, 133);
+    padding: 15px 20px;
+    text-decoration: none;
+    background-color: aquamarine;
+    color: rgb(90, 86, 86);
+    font-weight: bold;
+}
+
+.item{
+    box-shadow: 1px 1px 4px -1px;
+    
+
+}
+
+.infoWrap{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
+.propertyPrice{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.propertyDescription{
+    padding-left: 15px;
+    padding-right: 20px;
+}
+
+.propertyImage{
+    width: 240px;
+    height: 180px;
+    object-fit: cover;
+}
+
+
