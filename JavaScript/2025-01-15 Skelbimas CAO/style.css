@@ -30,6 +30,10 @@ button.filterButton {
     padding: 5px 10px;
     margin-right: 10px;
 }
+.filterButton:hover{
+    background-color: rgb(188, 248, 228);
+    color: rgb(166, 109, 219);
+}
 
 
 
@@ -46,11 +50,17 @@ button.filterButton {
     color: rgb(90, 86, 86);
     font-weight: bold;
 }
+.addProperty:hover{
+    border: 3px solid rgb(6, 197, 133);
+}
+
 
 .item{
     box-shadow: 1px 1px 4px -1px;
-    
+}
 
+.item:hover{
+    box-shadow: 6px 6px 4px -1px;
 }
 
 .infoWrap{
