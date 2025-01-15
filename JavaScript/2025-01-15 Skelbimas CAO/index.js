@@ -51,7 +51,7 @@ function createPropertyItem (city, price, description, image) {
 
         const propertyCity = document.createElement('span')
         propertyCity.classList.add('propertyCity')
-        propertyCity.textContent = city
+        propertyCity.textContent = city[0].toUpperCase() + city.slice(1)
         infoWrap.append(propertyCity)
 
         const descriptionWrap = document.createElement('div')
