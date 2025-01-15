@@ -7,7 +7,6 @@ const vilniusButton = document.querySelector('#vilniusButton')
 
 getProperty()
 
-
 async function getProperty() {
     try{
         const res = await fetch(`https://robust-safe-crafter.glitch.me/`)
@@ -18,13 +17,14 @@ async function getProperty() {
             const description = property.description
             const image = property.image
 
+            
         createPropertyItem (city, price, description, image)
-
         })
     } catch (error) {
         console.log(error)
     }
 }
+
 
 function createPropertyItem (city, price, description, image) {
     const propertyItem = document.createElement('div')

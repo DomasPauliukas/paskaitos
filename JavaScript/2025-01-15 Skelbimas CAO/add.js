@@ -1,6 +1,15 @@
 const form = document.querySelector('#addPropertyForm')
 const addButton = document.querySelector('#addPropertyButton')
 
+const cities = ['Vilnius', 'Kaunas', 'Klaipėda', 'Šiauliai', 'Panevėžys']
+cities.forEach(city => {
+    const citiesInput = document.querySelector('#city')
+    const cityOption = document.createElement('option')
+    cityOption.value = city
+    cityOption.textContent = city
+    citiesInput.append(cityOption)
+})
+
 createLocalStorage()
 
 form.addEventListener('submit', (event)=>{
@@ -10,7 +19,6 @@ form.addEventListener('submit', (event)=>{
     const price = Number(event.target.elements.price.value)
     const description = event.target.elements.description.value
     const city = event.target.elements.city.value
-
     
 
     if (!image || !price || !description || !city){
@@ -19,10 +27,10 @@ form.addEventListener('submit', (event)=>{
         form.append(errorParagraph)
         errorParagraph.textContent = 'All fields must be filled!'
         
-        setTimeout(()=>{
+        return setTimeout(()=>{
             errorParagraph.textContent = ''
             errorParagraph.remove()
-        }, 5000)
+        }, 2000)
     }
 
     const newProperty = {
@@ -34,10 +42,12 @@ form.addEventListener('submit', (event)=>{
     addProperty(newProperty)
     removeLocalStorage ()
     form.reset()
-    
-    setTimeout(() => {
-        window.location.href = 'http://127.0.0.1:5500/2025-01-15%20Skelbimas%20CAO/index.html'
-    }, 1000);
+
+    if (image && price && description && city){
+        setTimeout(() => {
+            window.location.href = 'http://127.0.0.1:5500/2025-01-15%20Skelbimas%20CAO/index.html'
+        }, 1000);
+    }
 })
 
 async function addProperty (newProperty) {
