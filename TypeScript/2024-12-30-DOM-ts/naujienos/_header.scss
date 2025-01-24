@@ -1,0 +1,77 @@
+@use 'variables';
+@use 'responsive' as r;
+
+header{
+    background-color: white;
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 50px 0 20px;
+        flex-wrap: wrap;
+        @include r.xl{
+            justify-content: center;
+        }
+        .header-logo{
+            img{
+                @include r.xl{
+                    height: 70px;
+                }
+
+            }
+        }
+        .header-nav{
+            a{
+                text-decoration: none;
+                color: black;
+                font-weight: 600;
+                padding-left: 25px;
+
+                @include r.xl{
+                    display: none;
+                }
+
+            }
+            a.button{
+                background-color: variables.$button-color;
+                color: white;
+                padding: 10px 30px;
+                margin-left: 25px;
+                border-radius: 50px;
+            }
+        }
+    }
+}
+
+.buttons-on-top{
+    text-align: end;
+    margin-top: 20px;
+
+    @include r.xl{
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        font-weight: 600;
+        margin-left: -3px;
+        background-color: rgb(246, 244, 244);
+        padding: 20px 25px;
+
+    }
+    a .blue-button{
+        background-color: variables.$button-color;
+        color: white;
+    }
+    @include r.sm{
+        display: flex;
+        flex-direction: column;
+    }   
+}
+
+h1{
+    font-size: 40px;
+    @include r.md{
+        text-align: center;
+    }
+}

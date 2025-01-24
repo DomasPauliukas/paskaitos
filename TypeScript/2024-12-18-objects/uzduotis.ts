@@ -153,83 +153,83 @@
 
 // ********************************************************* 2 BUDAS **********
 
-let company2Obj = {}
+// let company2Obj = {}
 
-company2Obj['company name'] = 'Topocentras'
-company2Obj.opened = 1995
-company2Obj.companyCode = 123456789
-company2Obj.employees = 830
-company2Obj.ceo = 'Domas Pauliukas'
-company2Obj.nvo = false
-company2Obj.workingLocations = ['Estija', 'Bulgarija', 'Kroatija', 'Lietuva']
-company2Obj.activityAreas = ['Marketing', 'Sales', 'Technology']
-let contactsObj = {
-  phone: 861546885,
-  email: 'domas0319@gmail.com',
-  address: {
-    country: 'Lietuva',
-    city: 'Vilnius',
-    street: 'Skroblu st',
-    apartment: 14,
-  },
-}
-company2Obj.contacts = contactsObj
+// company2Obj['company name'] = 'Topocentras'
+// company2Obj.opened = 1995
+// company2Obj.companyCode = 123456789
+// company2Obj.employees = 830
+// company2Obj.ceo = 'Domas Pauliukas'
+// company2Obj.nvo = false
+// company2Obj.workingLocations = ['Estija', 'Bulgarija', 'Kroatija', 'Lietuva']
+// company2Obj.activityAreas = ['Marketing', 'Sales', 'Technology']
+// let contactsObj = {
+//   phone: 861546885,
+//   email: 'domas0319@gmail.com',
+//   address: {
+//     country: 'Lietuva',
+//     city: 'Vilnius',
+//     street: 'Skroblu st',
+//     apartment: 14,
+//   },
+// }
+// company2Obj.contacts = contactsObj
 
-company2Obj.getAddress = function () {
-  // let street = this.contacts.address.street
-  // let apartment = this.contacts.address.apartment
-  // ir tada isvesti i return
-  // arba
+// company2Obj.getAddress = function () {
+//   // let street = this.contacts.address.street
+//   // let apartment = this.contacts.address.apartment
+//   // ir tada isvesti i return
+//   // arba
 
-  // arba let { street, apartment, city, country} = this.contacts.address
+//   // arba let { street, apartment, city, country} = this.contacts.address
 
-  // arba
+//   // arba
 
-  return `${this.contacts.address.street} ${this.contacts.address.apartment}, ${this.contacts.address.city}, ${this.contacts.address.country}`
-}
-company2Obj.isNVO = function () {
-  return this.nvo = true
-}
-company2Obj.isNotNVO = function () {
-  return this.nvo = false
-}
-company2Obj.changeNVO = function () {
-  if (this.nvo) {
-    return this.nvo = false
-  } else {
-    return this.nvo = true
-  }
-}
-company2Obj.allLocations = function () {
-  return `imone veikia siose salyse: ${this.workingLocations.join(', ')}`
-}
-company2Obj.allAreas = function () {
-  return `imone dirba siose srityse: ${this.activityAreas.join(', ')}`
-}
-company2Obj.addCountry = function (country) {
-  this.workingLocations.push(country)
-  return this.workingLocations
-}
-company2Obj.addActivity = function (activity) {
-  this.activityAreas.push(activity)
-  return this.activityAreas
-}
-company2Obj.removeCountry = function (country) {
-  company2Obj.workingLocations = company2Obj.workingLocations.filter(num => num !== country)
-}
-company2Obj.removeActivity = function (activity) {
-  company2Obj.activityAreas = company2Obj.activityAreas.filter(num => num !== activity)
-}
+//   return `${this.contacts.address.street} ${this.contacts.address.apartment}, ${this.contacts.address.city}, ${this.contacts.address.country}`
+// }
+// company2Obj.isNVO = function () {
+//   return this.nvo = true
+// }
+// company2Obj.isNotNVO = function () {
+//   return this.nvo = false
+// }
+// company2Obj.changeNVO = function () {
+//   if (this.nvo) {
+//     return this.nvo = false
+//   } else {
+//     return this.nvo = true
+//   }
+// }
+// company2Obj.allLocations = function () {
+//   return `imone veikia siose salyse: ${this.workingLocations.join(', ')}`
+// }
+// company2Obj.allAreas = function () {
+//   return `imone dirba siose srityse: ${this.activityAreas.join(', ')}`
+// }
+// company2Obj.addCountry = function (country) {
+//   this.workingLocations.push(country)
+//   return this.workingLocations
+// }
+// company2Obj.addActivity = function (activity) {
+//   this.activityAreas.push(activity)
+//   return this.activityAreas
+// }
+// company2Obj.removeCountry = function (country) {
+//   company2Obj.workingLocations = company2Obj.workingLocations.filter(num => num !== country)
+// }
+// company2Obj.removeActivity = function (activity) {
+//   company2Obj.activityAreas = company2Obj.activityAreas.filter(num => num !== activity)
+// }
 
-console.log(company2Obj)
+// console.log(company2Obj)
 
-console.log(company2Obj.changeNVO())
-console.log(company2Obj.getAddress())
-console.log(company2Obj.isNVO())
-console.log(company2Obj.isNotNVO())
-console.log(company2Obj.allLocations())
-console.log(company2Obj.allAreas())
-company2Obj.addCountry('Germany')
-company2Obj.addActivity('Advertising')
-company2Obj.removeCountry('Estija')
-company2Obj.removeActivity('Marketing')
+// console.log(company2Obj.changeNVO())
+// console.log(company2Obj.getAddress())
+// console.log(company2Obj.isNVO())
+// console.log(company2Obj.isNotNVO())
+// console.log(company2Obj.allLocations())
+// console.log(company2Obj.allAreas())
+// company2Obj.addCountry('Germany')
+// company2Obj.addActivity('Advertising')
+// company2Obj.removeCountry('Estija')
+// company2Obj.removeActivity('Marketing')

@@ -125,11 +125,11 @@ const posts: Post[] = [
       body: "ullam consequatur ut\nomnis quis sit vel consequuntur\nipsa eligendi ipsum molestiae et omnis error nostrum\nmolestiae illo tempore quia et distinctio"
     }]
 
-  type Post = {
-    id: number;
-    title: string;
-    body: string;
-  }
+type Post = {
+  id: number;
+  title: string;
+  body: string;
+}
 //     7. Naudojant posts masyvą, atlikti žemiau nurodytas užduotis ir atsakymus išvesti į konsolę. Visoms užduotis kurti funkciją ir jai, kaip parametrą, paduoti nurodytą masyvą.
 
 
@@ -237,8 +237,12 @@ let function710 = function (element: Post[]) {
 
 // 7.11. Gauti pirmą masyvo narį ir į konsolę išvesti jo property "title" reikšmę.
 
-let function712 = function (element: Post[]) {
-    return element.at(0)?.title
+let function712 = function (elements: Post[]) 
+{ let element = elements.at(0)
+  if (element){
+    return element.title
+
+  }
   }
   console.log(function712(posts))
   

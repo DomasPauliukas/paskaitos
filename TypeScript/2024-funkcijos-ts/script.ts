@@ -93,7 +93,7 @@ console.log(checkAge(15))
 // 3. Patekai i kita lygi: antras atsakymas buvo neteisingas, o pirmas buvo teisingas.
 // 4. Nepatekai i kita lygi: abu atsakymai buvo neteisingi.
 
-function checkAnswers (playerAnswer11?: number, playerAnswer12?: number): string {
+function checkAnswers (playerAnswer11: number, playerAnswer12: number): string {
   
   let correctAnswer11 = 1
   let correctAnswer12 = 2
@@ -110,7 +110,7 @@ function checkAnswers (playerAnswer11?: number, playerAnswer12?: number): string
    return ('Nepatekai i kita lygi: abu atsakymai buvo neteisingi')
   }
 
-  console.log(checkAnswers())
+  console.log(checkAnswers(1, 2))
 
 
 
