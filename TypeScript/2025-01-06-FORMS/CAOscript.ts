@@ -14,7 +14,7 @@
 
 // Kintamieji turi būti aprašyti viršuje, kad būtų lengva keisti.
 
-let formCinema = document.querySelector('#formCinema')
+let formCinema = document.querySelector('#formCinema') as HTMLDivElement
 
 const standardTicket = 6
 const juniorTicket = standardTicket / 2
