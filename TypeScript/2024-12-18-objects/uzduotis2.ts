@@ -135,7 +135,7 @@ type Post = {
 
 // 7.1. Gauti pirmo masyvo nario reikšmę.
 
-let function71 = (element: {}[]) => {
+let function71 = (element: Post[]) => {
     return element[0]
   }
   

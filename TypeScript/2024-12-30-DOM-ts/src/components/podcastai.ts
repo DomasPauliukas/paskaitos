@@ -8,6 +8,7 @@ export default function createPodcasts () {
 
     let podcastaiTitle = document.createElement('h1')
     podcastaiTitle.textContent = 'Podcastai ir radijo laidos'
+    podcastai.append(podcastaiTitle)
     
     podcastData.forEach(element => {
         let newPodcast = createPodcastItem(element)

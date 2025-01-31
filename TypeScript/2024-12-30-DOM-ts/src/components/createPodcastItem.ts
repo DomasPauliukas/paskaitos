@@ -1,6 +1,11 @@
 import createElement from "./createElement.js"
 
-export default function createPodcastItem (data: {duration: string, bottomText: string}) {
+export type Podcast = {
+    duration: string,
+    bottomText: string,
+}
+
+export default function createPodcastItem (data: Podcast) {
     let {duration, bottomText} = data
 
     let item = createElement('item')
