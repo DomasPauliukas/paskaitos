@@ -9,7 +9,6 @@ import ThumbnailLogo2 from '../assets/NaujienosImages/CA_podcast_10_2024_YT-thum
 import WhiteLogo from '../assets/NaujienosImages/codeacademy-white.svg'
 import Photo4 from '../assets/NaujienosImages/IMG_6582-scaled-e1724159397334-300x191.jpg'
 import DILogo from '../assets/NaujienosImages/kas-yra-dirbtinis-intelektas.jpg'
-import SpinnerLogo from '../assets/NaujienosImages/site-contact-form-button.png'
 import SpotifyLogo from '../assets/NaujienosImages/Spotify-260x260.png'
 
 import Header from '../components/NaujienosHeader/Header'
@@ -17,6 +16,8 @@ import ButtonsOnTop from '../components/NaujienosButtonsOnTop/ButtonsOnTop'
 import MainNews from '../components/MainNews/MainNews'
 import SecondaryNews from '../components/SecondaryNews/SecondaryNews'
 import Podcasts from '../components/Podcasts/Podcasts'
+import Videos from '../components/Videos/Videos'
+import StickerNavigation from '../components/StickerNavigation/StickerNavigation'
 
 const mainNewsData = [
     {
@@ -89,6 +90,20 @@ const podcastData = [
     },
     
 ]
+const videoData = [
+    {
+    iframe: 'https://www.youtube.com/embed/Rz6bswWbPqw?si=nf5fhZNypFFrYuuP',
+    title: '#6 Studentės istorija: sėkmė slypi disciplinoje'
+    },
+    {
+    iframe: 'https://www.youtube.com/embed/yovsPjuDElw?si=gp4nNtJRMYS0BAOW',
+    title: '#4 Ctrl+Alt+Defend: Kibernetinis saugumas šiandien'
+    },
+    {
+    iframe: 'https://www.youtube.com/embed/7X4iX-D6ymQ?si=b9b_2J-f-JpfzcAE',
+    title: 'Susipažink su mūsų įdarbinimo partneriais – Danske Bank!'
+    },
+]
 
 function NaujienosPage () {
     return (
@@ -102,7 +117,6 @@ function NaujienosPage () {
         <div className="main">
 
             <div className="naujienos">
-                
                 <h1>Naujienos</h1>
                 <MainNews data={mainNewsData}></MainNews>
                 <SecondaryNews data={secondaryNewsData}></SecondaryNews>
@@ -113,39 +127,9 @@ function NaujienosPage () {
                 </div>
             </div>
 
-            <div className="podcastai">
-                <h1>Podcastai ir radijo laidos</h1>
                 <Podcasts data={podcastData}></Podcasts>
-            </div>
+                <Videos data={videoData}></Videos>
 
-
- <div className="vaizdo-irasai">
-     <h1>Vaizdo įrašai</h1>
-     <div className="item">
-         <iframe src="https://www.youtube.com/embed/Rz6bswWbPqw?si=nf5fhZNypFFrYuuP" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-         <h3>#6 Studentės istorija: sėkmė slypi disciplinoje
-         </h3>
-
-     </div>
-    
-     <div className="item">
-         <iframe src="https://www.youtube.com/embed/yovsPjuDElw?si=gp4nNtJRMYS0BAOW" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-         <h3>#4 Ctrl+Alt+Defend: Kibernetinis saugumas šiandien
-         </h3>
-     </div>  
-  
-     <div className="item">
-         <iframe src="https://www.youtube.com/embed/7X4iX-D6ymQ?si=b9b_2J-f-JpfzcAE" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-         <h3>Susipažink su mūsų įdarbinimo partneriais – Danske Bank!
-         </h3>
-         
-     </div>
-
-     <div className="visos-naujienos">
-         <h3>Visi vaizdo įrašai</h3>
-         <img src={ArrowLogo} alt="" />
-     </div>  
- </div>
 
  <div className="renginiai">
      <h1>Renginiai</h1>
@@ -218,10 +202,8 @@ function NaujienosPage () {
 </div>
 
 </div>
+                <StickerNavigation></StickerNavigation>
 
-<a href="#" className="sticker-navigation">
-<img className="sticker-image" src={SpinnerLogo} alt="" />
-</a>
 
          <footer>
                  <div className="container">

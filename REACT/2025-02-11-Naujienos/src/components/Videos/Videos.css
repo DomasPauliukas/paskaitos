@@ -1,0 +1,13 @@
+.vaizdo-irasai {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: flex-start;
+    gap: 25px;
+    font-size: 12px;
+  }
+  .vaizdo-irasai h1 {
+    grid-column: span 2;
+  }
+  .vaizdo-irasai .visos-naujienos {
+    grid-column: span 2;
+  }

@@ -23,6 +23,9 @@
   }
   
   .main {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 25px;
@@ -111,45 +114,9 @@
     row-gap: 25px;
   }
   
-  .vaizdo-irasai {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-content: flex-start;
-    gap: 25px;
-    font-size: 12px;
-  }
-  .vaizdo-irasai h1 {
-    grid-column: span 2;
-  }
-  .vaizdo-irasai .item:nth-of-type(1) {
-    grid-column: span 2;
-  }
-  .vaizdo-irasai .item:nth-of-type(1) iframe {
-    height: 400px;
-    width: 100%;
-  }
-  @media (max-width: 500px) {
-    .vaizdo-irasai .item:nth-of-type(1) iframe {
-      height: 270px;
-    }
-  }
-  @media (max-width: 900px) {
-    .vaizdo-irasai .item:nth-of-type(2), .vaizdo-irasai .item:nth-of-type(3) {
-      grid-column: span 2;
-    }
-    .vaizdo-irasai .item:nth-of-type(2) iframe, .vaizdo-irasai .item:nth-of-type(3) iframe {
-      height: 400px;
-      width: 100%;
-    }
-  }
-  @media (max-width: 900px) and (max-width: 500px) {
-    .vaizdo-irasai .item:nth-of-type(2) iframe, .vaizdo-irasai .item:nth-of-type(3) iframe {
-      height: 270px;
-    }
-  }
-  .vaizdo-irasai .visos-naujienos {
-    grid-column: span 2;
-  }
+
+ 
+
   
   footer {
     background-image: url('/public/NaujienosImages/footer.svg');
@@ -204,38 +171,4 @@
     text-decoration: none;
     color: rgb(162, 162, 162);
   }
-  
-  .sticker-navigation {
-    position: fixed;
-    bottom: 0;
-    right: -190px;
-    margin: 0px 10px 10px 0px;
-    z-index: 100;
-    display: block;
-  }
-  .sticker-navigation img {
-    width: 40%;
-    animation-name: spinner;
-    animation-duration: 7s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-  @keyframes spinner {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(359deg);
-    }
-  }
-  
-  .sticker-navigation::after {
-    content: "";
-    background-image: url('/public/NaujienosImages/arrow.svg');
-    position: absolute;
-    bottom: 57px;
-    height: 30px;
-    width: 30px;
-    background-repeat: no-repeat;
-    right: 241px;
-  }/*# sourceMappingURL=Naujienos.css.map */
+  /*# sourceMappingURL=Naujienos.css.map */
