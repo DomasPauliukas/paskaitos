@@ -1,0 +1,53 @@
+footer {
+    background-image: url('/public/NaujienosImages/footer.svg');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 35%;
+    background-color: black;
+    padding-bottom: 200px;
+  }
+  footer .footer-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  footer .footer-wrap .footer-logo {
+    grid-column: span 3;
+    padding: 100px 0px;
+  }
+  footer .footer-wrap .footer-links {
+    padding-bottom: 200px;
+  }
+  footer .footer-wrap .footer-links ul {
+    list-style-type: none;
+    padding: 0px;
+  }
+  footer .footer-wrap .footer-links ul li {
+    padding-bottom: 20px;
+    color: rgb(162, 162, 162);
+  }
+  footer .footer-wrap .footer-address {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+  }
+  footer .footer-wrap .footer-address span {
+    color: white;
+  }
+  footer .footer-wrap .footer-address a {
+    text-decoration: none;
+    color: rgb(162, 162, 162);
+  }
+  footer .footer-wrap .footer-socials {
+    text-align: center;
+  }
+  footer .footer-wrap .footer-rights {
+    grid-column: span 2;
+    color: rgb(162, 162, 162);
+  }
+  footer .footer-wrap .footer-privacy {
+    padding-left: 100px;
+  }
+  footer .footer-wrap .footer-privacy a {
+    text-decoration: none;
+    color: rgb(162, 162, 162);
+  }

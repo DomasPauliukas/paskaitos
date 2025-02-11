@@ -6,7 +6,6 @@ import Photo2 from '../assets/NaujienosImages/automation.jpg'
 import Photo3 from '../assets/NaujienosImages/CA_event_dirbtuves-su-Mariumi-Paresiumi_2024-10-26_FB-post_1080x1080-768x768 (1).jpg'
 import ThumbnailLogo1 from '../assets/NaujienosImages/CA_podcast_09_2024_YT-thumbnail-300x169.jpg'
 import ThumbnailLogo2 from '../assets/NaujienosImages/CA_podcast_10_2024_YT-thumbnail-300x169.jpg'
-import WhiteLogo from '../assets/NaujienosImages/codeacademy-white.svg'
 import Photo4 from '../assets/NaujienosImages/IMG_6582-scaled-e1724159397334-300x191.jpg'
 import DILogo from '../assets/NaujienosImages/kas-yra-dirbtinis-intelektas.jpg'
 import SpotifyLogo from '../assets/NaujienosImages/Spotify-260x260.png'
@@ -18,6 +17,8 @@ import SecondaryNews from '../components/SecondaryNews/SecondaryNews'
 import Podcasts from '../components/Podcasts/Podcasts'
 import Videos from '../components/Videos/Videos'
 import StickerNavigation from '../components/StickerNavigation/StickerNavigation'
+import Events from '../components/Events/Events'
+import Footer from '../components/Footer/Footer'
 
 const mainNewsData = [
     {
@@ -104,19 +105,36 @@ const videoData = [
     title: 'Susipažink su mūsų įdarbinimo partneriais – Danske Bank!'
     },
 ]
+const eventsData = [
+    {
+        image: Photo3,
+        day: '13',
+        month: 'LAP',
+        address: 'UPĖS G. 21, GREENHALL 1, 10 AUKŠTAS',
+        title: 'Vadovų dirbtinio intelekto įrankių dirbtuvės su Mariumi Pareščiumi'
+    },
+    {
+        day: '12',
+        month: 'LAP',
+        address: 'MOXY KAUNAS CENTER (MAIRONIO G. 19, KAUNAS)',
+        title: 'Ar visos TECH karjeros galimybės tik Vilniuje'
+    },
+    {
+        day: '7',
+        month: 'LAP',
+        address: 'UPĖS G. 21, GREENHALL 1, 10 AUKŠTAS',
+        title: 'IT karjera be kodo: Naujos projektų valdymo programos pristatymas'
+    }
+]
 
 function NaujienosPage () {
     return (
     <>
         <Header></Header>
-
-    <div className="contaier">
-
         <ButtonsOnTop></ButtonsOnTop>
 
         <div className="main">
-
-            <div className="naujienos">
+                 <div className="naujienos">
                 <h1>Naujienos</h1>
                 <MainNews data={mainNewsData}></MainNews>
                 <SecondaryNews data={secondaryNewsData}></SecondaryNews>
@@ -125,135 +143,15 @@ function NaujienosPage () {
                     <h3>Visos naujienos</h3>
                     <img src={ArrowLogo} alt="" />
                 </div>
-            </div>
+                </div>
 
                 <Podcasts data={podcastData}></Podcasts>
                 <Videos data={videoData}></Videos>
-
-
- <div className="renginiai">
-     <h1>Renginiai</h1>
-         <div className="item">
-                 <div className="renginiai-photo">
-                     <img src={Photo3} alt="" />
-                 </div>
-                 <div className="renginiai-data">
-                         <div className="data-number">
-                             13
-                         </div>
-                         <div className="data-pink">
-                             LAP
-                         </div>
-                 </div>
-                 <div className="renginiai-adresas">
-                      <div>
-                     UPĖS G. 21, GREENHALL 1, 10 AUKŠTAS
-                      </div>
-                       <div>
-                     <h3>Vadovų dirbtinio intelekto įrankių dirbtuvės su Mariumi Pareščiumi</h3>
-                        </div>
-                 </div>
-         </div>
-
-         <div className="item">
-             <div className="renginiai-data">
-                     <div className="data-number">
-                         12
-                     </div>
-                     <div className="data-pink">
-                         LAP
-                     </div>
-             </div>
-             <div className="renginiai-adresas">
-                  <div>
-                 MOXY KAUNAS CENTER (MAIRONIO G. 19, KAUNAS)
-                  </div>
-                   <div>
-                 <h3>Ar visos TECH karjeros galimybės tik Vilniuje</h3>
-                    </div>
-             </div>
+                <Events data={eventsData}></Events>
         </div>
-
-        <div className="item">
-         <div className="renginiai-data">
-                 <div className="data-number">
-                     7
-                 </div>
-                 <div className="data-pink">
-                     LAP
-                 </div>
-         </div>
-         <div className="renginiai-adresas">
-              <div>
-             UPĖS G. 21, GREENHALL 1, 10 AUKŠTAS
-              </div>
-               <div>
-             <h3>IT karjera be kodo: Naujos projektų valdymo programos pristatymas</h3>
-                </div>
-         </div>
-        </div>
-
-        <div className="visos-naujienos">
-         <h3>Daugiau</h3>
-         <img src={ArrowLogo} alt="" />
-     </div>  
- </div>
-
-</div>
-
-</div>
                 <StickerNavigation></StickerNavigation>
-
-
-         <footer>
-                 <div className="container">
-
-                     <div className="footer-wrap">
-                          <div className="footer-logo">
-                             <img src={WhiteLogo} alt="" />
-                         </div>
-
-                       <div className="footer-links">
-                         <ul>
-                             <li className="a">Studentams</li>
-                             <li className="a">Karjeros centras</li>
-                             <li className="a">Programos</li>
-                             <li className="a">Užt 100% finansavimas</li>
-                             <li className="a">Programavimo kalbos</li>                                        <li className="a">Apie mus</li>
-                             <li className="a">Naujienos</li>
-                             <li className="a">Karjera - We are hiring!</li>
-                             <li className="a">Verslui</li>
-                             <li className="a">ES parama</li>
-                             <li className="a">IT būreliai moksleiviams</li>
-                             <li className="a">Kontaktai</li>
-                         </ul>
-                       </div>
-
-                      <div className="footer-address">
-                         <span>Vilnius</span>
-                           <a href="">Upės g. 21, Vilnius</a>
-                           <a href="">Antakalnio g. 17, Vilnius</a>
-                      </div>
-
-                      <div className="footer-socials">
-                         <a href="#">Instagram</a>
-                         <a href="#">Facebook</a>
-                          <a href="#">Lindedin</a>
-                      </div>
-
-                      <div className="footer-rights">
-                        © By UAB Programuok | CodeAcademy šeimos narys – <a href="">CodeAcademy Kids</a>
-                      </div>
-
-                      <div className="footer-privacy">
-                          <a href="">Privatumo politika</a>
-                     </div>
-                  </div>
-             </div>
-      </footer>
+                <Footer></Footer>
     </>
-
     )
 }
-
 export default NaujienosPage

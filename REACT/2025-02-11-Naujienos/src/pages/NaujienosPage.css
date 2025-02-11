@@ -1,18 +1,19 @@
- h1 {
-    font-size: 40px;
-  }
-  @media (max-width: 700px) {
-    h1 {
-      text-align: center;
-    }
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+   font-size: 40px;
+ }
+ @media (max-width: 700px) {
+   h1 {
+     text-align: center;
+   }
+ }
+ 
   
-  *, *::before, *::after {
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  body {
+body {
     background-color: rgb(227, 227, 227);
   }
   
@@ -57,118 +58,5 @@
   }
   .visos-naujienos img {
     width: 3%;
-  }
-  
-
-  
-  
-  .renginiai .item {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-  }
-  .renginiai .item .renginiai-photo img {
-    width: 100%;
-    height: 260px;
-    margin-bottom: -40px;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-  .renginiai .item .renginiai-data {
-    background-color: white;
-    border-radius: 10px;
-    display: grid;
-    width: 20%;
-    grid-template-rows: 2fr 1fr;
-    text-align: center;
-    align-items: center;
-    position: relative;
-    margin-left: 30px;
-    margin-bottom: -50px;
-    overflow: hidden;
-  }
-  .renginiai .item .renginiai-data .data-number {
-    font-size: x-large;
-    font-weight: 700;
-  }
-  .renginiai .item .renginiai-data .data-pink {
-    background-color: rgb(230, 66, 197);
-    color: white;
-    padding: 5px 0px;
-  }
-  .renginiai .item .renginiai-adresas {
-    background-color: black;
-    color: white;
-    font-size: 12px;
-    padding: 70px 30px 30px 30px;
-  }
-  .renginiai .item .renginiai-adresas h3 {
-    font-size: 24px;
-    margin-bottom: 0px;
-    margin-top: 5px;
-  }
-  
-  .renginiai {
-    display: flex;
-    flex-direction: column;
-    row-gap: 25px;
-  }
-  
-
- 
-
-  
-  footer {
-    background-image: url('/public/NaujienosImages/footer.svg');
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    background-size: 35%;
-    background-color: black;
-    padding-bottom: 200px;
-  }
-  footer .footer-wrap {
-    display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
-  }
-  footer .footer-wrap .footer-logo {
-    grid-column: span 3;
-    padding: 100px 0px;
-  }
-  footer .footer-wrap .footer-links {
-    padding-bottom: 200px;
-  }
-  footer .footer-wrap .footer-links ul {
-    list-style-type: none;
-    padding: 0px;
-  }
-  footer .footer-wrap .footer-links ul li {
-    padding-bottom: 20px;
-    color: rgb(162, 162, 162);
-  }
-  footer .footer-wrap .footer-address {
-    display: flex;
-    flex-direction: column;
-    row-gap: 25px;
-  }
-  footer .footer-wrap .footer-address span {
-    color: white;
-  }
-  footer .footer-wrap .footer-address a {
-    text-decoration: none;
-    color: rgb(162, 162, 162);
-  }
-  footer .footer-wrap .footer-socials {
-    text-align: center;
-  }
-  footer .footer-wrap .footer-rights {
-    grid-column: span 2;
-    color: rgb(162, 162, 162);
-  }
-  footer .footer-wrap .footer-privacy {
-    padding-left: 100px;
-  }
-  footer .footer-wrap .footer-privacy a {
-    text-decoration: none;
-    color: rgb(162, 162, 162);
   }
   /*# sourceMappingURL=Naujienos.css.map */
