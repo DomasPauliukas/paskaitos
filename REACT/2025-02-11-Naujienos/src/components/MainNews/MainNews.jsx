@@ -9,10 +9,7 @@ function MainNews (props) {
           {data.map((item,index) => (
                <NewsItem
                key={index}
-               image={item.image}
-               category={item.category}
-               title={item.title}
-               date={item.date}
+               data={item}
                />
           ))}
 

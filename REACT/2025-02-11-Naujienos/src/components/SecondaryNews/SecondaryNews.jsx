@@ -10,10 +10,7 @@ function SecondaryNews (props) {
             {data.map((item, index) => (
                 <NewsItem
                 key={index}
-                title={item.title}
-                category={item.category}
-                image={item.image}
-                date={item.date}
+                data={item}
                 />
             ))}
         </div>

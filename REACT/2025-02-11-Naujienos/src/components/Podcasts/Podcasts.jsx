@@ -8,11 +8,12 @@ function Podcasts (props) {
         {data.map((podcast,index) => (
             <PodcastItem
             key={index}
-            date={podcast.date}
-            image={podcast.image}
-            image2={podcast.image2}
-            time={podcast.time}
-            title={podcast.title}
+            data={podcast}
+            // date={podcast.date}
+            // image={podcast.image}
+            // image2={podcast.image2}
+            // time={podcast.time}
+            // title={podcast.title}
             />
         ))}
         </>

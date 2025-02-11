@@ -1,6 +1,6 @@
 function NewsItem (props) {
 
-    const { image, category, title, date } = props
+    const { image, category, title, date } = props.data
   
     return (
                 <div className="item">

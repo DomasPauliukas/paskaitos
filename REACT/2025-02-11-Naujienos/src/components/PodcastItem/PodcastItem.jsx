@@ -1,7 +1,7 @@
 import './PodcastItem.css'
 
 function PodcastItem (props) {
-    const {date, image, image2, time, title} = props
+    const {date, image, image2, time, title} = props.data
     return (
                 <div className="item">
                     <div className="item-top">
