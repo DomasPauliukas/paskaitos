@@ -5,7 +5,7 @@ function CreateTestimonialItem (props) {
 const { name, title, paragraph, imageSrc, verified } = props
     
 if (!name || !paragraph) {
-  return ''
+  return 
 }
 
 const verifiedText = verified ? 'Verified Graduate' : 'Not Verified'
@@ -26,16 +26,12 @@ return (
             {personPhoto}
 
            <div className="initials">
-          
              <span> {name} </span>
              <span> {verifiedText} </span>
-
            </div>
-
       </header>
 
        <main>
-
           {titleText}
           {/* vietoj kintamojo, galima rasyti tiesiai cia visa logika {} skliaustuose */}
           {/* {title ? 
