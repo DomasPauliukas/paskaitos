@@ -1,7 +1,6 @@
 import './KnowledgeItem.css'
 
-function KnowledgeItem (props) {
-    const {role, languages, tools, level} = props.data
+function KnowledgeItem ({role, level, languages, tools}) {
 
     const roleTag = role ? <span>{role}</span> : ''
     const levelTag = level ? <span>{level}</span> : ''

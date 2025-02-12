@@ -1,3 +1,5 @@
+import './JobListingPage.css'
+
 import PhotosnapLogo from './assets/photosnap.svg'
 import ManageLogo from './assets/manage.svg'
 import AccountLogo from './assets/account.svg'
@@ -10,8 +12,7 @@ import EyecamLogo from './assets/eyecam-co.svg'
 import AirFilterLogo from './assets/the-air-filter-company.svg'
 
 import Header from "./components/Header/Header"
-import KnowledgeComponent from './components/KnowledgeComponent/KnowledgeComponent'
-import LogoComponent from './components/LogoComponent/LogoComponent'
+import JobListingItem from './components/JobListingItem/JobListingItem'
 
 
 
@@ -174,11 +175,12 @@ function JobListingPage () {
         <>
             <Header></Header>
 
+          <div className='JobListingWrapper'>
+            {JobListingData.map((item,index) => (
+              <JobListingItem key={index} data={item}/>
+            ))}
+          </div>
 
-            <KnowledgeComponent data={JobListingData}></KnowledgeComponent>
-            <LogoComponent data={JobListingData}></LogoComponent>
-
-        
         </>
     )
 }

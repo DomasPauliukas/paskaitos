@@ -3,7 +3,7 @@ import HeaderLogo from '../../assets/bg-header-desktop.svg'
 
 function Header () {
     return (
-        <img src={HeaderLogo} alt="" />
+        <img className="header-logo" src={HeaderLogo} alt="" />
     )
 }
 export default Header

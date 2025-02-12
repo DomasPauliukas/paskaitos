@@ -1,12 +1,9 @@
 import './LogoItem.css'
 
 
-function LogoItem (props) {
-    const {logo} = props.data
-    console.log(logo)
+function LogoItem ({logo}) {
     return (
-        
-        <div>
+        <div className='jobLogo'>
             <img src={logo} alt="" />
         </div>
     )

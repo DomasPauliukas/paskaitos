@@ -1,0 +1,26 @@
+.newTag {
+    background-color: rgb(71, 156, 146);
+    padding: 5px;
+    border-radius: 20px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.featuredTag {
+    background-color: black;
+    padding: 5px;
+    border-radius: 20px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.companyName {
+    color: rgb(71, 156, 146);
+    font-weight: bold;
+}
+
+.companyWrap span {
+    margin-right: 10px;
+}
