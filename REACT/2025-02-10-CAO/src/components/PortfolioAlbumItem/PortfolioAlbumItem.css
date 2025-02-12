@@ -1,0 +1,18 @@
+.portfolioAlbumItem {
+    border: 1px solid black;
+    width: 200px;
+}
+
+.imageWrapper img{
+    display: block;
+    width: 200px;
+}
+
+.titleWrapper {
+    text-align: center;
+    background-color: beige;
+}
+
+.titleWrapper h3 {
+    margin: 0px;
+}

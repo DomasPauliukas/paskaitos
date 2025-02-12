@@ -10,17 +10,17 @@ header{
   display: flex;
   flex-direction: column;
 }
-.nav-wrapper{
+.navWrapper{
   display: flex;
   column-gap: 25px;
   background-color: rgb(25, 5, 98);
   padding: 20px;
 }
-.image-wrapper{
+.imageWrapper{
   padding: 20px;
   background-color: white;
 }
-.image-wrapper img{
+.imageWrapper img{
   width: 30%;
 }
 
@@ -29,27 +29,27 @@ main{
 
 }
 
-.main-header-image{
+.mainHeaderImage{
   height: 300px;
   background-color: rgb(164, 220, 69);
   text-align: center;
   align-content: center;
   margin: 20px 0px;
 }
-.main-header-image p{
+.mainHeaderImage p{
   color: antiquewhite;
   font-size: 40px;
 }
-.info-wrapper{
+.infoWrapper{
   display: flex;
   column-gap: 20px;
 }
-.info-item{
+.infoItem{
   width: 30%;
   padding: 20px;
   background-color: white;
 }
-.info-item h1{
+.infoItem h1{
   font-size: 26px;
 }
 p{
@@ -57,7 +57,7 @@ p{
 }
 
 
-.content-wrapper{
+.contentWrapper{
   display: grid;
   grid-template-columns: 2fr 1fr;
   padding: 20px;
@@ -68,13 +68,13 @@ p{
 .navigation-text{
 }
 
-.navigation-text a{
+.navigationText a{
   display: block;
   padding: 20px 30px;
   background-color: rgb(237, 235, 235);
   color: black;
 }
 
-.text-section{
+.textSection{
   padding-right: 20px;
 }
