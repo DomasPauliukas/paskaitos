@@ -1,5 +1,4 @@
 import VideoItem from "../VideoItem/VideoItem"
-import ArrowLogo from "../../assets/NaujienosImages/arrow.svg"
 import './Videos.css'
 function Videos (props) {
 const {data} = props
@@ -13,12 +12,7 @@ const {data} = props
                     key={index}
                     data={video}
                     />
-                ))}
-                
-                <div className="visos-naujienos">
-                    <h3>Visi vaizdo įrašai</h3>
-                    <img src={ArrowLogo} alt="" />
-                </div>  
+                ))} 
             </div>
     )
 }

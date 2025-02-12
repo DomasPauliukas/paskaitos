@@ -1,7 +1,6 @@
 import './NaujienosPage.css'
 import PlayCircleLogo from '../assets/NaujienosImages/8666551_play_circle_icon.svg'
 import Photo1 from '../assets/NaujienosImages/20240916_112845-1-scaled-e1728646393611.jpg'
-import ArrowLogo from '../assets/NaujienosImages/arrow.svg'
 import Photo2 from '../assets/NaujienosImages/automation.jpg'
 import Photo3 from '../assets/NaujienosImages/CA_event_dirbtuves-su-Mariumi-Paresiumi_2024-10-26_FB-post_1080x1080-768x768 (1).jpg'
 import ThumbnailLogo1 from '../assets/NaujienosImages/CA_podcast_09_2024_YT-thumbnail-300x169.jpg'
@@ -19,6 +18,7 @@ import Videos from '../components/Videos/Videos'
 import StickerNavigation from '../components/StickerNavigation/StickerNavigation'
 import Events from '../components/Events/Events'
 import Footer from '../components/Footer/Footer'
+import MoreLink from '../components/MoreLink/MoreLink'
 
 const mainNewsData = [
     {
@@ -134,20 +134,27 @@ function NaujienosPage () {
         <ButtonsOnTop></ButtonsOnTop>
 
         <div className="main">
-                 <div className="naujienos">
+                <div className="naujienos">
                 <h1>Naujienos</h1>
                 <MainNews data={mainNewsData}></MainNews>
                 <SecondaryNews data={secondaryNewsData}></SecondaryNews>
-
-                <div className="visos-naujienos">
-                    <h3>Visos naujienos</h3>
-                    <img src={ArrowLogo} alt="" />
-                </div>
+                <MoreLink><h3>Visos naujienos</h3></MoreLink>
                 </div>
 
+                <div>
                 <Podcasts data={podcastData}></Podcasts>
+                <MoreLink><h3>Visi podkestai</h3></MoreLink>
+                </div>
+
+                <div>
                 <Videos data={videoData}></Videos>
+                <MoreLink><h3>Visi vaizdo įrašai</h3></MoreLink>
+                </div>
+
+                <div>
                 <Events data={eventsData}></Events>
+                <MoreLink><h3>Daugiau renginių</h3></MoreLink>
+                </div>
         </div>
                 <StickerNavigation></StickerNavigation>
                 <Footer></Footer>

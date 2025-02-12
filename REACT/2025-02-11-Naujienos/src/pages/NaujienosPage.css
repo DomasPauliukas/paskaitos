@@ -46,17 +46,5 @@ body {
     -moz-column-gap: 25px;
          column-gap: 25px;
   }
-  
-  .visos-naujienos {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 24px;
-    border-radius: 10px;
-    background-color: white;
-    padding: 0px 25px;
-  }
-  .visos-naujienos img {
-    width: 3%;
-  }
+
   /*# sourceMappingURL=Naujienos.css.map */

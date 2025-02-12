@@ -1,4 +1,3 @@
-import ArrowLogo from '../../assets/NaujienosImages/arrow.svg'
 import './Events.css'
 import EventItem from '../EventItem/EventItem'
 
@@ -15,12 +14,7 @@ function Events (props) {
                 data={item}
                 />
             ))}
-            
-           <div className="visos-naujienos">
-            <h3>Daugiau</h3>
-            <img src={ArrowLogo} alt="" />
-        </div>  
-    </div>    
+        </div>    
         
     )
 }
