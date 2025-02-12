@@ -1,0 +1,12 @@
+.knowledgeItem {
+    display: flex;
+    gap: 10px;
+}
+
+.knowledgeItem span {
+    background-color: rgb(202, 230, 226);
+    color: rgb(71, 156, 146);
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 900;
+}
