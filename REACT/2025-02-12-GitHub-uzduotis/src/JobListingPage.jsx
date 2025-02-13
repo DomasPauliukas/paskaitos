@@ -1,18 +1,18 @@
 import './JobListingPage.css'
 
-import PhotosnapLogo from './assets/photosnap.svg'
-import ManageLogo from './assets/manage.svg'
-import AccountLogo from './assets/account.svg'
-import MyHomeLogo from './assets/myhome.svg'
-import LoopStudiosLogo from './assets/loop-studios.svg'
-import FaceItLogo from './assets/faceit.svg'
-import ShortlyLogo from './assets/shortly.svg'
-import InsureLogo from './assets/insure.svg'
-import EyecamLogo from './assets/eyecam-co.svg'
-import AirFilterLogo from './assets/the-air-filter-company.svg'
+import PhotosnapLogo from './assets/JobListing/photosnap.svg'
+import ManageLogo from './assets/JobListing/manage.svg'
+import AccountLogo from './assets/JobListing/account.svg'
+import MyHomeLogo from './assets/JobListing/myhome.svg'
+import LoopStudiosLogo from './assets/JobListing/loop-studios.svg'
+import FaceItLogo from './assets/JobListing/faceit.svg'
+import ShortlyLogo from './assets/JobListing/shortly.svg'
+import InsureLogo from './assets/JobListing/insure.svg'
+import EyecamLogo from './assets/JobListing/eyecam-co.svg'
+import AirFilterLogo from './assets/JobListing/the-air-filter-company.svg'
 
-import Header from "./components/Header/Header"
-import JobListingItem from './components/JobListingItem/JobListingItem'
+import Header from "./components/JobListings/Header/Header"
+import JobListingItem from './components/JobListings/JobListingItem/JobListingItem'
 
 
 

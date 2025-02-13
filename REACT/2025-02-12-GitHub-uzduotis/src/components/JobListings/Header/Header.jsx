@@ -1,5 +1,5 @@
 import './Header.css'
-import HeaderLogo from '../../assets/bg-header-desktop.svg'
+import HeaderLogo from '../../../assets/JobListing/bg-header-desktop.svg'
 
 function Header () {
     return (
