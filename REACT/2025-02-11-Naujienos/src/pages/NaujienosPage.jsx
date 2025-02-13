@@ -19,6 +19,7 @@ import StickerNavigation from '../components/StickerNavigation/StickerNavigation
 import Events from '../components/Events/Events'
 import Footer from '../components/Footer/Footer'
 import MoreLink from '../components/MoreLink/MoreLink'
+import News from '../components/News/News'
 
 const mainNewsData = [
     {
@@ -134,13 +135,7 @@ function NaujienosPage () {
         <ButtonsOnTop></ButtonsOnTop>
 
         <div className="main">
-            
-                <div className="naujienos">
-                <h1>Naujienos</h1>
-                <MainNews data={mainNewsData}></MainNews>
-                <SecondaryNews data={secondaryNewsData}></SecondaryNews>
-                <MoreLink><h3>Visos naujienos</h3></MoreLink>
-                </div>
+                <News mainNewsData={mainNewsData} secondaryNewsData={secondaryNewsData}></News>
 
                 <Podcasts data={podcastData}></Podcasts>
                 <Videos data={videoData}></Videos>
