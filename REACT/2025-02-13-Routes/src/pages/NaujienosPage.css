@@ -12,9 +12,10 @@ h1 {
    }
  }
  
-  
-body {
+.newsPageContainer{
     background-color: rgb(227, 227, 227);
+}
+body {
     margin: 0px;
   }
   

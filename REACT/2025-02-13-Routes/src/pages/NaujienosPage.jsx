@@ -128,6 +128,7 @@ const eventsData = [
 function NaujienosPage () {
     return (
     <>
+    <div className='newsPageContainer'>
         <Header></Header>
         <ButtonsOnTop></ButtonsOnTop>
 
@@ -140,6 +141,7 @@ function NaujienosPage () {
         </div>
                 <StickerNavigation></StickerNavigation>
                 <Footer></Footer>
+    </div>
     </>
     )
 }

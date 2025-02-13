@@ -1,0 +1,9 @@
+.pageContainer {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: rgb(246, 241, 234);
+}

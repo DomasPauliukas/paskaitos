@@ -1,0 +1,8 @@
+.dessertsWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.menuWrapper h1 {
+    margin-top: 0px;
+}

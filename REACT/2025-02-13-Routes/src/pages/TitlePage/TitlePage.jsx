@@ -20,6 +20,12 @@ function TitlePage () {
         <h2>Naujienos</h2>
         <Link to="/Naujienos">open</Link>
         </CardItem>
+
+        <CardItem>
+        <h2>Desserts menu</h2>
+        <Link to="/DessertsMenu">open</Link>
+        </CardItem>
+
         </>
     )
 }

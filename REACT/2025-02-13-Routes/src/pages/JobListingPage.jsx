@@ -1,3 +1,5 @@
+// https://github.com/frontendmentorio/static-job-listings/
+
 import './JobListingPage.css'
 
 import PhotosnapLogo from '../assets/JobListing/photosnap.svg'
