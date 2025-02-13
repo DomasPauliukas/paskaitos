@@ -1,0 +1,51 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+   font-size: 40px;
+ }
+ @media (max-width: 700px) {
+   h1 {
+     text-align: center;
+   }
+ }
+ 
+  
+body {
+    background-color: rgb(227, 227, 227);
+    margin: 0px;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .main {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    background-color: rgb(227, 227, 227);
+    padding-top: 30px;
+    padding-bottom: 150px;
+  }
+  @media (max-width: 900px) {
+    .main {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  .naujienos {
+    grid-column: span 1;
+    -moz-column-gap: 25px;
+         column-gap: 25px;
+  }
+
+  /*# sourceMappingURL=Naujienos.css.map */

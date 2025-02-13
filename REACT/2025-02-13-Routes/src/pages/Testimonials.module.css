@@ -1,0 +1,27 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+  }
+  
+  .outerBox{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    background-color: hsl(210, 46%, 95%);
+    font-size: 13px;
+    color: white;
+  }
+  
+  .mainBox{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 70px;
+  }
+  
+  .mainBox .item:nth-child(odd){
+    box-shadow: 1px 2px 30px rgb(182, 178, 178);
+  }

@@ -1,60 +1,80 @@
-.inner-box1 .item:nth-child(1){
+.innerBox1 .item:nth-child(1){
     width: calc(100% / 3 * 2 - 3%);
     margin-bottom: 3%;
     background-color: hsl(263, 55%, 52%);
-    background-image: url(images/bg-pattern-quotation.svg);
+    background-image: url(/src/assets/Testimonials/bg-pattern-quotation.svg);
     background-repeat: no-repeat ;
     background-position: 80% top;
+    border-radius: 10px;
+    padding: 30px;
 }
-.inner-box1 .item:nth-child(2){
+.innerBox1 .item:nth-child(2){
     width: calc(100% / 3);
     margin-bottom: 3%;
     background-color: hsl(217, 19%, 35%);
+    border-radius: 10px;
+    padding: 30px;
 }
-.inner-box1 .item:nth-child(3){
+.innerBox1 .item:nth-child(3){
     width: calc(100% / 3);
     background-color: hsl(0, 0%, 100%);
+    border-radius: 10px;
+    padding: 30px;
 }
-.inner-box1 .item:nth-child(3) h2{
+.innerBox1 .item:nth-child(3) h2{
     color: hsl(217, 19%, 35%);
 }
-.inner-box1 .item:nth-child(4){
+.innerBox1 .item:nth-child(4){
     width: calc(100% / 3 * 2 - 3%);
     background-color: hsl(219, 29%, 14%);
+    border-radius: 10px;
+    padding: 30px;
 }
-.inner-box2 .item:nth-child(1){
+.innerBox2 .item:nth-child(1){
     width: 100%;
     background-color: hsl(0, 0%, 100%);
+    border-radius: 10px;
+    padding: 30px;
 }
-.inner-box2 .item:nth-child(1) h2{
+.innerBox2 .item:nth-child(1) h2{
     color: hsl(217, 19%, 35%);
 }
-h2{
+
+.innerBox1 h2{
     font-size:large;
 }
-p{
+.innerBox2 h2 {
+    font-size:large;
+}
+.innerBox1 p{
     color: hsl(0, 0%, 81%);
     opacity: 70%;
     line-height: 1.4;
 }
-header span:nth-of-type(1){
+.innerBox2 p{
+    color: hsl(0, 0%, 81%);
+    opacity: 70%;
+    line-height: 1.4;
+}
+
+.testimonialHeader span:nth-of-type(1){
     font-weight: 600;
     color: hsl(0, 0%, 81%);
 }
-header span:nth-of-type(2){
+.testimonialHeader span:nth-of-type(2){
     color: hsl(0, 0%, 81%);
     opacity: 50%;
 }
-header{
+.testimonialHeader{
     display: flex;
     align-items: center;
 }
-header div.initials{
+.testimonialHeader div.initials{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     padding-left: 15px;
 }
-img{
+.testimonialHeader img{
     border-radius: 80%;
 }

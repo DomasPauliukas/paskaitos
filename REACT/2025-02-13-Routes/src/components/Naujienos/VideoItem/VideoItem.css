@@ -1,0 +1,26 @@
+.vaizdo-irasai .item:nth-of-type(1) {
+    grid-column: span 2;
+  }
+  .vaizdo-irasai .item:nth-of-type(1) iframe {
+    height: 400px;
+    width: 100%;
+  }
+  @media (max-width: 500px) {
+    .vaizdo-irasai .item:nth-of-type(1) iframe {
+      height: 270px;
+    }
+  }
+  @media (max-width: 900px) {
+    .vaizdo-irasai .item:nth-of-type(2), .vaizdo-irasai .item:nth-of-type(3) {
+      grid-column: span 2;
+    }
+    .vaizdo-irasai .item:nth-of-type(2) iframe, .vaizdo-irasai .item:nth-of-type(3) iframe {
+      height: 400px;
+      width: 100%;
+    }
+  }
+  @media (max-width: 900px) and (max-width: 500px) {
+    .vaizdo-irasai .item:nth-of-type(2) iframe, .vaizdo-irasai .item:nth-of-type(3) iframe {
+      height: 270px;
+    }
+  }

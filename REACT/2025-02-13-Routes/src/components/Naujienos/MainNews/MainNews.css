@@ -1,0 +1,28 @@
+.naujienos-big {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  @media (max-width: 700px) {
+    .naujienos-big {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .naujienos-big .item {
+    background-color: white;
+  }
+  .naujienos-big .item img {
+    width: 100%;
+    height: 280px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .naujienos-big .item .item-info {
+    padding: 40px 40px 60px;
+  }
+  .naujienos-big .item .item-info h3 {
+    font-size: 30px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
