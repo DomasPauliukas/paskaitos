@@ -2,6 +2,7 @@ import './EventItem.css'
 function EventItem (props) {
 
     const {image, day, month, address, title} = props.data
+    // jei day ir month butu objekte, tai cia rasytume date = props data. o paskui antras const { day, month} = date ir isstraukiam.
     console.log(image)
 
     const imageWrapper = image && <div className="renginiai-photo">
@@ -13,15 +14,13 @@ function EventItem (props) {
             <div className="item">
 
                     {imageWrapper}
-
-                    <div className="renginiai-data">
-                            <div className="data-number">
-                                {day}
-                            </div>
-                            <div className="data-pink">
-                                {month}
-                            </div>
-                    </div>
+                    
+                    {(day || month) && 
+                     <div className="renginiai-data">
+                        {day && <div className="data-number">{day}</div>}
+                        {month && <div className="data-pink">{month}</div>}
+                     </div>
+                    }
 
                     <div className="renginiai-adresas">
                          <div>

@@ -2,6 +2,10 @@ function NewsItem (props) {
 
     const { image, category, title, date } = props.data
   
+    if (!title) {
+        return
+    }
+
     return (
                 <div className="item">
             <div>
