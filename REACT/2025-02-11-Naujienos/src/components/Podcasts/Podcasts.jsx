@@ -1,3 +1,4 @@
+import MoreLink from "../MoreLink/MoreLink"
 import PodcastItem from "../PodcastItem/PodcastItem"
 import './Podcasts.css'
 function Podcasts (props) {
@@ -8,9 +9,6 @@ function Podcasts (props) {
         <div className="podcastai">
             <h1>Podcastai ir radijo laidos</h1>
 
-        {(data.length > 0) ?
-        
-        (
             {data.map((podcast,index) => (
                 <PodcastItem
                 key={index}
@@ -23,13 +21,7 @@ function Podcasts (props) {
                 />
             ))}
 
-        ) : 
-        ( 
-            <p>No podcasts at the moment...</p>
-        )
-        }
-
-        
+            <MoreLink><h3>Visi podkestai</h3></MoreLink>
         </div>
     )
 }

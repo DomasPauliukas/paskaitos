@@ -1,5 +1,6 @@
 import './Events.css'
 import EventItem from '../EventItem/EventItem'
+import MoreLink from '../MoreLink/MoreLink'
 
 function Events (props) {
     const {data} = props
@@ -14,6 +15,8 @@ function Events (props) {
                 data={item}
                 />
             ))}
+
+            <MoreLink><h3>Daugiau renginių</h3></MoreLink>
         </div>    
         
     )

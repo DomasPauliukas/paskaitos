@@ -134,6 +134,7 @@ function NaujienosPage () {
         <ButtonsOnTop></ButtonsOnTop>
 
         <div className="main">
+            
                 <div className="naujienos">
                 <h1>Naujienos</h1>
                 <MainNews data={mainNewsData}></MainNews>
@@ -141,20 +142,9 @@ function NaujienosPage () {
                 <MoreLink><h3>Visos naujienos</h3></MoreLink>
                 </div>
 
-                <div>
                 <Podcasts data={podcastData}></Podcasts>
-                <MoreLink><h3>Visi podkestai</h3></MoreLink>
-                </div>
-
-                <div>
                 <Videos data={videoData}></Videos>
-                <MoreLink><h3>Visi vaizdo įrašai</h3></MoreLink>
-                </div>
-
-                <div>
                 <Events data={eventsData}></Events>
-                <MoreLink><h3>Daugiau renginių</h3></MoreLink>
-                </div>
         </div>
                 <StickerNavigation></StickerNavigation>
                 <Footer></Footer>
