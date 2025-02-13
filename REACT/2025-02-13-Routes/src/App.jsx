@@ -1,16 +1,15 @@
 import './App.css'
-import JobListingPage from './pages/JobListingPage'
-import NaujienosPage from './pages/NaujienosPage'
-import Testimonials from './pages/Testimonials'
+import TitlePage from './pages/TitlePage/TitlePage'
 
 function App() {
 
 
   return (
     <>
-        <JobListingPage></JobListingPage>
+        <TitlePage/>
+        {/* <JobListingPage></JobListingPage>
         <Testimonials></Testimonials>
-        <NaujienosPage></NaujienosPage>
+        <NaujienosPage></NaujienosPage> */}
     </>
   )
 }
