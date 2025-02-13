@@ -1,4 +1,4 @@
-import ArrowLogo from '../../assets/NaujienosImages/arrow.svg'
+import ArrowLogo from '../../../assets/NaujienosImages/arrow.svg'
 import './MoreLink.css'
 
 function MoreLink (props) {

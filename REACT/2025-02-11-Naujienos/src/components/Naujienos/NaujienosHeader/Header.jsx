@@ -1,4 +1,4 @@
-import BlackLogo from '../../assets/NaujienosImages/codeacademy-black.svg'
+import BlackLogo from '../../../assets/NaujienosImages/codeacademy-black.svg'
 import './Header.css'
 
 function Header () {

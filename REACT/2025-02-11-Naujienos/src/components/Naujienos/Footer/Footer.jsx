@@ -1,4 +1,4 @@
-import WhiteLogo from '../../assets/NaujienosImages/codeacademy-white.svg'
+import WhiteLogo from '../../../assets/NaujienosImages/codeacademy-white.svg'
 import './Footer.css'
 
 function Footer () {

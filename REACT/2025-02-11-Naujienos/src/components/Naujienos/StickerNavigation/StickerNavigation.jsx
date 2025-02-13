@@ -1,4 +1,4 @@
-import SpinnerLogo from '../../assets/NaujienosImages/site-contact-form-button.png'
+import SpinnerLogo from '../../../assets/NaujienosImages/site-contact-form-button.png'
 import './StickerNavigation.css'
 
 function StickerNavigation () {

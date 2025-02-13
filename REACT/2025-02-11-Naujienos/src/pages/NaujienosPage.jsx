@@ -9,14 +9,14 @@ import Photo4 from '../assets/NaujienosImages/IMG_6582-scaled-e1724159397334-300
 import DILogo from '../assets/NaujienosImages/kas-yra-dirbtinis-intelektas.jpg'
 import SpotifyLogo from '../assets/NaujienosImages/Spotify-260x260.png'
 
-import Header from '../components/NaujienosHeader/Header'
-import ButtonsOnTop from '../components/NaujienosButtonsOnTop/ButtonsOnTop'
-import Podcasts from '../components/Podcasts/Podcasts'
-import Videos from '../components/Videos/Videos'
-import StickerNavigation from '../components/StickerNavigation/StickerNavigation'
-import Events from '../components/Events/Events'
-import Footer from '../components/Footer/Footer'
-import News from '../components/News/News'
+import Header from '../components/Naujienos/NaujienosHeader/Header'
+import ButtonsOnTop from '../components/Naujienos/NaujienosButtonsOnTop/ButtonsOnTop'
+import Podcasts from '../components/Naujienos/Podcasts/Podcasts'
+import Videos from '../components/Naujienos/Videos/Videos'
+import StickerNavigation from '../components/Naujienos/StickerNavigation/StickerNavigation'
+import Events from '../components/Naujienos/Events/Events'
+import Footer from '../components/Naujienos/Footer/Footer'
+import News from '../components/Naujienos/News/News'
 
 const mainNewsData = [
     {
