@@ -1,8 +1,8 @@
-import './TestimonialItem.css'
+import './CreateTestimonialItem.css'
 
 function CreateTestimonialItem (props) {
 
-const { name, title, paragraph, imageSrc, verified } = props
+const { name, title, paragraph, imageSrc, verified } = props.data
     
 if (!name || !paragraph) {
   return 
