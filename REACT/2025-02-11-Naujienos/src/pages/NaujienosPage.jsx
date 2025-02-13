@@ -11,14 +11,11 @@ import SpotifyLogo from '../assets/NaujienosImages/Spotify-260x260.png'
 
 import Header from '../components/NaujienosHeader/Header'
 import ButtonsOnTop from '../components/NaujienosButtonsOnTop/ButtonsOnTop'
-import MainNews from '../components/MainNews/MainNews'
-import SecondaryNews from '../components/SecondaryNews/SecondaryNews'
 import Podcasts from '../components/Podcasts/Podcasts'
 import Videos from '../components/Videos/Videos'
 import StickerNavigation from '../components/StickerNavigation/StickerNavigation'
 import Events from '../components/Events/Events'
 import Footer from '../components/Footer/Footer'
-import MoreLink from '../components/MoreLink/MoreLink'
 import News from '../components/News/News'
 
 const mainNewsData = [
