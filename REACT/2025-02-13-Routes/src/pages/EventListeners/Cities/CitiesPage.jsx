@@ -112,14 +112,12 @@ const formSubmitHandler = (event) => {
     }
     
     setCitiesData(prevState => [newCity, ...prevState])
-    console.log(touristAttractions)
     setName('')
     setPopulation('')
     setContinent('')
     setCountry('')
     setTouristAttractions([])
     setIsCapital(false)
-    
     
 }
 
@@ -134,7 +132,7 @@ const formSubmitHandler = (event) => {
             placeholder="City Name"
             value={name}
             onChange={nameHandler}
-            // required
+            required
           />
         </div>
         <div>
@@ -145,7 +143,7 @@ const formSubmitHandler = (event) => {
             placeholder="Population"
             value={population}
             onChange={populationHandler}
-            // required
+            required
           />
         </div>
         <div>
@@ -156,7 +154,7 @@ const formSubmitHandler = (event) => {
             placeholder="Continent"
             value={continent}
             onChange={continentHandler}
-            // required
+            required
           />
         </div>
         <div>
@@ -167,7 +165,7 @@ const formSubmitHandler = (event) => {
             placeholder="Country"
             value={country}
             onChange={countryHandler}
-            // required
+            required
           />
         </div>
         <div>
@@ -194,9 +192,6 @@ const formSubmitHandler = (event) => {
         </div>
         <button type="submit">Add City</button>
       </form>
-
-        
-
 
 
         <div className="citiesWrapper">
