@@ -1,6 +1,5 @@
 import { Link } from 'react-router'
 import CardItem from '../../components/TitlePage/CardItem'
-import styles from './TitlePage.module.css'
 
 function TitlePage () {
 
