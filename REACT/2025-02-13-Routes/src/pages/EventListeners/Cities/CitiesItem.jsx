@@ -1,17 +1,23 @@
 import styles from './CitiesItem.module.css'
 
 function CitiesItem (props) {
-
+    const { fullWidth } = props
     const {isCapital, location, name, population, touristAttractions} = props.data
     const {continent, country} = location
 
     const capitalTag = isCapital ? <span>(capital)</span> : ''
     const capitalSentence = isCapital ? <span>{name} is the capital of {country}.</span> : ''
 
+    const cityItemCardStyle = {
+        width: fullWidth ? '98%' : '48%',
+        border: isCapital ? '2px solid green' : '2px solid red',
+        padding: '15px'
+    }
 
     return (
 
-        <div className={styles.cityItem}>
+        // <div className={`${styles.cityItem} ${isCapital ? `${styles.capital}` : ''} ` }>
+        <div style={cityItemCardStyle} className={`${styles.cityItem} ${isCapital ? `${styles.capital}` : ''} ` }>
 
             <div className={styles.cityDescription}>
 
