@@ -12,6 +12,7 @@ import DessertsMenu from './pages/DessertsMenu.jsx'
 import EventListenersPage from './pages/EventListeners/EventListenersPage.jsx'
 import ButtonTask from './pages/EventListeners/ButtonTask/ButtonTask.jsx'
 import CitiesPage from './pages/EventListeners/Cities/CitiesPage.jsx'
+import CarsPage from './pages/EventListeners/Cars/CarsPage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -28,6 +29,7 @@ createRoot(document.getElementById('root')).render(
           <Route path='EventListenersPage' element={<EventListenersPage/>}/>
           <Route path='ButtonTask' element={<ButtonTask/>} />
           <Route path='CitiesPage' element={<CitiesPage/>}/>
+          <Route path='CarsPage' element={<CarsPage/>} />
         </Route>
 
           
