@@ -1,15 +1,16 @@
 import { useState } from "react"
 import { useEffect } from "react"
+import { Link } from "react-router-dom"
 
 function AlbumPage () {
 
-const [albumData, setAlbumData] = useState('')
+const [albums, setAlbums] = useState([])
 
 useEffect(() => {
     async function fetchAlbums () {
-        const res = await fetch('https://jsonplaceholder.typicode.com/albums')
-        const albums = await res.json()
-        setAlbumData(albums)
+        const res = await fetch('https://jsonplaceholder.typicode.com/albums?_embed=photos&_expand=user')
+        const albumsData = await res.json()
+        setAlbums(albumsData)
     }
     fetchAlbums()
 })
@@ -17,10 +18,13 @@ useEffect(() => {
     return (
         <div>
             <div>Album Page</div>
-            {/* {albumData.map((album, index) => {
-                <p key={index}>{album.title}</p>
-            })}
-             */}
+            {albums.map((album, index) => (
+                <li key={index}>
+                    <Link to={`/Albums/${album.id}`}>{album.id}. {album.title} ({album.photos.length} photos)</Link>
+                </li>
+
+            ))}
+            
 
 
         </div>
