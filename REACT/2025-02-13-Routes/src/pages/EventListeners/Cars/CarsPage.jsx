@@ -30,19 +30,22 @@ function CarsPage () {
 
     const [brand, setBrand] = useState('')
     const [model, setModel] = useState('')
-    const [engine, setEngine] = useState('')
+    const [engine, setEngine] = useState('electric')
     const [price, setPrice] = useState('')
     const [mileage, setMileage] = useState('')
-    const [color, setColor] = useState('')
+    const [color, setColor] = useState('black')
     const [imageUrl, setImageUrl] = useState('')
+    const [otherColor, setOtherColor] = useState('')
+
 
     const BrandNameHandler = (event) => setBrand(event.target.value)
     const ModelNameHandler = (event) => setModel(event.target.value)
     const EngineTypeHandler = (event) => setEngine(event.target.value)
-    const InitialPriceHandler = (event) => setPrice(Number(event.target.value))
-    const MileageHandler = (event) => setMileage(Number(event.target.value))
+    const InitialPriceHandler = (event) => setPrice(event.target.value)
+    const MileageHandler = (event) => setMileage(event.target.value)
     const CarColourHandler = (event) => setColor(event.target.value)
     const CarLinkHandler = (event) => setImageUrl(event.target.value)
+    const OtherColorHandler = (event) => setOtherColor(event.target.value)
 
     const FormSubmitHandler = (event) => {
         event.preventDefault()
@@ -51,21 +54,23 @@ function CarsPage () {
         brand,
         model,
         engine,
-        price,
-        mileage,
+        price: Number(price),
+        mileage: Number(mileage),
         color,
-        imageUrl
+        imageUrl,
+        otherColor
     }
 
     setCars((prevState) => [newCar, ...prevState])
 
     setBrand('')
     setModel('')
-    setEngine('')
+    setEngine('electric')
     setPrice('')
     setMileage('')
-    setColor('')
+    setColor('black')
     setImageUrl('')
+    setOtherColor('')
 }
 
     return (
@@ -89,10 +94,10 @@ function CarsPage () {
             <div className="formControl">
             <label htmlFor="engineType">Engine Type: </label>
             <select name="engineType" id="engineType" value={engine} onChange={EngineTypeHandler}>
-                <option value="Electric">Electric</option>
-                <option value="Diesel">Diesel</option>
-                <option value="Petrol">Petrol</option>
-                <option value="Hybrid">Hybrid</option>
+                <option value="electric">Electric</option>
+                <option value="diesel">Diesel</option>
+                <option value="petrol">Petrol</option>
+                <option value="hybrid">Hybrid</option>
             </select>
             </div>
 
@@ -109,15 +114,23 @@ function CarsPage () {
             <div className="formControl">
             <label htmlFor="carColour">Colour: </label>
             <select name="carColour" id="carColour" value={color} onChange={CarColourHandler}>
-                <option value="Black">Black</option>
-                <option value="Red">Red</option>
-                <option value="Blue">Blue</option>
-                <option value="Silver">Silver</option>
-                <option value="White">White</option>
-                <option value="Special blue">Special blue</option>
-                <option value="Other">Other</option>
+                <option value="black">Black</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="silver">Silver</option>
+                <option value="white">White</option>
+                <option value="special blue">Special blue</option>
+                <option value="other">Other</option>
             </select>
             </div>
+
+        {color === 'other' && (
+            <div className="formControl">
+            <label htmlFor="otherColour">Other: </label>
+            <input type="color" name="otherColour" value={otherColor} onChange={OtherColorHandler} />
+            </div>
+        )}
+
 
             <div className="formControl">
             <label htmlFor="carLink">Image link: </label>

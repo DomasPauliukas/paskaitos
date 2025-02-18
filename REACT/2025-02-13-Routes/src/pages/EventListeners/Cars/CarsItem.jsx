@@ -1,22 +1,24 @@
 
 function CarsItem (props) {
 
-    const { brand, model, engine, price, imageUrl, mileage, color } = props.data
+    const { brand, model, engine, price, imageUrl, mileage, color, otherColor } = props.data
 
     let enginePrice = 0
 
-    if (engine === 'Electric') {
+    if (engine === 'electric') {
         enginePrice = 10000
-    } else if (engine === 'Hybrid') {
+    } else if (engine === 'hybrid') {
         enginePrice = 7500
-    } else if (engine === 'Diesel') {
+    } else if (engine === 'diesel') {
         enginePrice = 5000
     }
 
     let colorPrice = 0
 
-    if (color === 'Special blue') {
+    if (color === 'special blue') {
         colorPrice = 500
+    } else if (color ===  'other') {
+        colorPrice = 3000
     }
 
     let discountPersentage = 0
@@ -42,11 +44,11 @@ function CarsItem (props) {
             <h3>Car price:</h3>
             <p>{brand} ({model})</p>
             <ol>
-                <li>Initial price: ${price}</li>
+                <li>Initial price: {price} EUR</li>
                 <li>Extra conditions:</li>
                 <ol>
                    <li>Engine type - {engine}. (+ {enginePrice} EUR.)</li>
-                   <li>Color - {color}. (+ {colorPrice} EUR.)</li>
+                   <li>Color - {color === 'other' ? otherColor : color}. (+ {colorPrice} EUR.)</li>
                    <li>Price increase: {enginePrice + colorPrice} EUR.</li>
                 </ol>
                 <li>Discount for mileage:</li>
@@ -55,7 +57,7 @@ function CarsItem (props) {
                     <li>Discount - {discountPersentage}%</li>
                 </ol>
                 <li>Final Price without PVM: {priceWithoutPvm} EUR.</li>
-                <li>PVM: {pvmSum}</li>
+                <li>PVM: {pvmSum.toFixed(2)}</li>
                 <li>Final Price: {pvmSum + priceWithoutPvm}</li>
             </ol>
 
