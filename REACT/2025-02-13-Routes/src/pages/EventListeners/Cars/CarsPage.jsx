@@ -1,6 +1,25 @@
 import { useState } from "react"
 import CarsItem from "./CarsItem"
 
+const ENGINE_TYPES = [
+    {
+        label: 'Electric',
+        value: 'electric'
+    },
+    {
+        label: 'Diesel',
+        value: 'diesel'
+    },
+    {
+        label: 'Petrol',
+        value: 'petrol'
+    },
+    {
+        label: 'Hybrid',
+        value: 'hybrid'
+    }
+]
+
 function CarsPage () {
 
     const carInfoData = [
@@ -94,10 +113,10 @@ function CarsPage () {
             <div className="formControl">
             <label htmlFor="engineType">Engine Type: </label>
             <select name="engineType" id="engineType" value={engine} onChange={EngineTypeHandler}>
-                <option value="electric">Electric</option>
-                <option value="diesel">Diesel</option>
-                <option value="petrol">Petrol</option>
-                <option value="hybrid">Hybrid</option>
+                {ENGINE_TYPES.map(engine => (
+                    <option key={engine.value} value={engine.value}>{engine.label}</option>
+
+                ))}
             </select>
             </div>
 
