@@ -22,12 +22,16 @@ createRoot(document.getElementById('root')).render(
       <Route index element={<App />} />
       <Route path='Albums' element={<AlbumPage/>} />
       <Route path='Albums/:id' element={<AlbumItem/>} />
+
       <Route path='Comments' element={<CommentsPage/>} />
       <Route path='Comments/:id' element={<CommentsItem/>} />
+
       <Route path='Posts' element={<PostsPage/>} />
       <Route path='Posts/:id' element={<PostsItem/>} />
+
       <Route path='Todos' element={<TodosPage/>} />
       <Route path='Todos/:id' element={<TodosItem/>} />
+      
       <Route path='Users' element={<UsersPage/>} />
       <Route path='Users/:id' element={<UsersItem/>} />
     </Routes>

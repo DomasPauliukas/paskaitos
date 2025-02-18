@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 function AlbumItem () {
 const { id } = useParams()
@@ -11,12 +11,17 @@ useEffect(() => {
     .then(albumData =>{
         setAlbum(albumData)
     })
-}, [])
+}, [id])
 
-console.log(album.user.name)
+if(!album) {
+    return <div>Loading...</div>
+}
 
     return (
-        <div>Album Item</div>
+        <div>
+            <h1>Album - {album.title}</h1>
+            <p>By <Link to={`/Users/${album.user.id}`}>{album.user.name}</Link></p>
+        </div>
     )
 }
 

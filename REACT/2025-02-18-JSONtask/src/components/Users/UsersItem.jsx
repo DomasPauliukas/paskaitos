@@ -1,8 +1,38 @@
+import { useEffect, useState } from "react"
+import { Link, useParams } from "react-router-dom"
 
 function UsersItem () {
+const { id } = useParams()
+const [user, setUser] = useState([])
 
+useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}?_embed=posts`)
+    .then(res => res.json())
+    .then(userData => {
+        setUser(userData)
+    })
+}, [id])
+
+if(!user) {
+    return <div>Loading...</div>
+}
     return (
-        <div>UsersItem</div>
+
+        <div>
+            <h1>{user.name}</h1>
+
+            <h2>Users Posts:</h2>
+
+            {user.posts && (
+                user.posts.map((post, index) => (
+                    <li key={index}>
+                        <Link to={`/Posts/${post.id}`}>{post.title}</Link>
+                    </li>
+                ))
+                
+            )}
+
+        </div>
     )
 }
 
