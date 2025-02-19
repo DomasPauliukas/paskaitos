@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
+import { API_URL } from "../APIaddress"
 
 function AlbumItem () {
 const { id } = useParams()
 const [album, setAlbum] = useState('')
 
 useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/albums/${id}?_embed=photos&_expand=user`)
+    fetch(`${API_URL}/albums/${id}?_embed=user`)
     .then(res => res.json())
     .then(albumData =>{
         setAlbum(albumData)

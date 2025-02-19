@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
+import { API_URL } from "../APIaddress"
 
 function CommentsItem () {
 
@@ -8,7 +9,7 @@ const [comment, setComment] = useState('')
 
 useEffect(() => {
     async function fetchComment() {
-        const res = await fetch(`https://jsonplaceholder.typicode.com/comments/${id}?_expand=post`)
+        const res = await fetch(`${API_URL}/comments/${id}?_embed=post`)
         const commentData = await res.json()
         setComment(commentData)
     }

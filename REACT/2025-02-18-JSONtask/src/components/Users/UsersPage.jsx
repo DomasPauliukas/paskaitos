@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { API_URL } from "../APIaddress"
 
 function UsersPage () {
 const [users, setUsers] = useState([])
 
 useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users?_embed=posts`)
+    fetch(`${API_URL}/users?_embed=posts`)
     .then(res => res.json())
     .then(usersData => {
         setUsers(usersData)
@@ -15,6 +16,9 @@ useEffect(() => {
 
     return (
     <div>
+        <button>
+            <Link to={`/Users/Create`}>Create User</Link>
+        </button>
         <div>UsersPage</div>
 
         {users.map((user, index) => (

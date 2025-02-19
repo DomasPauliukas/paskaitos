@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { API_URL } from "../APIaddress"
 
 function PostsPage () {
 
@@ -7,7 +8,7 @@ const [posts, setPosts] = useState([])
 
 useEffect(() => {
     async function fetchPosts() {
-        const res = await fetch (`https://jsonplaceholder.typicode.com/posts?_expand=user`)
+        const res = await fetch (`${API_URL}/posts?_embed=user`)
         const post = await res.json()
         setPosts(post)
     }
@@ -15,6 +16,9 @@ useEffect(() => {
 }, [])
     return (
         <div>
+            <button>
+                <Link to={`/Posts/Create`}>Create Post</Link>
+            </button>
             <div>PostsPage</div>
 
         {posts.map((post, index) => (

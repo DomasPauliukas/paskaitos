@@ -18,10 +18,6 @@ function TitlePage () {
             <Link to={'/Posts'}>open</Link>
         </div>
         <div className="jsonItem">
-            <h2>Todos</h2>
-            <Link to={'/Todos'}>open</Link>
-        </div>
-        <div className="jsonItem">
             <h2>Users</h2>
             <Link to={'/Users'}>open</Link>
         </div>

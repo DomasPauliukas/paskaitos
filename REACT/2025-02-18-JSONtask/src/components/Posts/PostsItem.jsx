@@ -1,19 +1,31 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
+import { API_URL } from "../APIaddress"
 
 function PostsItem () {
 
 const { id } = useParams()
 const [post, setPost] = useState(null)
+let navigate = useNavigate()
+
 
 useEffect(() => {
     async function fetchPost() {
-       const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}?_expand=user&_embed=comments`)
+       const res = await fetch(`${API_URL}/posts/${id}?_embed=user&_embed=comments`)
        const postData = await res.json()
        setPost(postData)
     }
        fetchPost()
 }, [id])
+
+
+const deleteHandler = () => {
+    fetch(`${API_URL}/posts/${id}`, {
+        method: 'DELETE',
+      });
+    navigate(`/Posts`)
+}
+
 
     if(!post) {
         return <div>Loading...</div>
@@ -35,6 +47,8 @@ useEffect(() => {
                     </li>
                 ))
             )}
+
+            <button onClick={deleteHandler}>delete</button>
         </div>
     )
 }

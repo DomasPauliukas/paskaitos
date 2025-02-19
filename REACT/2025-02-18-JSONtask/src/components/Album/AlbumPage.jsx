@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
+import { API_URL } from "../APIaddress"
 
 function AlbumPage () {
 
@@ -8,7 +9,7 @@ const [albums, setAlbums] = useState([])
 
 useEffect(() => {
     async function fetchAlbums () {
-        const res = await fetch('https://jsonplaceholder.typicode.com/albums?_embed=photos&_expand=user')
+        const res = await fetch(`${API_URL}/albums?_embed=photos`)
         const albumsData = await res.json()
         setAlbums(albumsData)
     }
@@ -17,6 +18,9 @@ useEffect(() => {
 
     return (
         <div>
+            <button>
+                <Link to={`/Albums/Create`}>Create Album</Link>
+            </button>
             <div>Album Page</div>
             {albums.map((album, index) => (
                 <li key={index}>

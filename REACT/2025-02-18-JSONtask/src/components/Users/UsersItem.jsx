@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
+import { API_URL } from "../APIaddress"
 
 function UsersItem () {
 const { id } = useParams()
 const [user, setUser] = useState([])
 
 useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}?_embed=posts`)
+    fetch(`${API_URL}/users/${id}?_embed=posts`)
     .then(res => res.json())
     .then(userData => {
         setUser(userData)
