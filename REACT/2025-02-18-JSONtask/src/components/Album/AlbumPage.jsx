@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { API_URL } from "../APIaddress"
+import HomeNav from "../HomeNav"
 
 function AlbumPage () {
 
@@ -30,7 +31,7 @@ useEffect(() => {
             ))}
             
 
-
+            <HomeNav/>
         </div>
     )
 }

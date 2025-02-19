@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { API_URL } from "../APIaddress"
+import HomeNav from "../HomeNav"
 
 function PostsPage () {
 
@@ -28,7 +29,7 @@ useEffect(() => {
         ))}
 
 
-
+        <HomeNav></HomeNav>
         </div>
     )
 }

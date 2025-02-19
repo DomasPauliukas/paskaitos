@@ -28,7 +28,7 @@ createRoot(document.getElementById('root')).render(
 
       <Route path='Comments' element={<CommentsPage/>} />
       <Route path='Comments/:id' element={<CommentsItem/>} />
-      <Route path='Comments/create' element={<CreateComment/>} />
+      <Route path='Comments/create/:id' element={<CreateComment/>} />
 
       <Route path='Posts' element={<PostsPage/>} />
       <Route path='Posts/:id' element={<PostsItem/>} />

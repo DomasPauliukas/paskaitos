@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { API_URL } from "../APIaddress"
+import HomeNav from "../HomeNav"
 
 function CommentsPage () {
 
@@ -16,9 +17,6 @@ useEffect(() => {
 
 return (
         <div>
-            <button>
-                <Link to={`/Comments/Create`}>Create Comment</Link>
-            </button>
             <div>CommentsPage</div>
             {comments.map((comment, index) => (
                 <li key={index}>
@@ -26,7 +24,7 @@ return (
                 </li>
             ))}
 
-
+            <HomeNav/>
         </div>
     )
 }

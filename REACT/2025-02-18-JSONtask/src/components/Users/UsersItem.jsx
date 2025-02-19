@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { API_URL } from "../APIaddress"
+import HomeNav from "../HomeNav"
 
 function UsersItem () {
 const { id } = useParams()
@@ -27,12 +28,13 @@ if(!user) {
             {user.posts && (
                 user.posts.map((post, index) => (
                     <li key={index}>
-                        <Link to={`/Posts/${post.id}`}>{post.title}</Link>
+                        <Link to={`/Posts/${post.id}`}>{post.title} (ID: {post.id})</Link>
                     </li>
                 ))
                 
             )}
 
+<HomeNav/>
         </div>
     )
 }
