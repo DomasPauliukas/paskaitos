@@ -8,6 +8,7 @@ const [title, setTitle] = useState('')
 const [body, setBody] = useState('')
 const [users, setUsers] = useState('')
 const [selectedUser, setSelectedUser] = useState('')
+const [error, setError] = useState('')
 
 let navigate = useNavigate()
 
@@ -30,6 +31,11 @@ const selectedUserHandler = (event) => setSelectedUser(event.target.value)
 const PostSubmitHandler = async (event) => {
     event.preventDefault()
 
+    if(!title || !body) {
+        setError('You have to write post TITLE and BODY')
+        return
+    }
+
     const newPost = {
         title,
         body,
@@ -51,9 +57,11 @@ const PostSubmitHandler = async (event) => {
       setBody('')
       setTitle('')
       setSelectedUser(users[0].id)
+      setError('')
 
       navigate(`/Posts/${newPostData.id}`)
 }
+
 
 
     return (
@@ -82,6 +90,8 @@ const PostSubmitHandler = async (event) => {
                     </div>
                 )}
                 <button type="submit">create</button>
+
+                {error && <p>{error}</p>}
             </form>
         </div>
 
