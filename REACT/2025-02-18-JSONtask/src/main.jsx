@@ -17,6 +17,7 @@ import CreatePost from "./components/Posts/CreatePost.jsx";
 import CreateUser from "./components/Users/CreateUser.jsx";
 import EditAlbum from "./components/Album/EditAlbum.jsx";
 import NavLinks from "./components/NavLinks.jsx";
+import EditComment from "./components/Comments/EditComment.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -32,6 +33,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="Comments" element={<CommentsPage />} />
         <Route path="Comments/:id" element={<CommentsItem />} />
         <Route path="Comments/create/:id" element={<CreateComment />} />
+        <Route path="Comments/edit/:id" element={<EditComment />} />
 
         <Route path="Posts" element={<PostsPage />} />
         <Route path="Posts/:id" element={<PostsItem />} />
