@@ -29,7 +29,7 @@ if(!comment) {
 }
     return (
         <div>
-            <h1>Comment title - {comment.name}</h1>
+            <h1>({comment.id}) Comment title - {comment.name}</h1>
             <button onClick={deleteCommentHandler} value={comment.id}>Delete comment</button>
             <h3>Post: <Link to={`/Posts/${comment.postId}`}>{comment.post.title}</Link></h3>
             <h3>Comment: {comment.body}</h3>
