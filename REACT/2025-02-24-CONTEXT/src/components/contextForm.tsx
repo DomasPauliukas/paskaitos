@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useContext, useState } from "react";
+import React, { ChangeEvent, useContext, useState } from "react";
 import { testContext } from "./contextProvider";
 
 function ContextForm() {
@@ -7,9 +7,8 @@ function ContextForm() {
 
   const ActivityHandler = (event: ChangeEvent<HTMLInputElement>) => setActivity(event.target.value);
 
-  const formHandler = (event: FormEvent) => {
+  const formHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("heyyyyyyyyyy");
 
      addItem(activity);
   };

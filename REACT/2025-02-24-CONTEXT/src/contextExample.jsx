@@ -1,6 +1,6 @@
 import Component1 from "./components/component1";
 import ContextForm from "./components/contextForm";
-import ContextExampleProvider from "./components/contextProvider";
+import { ContextExampleProvider } from "./components/contextProvider";
 
 function ContextExample() {
   return (
