@@ -1,11 +1,11 @@
-import { useContext } from "react";
+import { ChangeEvent, useContext } from "react";
 import { testContext } from "./contextProvider";
 
 function Component3() {
   const { title, name, surname, age, activities, removeItem } =
     useContext(testContext);
 
-  const DeleteHandler = (event) => removeItem(event.target.value);
+  const DeleteHandler = (event: React.MouseEvent<HTMLButtonElement>) => removeItem(Number((event.target as HTMLButtonElement).value));
 
   return (
     <>
