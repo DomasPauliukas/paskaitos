@@ -1,14 +1,15 @@
-import './App.css'
-import JobListingPage from './JobListingPage'
+import "./App.css";
+import { JobListingContextProvider } from "./ContextProvider";
+import JobListingPage from "./JobListingPage";
 
 function App() {
-
-
   return (
     <>
+      <JobListingContextProvider>
         <JobListingPage></JobListingPage>
+      </JobListingContextProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

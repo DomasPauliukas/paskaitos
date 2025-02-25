@@ -1,17 +1,16 @@
-import { useContext, useState } from "react";
+import React, { ChangeEvent, useContext, useState } from "react";
 import { testContext } from "./contextProvider";
 
 function ContextForm() {
   const { addItem } = useContext(testContext);
   const [activity, setActivity] = useState("");
 
-  const ActivityHandler = (event) => setActivity(event.target.value);
+  const ActivityHandler = (event: ChangeEvent<HTMLInputElement>) => setActivity(event.target.value);
 
-  const formHandler = (event) => {
+  const formHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("heyyyyyyyyyy");
 
-    addItem(activity);
+     addItem(activity);
   };
   return (
     <div>
@@ -27,7 +26,7 @@ function ContextForm() {
           value={activity}
         />
 
-        <button type="submit"></button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );
