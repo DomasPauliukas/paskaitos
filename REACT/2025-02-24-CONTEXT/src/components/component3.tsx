@@ -1,5 +1,6 @@
-import { ChangeEvent, useContext } from "react";
+import { useContext } from "react";
 import { testContext } from "./contextProvider";
+import { Button } from "@mui/material";
 
 function Component3() {
   const { title, name, surname, age, activities, removeItem } =
@@ -17,9 +18,9 @@ function Component3() {
         {activities.map((item, index) => (
           <li key={index}>
             {item}{" "}
-            <button value={index} onClick={DeleteHandler}>
+            <Button size="small" color="error" variant="outlined" value={index} onClick={DeleteHandler}>
               remove
-            </button>
+            </Button>
           </li>
         ))}
       </ul>
