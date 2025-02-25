@@ -1,7 +1,10 @@
 import './LogoItem.css'
 
+type LogoItemProps = {
+    logo: string
+}
 
-function LogoItem ({logo}) {
+const LogoItem: React.FC<LogoItemProps> = ({logo}) => {
     return (
         <div className='jobLogo'>
             <img src={logo} alt="" />
