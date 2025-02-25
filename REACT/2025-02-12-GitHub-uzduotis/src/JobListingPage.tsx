@@ -5,16 +5,22 @@ import Header from "./components/JobListings/Header/Header";
 import JobListingItem from "./components/JobListings/JobListingItem/JobListingItem";
 import { JobListingContext } from "./ContextProvider";
 
-function JobListingPage() {
-  const { JobListingData } = useContext(JobListingContext);
+const JobListingPage: React.FC = () => {
+  const  JobListingData  = useContext(JobListingContext) ?? [];
+
+  
   return (
     <>
       <Header></Header>
 
       <div className="JobListingWrapper">
-        {JobListingData.map((item, index) => (
-          <JobListingItem key={index} data={item} />
-        ))}
+        {JobListingData.length > 0 ? (
+          JobListingData.map((item, index) => (
+            <JobListingItem key={index} data={item} />
+          ))
+        ) : (
+          <div>No job listings available.</div>
+        )}
       </div>
     </>
   );

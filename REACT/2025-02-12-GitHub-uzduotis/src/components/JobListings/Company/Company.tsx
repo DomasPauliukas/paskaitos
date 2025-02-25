@@ -1,6 +1,12 @@
 import './Company.css'
 
-function Company ({company, isNew, featured}) {
+type CompanyType = {
+    company: string
+    isNew: boolean
+    featured: boolean
+}
+
+const Company: React.FC<CompanyType> = ({company, isNew, featured}) => {
 
 const newSign = isNew && <span className='newTag'>NEW!</span>
 const featuredSign = featured && <span className='featuredTag'>FEATURED</span>

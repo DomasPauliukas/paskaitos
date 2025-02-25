@@ -1,3 +1,4 @@
+import { JobListingContextType } from "../../../ContextProvider";
 import Company from "../Company/Company";
 import KnowledgeItem from "../KnowledgeItem/KnowledgeItem";
 import Location from "../Location/Location";
@@ -5,7 +6,11 @@ import LogoItem from "../LogoItem/LogoItem";
 import Position from "../Position/Position";
 import "./JobListingItem.css";
 
-function JobListingItem(props) {
+type JobListingItemType = {
+  data: JobListingContextType
+}
+
+const JobListingItem: React.FC<JobListingItemType> = (props) => {
   const {
     company,
     contract,

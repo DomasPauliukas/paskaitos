@@ -1,6 +1,13 @@
 import './KnowledgeItem.css'
 
-function KnowledgeItem ({role, level, languages, tools}) {
+type KnowledgeItemType = {
+    role: string
+    level: string
+    languages: string[]
+    tools: string []
+}
+
+const KnowledgeItem: React.FC<KnowledgeItemType> = ({role, level, languages, tools}) => {
 
     const roleTag = role ? <span>{role}</span> : ''
     const levelTag = level ? <span>{level}</span> : ''

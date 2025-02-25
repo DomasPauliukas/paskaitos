@@ -11,10 +11,27 @@ import InsureLogo from "./assets/JobListing/insure.svg";
 import EyecamLogo from "./assets/JobListing/eyecam-co.svg";
 import AirFilterLogo from "./assets/JobListing/the-air-filter-company.svg";
 
-export const JobListingContext = createContext();
+export type JobListingContextType = {
+  id: number
+  company: string
+  logo: string
+  new: boolean
+  featured: boolean
+  position: string
+  role: string
+  level: string
+  postedAt: string
+  contract: string
+  location: string
+  languages: string[]
+  tools: string[]
+}
 
-export const JobListingContextProvider = ({ children }) => {
-  const JobListingData = [
+export const JobListingContext = createContext<JobListingContextType[] | undefined>(undefined)
+
+
+export const JobListingContextProvider = ({ children }: {children: React.ReactNode}) => {
+  const JobListingData: JobListingContextType[] = [
     {
       id: 1,
       company: "Photosnap",
@@ -168,8 +185,10 @@ export const JobListingContextProvider = ({ children }) => {
   ];
 
   return (
-    <JobListingContext.Provider value={{ JobListingData }}>
+    <JobListingContext.Provider value={JobListingData}>
       {children}
     </JobListingContext.Provider>
   );
 };
+
+

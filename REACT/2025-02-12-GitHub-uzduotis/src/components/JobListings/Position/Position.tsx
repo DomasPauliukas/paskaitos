@@ -1,6 +1,11 @@
 import './Position.css'
 
-function Position ({position}) {
+
+type PositionProps = {
+    position: string
+  };
+
+const Position: React.FC<PositionProps> = ({position}) => {
     return (
         <div className='position'>
             <p>{position}</p>
