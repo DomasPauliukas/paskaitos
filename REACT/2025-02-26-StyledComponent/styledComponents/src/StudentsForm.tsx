@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export type Student = {
     name: string;
@@ -9,16 +9,20 @@ export type Student = {
     itKnowledge: string;
     selectedType: string;
     selectedLanguages: string[];
+    id?: string
   }
 
 type StudentsFormProps = {
-    onNewStudent: (newStudent: Student) => void
+    onNewStudent?: (newStudent: Student) => void
+    student?: Student
+    onEditStudent?: (newStudent: Student) => void
 }
 
 
 const StudentsForm: React.FC<StudentsFormProps> = (props) => {
 
-const { onNewStudent } = props
+const { onNewStudent, onEditStudent} = props
+const {student} = props
 
 const [name, setName] = useState<string>('')
 const [surname, setSurname] = useState<string>('')
@@ -29,7 +33,19 @@ const [itKnowledge, setItKnowledge] = useState<string>('5')
 const [selectedType, setSelectedType] = useState<string>('20')
 const [selectedLanguages, setSelectedLanguages] = useState<string[]>([])
 
-const [formError, setFormError] = useState('')
+useEffect(() => {
+    if(student){
+        setName(student.name)
+        setSurname(student.surname)
+        setAge(student.age)
+        setPhone(student.phone)
+        setEmail(student.email)
+        setItKnowledge(student.itKnowledge)
+        setSelectedType(student.selectedType)
+        setSelectedLanguages(student.selectedLanguages) 
+    }
+}, [student])
+
 
 const nameHandler = (event: React.ChangeEvent<HTMLInputElement>)  => setName(event.target.value)
 const surnameHandler = (event: React.ChangeEvent<HTMLInputElement>) => setSurname(event.target.value)
@@ -53,9 +69,13 @@ const formHandler = (event: React.FormEvent) => {
         itKnowledge,
         selectedType,
         selectedLanguages,
+        id: student?.id
     }
-
-    onNewStudent(newStudent)
+    if(student) {
+        onEditStudent?.(newStudent)
+    } else {
+        onNewStudent?.(newStudent)
+    }
 
     
 }

@@ -1,17 +1,51 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import StudentsForm, { Student } from "./StudentsForm"
 import StudentsItem from "./StudentsItem"
 
 const StudentsPage: React.FC = () => {
 
-const [studentList, setstudentList] = useState<Student[]>([])
+const [studentList, setStudentList] = useState<Student[]>([])
 
-const setNewStudentHandler = (newStudent: Student) => {
-    setstudentList((prevState) => [newStudent, ...prevState])
+    useEffect(() => {
+    fetch('http://localhost:5000/students')
+      .then(response => response.json())
+      .then(data => setStudentList(data));
+  }, []);
+
+  const setNewStudentHandler = (newStudent: Student) => {
+    fetch('http://localhost:5000/students', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newStudent),
+    })
+      .then(response => response.json())
+      .then((addedStudent) => {
+        setStudentList((prevState) => [addedStudent, ...prevState]);
+      });
+  };
+
+  const deleteStudent = (index: number) => {
+    const studentToDelete = studentList[index];
+    fetch(`http://localhost:5000/students/${studentToDelete.id}`, {
+      method: 'DELETE',
+    })
+      .then(() => {
+        setStudentList((prevList) =>
+          prevList.filter((_, i) => i !== index)
+        );
+      });
+    }
+
+    
+  const updateStudentList = (updatedStudent: Student) => {
+    setStudentList(prevState => 
+      prevState.map(student => 
+        student.id === updatedStudent.id ? updatedStudent : student
+      )
+    );
 }
-const deleteStudent = (index: number) => {setstudentList((prevList) => prevList.filter((_, i) => i !== index))}
-
-
     return (
         <div>
             <h1>Studento forma: </h1>
@@ -26,6 +60,8 @@ const deleteStudent = (index: number) => {setstudentList((prevList) => prevList.
                     data={student}
                     index={index}
                     deleteStudent={deleteStudent}
+                    student={student}
+                    updateStudentList={updateStudentList}
                     />
                 ))}
             </>

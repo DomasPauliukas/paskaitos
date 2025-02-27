@@ -1,0 +1,126 @@
+{
+  "students": [
+    {
+      "name": "Domas",
+      "surname": "Pauliukas",
+      "age": "6",
+      "phone": "+37061422278",
+      "email": "domas0319@gmail.com",
+      "itKnowledge": "5",
+      "selectedType": "23",
+      "selectedLanguages": [
+        "Python",
+        "Java",
+        "C++"
+      ],
+      "id": "26c0"
+    },
+    {
+      "name": "Domas",
+      "surname": "Pauliukas",
+      "age": "23",
+      "phone": "+37061422278",
+      "email": "domas0319@gmail.com",
+      "itKnowledge": "5",
+      "selectedType": "20",
+      "selectedLanguages": [
+        "C++"
+      ],
+      "id": "5e3b"
+    },
+    {
+      "name": "Domas",
+      "surname": "Pauliukas",
+      "age": "24",
+      "phone": "+37061422278",
+      "email": "domas0319@gmail.com",
+      "itKnowledge": "5",
+      "selectedType": "20",
+      "selectedLanguages": [],
+      "id": "c412"
+    },
+    {
+      "name": "Domas",
+      "surname": "Pauliukas",
+      "age": "25",
+      "phone": "+37061422278",
+      "email": "domas0319@gmail.com",
+      "itKnowledge": "5",
+      "selectedType": "20",
+      "selectedLanguages": [
+        "JavaScript",
+        "Java",
+        "Python"
+      ],
+      "id": "46f4"
+    },
+    {
+      "name": "Domas",
+      "surname": "Pauliukas",
+      "age": "2",
+      "phone": "+37061422278",
+      "email": "domas0319@gmail.com",
+      "itKnowledge": "5",
+      "selectedType": "20",
+      "selectedLanguages": [
+        "Python"
+      ],
+      "id": "f33c"
+    },
+    {
+      "id": "c2b0",
+      "name": "Domas",
+      "surname": "Pauliukas",
+      "age": "27",
+      "phone": "+37061422278",
+      "email": "domas0319@gmail.com",
+      "itKnowledge": "5",
+      "selectedType": "20",
+      "selectedLanguages": [
+        "Java",
+        "Python"
+      ]
+    },
+    {
+      "id": "1cff",
+      "name": "Domas",
+      "surname": "Pauliukas",
+      "age": "28",
+      "phone": "+37061422278",
+      "email": "domas0319@gmail.com",
+      "itKnowledge": "5",
+      "selectedType": "20",
+      "selectedLanguages": [
+        "Java",
+        "Python"
+      ]
+    },
+    {
+      "id": "4ed8",
+      "name": "Domas",
+      "surname": "Pauliukas",
+      "age": "30",
+      "phone": "+37061422278",
+      "email": "domas0319@gmail.com",
+      "itKnowledge": "5",
+      "selectedType": "20",
+      "selectedLanguages": [
+        "Java",
+        "Python"
+      ]
+    },
+    {
+      "name": "Domas",
+      "surname": "Pauliukass",
+      "age": "82",
+      "phone": "+37061422278",
+      "email": "sdsd@gmail.com",
+      "itKnowledge": "10",
+      "selectedType": "20",
+      "selectedLanguages": [
+        "JavaScript"
+      ],
+      "id": "a956"
+    }
+  ]
+}
