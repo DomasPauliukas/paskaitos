@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Student } from "./StudentsForm"
 
 type StudentsItemProps = {
@@ -12,13 +13,16 @@ const {deleteStudent, index} = props
 
 const {name, surname, age, email, itKnowledge, phone, selectedType, selectedLanguages} = props.data
 
+const [showInfo, setShowInfo] = useState(true)
+
+const privateInfoHolder = () => setShowInfo((prevState) => !prevState)
 
 return (
         <div>
 
         <h3>{name} {surname} ({age})</h3>
-        <p>Telefono numeris: {phone}</p>
-        <p>Email: {email}</p>
+        <p>Telefono numeris: {showInfo? phone : '****'}</p>
+        <p>Email: {showInfo? email : '****'}</p>
         <p>IT žinios (balais): {itKnowledge}</p>
         <p>Grupė: {selectedType}</p>
 
@@ -33,7 +37,7 @@ return (
         ) : (
             <p>Nėra jokių IT kalbų žinių</p>
         )}
-
+        <button onClick={privateInfoHolder}>{showInfo? 'Hide Private Info' : 'Show Private Info'}</button>
         <button onClick={() => deleteStudent(index)}>Ištrinti</button>
 
         </div>

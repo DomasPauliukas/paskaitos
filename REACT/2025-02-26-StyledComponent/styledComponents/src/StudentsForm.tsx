@@ -25,10 +25,11 @@ const [surname, setSurname] = useState<string>('')
 const [age, setAge] = useState<string>('')
 const [phone, setPhone] = useState('')
 const [email, setEmail] = useState<string>('')
-const [itKnowledge, setItKnowledge] = useState<string>('')
+const [itKnowledge, setItKnowledge] = useState<string>('5')
 const [selectedType, setSelectedType] = useState<string>('20')
 const [selectedLanguages, setSelectedLanguages] = useState<string[]>([])
 
+const [formError, setFormError] = useState('')
 
 const nameHandler = (event: React.ChangeEvent<HTMLInputElement>)  => setName(event.target.value)
 const surnameHandler = (event: React.ChangeEvent<HTMLInputElement>) => setSurname(event.target.value)
@@ -90,6 +91,7 @@ const formHandler = (event: React.FormEvent) => {
             <div className="contact-wrap">
                 <label htmlFor="IT-knowledge">IT žinios:</label>
                 <input type="range" name="person-knowledge" id="IT-knowledge" min="1" max="10" step="1" value={itKnowledge} onChange={itKnowledgeHandler}/>
+                <output>{itKnowledge}</output>
                 <span className="ITFormValue"></span>
             </div>
 
