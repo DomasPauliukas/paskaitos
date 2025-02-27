@@ -1,4 +1,17 @@
 import { useEffect, useState } from "react"
+import { toast } from "react-toastify";
+import styled from "styled-components";
+
+const FormControl = styled.div`
+    &.invalid {
+        label{
+            color: red;
+        }
+        input{
+            border-color: red;
+        }
+    }
+`
 
 export type Student = {
     name: string;
@@ -21,8 +34,7 @@ type StudentsFormProps = {
 
 const StudentsForm: React.FC<StudentsFormProps> = (props) => {
 
-const { onNewStudent, onEditStudent} = props
-const {student} = props
+const { onNewStudent, onEditStudent, student} = props
 
 const [name, setName] = useState<string>('')
 const [surname, setSurname] = useState<string>('')
@@ -32,6 +44,9 @@ const [email, setEmail] = useState<string>('')
 const [itKnowledge, setItKnowledge] = useState<string>('5')
 const [selectedType, setSelectedType] = useState<string>('20')
 const [selectedLanguages, setSelectedLanguages] = useState<string[]>([])
+
+const [nameIsValid, setNameIsValid] = useState(true)
+const [error, setError] = useState('')
 
 useEffect(() => {
     if(student){
@@ -54,11 +69,32 @@ const phoneHandler = (event: React.ChangeEvent<HTMLInputElement>) => setPhone(ev
 const emailHandler = (event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)
 const itKnowledgeHandler = (event: React.ChangeEvent<HTMLInputElement>) => setItKnowledge(event.target.value)
 const selectedTypeHandler = (event: React.ChangeEvent<HTMLInputElement>) => setSelectedType(event.target.value)
-const languageHandler = (event: React.ChangeEvent<HTMLInputElement>) => {setSelectedLanguages((prevState) => event.target.checked ? [event.target.value, ...prevState] : prevState.filter(language => language !== event.target.value))}
+const languageHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const language = event.target.value;
+    setSelectedLanguages((prevState) => {
+      if (event.target.checked) {
+        return [...prevState, language];
+      } else {
+        return prevState.filter((languageItem) => languageItem !== language);
+      }
+    });
+  };
+
+
+// const languageHandler = (event: React.ChangeEvent<HTMLInputElement>) => {setSelectedLanguages((prevState) => event.target.checked ? [event.target.value, ...prevState] : prevState.filter(language => language !== event.target.value))}
+
+
+
 
 
 const formHandler = (event: React.FormEvent) => {
     event.preventDefault()
+
+    if (name.trim().length === 0){
+        setNameIsValid(false)
+        setError(`Visi laukai privalo būti užpildyti!`)
+        return
+    }
 
     const newStudent = {
         name,
@@ -77,16 +113,23 @@ const formHandler = (event: React.FormEvent) => {
         onNewStudent?.(newStudent)
     }
 
-    
+    setNameIsValid(true)
+    setError('')
+
+    if (student){
+        toast.success('Sėkmingai atnaujinta')
+    } else {
+        toast.success('Studentas sukurtas')
+    }
 }
 
     return (
-        <div>
+        <div style={{border: student? 'red 2px solid' : ''}}>
         <form onSubmit={formHandler}>
-            <div className="contact-wrap">
+            <FormControl className={`contact-wrap ${!nameIsValid ? 'invalid' : ''}`} >
                 <label htmlFor="name-text">Vardas: </label>
-                <input type="text" name="person-name" id="name-text" value={name} onChange={nameHandler} required />
-            </div>
+                <input type="text" name="person-name" id="name-text" value={name} onChange={nameHandler}/>
+            </FormControl>
 
             <div className="contact-wrap">
                 <label htmlFor="surname-text">Pavardė: </label>
@@ -100,7 +143,7 @@ const formHandler = (event: React.FormEvent) => {
 
             <div className="contact-wrap">
                 <label htmlFor="phone">Telefono nr.:</label>
-                <input type="tel" name="person-phone" id="phone" value={phone} onChange={phoneHandler}/>
+                <input type="tel" name="person-phone" id="phone" value={phone} onChange={phoneHandler} required/>
             </div>
 
             <div className="contact-wrap">
@@ -159,7 +202,7 @@ const formHandler = (event: React.FormEvent) => {
                         <label htmlFor="C++">C++</label>
                     </div>
             </fieldset>
-
+                <p style={{color:'red'}}>{error}</p>
             <button type="submit">Tvirtinti</button>
         </form>
         </div>

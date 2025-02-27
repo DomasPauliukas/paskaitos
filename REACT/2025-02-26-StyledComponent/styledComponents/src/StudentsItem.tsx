@@ -1,6 +1,14 @@
 import { useState } from "react"
 import StudentsForm, { Student } from "./StudentsForm"
 import axios from "axios"
+import styled from "styled-components"
+import { toast } from "react-toastify"
+
+const StudentItemWrapper = styled.div`
+    border: 3px solid lightblue;
+    padding: 20px;
+`
+
 
 type StudentsItemProps = {
     data: Student
@@ -14,7 +22,7 @@ const StudentsItem: React.FC<StudentsItemProps> = (props) => {
 
 const {deleteStudent, index, student, updateStudentList} = props
 
-const {name, surname, age, email, itKnowledge, phone, selectedType, selectedLanguages} = props.data
+const {name, surname, age, email, itKnowledge, phone, selectedType, selectedLanguages} = student
 
 const [showInfo, setShowInfo] = useState(true)
 
@@ -29,10 +37,16 @@ const editStudentHandler = (newStudent: Student) => {
     setIsEditing(false)
 }
 
+// const studentItemWrapper = styled.div`
+//     display: grid;
+//     grid-template-columns: repeat(4, 1fr);
+// `
+
+
 
 return (
-        <div>
-            {isEditing ? <StudentsForm student={student} onEditStudent={editStudentHandler}/> : (
+        <StudentItemWrapper>
+            {isEditing ? (<StudentsForm student={student} onEditStudent={editStudentHandler}/>) : (
         <div>
             <h3>{name} {surname} ({age})</h3>
             <p>Telefono numeris: {showInfo? phone : '****'}</p>
@@ -58,7 +72,7 @@ return (
         <button onClick={editHandler}>Redaguoti</button>
         <button onClick={() => deleteStudent(index)}>Ištrinti</button>
 
-        </div>
+        </StudentItemWrapper>
 
         
     )

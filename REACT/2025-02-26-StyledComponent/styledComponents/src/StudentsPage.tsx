@@ -1,6 +1,18 @@
 import { useEffect, useState } from "react"
 import StudentsForm, { Student } from "./StudentsForm"
 import StudentsItem from "./StudentsItem"
+import styled from "styled-components"
+import { toast } from "react-toastify"
+
+const FormTitle = styled.h1`
+  color: #2f7b97;
+`
+const StudentListWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+`
 
 const StudentsPage: React.FC = () => {
 
@@ -34,8 +46,9 @@ const [studentList, setStudentList] = useState<Student[]>([])
       .then(() => {
         setStudentList((prevList) =>
           prevList.filter((_, i) => i !== index)
-        );
-      });
+      );
+    });
+    toast('Studentas ištrintas')
     }
 
     
@@ -46,14 +59,17 @@ const [studentList, setStudentList] = useState<Student[]>([])
       )
     );
 }
+
+
     return (
         <div>
-            <h1>Studento forma: </h1>
+            <FormTitle>Studento forma: </FormTitle>
             <StudentsForm onNewStudent={setNewStudentHandler}/>
 
             {studentList && studentList.length > 0 ? (
             <>
-                <h2>{studentList.length === 1 ? 'Studentas:' : 'Studentai:'}</h2>
+            <StudentListWrapper>
+                <h2 style={{width:"100%", textAlign:"center"}}>{studentList.length === 1 ? 'Studentas:' : 'Studentai:'}</h2>
                 {studentList.map((student, index) => (
                     <StudentsItem 
                     key={index}
@@ -64,6 +80,7 @@ const [studentList, setStudentList] = useState<Student[]>([])
                     updateStudentList={updateStudentList}
                     />
                 ))}
+            </StudentListWrapper>
             </>
             ) : (
                 <p>Studentų sąrašas tuščias</p>
