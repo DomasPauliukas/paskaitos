@@ -3,6 +3,7 @@ import StudentsForm, { Student } from "./StudentsForm"
 import StudentsItem from "./StudentsItem"
 import styled from "styled-components"
 import { toast } from "react-toastify"
+import { API_URL } from "./API_UrL"
 
 const FormTitle = styled.h1`
   color: #2f7b97;
@@ -19,13 +20,13 @@ const StudentsPage: React.FC = () => {
 const [studentList, setStudentList] = useState<Student[]>([])
 
     useEffect(() => {
-    fetch('http://localhost:5000/students')
+    fetch(`${API_URL}/students`)
       .then(response => response.json())
       .then(data => setStudentList(data));
   }, []);
 
   const setNewStudentHandler = (newStudent: Student) => {
-    fetch('http://localhost:5000/students', {
+    fetch(`${API_URL}/students`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +41,7 @@ const [studentList, setStudentList] = useState<Student[]>([])
 
   const deleteStudent = (index: number) => {
     const studentToDelete = studentList[index];
-    fetch(`http://localhost:5000/students/${studentToDelete.id}`, {
+    fetch(`${API_URL}/students/${studentToDelete.id}`, {
       method: 'DELETE',
     })
       .then(() => {

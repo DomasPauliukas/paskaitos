@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useId, useState } from "react"
 import { toast } from "react-toastify";
 import styled from "styled-components";
 
@@ -33,6 +33,11 @@ type StudentsFormProps = {
 
 
 const StudentsForm: React.FC<StudentsFormProps> = (props) => {
+
+const javaScriptLanguageId = useId()
+const javaLanguageId = useId()
+const pythonLanguageId = useId()
+const cLanguageId = useId()
 
 const { onNewStudent, onEditStudent, student} = props
 
@@ -183,23 +188,23 @@ const formHandler = (event: React.FormEvent) => {
             <fieldset>
                 <legend>Dominančios programavimo kalbos:</legend>
                     <div>
-                        <input type="checkbox" name="itLanguages" id="JavaScript" value="JavaScript" onChange={languageHandler} checked={selectedLanguages.includes('JavaScript')}/>
-                        <label htmlFor="JavaScript">JavaScript</label>
+                        <input type="checkbox" name="itLanguages" id={javaScriptLanguageId} value="JavaScript" onChange={languageHandler} checked={selectedLanguages.includes('JavaScript')}/>
+                        <label htmlFor={javaScriptLanguageId}>JavaScript</label>
                     </div>
 
                     <div>
-                        <input type="checkbox" name="itLanguages" id="Python" value="Python" onChange={languageHandler} checked={selectedLanguages.includes('Python')}/>
-                        <label htmlFor="Python">Python</label>
+                        <input type="checkbox" name="itLanguages" id={pythonLanguageId} value="Python" onChange={languageHandler} checked={selectedLanguages.includes('Python')}/>
+                        <label htmlFor={pythonLanguageId}>Python</label>
                     </div>
 
                     <div>
-                        <input type="checkbox" name="itLanguages" id="Java" value="Java" onChange={languageHandler} checked={selectedLanguages.includes('Java')}/>
-                        <label htmlFor="Java">Java</label>
+                        <input type="checkbox" name="itLanguages" id={javaLanguageId} value="Java" onChange={languageHandler} checked={selectedLanguages.includes('Java')}/>
+                        <label htmlFor={javaLanguageId}>Java</label>
                     </div>
 
                     <div>
-                        <input type="checkbox" name="itLanguages" id="C++" value="C++" onChange={languageHandler} checked={selectedLanguages.includes('C++')}/>
-                        <label htmlFor="C++">C++</label>
+                        <input type="checkbox" name="itLanguages" id={cLanguageId} value="C++" onChange={languageHandler} checked={selectedLanguages.includes('C++')}/>
+                        <label htmlFor={cLanguageId}>C++</label>
                     </div>
             </fieldset>
                 <p style={{color:'red'}}>{error}</p>

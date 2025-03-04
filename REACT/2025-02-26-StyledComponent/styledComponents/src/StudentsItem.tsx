@@ -2,7 +2,7 @@ import { useState } from "react"
 import StudentsForm, { Student } from "./StudentsForm"
 import axios from "axios"
 import styled from "styled-components"
-import { toast } from "react-toastify"
+import { API_URL } from "./API_UrL"
 
 const StudentItemWrapper = styled.div`
     border: 3px solid lightblue;
@@ -32,7 +32,7 @@ const [isEditing, setIsEditing] = useState(false)
 const editHandler = () => setIsEditing(prevState => !prevState)
 
 const editStudentHandler = (newStudent: Student) => {
-    axios.put(`http://localhost:5000/students/${student.id}`, newStudent);
+    axios.put(`${API_URL}/students/${student.id}`, newStudent);
     updateStudentList(newStudent)
     setIsEditing(false)
 }
