@@ -1,5 +1,5 @@
 import './App.css'
-import ReduceCounterPage from './ReduceCounterPage'
+import ReduceCounterPage from './COUNTER-REDUCE-COMPONENTS/ReduceCounterPage'
 
 function App() {
 
