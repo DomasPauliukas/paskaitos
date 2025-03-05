@@ -1,0 +1,34 @@
+React Pirkinių Krepšelio Užduotis su useContext ir useReducer
+ 
+Tikslas:
+Sukurti pirkinių krepšelio sistemą, kurioje vartotojai gali pridėti, pašalinti ir keisti prekių kiekius, naudojant React useReducer ir useContext.
+ 
+Funkcionalumas:
+- Rodyti prekių sąrašą su mygtuku "Pridėti į krepšelį".
+- Rodyti krepšelį su pridėtomis prekėmis, jų kiekiu ir bendra suma.
+- Leisti vartotojui keisti prekių kiekį krepšelyje.
+- Suteikti galimybę pašalinti prekes iš krepšelio.
+- Pridėti mygtuką "Išvalyti krepšelį", kad būtų galima pašalinti visas prekes.
+ 
+1. Sukurti CartContext ir cartReducer
+1.1. cartReducer atliks šiuos veiksmus:
+1.1.1. "ADD_ITEM" - Prideda prekę į krepšelį arba padidina kiekį, jei prekė jau yra.
+1.1.2. "REMOVE_ITEM" - Pašalina prekę iš krepšelio.
+1.1.3. "UPDATE_QUANTITY" - Atnaujina prekės kiekį krepšelyje.
+1.1.4. "CLEAR_CART" - Išvalo visą krepšelį.
+ 
+2.1. Sukurti ProductList ir ProductItem komponentai (Prekių sąrašas)
+Rodo galimas prekes su mygtuku "Pridėti į krepšelį".
+Naudojant dispatch({ type: "ADD_ITEM", payload: product }), prekė pridedama į krepšelį.
+ 
+2.2. Sukurti Cart komponentą (Pirkinių krepšelis)
+Rodo visus krepšelyje esančius produktus ir bendrą sumą.
+ 
+2.3. Sukurti CartList ir CartItem komponentus (Pirkinių krepšelyje esanšios prekės)
+2.3.1. CartItem skirtas atvaizduoti kiekvienai prekei esančiai krepšelyje.
+2.3.2. Mygtukus: "REMOVE_ITEM", "UPDATE_QUANTITY".
+2.3.3. Rodo prekės pavadinimą, kainą ir kiekį.
+2.3.4. Leidžia keisti kiekį per "UPDATE_QUANTITY".
+2.3.5. Turi "Pašalinti" mygtuką ("REMOVE_ITEM").
+ 
+2.3.6. CartList komponentas turi "CLEAR_CART" mygtuką, kuris pašalina visas Cart esančias prekes.

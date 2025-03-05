@@ -1,0 +1,174 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "category": "Fruits",
+        "name": "Apple",
+        "price": 2.00,
+        "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/ripe-apple-royalty-free-image-1659454396.jpg?crop=0.924xw:0.679xh;0.0197xw,0.212xh&resize=980:*"
+      },
+      {
+        "id": 2,
+        "category": "Fruits",
+        "name": "Banana",
+        "price": 1.30,
+        "imageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2017/01/Bunch-of-bananas-67e91d5.jpg"
+      },
+      {
+        "id": 3,
+        "category": "Fruits",
+        "name": "Strawberries",
+        "price": 6.50,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE3UwyRUTzrcIUUXcgIIdrnMQCeX5_CXFrwA&s"
+      },
+      {
+        "id": 4,
+        "category": "Fruits",
+        "name": "Kiwi",
+        "price": 8.00,
+        "imageUrl": "https://cdn.britannica.com/45/126445-050-4C0FA9F6/Kiwi-fruit.jpg"
+      },
+      {
+        "id": 5,
+        "category": "Vegetables",
+        "name": "Carrot",
+        "price": 0.80,
+        "imageUrl": "https://www.lovefoodhatewaste.com/sites/default/files/styles/open_graph_image/public/2022-06/Carrots.jpg.webp?itok=aBgglla9"
+      },
+      {
+        "id": 6,
+        "category": "Vegetables",
+        "name": "Lettuce",
+        "price": 1.50,
+        "imageUrl": "https://media.istockphoto.com/id/181072765/photo/lettuce-isolated-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=axHLN2tckTBwUBZEsd1-LNhnQZ_LMWEGmMBLRVe1qwQ="
+      },
+      {
+        "id": 7,
+        "category": "Vegetables",
+        "name": "Potatoes",
+        "price": 0.30,
+        "imageUrl": "https://cdn.mos.cms.futurecdn.net/iC7HBvohbJqExqvbKcV3pP-1200-80.jpg"
+      },
+      {
+        "id": 8,
+        "category": "Vegetables",
+        "name": "Paprika",
+        "price": 3.80,
+        "imageUrl": "https://telsiai.mon.lt/553-large_default/saldzioji-paprika-raudona.jpg"
+      },
+      {
+        "id": 9,
+        "category": "Meat",
+        "name": "Chicken",
+        "price": 7.00,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0ssljEe91WaAxlLor2CPUrOHQmraJVMecQ&s"
+      },
+      {
+        "id": 10,
+        "category": "Meat",
+        "name": "Pork",
+        "price": 5.50,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIpiB7sgvF4YEvEoPdJVlHxuIa-CL6Ot4SXg&s"
+      },
+      {
+        "id": 11,
+        "category": "Meat",
+        "name": "Beef",
+        "price": 18.50,
+        "imageUrl": "https://embed.widencdn.net/img/beef/melpznnl7q/800x600px/Top%20Sirloin%20Steak.psd?keep=c&u=7fueml"
+      },
+      {
+        "id": 12,
+        "category": "Meat",
+        "name": "Turkey",
+        "price": 9.50,
+        "imageUrl": "https://www.snowwhite.com.mt/wp-content/uploads/2023/05/Turkey-Whole.jpg"
+      },
+      {
+        "id": 13,
+        "category": "Dairy",
+        "name": "Milk",
+        "price": 2.00,
+        "imageUrl": "https://cdn.theatlantic.com/thumbor/MAp_MfXXLZpH6CyMHf9LfaJjdnM=/458x43:1523x1108/540x540/media/img/mt/2024/10/Atlantic_Milk_2000x1125/original.jpg"
+      },
+      {
+        "id": 14,
+        "category": "Dairy",
+        "name": "Yoghurt",
+        "price": 1.50,
+        "imageUrl": "https://falconfresh.com/media/catalog/product/cache/4b3ecaabb9299e1207decbeedd552ef7/2/4/24022.jpg"
+      },
+      {
+        "id": 15,
+        "category": "Dairy",
+        "name": "Cheese",
+        "price": 4.50,
+        "imageUrl": "https://www.schultzscheese.com/wp-content/uploads/2015/06/swiss.jpg"
+      },
+      {
+        "id": 16,
+        "category": "Dairy",
+        "name": "Butter",
+        "price": 2.30,
+        "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2024-07/healthiest-butter-jp-240709-8ce75e.jpg"
+      },
+      {
+        "id": 17,
+        "category": "Beverages",
+        "name": "Tea",
+        "price": 2.50,
+        "imageUrl": "https://marveltea.com/cdn/shop/files/Lemon_Green_Tea_Bagt_940x-min_1e8ad299-685c-4133-ab92-44f68033296d.webp?v=1724847740"
+      },
+      {
+        "id": 18,
+        "category": "Beverages",
+        "name": "Orange Juice",
+        "price": 3.50,
+        "imageUrl": "https://i5.walmartimages.com/asr/6f94bdc3-e12b-4366-bd7c-80001baee01a.b0e55c463b6fb53dd32c9b25df73cd04.jpeg"
+      },
+      {
+        "id": 19,
+        "category": "Beverages",
+        "name": "Beer",
+        "price": 1.70,
+        "imageUrl": "https://www.bestwaywholesale.co.uk/img/products/1000/2/8712000022662.jpg"
+      },
+      {
+        "id": 20,
+        "category": "Beverages",
+        "name": "Coffee",
+        "price": 7.00,
+        "imageUrl": "https://lt2.pigugroup.eu/colours/410/477/6/4104776/2eb1ea375a1c165cafdd246942001cef_original.jpg"
+      },
+      {
+        "id": 21,
+        "category": "Seafood",
+        "name": "Fish",
+        "price": 13.00,
+        "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/two-full-sea-bass-fish-on-ice-with-lemon-garnish-royalty-free-image-1638224995.jpg"
+      },
+      {
+        "id": 22,
+        "category": "Seafood",
+        "name": "Shrimps",
+        "price": 16.50,
+        "imageUrl": "https://www.seriouseats.com/thmb/ch4c6o15shxPyfO8jnSfUh_wQ0s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__08__09102015-grilled-lemongrass-shrimp-shaozhizhong-8-a5525792ce7a4c9693af0a564eae74a4.jpg"
+      },
+      {
+        "id": 23,
+        "category": "Seafood",
+        "name": "Mussels",
+        "price": 22.00,
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/63e07c269b38187047cd8fdc/1677642917404-CSIZ4WPY10YZJSMP07EC/EPS-Ready-mussels-in-a-pan-1.jpg?format=500w"
+      },
+      {
+        "id": 24,
+        "category": "Seafood",
+        "name": "Octopus",
+        "price": 47.00,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrPKZNhHeba4ydVoUq4uXk4tyHMZ7AR2K3wQ&s"
+      }
+    ],
+    "orders": []
+  }
+  
