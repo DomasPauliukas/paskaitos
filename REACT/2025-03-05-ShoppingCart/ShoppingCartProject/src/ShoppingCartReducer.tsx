@@ -4,16 +4,23 @@ export type Product = {
     price: number
     imageUrl: string
     category: string
+    stock: number
 }
 
 export type CartProduct = Product & {
     quantity: number
 }
+export type DiscountCode = {
+    title: string
+    discount: number
+}
 
 export type CartState = {
     productsData: Product[]
     cart: CartProduct[]
-    selectedCategory: string | null
+    selectedCategory: string
+    discountCodes: DiscountCode[]
+    discount: number
 }
 
 type Action = 
@@ -23,6 +30,7 @@ type Action =
 |{type: ActionTypes.CLEAR_CART}
 |{type: ActionTypes.SET_PRODUCTS_DATA, payload: Product[] }
 |{type: ActionTypes.SET_CATEGORY, payload: string | null }
+|{type: ActionTypes.APPLY_DISCOUNT, payload: string }
 
 export enum ActionTypes {
     ADD_ITEM = 'addItem',
@@ -30,13 +38,33 @@ export enum ActionTypes {
     UPDATE_QUANTITY = 'updateQuantity',
     CLEAR_CART = 'clearCart',
     SET_PRODUCTS_DATA = 'setProductsData',
-    SET_CATEGORY = 'setCategory'
+    SET_CATEGORY = 'setCategory',
+    APPLY_DISCOUNT = 'applyDiscount'
 }
 
 export const initialState: CartState = {
     cart: [],
     productsData: [],
-    selectedCategory: ''
+    selectedCategory: '',
+    discountCodes: [
+        {
+            title: 'summer10',
+            discount: 10
+        },
+        {
+            title: 'summer20',
+            discount: 20
+        },
+        {
+            title: 'summer40',
+            discount: 40
+        },
+        {
+            title: 'summer50',
+            discount: 50
+        },
+    ],
+    discount: 0
 }
 
 export const reducer = (state: CartState, action: Action) => {
@@ -50,10 +78,10 @@ export const reducer = (state: CartState, action: Action) => {
             const existingItem = cart.find(item => item.id === id)
             if (existingItem) {
                 const updatedCart = cart.map(item => item.id === id ? {...item, quantity: item.quantity + 1} : item) 
-                console.log(updatedCart)
             return {
                 ...state,
                 cart: updatedCart
+                
             }
         } else {
             const updatedProduct = {...newProduct, quantity: 1}
@@ -113,6 +141,14 @@ export const reducer = (state: CartState, action: Action) => {
 
             }
         }
+        // case ActionTypes.APPLY_DISCOUNT: {
+        //     const discount = state.discountCodes.find(code => code.title === action.payload)?.discount || 0
+        //     return {
+        //         ...state,
+        //         discountCode: action.payload,
+        //         discount
+        //     }
+        // }
         default:
             return state
     }

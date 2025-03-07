@@ -8,6 +8,10 @@ type ShoppingProductItemProps = {
 const ShoppingProductItem: React.FC<ShoppingProductItemProps> = ({product}) => {
 const { addProduct, cart } = useCart()
 const inCart = cart.find(item => item.id === product.id)
+const quantityInCart = inCart ? inCart.quantity : 0;
+const outOfStock = quantityInCart >= product.stock
+
+
     return(
 
       <div key={product.id} style={{textAlign:"center"}}>
@@ -17,9 +21,13 @@ const inCart = cart.find(item => item.id === product.id)
         {inCart && (
           <p>Already in the cart</p>
         )}
+        {outOfStock ? (
+          <button disabled>Out of stock</button>
+        ) : (
         <button onClick={() => addProduct(product)}>
           {inCart ? 'Increase quantity' : 'Add to cart'}
         </button>
+        )}
       </div>
     )
 }

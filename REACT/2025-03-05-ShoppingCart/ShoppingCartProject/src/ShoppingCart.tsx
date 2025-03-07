@@ -4,6 +4,7 @@ import { useCart } from "./ShoppingCartPageProvider"
 const ShoppingCart: React.FC = () => {
     const { cart, clearCart } = useCart()
 
+
     let totalPrice = 0
     cart.forEach(item => {
         totalPrice += item.price * item.quantity
@@ -24,6 +25,17 @@ const ShoppingCart: React.FC = () => {
                 <ShoppingCartItem key={item.id} item={item}/>
                 )}
             </div>
+
+
+            {/* <form onSubmit={handleApplyDiscount}>
+            <div className="formControl">
+                <label htmlFor="discountForm">Discount code: </label>
+                <input type="text" id="discountForm" value={discountCode}/>
+            </div>
+                <button type="submit">Apply</button>
+            </form> */}
+
+
             {totalPrice > 0 && (
                 <p>Total price: {totalPrice.toFixed(2)} EUR.</p>
             )}

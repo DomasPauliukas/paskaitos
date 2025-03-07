@@ -9,6 +9,7 @@ type ShoppingPageContextType = CartState & {
     clearCart: () => void
     updateQuantity: (id: Product['id'], quantity: number) => void
     categoryChanger: (category: string) => void
+    applyDiscount: (DiscountCode: string) => void
 }
 
 const ShoppingPageContext = createContext<ShoppingPageContextType | undefined>(undefined)
@@ -18,7 +19,7 @@ type ShoppingPageContextProviderProps = {children: ReactNode}
 
 export const ShoppingPageContextProvider: React.FC<ShoppingPageContextProviderProps> = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState) // cia importuojam is reducer komponento reducer ir initialState
-    const {cart, productsData, selectedCategory} = state
+    const {cart, productsData, selectedCategory, discount, discountCodes} = state
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -39,17 +40,22 @@ const removeProduct = (id: Product['id']) => dispatch({type: ActionTypes.REMOVE_
 const clearCart = () => dispatch({type: ActionTypes.CLEAR_CART})
 const updateQuantity = (id: Product['id'], quantity: number) => dispatch({type: ActionTypes.UPDATE_QUANTITY, payload: {id, quantity}})
 
+const applyDiscount = (discountCode: string) => dispatch({type: ActionTypes.APPLY_DISCOUNT, payload: discountCode})
+
 const categoryChanger = (category: string) => dispatch({type: ActionTypes.SET_CATEGORY, payload: category}) 
 
 const ctxValue: ShoppingPageContextType = {
     cart: cart,
     productsData: productsData,
     selectedCategory: selectedCategory,
+    discountCodes,
+    discount,
     addProduct,
     removeProduct,
     clearCart,
     updateQuantity,
-    categoryChanger
+    categoryChanger,
+    applyDiscount
 }
 
     return (
