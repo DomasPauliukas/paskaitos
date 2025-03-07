@@ -32,3 +32,134 @@ Rodo visus krepšelyje esančius produktus ir bendrą sumą.
 2.3.5. Turi "Pašalinti" mygtuką ("REMOVE_ITEM").
  
 2.3.6. CartList komponentas turi "CLEAR_CART" mygtuką, kuris pašalina visas Cart esančias prekes.
+ 
+
+****************************
+
+3. Sandėlio likučių sekimas:
+3.1. Pridėti prekės duomenų pridėti stock property, kuris nurodys kiek vienetų prekės yra likę.
+3.2. Produkto pridėjimo į krepšelį metu patikrinti ar yra pakankamas kiekis sandėlyje:
+- Neleisti pridėti daugiau prekių nei yra sandėlyje.
+- Rodyti pranešimą kai bandoma pridėti daugiau nei yra sandėlyje.
+- Padaryti + mygtuką išjungtą (disabled), jeigu krepšelyje jau yra visos sandėlyje esančios prekės.
+3.3. Jeigu prekės likutis yra 0, tai vietoje mygtuko 'Add To Cart' pridėti tekstą 'Out Of Stock'.
+ 
+4. Nuolaidos pritaikymas:
+4.1. Pridėti galimybę pritaikyti nuolaidų kodus:
+- Sukurti nuolaidų kodų sąrašą (pvz., "SALE10", "SUMMER20").
+- Pridėti laukelį nuolaidos kodui įvesti.
+- Implementuoti nuolaidos pritaikymą bendrai sumai:
+    - Patikrinti ar įvestas kodas galiojantis.
+    - Pritaikyti atitinkamą nuolaidą.
+    - Rodyti galutinę sumą su pritaikyta nuolaida.
+ 
+4.2. Papildyti cartReducer:
+- Pridėti "APPLY_DISCOUNT" veiksmą.
+- Saugoti pritaikytą nuolaidą state.
+- Atnaujinti bendrą sumą pritaikius nuolaidą.
+ 
+4.3. Rodyti:
+- Pradinę sumą
+- Pritaikytą nuolaidą
+- Galutinę sumą po nuolaidos
+ 
+5. Krepšelio kainos dalys:
+5.1. Krepšelio kainos skaidymas į dalis:
+- Prekių suma be PVM
+- PVM suma (21%)
+- Tarpinė suma su PVM
+- Pritaikyta nuolaida (jei yra)
+- Galutinė mokėtina suma
+ 
+5.2. CartContext papildymas:
+- Pridėti funkcijas kainų skaičiavimui
+- Atskirai skaičiuoti PVM
+- Saugoti ir atnaujinti visas kainos dalis state objekte
+ 
+5.3. Atvaizdavimas Cart komponente:
+- Sukurti atskirą PriceDetails komponentą
+- Rodyti visas kainos dalis aiškiai atskirtose eilutėse
+- Paryškinti galutinę mokėtiną sumą
+ 
+6. Valiutos pasirinkimas:
+6.1. Sukurti valiutos keitimo funkcionalumą:
+- Pridėti valiutų sąrašą (EUR, USD, GBP): 
+    const rates = { EUR: 1, USD: 1.1, GBP: 0.85 }
+- Sukurti valiutos pasirinkimo komponentą
+- Implementuoti valiutos keitimo logiką
+ 
+6.2. Papildyti cartReducer:
+- Pridėti currentCurrency į state
+- Pridėti "CHANGE_CURRENCY" veiksmą į reducer
+- Saugoti valiutų kursus ir atnaujinti kainas pagal pasirinktą valiutą
+ 
+6.3. Valiutos keitimo atvaizdavimas:
+- Sukurti CurrencySelector komponentą
+- Rodyti kainas pasirinktoje valiutoje
+- Atnaujinti visas kainos dalis keičiant valiutą
+ 
+7. Prekių filtravimas pagal kategorijas:
+7.1. Sukurti kategorijų sistemą:
+- Pridėti kategorijas prie produktų duomenų
+- Sukurti kategorijų sąrašą
+- Implementuoti filtravimo logiką pagal kategorijas
+ 
+7.2. ProductList komponento papildymas:
+- Sukurti CategoryFilter komponentą
+- Pridėti kategorijų pasirinkimo galimybę
+- Rodyti tik pasirinktos kategorijos produktus
+ 
+7.3. Papildyti cartReducer:
+- Pridėti selectedCategory į state
+- Pridėti "CHANGE_CATEGORY" veiksmą į reducer
+- Atnaujinti produktų atvaizdavimą pagal pasirinktą kategoriją
+ 
+7.4. Papildomas funkcionalumas (optional):
+- Išsaugoti pasirinktus filtrus į localStorage
+- Rodyti produktų skaičių kiekvienoje kategorijoje
+ 
+8. Checkout funkcionalumas:
+8.1. Sukurti Checkout formą:
+- Vartotojo kontaktinės informacijos laukai
+- Pristatymo adreso laukai
+- Mokėjimo būdo pasirinkimas
+- Užsakymo peržiūros galimybė
+ 
+8.2. Checkout proceso validacija:
+- Patikrinti ar visi būtini laukai užpildyti
+- Validuoti el. pašto formatą
+- Validuoti telefono numerio formatą
+ 
+8.3. Checkout komponento funkcionalumas:
+- Saugoti užpildytus duomenis į state
+- Leisti grįžti į ankstesnį žingsnį (grįžti į parduotuvę)
+- Rodyti užsakymo santrauką
+- Patvirtinti užsakymą
+ 
+8.4. Užsakymo patvirtinimas:
+- Sugeneruoti unikalų užsakymo numerį
+- Išvalyti krepšelį po sėkmingo užsakymo
+- Rodyti patvirtinimo pranešimą
+- Grįžti į parduotuvę
+ 
+8.5. Papildyti cartReducer:
+- Pridėti cartStatus į state (checkout), kuris nurodys ar pirkėjas šiuo metu yra cart, ar checkout
+- Pridėti "CHANGE_CART_STATUS" veiksmą į reducer
+- Atnaujinti atvaizdavimą pagal pasirinktą status: jeigu checkout, tai vietoje ProductsList ir Cart komponentų, rodyti CheckoutComponentą.
+
+
+*************************************
+
+9. Pridėti json-server API valdymui su šiais endpoint:
+9.1. products
+9.2. categories
+9.3. orders (susikuria po checkout'o)
+ 
+10. Orders puslapis:
+- Sukurti OrdersPage (naujas puslapis, naujas reducer ir context)
+- Order turi turėti:
+10.1. Pirkimo krepšelio informaciją
+10.2. Pirkėjo informaciją.
+10.3. Pristatymo lokaciją.
+10.4. Apmokėjimo būdą.
+10.5. Užsakymo datą.
