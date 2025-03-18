@@ -124,6 +124,28 @@ let lecturers = [
         office: 'Room 312',
     }
 ];
+let subjects = [
+    { 
+        id: uuid(),
+        subject: 'Mathematics' 
+    },
+    {   
+        id: uuid(), 
+        subject: 'Physics' 
+    },
+    { 
+        id: uuid(), 
+        subject: 'Literature'
+    },
+    { 
+        id: uuid(),
+        subject: 'Computer Science' 
+    },
+    { 
+        id: uuid(), 
+        subject: 'Psychology' 
+    }
+];
 
 app.get('/', (req, res, next) => {
     res.send(`
@@ -133,6 +155,7 @@ app.get('/', (req, res, next) => {
             <li><a href="/groups">Groups</a></li>
             <li><a href="/languages">Languages</a></li>
             <li><a href="/lecturers">Lecturers</a></li>
+            <li><a href="/subjects">Subjects</a></li>
         </ul>
         `)
 })
@@ -160,6 +183,7 @@ app.get('/students/:id', (req, res, next) => {
 
     if (foundStudent) {
         res.send(`
+            <a href="/">Go back to home page</a>
             <a href="/students">All students</a>
             <form action="/delete-student" method="POST">
                 <input type="hidden" name="studentId" value="${foundStudent.id}"/>
@@ -654,6 +678,94 @@ app.post('/delete-lecturer', (req, res, next) => {
 
 
 
+app.get('/subjects', (req, res, next) => {
+    const subjectsList = subjects.map(subject => `<li><a href="/subjects/${subject.id}">${subject.subject}</a></li>`).join('')
+    res.send(`
+        <a href="/">Go back to home page</a>
+        <a href="/create-subject">Create subject</a>
+        <h1>Subjects:</h1>
+        <ul>${subjectsList}</ul>
+        `)
+})
+
+app.get('/subjects/:id', (req, res, next) => {
+    const { id } = req.params
+    const selectedSubject = subjects.find(subject => subject.id === id)
+
+    res.send(`
+        <a href="/">Go back to home page</a>
+        <h1>${selectedSubject.subject}</h1>
+        <a href="/edit-subject/${id}">Edit subject</a>
+        <form action="/delete-subject" method="POST">
+            <input type="hidden" name="id" value="${id}"/>
+            <button type="submit">Delete subject</button>
+        </form>
+        `)
+    
+})
+
+app.get('/create-subject', (req, res, next) => {
+
+    res.send(`
+        <h1>Create subject:</h1>
+        <form action="/subject-created" method="POST">
+            <div>
+                <label for="subject">Subject name:</label>
+                <input type="text" name="subject" id="subject"/>
+
+                <button type="submit">Create</button>
+            </div>
+        </form>
+        `)
+    
+})
+
+app.post('/subject-created', (req, res, next) => {
+    const newSubject = {...req.body, id: uuid()}
+    subjects.push(newSubject)
+
+    res.redirect('/subjects')
+})
+
+app.get('/edit-subject/:id', (req, res, next) => {
+    const { id } = req.params
+    const editedSubject = subjects.find(subject => subject.id === id)
+    
+    res.send(`
+        <h1>Edit subject:</h1>
+        <form action="/subject-edited" method="POST">
+            <div>
+                <label for="subject">Subject name:</label>
+                <input type="text" name="subject" id="subject" value="${editedSubject.subject}"/>
+
+                <input type="hidden" name="id" value="${id}"/>
+                <button type="submit">Edit</button>
+            </div>
+        </form>
+        `)
+})
+
+app.post('/subject-edited', (req, res, next) => {
+    const { id } = req.body
+    const editedSubject = subjects.map(subject => {
+        if (subject.id === id) {
+            return req.body
+        } else {
+            return subject
+        }
+    })
+    subjects = editedSubject
+    res.redirect('/subjects')
+    
+})
+
+app.post('/delete-subject', (req, res, next) => {
+    const { id } = req.body
+    const newSubjects = subjects.filter(subject => subject.id !== id)
+    subjects = newSubjects
+
+    res.redirect('/subjects')
+})
 
 
 
