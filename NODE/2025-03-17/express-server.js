@@ -46,7 +46,7 @@ app.get(`/form`, (req, res, next) => {
 app.post(`/form-submitted`, (req, res, next) => {
    const { message } = req.body
 
-   if (messages) {
+   if (message) {
        messages.push(message)
    }
 

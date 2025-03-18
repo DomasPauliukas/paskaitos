@@ -2,7 +2,8 @@
     "scripts": {
         "start": "node --watch script.js",
         "express-server": "node --watch express-server.js",
-        "server": "node server.js"
+        "server": "node server.js",
+        "form": "node --watch form-task.js"
     },
     "name": "2025-03-17",
     "version": "1.0.0",
