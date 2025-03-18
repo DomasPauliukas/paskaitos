@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended : true}))
 
 const { v4: uuid } = require('uuid')  // npm i uuid
+const { off } = require('process')
 
 let students = [
     {
@@ -76,6 +77,53 @@ let languages = [
         name: 'Python'
     },
 ]
+let lecturers = [
+    {
+        id: uuid(),
+        firstName: 'John',
+        lastName: 'Doe',
+        department: 'Science',
+        email: 'johndoe@example.com',
+        yearsOfExperience: 12,
+        office: 'Room 204',
+    },
+    {
+        id: uuid(),
+        firstName: 'Jane',
+        lastName: 'Smith',
+        department: 'Science',
+        email: 'janesmith@example.com',
+        yearsOfExperience: 8,
+        office: 'Room 305',
+    },
+    {
+        id: uuid(),
+        firstName: 'Emily',
+        lastName: 'Johnson',
+        department: 'Arts',
+        email: 'emilyjohnson@example.com',
+        yearsOfExperience: 15,
+        office: 'Room 101',
+    },
+    {
+        id: uuid(),
+        firstName: 'David',
+        lastName: 'Brown',
+        department: 'Engineering',
+        email: 'davidbrown@example.com',
+        yearsOfExperience: 5,
+        office: 'Room 204',
+    },
+    {
+        id: uuid(),
+        firstName: 'Sophia',
+        lastName: 'Williams',
+        department: 'Humanities',
+        email: 'sophiawilliams@example.com',
+        yearsOfExperience: 10,
+        office: 'Room 312',
+    }
+];
 
 app.get('/', (req, res, next) => {
     res.send(`
@@ -84,9 +132,12 @@ app.get('/', (req, res, next) => {
             <li><a href="/students">Student's List</a></li>
             <li><a href="/groups">Groups</a></li>
             <li><a href="/languages">Languages</a></li>
+            <li><a href="/lecturers">Lecturers</a></li>
         </ul>
         `)
 })
+
+
 
 app.get('/students', (req, res, next) => {
 
@@ -369,6 +420,7 @@ app.post('/delete-group', (req, res, next) => {
 })
 
 
+
 app.get('/languages', (req, res, next) => {
     const languagesList = languages.map(language => `<li><a href="/languages/${language.id}">${language.name}</a></li>`).join('')
 
@@ -455,6 +507,148 @@ app.post(`/delete-language`, (req, res, next) => {
     const deletedLanguage = languages.filter(language => language.id !== id)
     languages = deletedLanguage
     res.redirect('/languages')
+})
+
+
+
+
+app.get('/lecturers', (req, res, next) => {
+    const lecturersList = lecturers.map(lecturer => `<li><a href="/lecturers/${lecturer.id}">${lecturer.firstName} ${lecturer.lastName}</a></li>`).join('')
+
+    res.send(`
+        <a href="/">Go back to home page</a>
+        <h1>Lecturers:</h1>
+        <ul>${lecturersList}</ul>
+        <a href="/create-lecturer">Create lecturer</a>
+        `)
+})
+
+app.get('/lecturers/:id', (req, res, next) => {
+    const { id } = req.params
+    const selectedLecturer = lecturers.find(lecturer => lecturer.id === id)
+    const { firstName, lastName, department, email, yearsOfExperience, office } = selectedLecturer
+    res.send(`
+        <a href="/">Go back to home page</a>
+        <h1>Lecturer</h1>
+        <ul>
+            <li>First name: ${firstName}</li>
+            <li>Last name: ${lastName}</li>
+            <li>Department: ${department}</li>
+            <li>Email: ${email}</li>
+            <li>Experience: ${yearsOfExperience}</li>
+            <li>Office: ${office}</li>
+        </ul>
+
+        <a href="/edit-lecturer/${id}">Edit lecturer</a>
+        <form action="/delete-lecturer" method="POST">
+            <input type="hidden" name="id" value="${id}"/>
+            <button type="submit">Delete lecturer</button>
+        </form>
+        `)
+})
+
+app.get('/create-lecturer', (req, res, next) => {
+
+    res.send(`
+        <h1>Create lecturer:</h1>
+        <form action="/lecturer-created" method="POST">
+            <div>
+                <label for="firstName">First name:</label>
+                <input type="firstName" name="firstName" id="firstName"/>
+            </div>
+            <div>
+                <label for="lastName">Last name:</label>
+                <input type="lastName" name="lastName" id="lastName"/>
+            </div>
+            <div>
+                <label for="department">Department:</label>
+                <input type="department" name="department" id="department"/>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email"/>
+            </div>
+            <div>
+                <label for="yearsOfExperience">Experience (years):</label>
+                <input type="yearsOfExperience" name="yearsOfExperience" id="yearsOfExperience"/>
+            </div>
+            <div>
+                <label for="office">Office:</label>
+                <input type="office" name="office" id="office"/>
+            </div>
+
+            <button type="submit">Create lecturer</button>
+        </form>
+        `)
+})
+
+app.post('/lecturer-created', (req, res, next) => {
+    const createdLecturers = {...req.body, id: uuid()}
+    lecturers.push(createdLecturers)
+
+    res.redirect('/lecturers')
+})
+
+app.get('/edit-lecturer/:id', (req, res, next) => {
+    const { id } = req.params
+    const editedLecturer = lecturers.find(lecturer => lecturer.id === id)
+    const { firstName, lastName, department, email, yearsOfExperience, office } = editedLecturer
+
+    res.send(`
+        <h1>Edit lecturer:</h1>
+        <form action="/lecturer-edited" method="POST">
+            <div>
+                <label for="firstName">First name:</label>
+                <input type="firstName" name="firstName" id="firstName" value="${firstName}"/>
+            </div>
+            <div>
+                <label for="lastName">Last name:</label>
+                <input type="lastName" name="lastName" id="lastName" value="${lastName}"/>
+            </div>
+            <div>
+                <label for="department">Department:</label>
+                <input type="department" name="department" id="department" value="${department}"/>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" value="${email}"/>
+            </div>
+            <div>
+                <label for="yearsOfExperience">Experience (years):</label>
+                <input type="yearsOfExperience" name="yearsOfExperience" id="yearsOfExperience" value="${yearsOfExperience}"/>
+            </div>
+            <div>
+                <label for="office">Office:</label>
+                <input type="office" name="office" id="office" value="${office}"/>
+            </div>
+
+            <input type="hidden" name="id" value="${id}"/>
+            <button type="submit">Edit lecturer</button>
+        </form>
+        
+        `)
+})
+
+app.post('/lecturer-edited', (req, res, next) => {
+    const { id } = req.body
+    const editedLecturers = lecturers.map(lecturer => {
+        if(lecturer.id === id) {
+            return req.body
+        } else {
+            return lecturer
+        }
+    })
+    lecturers = editedLecturers
+    res.redirect('/lecturers')
+})
+
+app.post('/delete-lecturer', (req, res, next) => {
+    const { id } = req.body
+
+    const deletedLecturer = lecturers.filter(lecturer => lecturer.id !== id)
+    lecturers = deletedLecturer
+
+    res.redirect('/lecturers')
 })
 
 
