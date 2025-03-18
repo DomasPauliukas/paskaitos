@@ -58,14 +58,33 @@ let groups = [
         name: 'Zera'
     }
 ]
+let languages = [
+    {
+        id: uuid(),
+        name: 'Javascript'
+    },
+    {
+        id: uuid(),
+        name: 'Node-JS'
+    },
+    {
+        id: uuid(),
+        name: 'React'
+    },
+    {
+        id: uuid(),
+        name: 'Python'
+    },
+]
 
 app.get('/', (req, res, next) => {
     res.send(`
         <h1>Welcome</h1>
-        <a href="/students">Student's List</a>
-        <a href="/groups">Groups</a>
-
-
+        <ul>
+            <li><a href="/students">Student's List</a></li>
+            <li><a href="/groups">Groups</a></li>
+            <li><a href="/languages">Languages</a></li>
+        </ul>
         `)
 })
 
@@ -347,6 +366,95 @@ app.post('/delete-group', (req, res, next) => {
     groups = deletedGroup
 
     res.redirect('/groups')
+})
+
+
+app.get('/languages', (req, res, next) => {
+    const languagesList = languages.map(language => `<li><a href="/languages/${language.id}">${language.name}</a></li>`).join('')
+
+    res.send(`
+        <a href="/">Go back to home page</a>
+        <a href="/create-language">Create language</a>
+        <h1>Languages list:</h1>
+        <ul>${languagesList}</ul>
+        `)
+})
+
+app.get('/languages/:id', (req, res, next) => {
+    const { id } = req.params
+    const selectedLanguage = languages.find(language => language.id === id)
+    res.send(`
+        <h1>${selectedLanguage.name}</h1>
+        <a href="/edit-language/${id}">Edit language</a>
+
+        <form action="/delete-language" method="POST">
+            <input type="hidden" name="id" value="${id}"/>
+            <button type="submit">Delete language</button>
+        </form>
+        <a href="/">Go back to home page</a>
+
+        `)
+})
+
+app.get('/create-language', (req, res, next) => {
+
+    res.send(`
+        <h1>Create language:</h1>
+        <form action="/language-created" method="POST">
+            <div>
+                <label for="language">Add new Language:</label>
+                <input type="text" name="name" id="language"/>
+
+                <button type="submit">Add</button>
+            </div>
+        </form>
+        `)
+})
+
+app.post('/language-created', (req, res, next) => {
+    const newLanguage = {...req.body, id: uuid()}
+    languages.push(newLanguage)
+
+    res.redirect('/languages')
+})
+
+app.get('/edit-language/:id', (req, res, next) => {
+    const { id } = req.params
+    const editedLanguage = languages.find(language => language.id === id)
+
+    res.send(`
+        <h1>Edit language</h1>
+        <form action="/language-edited" method="POST">
+            <div>
+                <label for="language">Edit language:</label>
+                <input type="text" name="name" id="language" value="${editedLanguage.name}"/>
+
+                <input type="hidden" name="id" value="${id}"/>
+                <button type="submit">Edit</button>
+            </div>
+        </form>
+        `)
+})
+
+app.post('/language-edited', (req, res, next) => {
+    const { id } = req.body
+    const editedLanguages = languages.map(language => {
+        if (language.id === id) {
+            return req.body
+        } else {
+            return language
+        }
+    })
+    languages = editedLanguages
+
+    res.redirect(`/languages`)
+})
+
+app.post(`/delete-language`, (req, res, next) => {
+    const { id } = req.body
+    const deletedLanguage = languages.filter(language => language.id !== id)
+    languages = deletedLanguage
+    res.redirect('/languages')
 })
 
 
