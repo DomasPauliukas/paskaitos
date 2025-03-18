@@ -26,15 +26,46 @@ let students = [
         email: 'Tomas1013@gmail.com',
     }
 ]
-
+let groups = [
+    {
+        id: uuid(),
+        number: 20,
+        name: 'Alfa'
+    },
+    {
+        id: uuid(),
+        number: 21,
+        name: 'Beta'
+    },
+    {
+        id: uuid(),
+        number: 22,
+        name: 'Gama'
+    },
+    {
+        id: uuid(),
+        number: 23,
+        name: 'Delta'
+    },
+    {
+        id: uuid(),
+        number: 24,
+        name: 'Epsilon'
+    },
+    {
+        id: uuid(),
+        number: 25,
+        name: 'Zera'
+    }
+]
 
 app.get('/', (req, res, next) => {
     res.send(`
         <h1>Welcome</h1>
         <a href="/students">Student's List</a>
+        <a href="/groups">Groups</a>
 
-        <h2>Fill the form:</h2>
-        <a href="/form">Form</a>
+
         `)
 })
 
@@ -43,6 +74,7 @@ app.get('/students', (req, res, next) => {
     const studentList = students.map(student => `<li><a href="/students/${student.id}">${student.name} ${student.surname}</a></li>`).join('')
 
     res.send(`
+        <a href="/">Go back to home page</a>
         <h1>Student's List</h1>
         <a href="/create-student">Create student</a>
         <ul>${studentList}</ul>
@@ -218,6 +250,108 @@ app.post('/student-edited', (req, res, next) => {
 
     res.redirect(`/students/${id}`)
 })
+
+
+
+app.get('/groups', (req, res, next) => {
+    const groupsList = groups.map(group => `<li><a href="/groups/${group.id}">Number: ${group.number}</a></li>`).join('')
+    res.send(`
+        <a href="/">Go back to home page</a>
+        <a href="/create-group">Create group</a>
+        <h1>Groups:</h1>
+        <ul>${groupsList}</ul>
+        `)
+})
+
+app.get('/groups/:id', (req, res, next) => {
+    const { id } = req.params
+    const selectedGroup = groups.find(group => group.id === id)
+    const { name, number } = selectedGroup
+    res.send(`
+        <a href="/">Go back to home page</a>
+        <h1>Group: ${name} (number: ${number})</h1>
+        <a href="/edit-group/${id}">Edit group</a>
+        <form action="/delete-group" method="POST">
+            <input type="hidden" name="id" value="${id}"/>
+            <button type="submit">Delete group</button>
+        </form>
+        `)
+})
+
+app.get('/create-group', (req, res, next) => {
+    res.send(`
+        <h1>Create group:</h1>
+        <form action="/group-created" method="POST">
+          <div>
+            <label for="name">Group name:</label>
+            <input type="text" name="name" id="name"/>
+          </div>
+          <div>
+            <label for="number">Group number:</label>
+            <input type="number" name="number" id="number"/>
+          </div>
+          
+
+            <button type="submit">Create</button>
+        </form>
+        `)
+})
+
+app.post('/group-created', (req, res, next) => {
+    const newGroup = {...req.body, id: uuid()}
+    groups.push(newGroup)
+    res.redirect(`/groups`)
+})
+
+app.get('/edit-group/:id', (req, res, next) => {
+    const { id } = req.params
+    const editedGroup = groups.find(group => group.id === id)
+    const { name, number } = editedGroup
+
+    res.send(`
+        <h1>Edit group:</h1>
+
+        <form action="/group-edited" method="POST">
+          <div>
+            <label for="name">Group name:</label>
+            <input type="text" name="name" id="name" value="${name}"/>
+          </div>
+          <div>
+            <label for="number">Group number:</label>
+            <input type="number" name="number" id="number" value="${number}"/>
+          </div>
+
+            <input type="hidden" name="id" value="${id}"/>
+            <button type="submit">Edit</button>
+        </form>
+        `)
+})
+
+app.post('/group-edited', (req, res, next) => {
+    const { id } = req.body
+    const editedGroup = groups.map(group => {
+        if( group.id === id) {
+            return req.body
+        } else {
+            return group
+        }
+    })
+    groups = editedGroup
+    res.redirect(`/groups/${id}`)
+
+})
+
+app.post('/delete-group', (req, res, next) => {
+    const { id } = req.body
+    const deletedGroup = groups.filter(group => group.id !== id)
+    groups = deletedGroup
+
+    res.redirect('/groups')
+})
+
+
+
+
 
 
 
