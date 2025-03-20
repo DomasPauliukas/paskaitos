@@ -1,0 +1,47 @@
+[
+  {
+    "firstName": "Tom",
+    "lastName": "Smith",
+    "department": "Science",
+    "email": "tomsmith@123.gmail.com",
+    "yearsOfExperience": "12",
+    "office": "Room 204",
+    "id": "89411444-413b-4910-9f27-735d000082a0"
+  },
+  {
+    "firstName": "Miley",
+    "lastName": "Cyrus",
+    "department": "Biology",
+    "email": "mileycyrus@gmai.com",
+    "yearsOfExperience": "8",
+    "office": "Room 305",
+    "id": "ba544ab8-4167-4219-bae7-db9e6fcd6cf6"
+  },
+  {
+    "firstName": "Harry",
+    "lastName": "Styles",
+    "department": "Music",
+    "email": "harrystyles@gmai.com",
+    "yearsOfExperience": "15",
+    "office": "Room 101",
+    "id": "1a3db8f2-08e7-49ff-b6cb-9c7d06b69b1a"
+  },
+  {
+    "firstName": "David",
+    "lastName": "Brown",
+    "department": "Engineering",
+    "email": "davidbrown@gmail.com",
+    "yearsOfExperience": "5",
+    "office": "Room 204",
+    "id": "1b37c50a-898c-407e-92ca-d2c0246cb147"
+  },
+  {
+    "firstName": "Sophia",
+    "lastName": "Williams",
+    "department": "Humanities",
+    "email": "sophie@gmail.com",
+    "yearsOfExperience": "10",
+    "office": "Room 312",
+    "id": "36a1d4a6-daad-49a3-aa4f-35df9826d0bc"
+  }
+]

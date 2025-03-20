@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Alfa",
+    "number": "20",
+    "id": "01976ac9-1714-45a3-ba14-12027e0ed401"
+  },
+  {
+    "name": "Beta",
+    "number": "21",
+    "id": "7490da7c-80c4-4a79-8158-aa3dc5961478"
+  },
+  {
+    "name": "Gama",
+    "number": "22",
+    "id": "8efb4218-8728-4f1a-b136-6bef299ffffc"
+  },
+  {
+    "name": "Delta",
+    "number": "23",
+    "id": "974f0cce-4059-42ba-8dfd-3a53f6d0e9c3"
+  },
+  {
+    "name": "Epsilon",
+    "number": "24",
+    "id": "1fdd36a8-adec-461c-b22a-52311cb13b2c"
+  },
+  {
+    "name": "Zera",
+    "number": "25",
+    "id": "40f296d4-43b2-4c2e-8fe8-5a74d7c9e73f"
+  }
+]

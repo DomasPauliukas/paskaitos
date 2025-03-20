@@ -6,89 +6,123 @@ app.use(bodyParser.urlencoded({extended : true}))
 
 const { v4: uuid } = require('uuid')  // npm i uuid
 
-// cia kodas kai isskaidome komponentus jau, kad rastu juos
-
-// const studentRoutes = require('./routes/students')
-// app.use(studentRoutes)
-
-// app.use('/', studentRoutes) pirmas elementas naudojamas del routes prefix kad nustatyti, kad neriektu rasyti visiems to paties.
-
-// npm i ejs // html rasymui 
-
-// __dirname - rasomas kad butu visas kelias iki failo, serveriui jei reikia.
-
-
-const path = require('path') // nuorodai iki failo
-const fs = require('fs') // kartu reikia su path, rodo turini
-
-
-const filePath = path.join('db', 'students.json')
-const fileContent = fs.readFileSync(filePath)
-
-const data = JSON.parse(fileContent) // kad matytume. paskui stringify darome keliant atgal i json
-
-const stringifiedData = JSON.stringify(data, null, 2) // null, 2 - del skaitomesnes strukturos json faile.
-
-fs.writeFileSync(filePath, stringifiedData) // viska atnaujins ir sukels i json faila.
-
-
-// if(!fs.existsSync(studentPath)) {
-//     return ......
-// }
-
-// galima funkcijas susikurti atskirai kiekvienam endpointui, pvz apacioje pagal updatedDataDB ir getDataDB.
-
-function getStudents() {
-    const filePath = path.join('db', 'students.json')
-    
-    const fileContent = fs.readFileSync(filePath)
-    const data = JSON.parse(fileContent)
-    
-    return data
-}
-
-function getStudentById (id) {
-    const students = getStudents()
-    
-    return students.find(student => student.id === id)
-    
-}
-
-// apacioje funkcija, kuri atnaujina data i json
-
-
-function updatedDataDB (endpoint, item) {
-    const filePath = path.join('db', endpoint + '.json')
-    const data = getDataDB(endpoint)
-    
-    data.push(item)
-    
-    const stringifiedData = JSON.stringify(data, null, 2)
-    
-    fs.writeFileSync(filePath, stringifiedData)
-}
-
-function editDataDB (endpoint, editedData) {
-    const filePath = path.join('db', endpoint + '.json')
-
-    const stringifiedData = JSON.stringify(editedData, null, 2)
-    
-    fs.writeFileSync(filePath, stringifiedData)
-}
-
-function getDataDB (endpoint) {
-    const filePath = path.join('db', endpoint + '.json')
-//patikriname ar yra toks endpoint
-if (!fs.existsSync(filePath)) {
-    throw new Error('File does not exist')
-}
-
-    const fileContent = fs.readFileSync(filePath)
-    const data = JSON.parse(fileContent)
-
-    return data
-}
-
+let students = [
+    {
+        id: uuid(),
+        name: 'Domas',
+        surname: 'Pauliukas',
+        age: 29,
+        interests: ['Music', 'Traveling'],
+        city: 'Kaunas',
+        email: 'Domas0319@gmail.com',
+    },
+    {
+        id: uuid(),
+        name: 'Tomas',
+        surname: 'Kuzas',
+        age: 35,
+        interests: ['Sports'],
+        city: 'Vilnis',
+        email: 'Tomas1013@gmail.com',
+    }
+]
+let groups = [
+    {
+        id: uuid(),
+        number: 20,
+        name: 'Alfa'
+    },
+    {
+        id: uuid(),
+        number: 21,
+        name: 'Beta'
+    },
+    {
+        id: uuid(),
+        number: 22,
+        name: 'Gama'
+    },
+    {
+        id: uuid(),
+        number: 23,
+        name: 'Delta'
+    },
+    {
+        id: uuid(),
+        number: 24,
+        name: 'Epsilon'
+    },
+    {
+        id: uuid(),
+        number: 25,
+        name: 'Zera'
+    }
+]
+let languages = [
+    {
+        id: uuid(),
+        name: 'Javascript'
+    },
+    {
+        id: uuid(),
+        name: 'Node-JS'
+    },
+    {
+        id: uuid(),
+        name: 'React'
+    },
+    {
+        id: uuid(),
+        name: 'Python'
+    },
+]
+let lecturers = [
+    {
+        id: uuid(),
+        firstName: 'John',
+        lastName: 'Doe',
+        department: 'Science',
+        email: 'johndoe@example.com',
+        yearsOfExperience: 12,
+        office: 'Room 204',
+    },
+    {
+        id: uuid(),
+        firstName: 'Jane',
+        lastName: 'Smith',
+        department: 'Science',
+        email: 'janesmith@example.com',
+        yearsOfExperience: 8,
+        office: 'Room 305',
+    },
+    {
+        id: uuid(),
+        firstName: 'Emily',
+        lastName: 'Johnson',
+        department: 'Arts',
+        email: 'emilyjohnson@example.com',
+        yearsOfExperience: 15,
+        office: 'Room 101',
+    },
+    {
+        id: uuid(),
+        firstName: 'David',
+        lastName: 'Brown',
+        department: 'Engineering',
+        email: 'davidbrown@example.com',
+        yearsOfExperience: 5,
+        office: 'Room 204',
+    },
+    {
+        id: uuid(),
+        firstName: 'Sophia',
+        lastName: 'Williams',
+        department: 'Humanities',
+        email: 'sophiawilliams@example.com',
+        yearsOfExperience: 10,
+        office: 'Room 312',
+    }
+];
 let subjects = [
     { 
         id: uuid(),
@@ -125,24 +159,8 @@ app.get('/', (req, res, next) => {
         `)
 })
 
-// pasakom kad naudosim ejs engine, ir tada kuriame folderyje bus.
-app.set('view engine', 'ejs')
-app.set('views', path.join('views'))
-
-
-
-// app.get('/', (req, res, next) => {
-//     const data = {
-//         studentsLength: students.length
-//     }
-//     res.render(`index`, data) 
-// })
-    // pirmas key - failas, 2 - objektas su properties ka norim perduoti, objekta sukuriame auksciau, "data", o ejs issimame ta value su <%= studentsLength %>)
-
 
 app.get('/students', (req, res, next) => {
-
-    const students = getDataDB('students')
 
     const studentList = students.map(student => `<li><a href="/students/${student.id}">${student.name} ${student.surname}</a></li>`).join('')
 
@@ -155,7 +173,6 @@ app.get('/students', (req, res, next) => {
 })
 
 app.get('/students/:id', (req, res, next) => {
-    const students = getDataDB('students')
     const { id } = req.params
     const foundStudent = students.find(student => student.id === id)
     
@@ -187,6 +204,7 @@ app.get('/students/:id', (req, res, next) => {
 })
 
 app.get('/create-student', (req, res, next) => {
+    console.log(groups)
     res.send(`
         <h1>Create Student</h1>
 
@@ -254,23 +272,20 @@ app.post('/student-created', (req, res, next) => {
     }
 
     const newStudent = {...req.body, id: uuid(), interests}
-    updatedDataDB('students', newStudent)
-    // students.push(newStudent)
+    students.push(newStudent)
 
     res.redirect(`/students/${newStudent.id}`)
 })
 
 app.post('/delete-student', (req, res, next) => {
-    const students = getDataDB('students')
     const { studentId } = req.body
 
     const filteredStudent = students.filter(student => student.id !== studentId)
-    editDataDB('students', filteredStudent)
+    students = filteredStudent
     res.redirect(`/students`)
 })
 
 app.get('/edit-student/:id', (req, res, next) => {
-    const students = getDataDB('students')
     const { id } = req.params
     const editedStudent = students.find(student => student.id === id)
     const { name, surname, age, city, email, interests, newsletter } = editedStudent
@@ -329,7 +344,6 @@ app.get('/edit-student/:id', (req, res, next) => {
 })
 
 app.post('/student-edited', (req, res, next) => {
-    const students = getDataDB('students')
     const { id } = req.body
 
     const updatedStudents = students.map(student => {
@@ -343,7 +357,6 @@ app.post('/student-edited', (req, res, next) => {
                 }
             }
             const updatedStudent = {
-                ...student,
                 ...req.body,
                 interests,
             }
@@ -353,7 +366,7 @@ app.post('/student-edited', (req, res, next) => {
             return student
         }
     })
-    editDataDB('students', updatedStudents)
+    students = updatedStudents
 
     res.redirect(`/students/${id}`)
 })
@@ -361,7 +374,6 @@ app.post('/student-edited', (req, res, next) => {
 
 
 app.get('/groups', (req, res, next) => {
-    const groups = getDataDB('groups')
     const groupsList = groups.map(group => `<li><a href="/groups/${group.id}">Number: ${group.number}</a></li>`).join('')
     res.send(`
         <a href="/">Go back to home page</a>
@@ -372,7 +384,6 @@ app.get('/groups', (req, res, next) => {
 })
 
 app.get('/groups/:id', (req, res, next) => {
-    const groups = getDataDB('groups')
     const { id } = req.params
     const selectedGroup = groups.find(group => group.id === id)
     const { name, number } = selectedGroup
@@ -408,12 +419,11 @@ app.get('/create-group', (req, res, next) => {
 
 app.post('/group-created', (req, res, next) => {
     const newGroup = {...req.body, id: uuid()}
-    updatedDataDB('groups', newGroup)
+    groups.push(newGroup)
     res.redirect(`/groups`)
 })
 
 app.get('/edit-group/:id', (req, res, next) => {
-    const groups = getDataDB('groups')
     const { id } = req.params
     const editedGroup = groups.find(group => group.id === id)
     const { name, number } = editedGroup
@@ -438,7 +448,6 @@ app.get('/edit-group/:id', (req, res, next) => {
 })
 
 app.post('/group-edited', (req, res, next) => {
-    const groups = getDataDB('groups')
     const { id } = req.body
     const editedGroup = groups.map(group => {
         if( group.id === id) {
@@ -447,16 +456,15 @@ app.post('/group-edited', (req, res, next) => {
             return group
         }
     })
-    editDataDB('groups', editedGroup)
+    groups = editedGroup
     res.redirect(`/groups/${id}`)
 
 })
 
 app.post('/delete-group', (req, res, next) => {
-    const groups = getDataDB('groups')
     const { id } = req.body
     const deletedGroup = groups.filter(group => group.id !== id)
-    editDataDB('groups', deletedGroup)
+    groups = deletedGroup
 
     res.redirect('/groups')
 })
@@ -464,7 +472,6 @@ app.post('/delete-group', (req, res, next) => {
 
 
 app.get('/languages', (req, res, next) => {
-    const languages = getDataDB('languages')
     const languagesList = languages.map(language => `<li><a href="/languages/${language.id}">${language.name}</a></li>`).join('')
 
     res.send(`
@@ -476,7 +483,6 @@ app.get('/languages', (req, res, next) => {
 })
 
 app.get('/languages/:id', (req, res, next) => {
-    const languages = getDataDB('languages')
     const { id } = req.params
     const selectedLanguage = languages.find(language => language.id === id)
     res.send(`
@@ -509,13 +515,12 @@ app.get('/create-language', (req, res, next) => {
 
 app.post('/language-created', (req, res, next) => {
     const newLanguage = {...req.body, id: uuid()}
-    updatedDataDB('languages', newLanguage)
+    languages.push(newLanguage)
 
     res.redirect('/languages')
 })
 
 app.get('/edit-language/:id', (req, res, next) => {
-    const languages = getDataDB('languages')
     const { id } = req.params
     const editedLanguage = languages.find(language => language.id === id)
 
@@ -534,7 +539,6 @@ app.get('/edit-language/:id', (req, res, next) => {
 })
 
 app.post('/language-edited', (req, res, next) => {
-    const languages = getDataDB('languages')
     const { id } = req.body
     const editedLanguages = languages.map(language => {
         if (language.id === id) {
@@ -543,16 +547,15 @@ app.post('/language-edited', (req, res, next) => {
             return language
         }
     })
-    editDataDB('languages', editedLanguages)
+    languages = editedLanguages
 
     res.redirect(`/languages`)
 })
 
 app.post(`/delete-language`, (req, res, next) => {
-    const languages = getDataDB('languages')
     const { id } = req.body
     const deletedLanguage = languages.filter(language => language.id !== id)
-    editDataDB('languages', deletedLanguage)
+    languages = deletedLanguage
     res.redirect('/languages')
 })
 
@@ -560,7 +563,6 @@ app.post(`/delete-language`, (req, res, next) => {
 
 
 app.get('/lecturers', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
     const lecturersList = lecturers.map(lecturer => `<li><a href="/lecturers/${lecturer.id}">${lecturer.firstName} ${lecturer.lastName}</a></li>`).join('')
 
     res.send(`
@@ -572,7 +574,6 @@ app.get('/lecturers', (req, res, next) => {
 })
 
 app.get('/lecturers/:id', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
     const { id } = req.params
     const selectedLecturer = lecturers.find(lecturer => lecturer.id === id)
     const { firstName, lastName, department, email, yearsOfExperience, office } = selectedLecturer
@@ -633,13 +634,12 @@ app.get('/create-lecturer', (req, res, next) => {
 
 app.post('/lecturer-created', (req, res, next) => {
     const createdLecturers = {...req.body, id: uuid()}
-    updatedDataDB('lecturers', createdLecturers)
+    lecturers.push(createdLecturers)
 
     res.redirect('/lecturers')
 })
 
 app.get('/edit-lecturer/:id', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
     const { id } = req.params
     const editedLecturer = lecturers.find(lecturer => lecturer.id === id)
     const { firstName, lastName, department, email, yearsOfExperience, office } = editedLecturer
@@ -680,7 +680,6 @@ app.get('/edit-lecturer/:id', (req, res, next) => {
 })
 
 app.post('/lecturer-edited', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
     const { id } = req.body
     const editedLecturers = lecturers.map(lecturer => {
         if(lecturer.id === id) {
@@ -689,16 +688,15 @@ app.post('/lecturer-edited', (req, res, next) => {
             return lecturer
         }
     })
-    editDataDB('lecturers', editedLecturers)
+    lecturers = editedLecturers
     res.redirect('/lecturers')
 })
 
 app.post('/delete-lecturer', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
     const { id } = req.body
 
     const deletedLecturer = lecturers.filter(lecturer => lecturer.id !== id)
-    editDataDB('lecturers', deletedLecturer)
+    lecturers = deletedLecturer
 
     res.redirect('/lecturers')
 })
@@ -707,7 +705,6 @@ app.post('/delete-lecturer', (req, res, next) => {
 
 
 app.get('/subjects', (req, res, next) => {
-    const subjects = getDataDB('subjects')
     const subjectsList = subjects.map(subject => `<li><a href="/subjects/${subject.id}">${subject.subject}</a></li>`).join('')
     res.send(`
         <a href="/">Go back to home page</a>
@@ -718,7 +715,6 @@ app.get('/subjects', (req, res, next) => {
 })
 
 app.get('/subjects/:id', (req, res, next) => {
-    const subjects = getDataDB('subjects')
     const { id } = req.params
     const selectedSubject = subjects.find(subject => subject.id === id)
 
@@ -752,13 +748,12 @@ app.get('/create-subject', (req, res, next) => {
 
 app.post('/subject-created', (req, res, next) => {
     const newSubject = {...req.body, id: uuid()}
-    updatedDataDB('subjects', newSubject)
+    subjects.push(newSubject)
 
     res.redirect('/subjects')
 })
 
 app.get('/edit-subject/:id', (req, res, next) => {
-    const subjects = getDataDB('subjects')
     const { id } = req.params
     const editedSubject = subjects.find(subject => subject.id === id)
     
@@ -777,7 +772,6 @@ app.get('/edit-subject/:id', (req, res, next) => {
 })
 
 app.post('/subject-edited', (req, res, next) => {
-    const subjects = getDataDB('subjects')
     const { id } = req.body
     const editedSubject = subjects.map(subject => {
         if (subject.id === id) {
@@ -786,16 +780,15 @@ app.post('/subject-edited', (req, res, next) => {
             return subject
         }
     })
-    editDataDB('subjects', editedSubject)
+    subjects = editedSubject
     res.redirect('/subjects')
     
 })
 
 app.post('/delete-subject', (req, res, next) => {
-    const subjects = getDataDB('subjects')
     const { id } = req.body
     const newSubjects = subjects.filter(subject => subject.id !== id)
-    editDataDB('subjects', newSubjects)
+    subjects = newSubjects
 
     res.redirect('/subjects')
 })

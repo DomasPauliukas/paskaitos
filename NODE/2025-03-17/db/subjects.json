@@ -1,0 +1,30 @@
+[
+  {
+    "subject": "Mathematics",
+    "id": "446dc6b9-0604-4fe6-a355-8a577a79a34c"
+  },
+  {
+    "subject": "Physics",
+    "id": "53e796d7-bfc9-4ac8-addc-91e005d6bbdf"
+  },
+  {
+    "subject": "Humanities",
+    "id": "65354a4c-19e4-4643-a4e2-406967a46b26"
+  },
+  {
+    "subject": "Music",
+    "id": "be848d72-fc95-450c-9ecd-1f3e87a8dcb7"
+  },
+  {
+    "subject": "Engineering",
+    "id": "0a971c4e-e328-46d4-a011-e7a560578ba1"
+  },
+  {
+    "subject": "Science",
+    "id": "19c5d5c2-133d-4805-9112-c782b73f527b"
+  },
+  {
+    "subject": "Biology",
+    "id": "bfb359ad-6983-4c32-8b10-df35e4cd30ca"
+  }
+]
