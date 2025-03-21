@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% if (foundStudent) {%>
+        <a href="/">Go back to home page</a>
+        <a href="/students">All students</a>
+        <form action="/delete-student" method="POST">
+            <input type="hidden" name="studentId" value="<%= foundStudent.id%>"/>
+            <button type="submit">Delete student</button>
+        </form>
+        <a href="/edit-student/<%= foundStudent.id%>">Edit student</a>
+        <h1>Student:</h1>
+        <h2><%= foundStudent.name %> <%= foundStudent.surname %></h2>
+        <p>Age: <%= foundStudent.age %></p>
+        <h3>
+            <% if (foundStudent.interests && foundStudent.interests.length === 1) { %> 
+                Interest:
+            <% } else if (foundStudent.interests.length > 1) { %>
+                Interests:
+            <% } else { %>
+                No interests
+            <% } %>
+        </h3>
+        <% if (foundStudent.interests.length > 0) { %>
+            <ul>
+                <% foundStudent.interests.forEach(interest => { %>
+                    <li><%= interest %></li>
+                <% }) %>
+            </ul>
+        <% } %>
+        
+    <% } else { %>
+        <h1>Page not Found</h1>
+        <a href="/">Go back to home page</a>
+    <% } %>
+</body>
+</html>

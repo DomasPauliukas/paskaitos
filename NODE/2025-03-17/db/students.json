@@ -26,5 +26,30 @@
     ],
     "newsletter": "yes",
     "id": "cd63b375-3f61-40d7-a2a1-19f98a1eb3b3"
+  },
+  {
+    "name": "Oregan",
+    "surname": "",
+    "age": "",
+    "city": "",
+    "email": "",
+    "newsletter": "true",
+    "id": "a30ef633-7084-417a-bc63-20e9780ffd0a",
+    "interests": [
+      "Music"
+    ]
+  },
+  {
+    "name": "Laptop",
+    "surname": "dasdas",
+    "age": "",
+    "city": "",
+    "email": "",
+    "newsletter": "true",
+    "id": "fa267210-6920-478b-bfde-e6937703a265",
+    "interests": [
+      "Traveling",
+      "Sports"
+    ]
   }
 ]

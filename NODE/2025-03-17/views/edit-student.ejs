@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit student (<%= editedStudent.name%>)</h1>
+
+    <form action="/student-edited" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="<%= editedStudent.name%>"/>
+    </div>
+    <div>
+        <label for="surname">Surname:</label>
+        <input type="text" name="surname" id="surname" value="<%= editedStudent.surname%>"/>
+    </div>
+    <div>
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" value="<%= editedStudent.age%>"/>
+    </div>
+    <div>
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" value="<%= editedStudent.city%>"/>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" value="<%= editedStudent.email%>"/>
+    </div>
+    <div>
+        <label for="interests">Select your interests:</label><br />
+
+        <input type="checkbox" name="interests" value="Reading" id="reading" <% if (editedStudent.interests.includes('Reading')) {%> checked <% } %> />
+        <label for="reading">Reading</label><br />
+
+        <input type="checkbox" name="interests" value="Traveling" id="traveling" <%= editedStudent.interests.includes('Traveling') ? 'checked' : '' %>/>
+        <label for="traveling">Traveling</label><br />
+
+        <input type="checkbox" name="interests" value="Music" id="music" <%= editedStudent.interests.includes('Music') ? 'checked' : '' %>/>
+        <label for="music">Music</label><br />
+
+        <input type="checkbox" name="interests" value="Sports" id="sports" <%= editedStudent.interests.includes('Sports') ? 'checked' : '' %>/>
+        <label for="sports">Sports</label><br />
+    </div>
+
+    <div>
+        <label for="newsletter">Subscribe for newsletters:</label>
+        <input type="checkbox" name="newsletter" id="newsletter" value="true" checked />
+    </div>
+
+    <input type="hidden" value="<%= editedStudent.id%>" name="id"/>
+    <button type="Edit">Submit</button>
+    </form>
+</body>
+</html>
