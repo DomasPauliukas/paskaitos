@@ -42,74 +42,25 @@ if (!fs.existsSync(filePath)) {
 
 router.get('/lecturers', (req, res, next) => {
     const lecturers = getDataDB('lecturers')
-    const lecturersList = lecturers.map(lecturer => `<li><a href="/lecturers/${lecturer.id}">${lecturer.firstName} ${lecturer.lastName}</a></li>`).join('')
-
-    res.send(`
-        <a href="/">Go back to home page</a>
-        <h1>Lecturers:</h1>
-        <ul>${lecturersList}</ul>
-        <a href="/create-lecturer">Create lecturer</a>
-        `)
+    const data = {
+        lecturers
+    }
+    res.render(`lecturers`, data)
 })
 
 router.get('/lecturers/:id', (req, res, next) => {
     const lecturers = getDataDB('lecturers')
     const { id } = req.params
     const selectedLecturer = lecturers.find(lecturer => lecturer.id === id)
-    const { firstName, lastName, department, email, yearsOfExperience, office } = selectedLecturer
-    res.send(`
-        <a href="/">Go back to home page</a>
-        <h1>Lecturer</h1>
-        <ul>
-            <li>First name: ${firstName}</li>
-            <li>Last name: ${lastName}</li>
-            <li>Department: ${department}</li>
-            <li>Email: ${email}</li>
-            <li>Experience: ${yearsOfExperience}</li>
-            <li>Office: ${office}</li>
-        </ul>
-
-        <a href="/edit-lecturer/${id}">Edit lecturer</a>
-        <form action="/delete-lecturer" method="POST">
-            <input type="hidden" name="id" value="${id}"/>
-            <button type="submit">Delete lecturer</button>
-        </form>
-        `)
+    const data = {
+        selectedLecturer
+    }
+    res.render(`lecturer`, data)
 })
 
 router.get('/create-lecturer', (req, res, next) => {
 
-    res.send(`
-        <h1>Create lecturer:</h1>
-        <form action="/lecturer-created" method="POST">
-            <div>
-                <label for="firstName">First name:</label>
-                <input type="firstName" name="firstName" id="firstName"/>
-            </div>
-            <div>
-                <label for="lastName">Last name:</label>
-                <input type="lastName" name="lastName" id="lastName"/>
-            </div>
-            <div>
-                <label for="department">Department:</label>
-                <input type="department" name="department" id="department"/>
-            </div>
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email"/>
-            </div>
-            <div>
-                <label for="yearsOfExperience">Experience (years):</label>
-                <input type="yearsOfExperience" name="yearsOfExperience" id="yearsOfExperience"/>
-            </div>
-            <div>
-                <label for="office">Office:</label>
-                <input type="office" name="office" id="office"/>
-            </div>
-
-            <button type="submit">Create lecturer</button>
-        </form>
-        `)
+    res.render(`lecturer-create`)
 })
 
 router.post('/lecturer-created', (req, res, next) => {
@@ -124,40 +75,10 @@ router.get('/edit-lecturer/:id', (req, res, next) => {
     const { id } = req.params
     const editedLecturer = lecturers.find(lecturer => lecturer.id === id)
     const { firstName, lastName, department, email, yearsOfExperience, office } = editedLecturer
-
-    res.send(`
-        <h1>Edit lecturer:</h1>
-        <form action="/lecturer-edited" method="POST">
-            <div>
-                <label for="firstName">First name:</label>
-                <input type="firstName" name="firstName" id="firstName" value="${firstName}"/>
-            </div>
-            <div>
-                <label for="lastName">Last name:</label>
-                <input type="lastName" name="lastName" id="lastName" value="${lastName}"/>
-            </div>
-            <div>
-                <label for="department">Department:</label>
-                <input type="department" name="department" id="department" value="${department}"/>
-            </div>
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" value="${email}"/>
-            </div>
-            <div>
-                <label for="yearsOfExperience">Experience (years):</label>
-                <input type="yearsOfExperience" name="yearsOfExperience" id="yearsOfExperience" value="${yearsOfExperience}"/>
-            </div>
-            <div>
-                <label for="office">Office:</label>
-                <input type="office" name="office" id="office" value="${office}"/>
-            </div>
-
-            <input type="hidden" name="id" value="${id}"/>
-            <button type="submit">Edit lecturer</button>
-        </form>
-        
-        `)
+    const data = {
+        editedLecturer
+    }
+    res.render(`lecturer-edit`, data)
 })
 
 router.post('/lecturer-edited', (req, res, next) => {

@@ -1,0 +1,20 @@
+<%- include('partials/header', { title: 'Groups' })%>
+
+<a href="/">Go back to home page</a>
+<a href="/create-group">Create group</a>
+<% if (groups.length && groups.length > 1 ) { %>
+    <h1>Groups (<%= groups.length%>):</h1>
+<% } else if (groups.length === 1) { %>
+    <h1>Group (<%= groups.length%>):</h1>
+<% } else { %>
+    <h1>No groups yet...</h1>
+<% } %>
+
+
+<ul>
+    <% groups.forEach(group => { %>
+        <li><a href="/groups/<%= group.id%>">Number: <%= group.number%></a></li>
+    <% }) %>
+</ul>
+
+<%- include('partials/footer') %>

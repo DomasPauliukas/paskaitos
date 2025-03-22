@@ -1,0 +1,23 @@
+<%- include('partials/header', { title: 'Languages' }) %>
+
+<a href="/">Go back to home page</a>
+<a href="/create-language">Create language</a>
+
+<% if (languages && languages.length > 1 ) { %>
+    <h1>Languages list:</h1>
+<% } else if (languages.length === 0) { %>
+    <h1>Language:</h1>
+<% } else { %>
+    <h1>No languages yet...</h1>
+<% } %>
+
+<% if (languages.length > 0) { %>
+    <ul>
+       <% languages.forEach(language => { %>
+        <li><a href="/languages/<%= language.id %>"><%= language.name %></a></li>
+       <% }) %>
+    
+    </ul>
+<% } %>
+
+<%- include('partials/footer') %>

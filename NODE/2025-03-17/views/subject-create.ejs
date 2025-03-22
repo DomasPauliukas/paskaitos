@@ -1,0 +1,13 @@
+<%- include('partials/header', { title: 'Create subject' }) %>
+<h1>Create subject:</h1>
+
+<form action="/subject-created" method="POST">
+    <div>
+        <label for="subject">Subject name:</label>
+        <input type="text" name="subject" id="subject"/>
+
+        <button type="submit">Create</button>
+    </div>
+</form>
+
+<%- include('partials/footer') %>

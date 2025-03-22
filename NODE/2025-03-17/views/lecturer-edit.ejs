@@ -1,0 +1,35 @@
+<%- include('partials/header', { title: `Edit lecturer (${editedLecturer.firstName} ${editedLecturer.lastName})` }) %>
+
+<h1>Edit lecturer:</h1>
+
+<form action="/lecturer-edited" method="POST">
+    <div>
+        <label for="firstName">First name:</label>
+        <input type="firstName" name="firstName" id="firstName" value="<%= editedLecturer.firstName%>"/>
+    </div>
+    <div>
+        <label for="lastName">Last name:</label>
+        <input type="lastName" name="lastName" id="lastName" value="<%= editedLecturer.lastName%>"/>
+    </div>
+    <div>
+        <label for="department">Department:</label>
+        <input type="department" name="department" id="department" value="<%= editedLecturer.department%>"/>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="<%= editedLecturer.email%>"/>
+    </div>
+    <div>
+        <label for="yearsOfExperience">Experience (years):</label>
+        <input type="yearsOfExperience" name="yearsOfExperience" id="yearsOfExperience" value="<%= editedLecturer.yearsOfExperience%>}"/>
+    </div>
+    <div>
+        <label for="office">Office:</label>
+        <input type="office" name="office" id="office" value="<%= editedLecturer.office%>"/>
+    </div>
+
+    <input type="hidden" name="id" value="<%= editedLecturer.id%>"/>
+    <button type="submit">Edit lecturer</button>
+</form>
+
+<%- include('partials/footer') %>

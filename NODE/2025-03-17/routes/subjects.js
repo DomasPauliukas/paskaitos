@@ -42,45 +42,26 @@ if (!fs.existsSync(filePath)) {
 
 router.get('/subjects', (req, res, next) => {
     const subjects = getDataDB('subjects')
-    const subjectsList = subjects.map(subject => `<li><a href="/subjects/${subject.id}">${subject.subject}</a></li>`).join('')
-    res.send(`
-        <a href="/">Go back to home page</a>
-        <a href="/create-subject">Create subject</a>
-        <h1>Subjects:</h1>
-        <ul>${subjectsList}</ul>
-        `)
+    const data = { 
+        subjects
+    }
+    res.render('subjects', data)
 })
 
 router.get('/subjects/:id', (req, res, next) => {
     const subjects = getDataDB('subjects')
     const { id } = req.params
     const selectedSubject = subjects.find(subject => subject.id === id)
-
-    res.send(`
-        <a href="/">Go back to home page</a>
-        <h1>${selectedSubject.subject}</h1>
-        <a href="/edit-subject/${id}">Edit subject</a>
-        <form action="/delete-subject" method="POST">
-            <input type="hidden" name="id" value="${id}"/>
-            <button type="submit">Delete subject</button>
-        </form>
-        `)
+    const data = {
+        selectedSubject
+    }
+    res.render(`subject`, data)
     
 })
 
 router.get('/create-subject', (req, res, next) => {
 
-    res.send(`
-        <h1>Create subject:</h1>
-        <form action="/subject-created" method="POST">
-            <div>
-                <label for="subject">Subject name:</label>
-                <input type="text" name="subject" id="subject"/>
-
-                <button type="submit">Create</button>
-            </div>
-        </form>
-        `)
+    res.render(`subject-create`)
     
 })
 
@@ -95,19 +76,10 @@ router.get('/edit-subject/:id', (req, res, next) => {
     const subjects = getDataDB('subjects')
     const { id } = req.params
     const editedSubject = subjects.find(subject => subject.id === id)
-    
-    res.send(`
-        <h1>Edit subject:</h1>
-        <form action="/subject-edited" method="POST">
-            <div>
-                <label for="subject">Subject name:</label>
-                <input type="text" name="subject" id="subject" value="${editedSubject.subject}"/>
-
-                <input type="hidden" name="id" value="${id}"/>
-                <button type="submit">Edit</button>
-            </div>
-        </form>
-        `)
+    const data = {
+        editedSubject
+    }
+    res.render(`subject-edit`, data)
 })
 
 router.post('/subject-edited', (req, res, next) => {

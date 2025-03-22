@@ -1,10 +1,10 @@
 [
   {
-    "firstName": "Tom",
+    "firstName": "Toms",
     "lastName": "Smith",
     "department": "Science",
     "email": "tomsmith@123.gmail.com",
-    "yearsOfExperience": "12",
+    "yearsOfExperience": "12}",
     "office": "Room 204",
     "id": "89411444-413b-4910-9f27-735d000082a0"
   },
@@ -52,5 +52,14 @@
     "yearsOfExperience": "11",
     "office": "Room 85",
     "id": "32f6c426-2d2a-4e74-983b-adac7e80e625"
+  },
+  {
+    "firstName": "Gabija",
+    "lastName": "Micelytė",
+    "department": "Fashion & Style",
+    "email": "Gabifashion@gmail.com",
+    "yearsOfExperience": "5",
+    "office": "Room 211",
+    "id": "cf1b823f-1eda-40b8-9485-8739aa44ee02"
   }
 ]

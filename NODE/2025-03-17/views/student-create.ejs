@@ -1,0 +1,51 @@
+<%- include('partials/header', {title: 'Create students'}) %>
+    
+<h1>Create Student</h1>
+
+<form action="/student-created" method="POST">
+<div>
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" />
+</div>
+<div>
+    <label for="surname">Surname:</label>
+    <input type="text" name="surname" id="surname" />
+</div>
+<div>
+    <label for="age">Age:</label>
+    <input type="number" name="age" id="age" />
+</div>
+<div>
+    <label for="city">City:</label>
+    <input type="text" name="city" id="city" />
+</div>
+<div>
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email" />
+</div>
+<div>
+    <label for="interests">Select your interests:</label><br />
+
+    <input type="checkbox" name="interests" value="Reading" id="reading" />
+    <label for="reading">Reading</label><br />
+
+    <input type="checkbox" name="interests" value="Traveling" id="traveling" />
+    <label for="traveling">Traveling</label><br />
+
+    <input type="checkbox" name="interests" value="Music" id="music" />
+    <label for="music">Music</label><br />
+
+    <input type="checkbox" name="interests" value="Sports" id="sports" />
+    <label for="sports">Sports</label><br />
+</div>
+
+<div>
+    <label for="newsletter">Subscribe for newsletters:</label>
+    <input type="checkbox" name="newsletter" id="newsletter" value="yes" checked />
+</div>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<%- include('partials/footer') %>

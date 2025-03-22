@@ -1,0 +1,31 @@
+<%- include('partials/header', { title: 'Create lecturer' }) %>
+<h1>Create lecturer:</h1>
+<form action="/lecturer-created" method="POST">
+    <div>
+        <label for="firstName">First name:</label>
+        <input type="firstName" name="firstName" id="firstName"/>
+    </div>
+    <div>
+        <label for="lastName">Last name:</label>
+        <input type="lastName" name="lastName" id="lastName"/>
+    </div>
+    <div>
+        <label for="department">Department:</label>
+        <input type="department" name="department" id="department"/>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email"/>
+    </div>
+    <div>
+        <label for="yearsOfExperience">Experience (years):</label>
+        <input type="yearsOfExperience" name="yearsOfExperience" id="yearsOfExperience"/>
+    </div>
+    <div>
+        <label for="office">Office:</label>
+        <input type="office" name="office" id="office"/>
+    </div>
+
+    <button type="submit">Create lecturer</button>
+</form>
+<%- include('partials/footer')%>

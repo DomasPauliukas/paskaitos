@@ -1,0 +1,13 @@
+<%- include('partials/header', { title: `${selectedLanguage.name}` }) %>
+
+<h1><%=selectedLanguage.name%></h1>
+
+<a href="/edit-language/<%= selectedLanguage.id %>">Edit language</a>
+
+<form action="/delete-language" method="POST">
+    <input type="hidden" name="id" value="$<%= selectedLanguage.id %>"/>
+    <button type="submit">Delete language</button>
+</form>
+
+<a href="/">Go back to home page</a>
+

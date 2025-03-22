@@ -27,6 +27,7 @@ app.use(subjectRoutes)
 
 // __dirname - rasomas kad butu visas kelias iki failo, serveriui jei reikia. bet nuo pagrindinio failo, ne is root.
 
+app.use(express.static('public')) // pasiekia public serverio CSS visus
 
 const path = require('path') // nuorodai iki failo
 const fs = require('fs') // kartu reikia su path, rodo turini
@@ -47,6 +48,9 @@ fs.writeFileSync(filePath, stringifiedData) // viska atnaujins ir sukels i json 
 
 app.set('view engine', 'ejs')
 app.set('views', path.join('views'))
+
+app.locals.siteTitle = 'My page' // cia kuriamas globalus kintamasis
+app.locals.currentYear = new Date().getFullYear()
 
 app.get('/', (req, res, next) => {
     res.render(`index`) // rasome render cia

@@ -42,48 +42,24 @@ if (!fs.existsSync(filePath)) {
 
 router.get('/groups', (req, res, next) => {
     const groups = getDataDB('groups')
-    const groupsList = groups.map(group => `<li><a href="/groups/${group.id}">Number: ${group.number}</a></li>`).join('')
-    res.send(`
-        <a href="/">Go back to home page</a>
-        <a href="/create-group">Create group</a>
-        <h1>Groups:</h1>
-        <ul>${groupsList}</ul>
-        `)
+    const data = {
+        groups
+    }
+    res.render(`groups`, data)
 })
 
 router.get('/groups/:id', (req, res, next) => {
     const groups = getDataDB('groups')
     const { id } = req.params
     const selectedGroup = groups.find(group => group.id === id)
-    const { name, number } = selectedGroup
-    res.send(`
-        <a href="/">Go back to home page</a>
-        <h1>Group: ${name} (number: ${number})</h1>
-        <a href="/edit-group/${id}">Edit group</a>
-        <form action="/delete-group" method="POST">
-            <input type="hidden" name="id" value="${id}"/>
-            <button type="submit">Delete group</button>
-        </form>
-        `)
+    const data = {
+        selectedGroup
+    }
+    res.render(`group`, data)
 })
 
 router.get('/create-group', (req, res, next) => {
-    res.send(`
-        <h1>Create group:</h1>
-        <form action="/group-created" method="POST">
-          <div>
-            <label for="name">Group name:</label>
-            <input type="text" name="name" id="name"/>
-          </div>
-          <div>
-            <label for="number">Group number:</label>
-            <input type="number" name="number" id="number"/>
-          </div>
-          
-
-            <button type="submit">Create</button>
-        </form>
-        `)
+    res.render(`group-create`)
 })
 
 router.post('/group-created', (req, res, next) => {
@@ -96,25 +72,11 @@ router.get('/edit-group/:id', (req, res, next) => {
     const groups = getDataDB('groups')
     const { id } = req.params
     const editedGroup = groups.find(group => group.id === id)
-    const { name, number } = editedGroup
+    const data = {
+        editedGroup
+    }
 
-    res.send(`
-        <h1>Edit group:</h1>
-
-        <form action="/group-edited" method="POST">
-          <div>
-            <label for="name">Group name:</label>
-            <input type="text" name="name" id="name" value="${name}"/>
-          </div>
-          <div>
-            <label for="number">Group number:</label>
-            <input type="number" name="number" id="number" value="${number}"/>
-          </div>
-
-            <input type="hidden" name="id" value="${id}"/>
-            <button type="submit">Edit</button>
-        </form>
-        `)
+    res.render(`group-edit`, data)
 })
 
 router.post('/group-edited', (req, res, next) => {

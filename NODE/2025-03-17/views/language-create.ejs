@@ -1,0 +1,13 @@
+<%- include('partials/header', { title: 'Create language' }) %>
+
+<h1>Create language:</h1>
+<form action="/language-created" method="POST">
+    <div>
+        <label for="language">Add new Language:</label>
+        <input type="text" name="name" id="language"/>
+
+        <button type="submit">Add</button>
+    </div>
+</form>
+
+<%- include('partials/footer') %>

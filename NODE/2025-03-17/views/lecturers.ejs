@@ -1,0 +1,24 @@
+<%- include('partials/header', { title: 'Lecturers' }) %>
+
+<a href="/">Go back to home page</a>
+
+<% if (lecturers && lecturers.length > 1) { %>
+    <h1>Lecturers (<%= lecturers.length%>):</h1>
+<% } else if (lecturers.length === 1) { %>
+    <h1>Lecturer:</h1>
+<% } else { %>
+    <h1>No lecturers yet...</h1>
+<% } %>
+
+
+<% if (lecturers.length > 0) { %>
+    <ul>
+        <% lecturers.forEach(lecturer => { %>
+            <li><a href="/lecturers/<%= lecturer.id %>"><%= lecturer.firstName%> <%= lecturer.lastName %></a></li>
+        <% }) %>
+    </ul>
+<% }%>
+
+<a href="/create-lecturer">Create lecturer</a>
+
+<%- include('partials/footer') %>

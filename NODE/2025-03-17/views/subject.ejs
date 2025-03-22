@@ -1,0 +1,12 @@
+<%- include('partials/header', { title: `${selectedSubject.subject}` }) %>
+
+<a href="/">Go back to home page</a>
+
+<h1><%= selectedSubject.subject %></h1>
+<a href="/edit-subject/<%= selectedSubject.id %>">Edit subject</a>
+<form action="/delete-subject" method="POST">
+    <input type="hidden" name="id" value="<%= selectedSubject.id %>"/>
+    <button type="submit">Delete subject</button>
+</form>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,14 @@
+<%- include('partials/header', { title: `Edit (${editedSubject.subject})` }) %>
+
+<h1>Edit subject:</h1>
+
+<form action="/subject-edited" method="POST">
+    <div>
+        <label for="subject">Subject name:</label>
+        <input type="text" name="subject" id="subject" value="<%=editedSubject.subject%>"/>
+
+        <input type="hidden" name="id" value="<%=id%>"/>
+        <button type="submit">Edit</button>
+    </div>
+</form>
+<%- include('partials/footer')%>

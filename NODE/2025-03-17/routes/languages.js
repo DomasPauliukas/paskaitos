@@ -44,45 +44,25 @@ if (!fs.existsSync(filePath)) {
 router.get('/languages', (req, res, next) => {
     const languages = getDataDB('languages')
     const languagesList = languages.map(language => `<li><a href="/languages/${language.id}">${language.name}</a></li>`).join('')
-
-    res.send(`
-        <a href="/">Go back to home page</a>
-        <a href="/create-language">Create language</a>
-        <h1>Languages list:</h1>
-        <ul>${languagesList}</ul>
-        `)
+    const data = {
+        languages
+    }
+    res.render(`languages`, data)
 })
 
 router.get('/languages/:id', (req, res, next) => {
     const languages = getDataDB('languages')
     const { id } = req.params
     const selectedLanguage = languages.find(language => language.id === id)
-    res.send(`
-        <h1>${selectedLanguage.name}</h1>
-        <a href="/edit-language/${id}">Edit language</a>
-
-        <form action="/delete-language" method="POST">
-            <input type="hidden" name="id" value="${id}"/>
-            <button type="submit">Delete language</button>
-        </form>
-        <a href="/">Go back to home page</a>
-
-        `)
+    const data = {
+        selectedLanguage
+    }
+    res.render(`language`, data)
 })
 
 router.get('/create-language', (req, res, next) => {
 
-    res.send(`
-        <h1>Create language:</h1>
-        <form action="/language-created" method="POST">
-            <div>
-                <label for="language">Add new Language:</label>
-                <input type="text" name="name" id="language"/>
-
-                <button type="submit">Add</button>
-            </div>
-        </form>
-        `)
+    res.render(`language-create`)
 })
 
 router.post('/language-created', (req, res, next) => {
@@ -96,19 +76,10 @@ router.get('/edit-language/:id', (req, res, next) => {
     const languages = getDataDB('languages')
     const { id } = req.params
     const editedLanguage = languages.find(language => language.id === id)
-
-    res.send(`
-        <h1>Edit language</h1>
-        <form action="/language-edited" method="POST">
-            <div>
-                <label for="language">Edit language:</label>
-                <input type="text" name="name" id="language" value="${editedLanguage.name}"/>
-
-                <input type="hidden" name="id" value="${id}"/>
-                <button type="submit">Edit</button>
-            </div>
-        </form>
-        `)
+    const data = {
+        editedLanguage
+    }
+    res.render(`language-edit`, data)
 })
 
 router.post('/language-edited', (req, res, next) => {

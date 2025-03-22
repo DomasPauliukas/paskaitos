@@ -1,0 +1,11 @@
+<%- include('partials/header', { title: `Group (${selectedGroup.name})` }) %>
+
+<a href="/">Go back to home page</a>
+<h1>Group: <%= selectedGroup.name%> (number: <%=selectedGroup.number%>)</h1>
+<a href="/edit-group/<%= selectedGroup.id %>">Edit group</a>
+<form action="/delete-group" method="POST">
+    <input type="hidden" name="id" value="<%= selectedGroup.id %>"/>
+    <button type="submit">Delete group</button>
+</form>
+
+<%- include('partials/footer') %>

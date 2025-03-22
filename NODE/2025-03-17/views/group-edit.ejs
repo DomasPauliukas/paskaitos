@@ -1,0 +1,17 @@
+<%- include('partials/header', { title: `Edit group (${editedGroup.name})` }) %>
+
+<h1>Edit group (<%= editedGroup.name %>):</h1>
+
+<form action="/group-edited" method="POST">
+  <div>
+    <label for="name">Group name:</label>
+    <input type="text" name="name" id="name" value="<%= editedGroup.name %>"/>
+  </div>
+  <div>
+    <label for="number">Group number:</label>
+    <input type="number" name="number" id="number" value="<%= editedGroup.number %>"/>
+  </div>
+
+    <input type="hidden" name="id" value="<%= editedGroup.id %>"/>
+    <button type="submit">Edit</button>
+</form>

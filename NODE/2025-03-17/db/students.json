@@ -1,6 +1,6 @@
 [
   {
-    "name": "Domass",
+    "name": "Domas",
     "surname": "Pauliukas",
     "age": "30",
     "city": "Kaunas",
@@ -37,19 +37,6 @@
     "id": "a30ef633-7084-417a-bc63-20e9780ffd0a",
     "interests": [
       "Music"
-    ]
-  },
-  {
-    "name": "Laptop",
-    "surname": "dasdas",
-    "age": "",
-    "city": "",
-    "email": "",
-    "newsletter": "true",
-    "id": "fa267210-6920-478b-bfde-e6937703a265",
-    "interests": [
-      "Traveling",
-      "Sports"
     ]
   }
 ]
