@@ -48,8 +48,7 @@ router.get('/students/:id', (req, res, next) => {
     const foundStudent = students.find(student => student.id === id)
     
     const data = {
-        foundStudent,
-        students
+        foundStudent
     }
     res.render('student', data)
 })
@@ -72,7 +71,7 @@ router.post('/student-created', (req, res, next) => {
         }
     }
 
-    const newStudent = {...req.body, id: uuid(), interests}
+    const newStudent = {...req.body, age: Number(req.body.age), id: uuid(), interests}
     updatedDataDB('students', newStudent)
     // students.push(newStudent)
 
@@ -115,8 +114,8 @@ router.post('/student-edited', (req, res, next) => {
                 }
             }
             const updatedStudent = {
-                ...student,
                 ...req.body,
+                age: Number(req.body.age),
                 interests,
             }
 

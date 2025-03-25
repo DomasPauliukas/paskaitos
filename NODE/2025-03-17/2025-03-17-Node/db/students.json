@@ -1,0 +1,121 @@
+[
+  {
+    "name": "Domas",
+    "surname": "Pauliukas",
+    "age": 30,
+    "city": "Kaunas",
+    "email": "domas0319@gmail.com",
+    "interests": [
+      "Reading",
+      "Traveling",
+      "Music",
+      "Sports"
+    ],
+    "newsletter": "true",
+    "id": "8bdb1dd8-891a-4ef5-84b3-c61ce8f98cfd"
+  },
+  {
+    "name": "Tomas",
+    "surname": "Kuzas",
+    "age": 35,
+    "city": "Vilnius",
+    "email": "Tomas@123.gmail",
+    "interests": [
+      "Reading",
+      "Sports"
+    ],
+    "newsletter": "yes",
+    "id": "cd63b375-3f61-40d7-a2a1-19f98a1eb3b3"
+  },
+  {
+    "name": "Oregan",
+    "surname": "",
+    "age": "",
+    "city": "",
+    "email": "",
+    "newsletter": "true",
+    "id": "a30ef633-7084-417a-bc63-20e9780ffd0a",
+    "interests": [
+      "Music"
+    ]
+  },
+  {
+    "name": "Lukas",
+    "surname": "Kauliukas",
+    "age": 25,
+    "city": "Laukuva",
+    "email": "domas0319@gmail.com",
+    "interests": [
+      "Reading",
+      "Music",
+      "Sports"
+    ],
+    "newsletter": "true",
+    "id": "b5240ece-c717-4ecb-a152-3905ea925f5e"
+  },
+  {
+    "name": "Lukasss",
+    "surname": "Kauliukass",
+    "age": 25,
+    "email": "domas0319@gmail.com",
+    "interests": [
+      "Reading",
+      "Music",
+      "Sports"
+    ],
+    "newsletter": "true",
+    "id": "96f45113-388e-4013-9f6c-6fa24798477f"
+  },
+  {
+    "name": "Luka",
+    "surname": "Kauliuk",
+    "age": 25,
+    "city": "Vilnius",
+    "email": "domas0319@gmail.com",
+    "interests": [
+      "Reading"
+    ],
+    "newsletter": "true",
+    "id": "24753e93-4232-45db-83a6-9b17e989be92"
+  },
+  {
+    "name": "Jonasdd",
+    "surname": "Kauliukass",
+    "age": 25,
+    "city": "Vilnius",
+    "email": "domas0319@gmail.com",
+    "interests": [
+      "Reading",
+      "Music",
+      "Sports"
+    ],
+    "newsletter": "true",
+    "id": "10e7d95a-bb25-4900-9fd1-5d68f3d9696c"
+  },
+  {
+    "name": "Lina",
+    "surname": "Kilkuviene",
+    "age": 40,
+    "city": "Panevezys",
+    "email": "domas0319@gmail.com",
+    "interests": [
+      "Reading",
+      "Music",
+      "Sports"
+    ],
+    "newsletter": "true",
+    "id": "bd1d2fb2-65e0-4e92-87c5-1bec0a60ec71"
+  },
+  {
+    "name": "TEST",
+    "surname": "Kuzaitis",
+    "age": 53,
+    "city": "",
+    "email": "",
+    "interests": [
+      "Music"
+    ],
+    "newsletter": "true",
+    "id": "21a1c6b6-b06e-4d50-8f5e-fc8179b44fa9"
+  }
+]
