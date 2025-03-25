@@ -1,17 +1,23 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { API_URL } from "../API_URL"
 import { useNavigate } from "react-router-dom"
+import { Student } from "../types/TypesExport"
 
-const StudentForm: React.FC = () => {
+type StudentFormProps = {
+    editStudentData?: Student
+}
+
+const StudentForm: React.FC<StudentFormProps> = ( {editStudentData} ) => {
     const navigate = useNavigate()
 
-    const [name, setName] = useState<string>()
-    const [surname, setSurname] = useState<string>()
+    const [name, setName] = useState<string>('')
+    const [surname, setSurname] = useState<string>('')
     const [age, setAge] = useState<number>()
-    const [city, setCity] = useState<string>()
-    const [email, setEmail] = useState<string>()
+    const [city, setCity] = useState<string>('')
+    const [email, setEmail] = useState<string>('')
     const [interests, setInterests] = useState<string[]>([])
+
 
     const nameHandler = (event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)
     const surnameHandler = (event: React.ChangeEvent<HTMLInputElement>) => setSurname(event.target.value)
@@ -27,6 +33,18 @@ const StudentForm: React.FC = () => {
         }
     }
 
+    useEffect(() => {
+        if (editStudentData) {
+            setName(editStudentData.name)
+            setSurname(editStudentData.surname)
+            setAge(editStudentData.age)
+            setCity(editStudentData.city)
+            setEmail(editStudentData.email)
+            setInterests(editStudentData.interests)
+        }
+    }, [editStudentData])
+
+    
     const formSubmit = (event: React.FormEvent) => {
         event.preventDefault()
         const newStudent = {
@@ -37,36 +55,40 @@ const StudentForm: React.FC = () => {
             email,
             interests
         }
-
+    
+    if (editStudentData) {
+        axios.put(`${API_URL}/students/${editStudentData.id}`, newStudent)
+        navigate(`/Students/${editStudentData.id}`)
+    } else {
         axios.post(`${API_URL}/students`, newStudent)
             .then(() => {
                 navigate('/Students')
             })
     }
-
+}
 
     return (
         <div>
           <form onSubmit={formSubmit}>
             <div>
                 <label htmlFor="name">Name:</label>
-                <input type="text" name="name" id="name" onChange={nameHandler}/>
+                <input type="text" name="name" id="name" value={name} onChange={nameHandler}/>
             </div>
             <div>
                 <label htmlFor="surname">Surname:</label>
-                <input type="text" name="surname" id="surname" onChange={surnameHandler}/>
+                <input type="text" name="surname" id="surname" value={surname} onChange={surnameHandler}/>
             </div>
             <div>
                 <label htmlFor="age">Age:</label>
-                <input type="number" name="age" id="age" onChange={ageHandler}/>
+                <input type="number" name="age" id="age" value={age} onChange={ageHandler}/>
             </div>
             <div>
                 <label htmlFor="city">City:</label>
-                <input type="text" name="city" id="city" onChange={cityHandler}/>
+                <input type="text" name="city" id="city" value={city} onChange={cityHandler}/>
             </div>
             <div>
                 <label htmlFor="email">Email:</label>
-                <input type="text" name="email" id="email" onChange={emailHandler}/>
+                <input type="text" name="email" id="email" value={email} onChange={emailHandler}/>
             </div>
             <div>
                 <label htmlFor="interests">Select your interests:</label><br />
@@ -84,7 +106,7 @@ const StudentForm: React.FC = () => {
                 <label htmlFor="sports">Sports</label><br />
             </div>
 
-                <button type="submit">Submit</button>
+                <button type="submit">{editStudentData ? 'Edit' : 'Add'}</button>
           </form>
         </div>
     )

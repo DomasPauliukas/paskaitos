@@ -8,6 +8,7 @@ import SubjectsPage from "./components/subjects/SubjectsPage"
 import PageNavigator from "./components/pageNavigator/PageNavigator"
 import StudentItem from "./components/students/StudentItem"
 import CreateStudent from "./components/students/CreateStudent"
+import EditStudent from "./components/students/EditStudent"
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="Students" element={<StudentsPage />}/>
           <Route path="Students/:id" element={<StudentItem />}/>
           <Route path="Create-student" element={<CreateStudent />}/>
+          <Route path="Edit-student/:id" element={<EditStudent />}/>
 
 
           <Route path="Lecturers" element={<LecturersPage />}/>

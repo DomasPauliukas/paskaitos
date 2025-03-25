@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { API_URL } from "../API_URL"
 import { Student } from "../types/TypesExport"
+import axios from "axios"
 
 const StudentItem: React.FC = () => {
     const { id } = useParams()
+    const navigate = useNavigate()
+
     const [student, setStudent] = useState<Student | undefined>(undefined)
     const { name, surname, age, email, interests, city } = student || {}
+
+    const deleteStudent = async (id: string) => {
+        const response = await axios.delete(`${API_URL}/students/${id}`)
+        navigate('/Students')
+    }
 
     useEffect(() => {
         const fetchStudent = async () => {
@@ -25,6 +33,9 @@ const StudentItem: React.FC = () => {
     return (
         <div>
             <h1>Student:</h1>
+            <Link to={`/Edit-student/${id}`}>Edit</Link>
+            <button onClick={() => deleteStudent(id ?? '')}>Delete</button>
+
             <p>Name: {name}</p>
             <p>Surname: {surname}</p>
             <p>Age: {age}</p>
