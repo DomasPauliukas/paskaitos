@@ -11,7 +11,6 @@
       "Music",
       "Sports"
     ],
-    "newsletter": "true",
     "id": "8bdb1dd8-891a-4ef5-84b3-c61ce8f98cfd"
   },
   {
@@ -24,7 +23,6 @@
       "Reading",
       "Sports"
     ],
-    "newsletter": "yes",
     "id": "cd63b375-3f61-40d7-a2a1-19f98a1eb3b3"
   },
   {
@@ -33,7 +31,6 @@
     "age": "",
     "city": "",
     "email": "",
-    "newsletter": "true",
     "id": "a30ef633-7084-417a-bc63-20e9780ffd0a",
     "interests": [
       "Music"
@@ -50,7 +47,6 @@
       "Music",
       "Sports"
     ],
-    "newsletter": "true",
     "id": "b5240ece-c717-4ecb-a152-3905ea925f5e"
   },
   {
@@ -63,7 +59,6 @@
       "Music",
       "Sports"
     ],
-    "newsletter": "true",
     "id": "96f45113-388e-4013-9f6c-6fa24798477f"
   },
   {
@@ -75,7 +70,6 @@
     "interests": [
       "Reading"
     ],
-    "newsletter": "true",
     "id": "24753e93-4232-45db-83a6-9b17e989be92"
   },
   {
@@ -89,7 +83,6 @@
       "Music",
       "Sports"
     ],
-    "newsletter": "true",
     "id": "10e7d95a-bb25-4900-9fd1-5d68f3d9696c"
   },
   {
@@ -103,7 +96,6 @@
       "Music",
       "Sports"
     ],
-    "newsletter": "true",
     "id": "bd1d2fb2-65e0-4e92-87c5-1bec0a60ec71"
   },
   {
@@ -115,7 +107,27 @@
     "interests": [
       "Music"
     ],
-    "newsletter": "true",
     "id": "21a1c6b6-b06e-4d50-8f5e-fc8179b44fa9"
+  },
+  {
+    "name": "Violeta",
+    "surname": "Riaubiskyte",
+    "age": 53,
+    "city": "Vilnius",
+    "email": "Violeta@gmai.com",
+    "interests": [
+      "Traveling",
+      "Sports"
+    ],
+    "id": "6e3b8163-abd0-406c-8775-8e53dd807212"
+  },
+  {
+    "name": "Laima",
+    "surname": "Zemaityte",
+    "age": 67,
+    "city": "Mazeikiai",
+    "email": "Laima@gmail.com",
+    "interests": [],
+    "id": "044352e6-b6f6-47e3-9b9e-6266a0fff194"
   }
 ]
