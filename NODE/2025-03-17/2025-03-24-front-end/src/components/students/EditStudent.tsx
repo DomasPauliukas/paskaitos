@@ -2,10 +2,11 @@ import { useParams } from "react-router-dom"
 import StudentForm from "./StudentForm"
 import { useEffect, useState } from "react"
 import { API_URL } from "../API_URL"
+import { Student } from "../types/TypesExport"
 
 const EditStudent: React.FC = () => {
     const { id } = useParams()
-    const [student, setStudent] = useState()
+    const [student, setStudent] = useState<Student>()
 
     useEffect(() => {
         const fetchStudent = async () => {

@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { API_URL } from "../API_URL"
 import { useNavigate } from "react-router-dom"
-import { Student } from "../types/TypesExport"
+import { Group, Language, Student } from "../types/TypesExport"
 
 type StudentFormProps = {
     editStudentData?: Student
@@ -17,6 +17,38 @@ const StudentForm: React.FC<StudentFormProps> = ( {editStudentData} ) => {
     const [city, setCity] = useState<string>('')
     const [email, setEmail] = useState<string>('')
     const [interests, setInterests] = useState<string[]>([])
+
+    const [groups, setGroups] = useState<Group[]>([])
+    const [groupId, setGroupId] = useState<string>('')
+
+    const [languages, setLanguages] = useState<Language[]>([])
+    const [selectedLanguages, setSelectedLanguages] = useState<string[]>([])
+
+    useEffect(() => {
+        const fetchGroups = async () => {
+            const res = await fetch(`${API_URL}/groups`)
+            const data = await res.json()
+            setGroups(data)
+        }
+        const fetchLanguages = async () => {
+            const res = await fetch(`${API_URL}/languages`)
+            const languages = await res.json()
+            setLanguages(languages)
+        }
+        fetchGroups()
+        fetchLanguages()
+    }, [])
+
+    const groupIdHandler = (event: React.ChangeEvent<HTMLSelectElement>) => setGroupId(event.target.value)
+    
+    const languageHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value, checked } = event.target
+        if (checked) {
+            setSelectedLanguages((prevState) => [...prevState, value])
+        } else {
+            setSelectedLanguages((prevState) => prevState.filter((language) => language !== value))
+        }
+    }
 
 
     const nameHandler = (event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)
@@ -41,6 +73,8 @@ const StudentForm: React.FC<StudentFormProps> = ( {editStudentData} ) => {
             setCity(editStudentData.city)
             setEmail(editStudentData.email)
             setInterests(editStudentData.interests)
+            setGroupId(editStudentData.groupId)
+            setSelectedLanguages(editStudentData.languages || [])
         }
     }, [editStudentData])
 
@@ -53,7 +87,9 @@ const StudentForm: React.FC<StudentFormProps> = ( {editStudentData} ) => {
             age,
             city,
             email,
-            interests
+            interests,
+            groupId,
+            languages: selectedLanguages
         }
     
     if (editStudentData) {
@@ -105,6 +141,24 @@ const StudentForm: React.FC<StudentFormProps> = ( {editStudentData} ) => {
                 <input type="checkbox" name="interests" value="Sports" id="sports" checked={interests.includes('Sports')} onChange={interestsHandler}/>
                 <label htmlFor="sports">Sports</label><br />
             </div>
+            <div>
+                <label htmlFor="group">Select Group:</label>
+                <select name="groupId" id="group" onChange={groupIdHandler} value={groupId}>
+                <option value="">Select group</option>
+                {groups.map(group => (
+                    <option key={group.id} value={group.id}>{group.name}</option>
+                ))}
+                </select>
+            </div>
+            <div>
+                <label htmlFor="languages">Select your languages:</label><br />
+                {languages.map(language => (
+                    <div key={language.id}>
+                        <input type="checkbox" name="languages" value={language.name} id={language.id} checked={selectedLanguages.includes(language.name)} onChange={languageHandler}/>
+                        <label htmlFor={language.id}>{language.name}</label><br />
+                    </div>
+                ))}
+  </div>
 
                 <button type="submit">{editStudentData ? 'Edit' : 'Add'}</button>
           </form>

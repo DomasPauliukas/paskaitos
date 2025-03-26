@@ -17,6 +17,7 @@ const LecturersPage = () => {
     return (
         <div>
             <h1>Lecturers page</h1>
+            <Link to={'/Create-lecturer'}>Create lecturer</Link>
 
             {lecturers && lecturers.length > 0 ? (
                 <div>

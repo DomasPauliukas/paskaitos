@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { API_URL } from "../API_URL"
-import { Student } from "../types/TypesExport"
+import { Group, Student } from "../types/TypesExport"
 import axios from "axios"
 
 const StudentItem: React.FC = () => {
@@ -9,10 +9,12 @@ const StudentItem: React.FC = () => {
     const navigate = useNavigate()
 
     const [student, setStudent] = useState<Student | undefined>(undefined)
-    const { name, surname, age, email, interests, city } = student || {}
+    const [groups, setGroups] = useState<Group[]>([])
+    const [groupName, setGroupName] = useState<string>('')
+
+    const { name, surname, age, email, interests, city, groupId, languages } = student || {}
 
     const deleteStudent = async (id: string) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const response = await axios.delete(`${API_URL}/students/${id}`)
         navigate('/Students')
     }
@@ -24,8 +26,24 @@ const StudentItem: React.FC = () => {
 
             setStudent(data)
         }
+        const fetchGroups = async () => {
+            const res = await fetch(`${API_URL}/groups`)
+            const data = await res.json()
+            setGroups(data)
+        }
+
         fetchStudent()
+        fetchGroups()
     }, [id])
+
+    useEffect(() => {
+        if (groupId && groups.length > 0) {
+            const group = groups.find(group => group.id === groupId)
+            if (group) {
+                setGroupName(group.name)
+            }
+        }
+    }, [groupId, groups])
 
     if (!student) {
         return <div>Loading...</div>
@@ -42,6 +60,7 @@ const StudentItem: React.FC = () => {
             <p>Age: {age}</p>
             <p>City: {city}</p>
             <p>Email: {email}</p>
+            <p>Group: {groupName ? groupName : 'No group assigned!'}</p>
 
             {interests && interests.length > 0 ? (
                 <div>
@@ -53,6 +72,19 @@ const StudentItem: React.FC = () => {
 
             ) : (
                 <p>No interests...</p>
+            )}
+
+            {languages && languages.length > 0 ? (
+                <div>
+                    <h6>Languages:</h6>
+                    <ul>
+                        {languages.map((language, index) => (
+                            <li key={index}>{language}</li>
+                        ))}
+                    </ul>
+                </div>
+            ) : (
+                <p>No languages assigned...</p>
             )}
         </div>
     )

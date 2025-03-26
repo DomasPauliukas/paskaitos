@@ -10,6 +10,8 @@ import StudentItem from "./components/students/StudentItem"
 import CreateStudent from "./components/students/CreateStudent"
 import EditStudent from "./components/students/EditStudent"
 import LecturerItem from "./components/lecturers/LecturerItem"
+import CreateLecturer from "./components/lecturers/CreateLecturer"
+import EditLecturer from "./components/lecturers/EditLecturer"
 
 function App() {
 
@@ -29,6 +31,8 @@ function App() {
 
           <Route path="Lecturers" element={<LecturersPage />}/>
           <Route path="Lecturers/:id" element={<LecturerItem />}/>
+          <Route path="Create-lecturer" element={<CreateLecturer />}/>
+          <Route path="Edit-lecturer/:id" element={<EditLecturer />}/>
 
 
           <Route path="Groups" element={<GroupsPage />}/>

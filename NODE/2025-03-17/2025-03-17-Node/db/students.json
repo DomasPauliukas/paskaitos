@@ -100,5 +100,35 @@
       "Javascript"
     ],
     "id": "414a03e1-173b-43a0-8b9f-213e6e55d2c3"
+  },
+  {
+    "name": "Lina",
+    "surname": "Lina",
+    "age": 40,
+    "city": "Klaipeda",
+    "email": "Lina@gmai.com",
+    "interests": [
+      "Reading"
+    ],
+    "languages": [
+      "React",
+      "Javascript"
+    ],
+    "id": "9688cf56-6d3b-468d-916b-340d82b0a85e",
+    "groupId": "1fdd36a8-adec-461c-b22a-52311cb13b2c"
+  },
+  {
+    "name": "Raminta",
+    "surname": "Raminta",
+    "city": "",
+    "email": "",
+    "interests": [
+      "Music"
+    ],
+    "languages": [
+      "Node-JS"
+    ],
+    "groupId": "974f0cce-4059-42ba-8dfd-3a53f6d0e9c3",
+    "id": "90cc1614-8701-4612-86e0-66f31ceb80fe"
   }
 ]

@@ -5,7 +5,9 @@ export interface Student {
     email: string,
     interests: string[],
     age: number,
-    id: string
+    id: string,
+    groupId: string,
+    languages: string[],
 }
 
 export interface Lecturer {
@@ -15,5 +17,23 @@ export interface Lecturer {
     department: string,
     id: string,
     office: string,
-    yearsOfExperience: string
+    yearsOfExperience: string,
+    subjects: string[],
+    groups: string[],
+}
+
+export interface Group {
+    name: string,
+    number: number,
+    id: string
+}
+
+export interface Subject {
+    subject: string,
+    id: string
+}
+
+export interface Language {
+    name: string,
+    id: string
 }

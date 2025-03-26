@@ -5,12 +5,9 @@
     "email": "tomsmith@123.gmail.com",
     "yearsOfExperience": "12",
     "office": "Room 204",
-    "subjects": [
-      "be848d72-fc95-450c-9ecd-1f3e87a8dcb7"
-    ],
+    "subjects": [],
     "groups": [
-      "7490da7c-80c4-4a79-8158-aa3dc5961478",
-      "8efb4218-8728-4f1a-b136-6bef299ffffc"
+      "7490da7c-80c4-4a79-8158-aa3dc5961478"
     ],
     "id": "89411444-413b-4910-9f27-735d000082a0"
   },
@@ -20,7 +17,13 @@
     "email": "mileycyrus@gmai.com",
     "yearsOfExperience": "8",
     "office": "Room 305",
-    "id": "ba544ab8-4167-4219-bae7-db9e6fcd6cf6"
+    "id": "ba544ab8-4167-4219-bae7-db9e6fcd6cf6",
+    "subjects": [
+      "bfb359ad-6983-4c32-8b10-df35e4cd30ca"
+    ],
+    "groups": [
+      "1fdd36a8-adec-461c-b22a-52311cb13b2c"
+    ]
   },
   {
     "firstName": "Harry",
@@ -28,7 +31,9 @@
     "email": "harrystyles@gmai.com",
     "yearsOfExperience": "15",
     "office": "Room 101",
-    "id": "1a3db8f2-08e7-49ff-b6cb-9c7d06b69b1a"
+    "id": "1a3db8f2-08e7-49ff-b6cb-9c7d06b69b1a",
+    "subjects": [],
+    "groups": []
   },
   {
     "firstName": "David",
@@ -36,7 +41,9 @@
     "email": "davidbrown@gmail.com",
     "yearsOfExperience": "5",
     "office": "Room 204",
-    "id": "1b37c50a-898c-407e-92ca-d2c0246cb147"
+    "id": "1b37c50a-898c-407e-92ca-d2c0246cb147",
+    "subjects": [],
+    "groups": []
   },
   {
     "firstName": "Sophia",
@@ -44,7 +51,9 @@
     "email": "sophie@gmail.com",
     "yearsOfExperience": "10",
     "office": "Room 312",
-    "id": "36a1d4a6-daad-49a3-aa4f-35df9826d0bc"
+    "id": "36a1d4a6-daad-49a3-aa4f-35df9826d0bc",
+    "subjects": [],
+    "groups": []
   },
   {
     "firstName": "Gabija",
@@ -52,7 +61,9 @@
     "email": "Gabifashion@gmail.com",
     "yearsOfExperience": "5",
     "office": "Room 211",
-    "id": "cf1b823f-1eda-40b8-9485-8739aa44ee02"
+    "id": "cf1b823f-1eda-40b8-9485-8739aa44ee02",
+    "subjects": [],
+    "groups": []
   },
   {
     "firstName": "Lukas",
@@ -75,23 +86,9 @@
     "email": "Monika@gmail",
     "yearsOfExperience": "5}",
     "office": "555",
-    "subjects": "65354a4c-19e4-4643-a4e2-406967a46b26",
+    "subjects": [],
+    "groups": [],
     "id": "d66b0856-7270-4de7-8674-0bb06cc7cfee"
-  },
-  {
-    "firstName": "Natalija",
-    "lastName": "Williams",
-    "email": "domas0319@gmail.com",
-    "yearsOfExperience": "5}",
-    "office": "Room 312",
-    "subjects": [
-      "65354a4c-19e4-4643-a4e2-406967a46b26"
-    ],
-    "groups": [
-      "8efb4218-8728-4f1a-b136-6bef299ffffc",
-      "974f0cce-4059-42ba-8dfd-3a53f6d0e9c3"
-    ],
-    "id": "a3f49cd3-cc4f-4b64-8c6f-3411bcd58f33"
   },
   {
     "firstName": "Natalija",
@@ -100,7 +97,30 @@
     "yearsOfExperience": "",
     "office": "",
     "id": "eaade86e-e907-410f-92eb-b6197587efd3",
-    "subjects": [],
-    "groups": []
+    "subjects": [
+      "0a971c4e-e328-46d4-a011-e7a560578ba1"
+    ],
+    "groups": [
+      "974f0cce-4059-42ba-8dfd-3a53f6d0e9c3",
+      "8efb4218-8728-4f1a-b136-6bef299ffffc",
+      "7490da7c-80c4-4a79-8158-aa3dc5961478"
+    ]
+  },
+  {
+    "firstName": "Laima",
+    "lastName": "Laima",
+    "email": "",
+    "yearsOfExperience": "",
+    "office": "",
+    "subjects": [
+      "65354a4c-19e4-4643-a4e2-406967a46b26",
+      "bfb359ad-6983-4c32-8b10-df35e4cd30ca"
+    ],
+    "groups": [
+      "1fdd36a8-adec-461c-b22a-52311cb13b2c",
+      "7490da7c-80c4-4a79-8158-aa3dc5961478",
+      "8efb4218-8728-4f1a-b136-6bef299ffffc"
+    ],
+    "id": "93684b37-b7bf-48d1-a940-f507dec2b70d"
   }
 ]
