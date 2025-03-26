@@ -1,6 +1,6 @@
 [
   {
-    "name": "Domass",
+    "name": "Domas",
     "surname": "Pauliukas",
     "age": 31,
     "city": "Kaunas",
@@ -10,6 +10,11 @@
       "Traveling",
       "Music",
       "Sports"
+    ],
+    "groupId": "40f296d4-43b2-4c2e-8fe8-5a74d7c9e73f",
+    "languages": [
+      "Javascript",
+      "React"
     ],
     "id": "8bdb1dd8-891a-4ef5-84b3-c61ce8f98cfd"
   },
@@ -22,6 +27,11 @@
     "interests": [
       "Reading",
       "Sports"
+    ],
+    "groupId": "8efb4218-8728-4f1a-b136-6bef299ffffc",
+    "languages": [
+      "React",
+      "Python"
     ],
     "id": "cd63b375-3f61-40d7-a2a1-19f98a1eb3b3"
   },
@@ -36,6 +46,11 @@
       "Music",
       "Sports"
     ],
+    "groupId": "8efb4218-8728-4f1a-b136-6bef299ffffc",
+    "languages": [
+      "Javascript",
+      "Python"
+    ],
     "id": "bd1d2fb2-65e0-4e92-87c5-1bec0a60ec71"
   },
   {
@@ -48,6 +63,11 @@
       "Traveling",
       "Music"
     ],
+    "groupId": "7490da7c-80c4-4a79-8158-aa3dc5961478",
+    "languages": [
+      "Node-JS",
+      "React"
+    ],
     "id": "6e3b8163-abd0-406c-8775-8e53dd807212"
   },
   {
@@ -56,7 +76,29 @@
     "age": 67,
     "city": "Mazeikiai",
     "email": "Laima@gmail.com",
-    "interests": [],
-    "id": "044352e6-b6f6-47e3-9b9e-6266a0fff194"
+    "groupId": "01976ac9-1714-45a3-ba14-12027e0ed401",
+    "languages": [
+      "Javascript",
+      "Node-JS",
+      "React",
+      "Python"
+    ],
+    "id": "044352e6-b6f6-47e3-9b9e-6266a0fff194",
+    "interests": []
+  },
+  {
+    "name": "Domas",
+    "surname": "Pauliukas",
+    "age": 18,
+    "city": "Vilnius",
+    "email": "Domas@gm.com",
+    "interests": [
+      "Music"
+    ],
+    "groupId": "1fdd36a8-adec-461c-b22a-52311cb13b2c",
+    "languages": [
+      "Javascript"
+    ],
+    "id": "414a03e1-173b-43a0-8b9f-213e6e55d2c3"
   }
 ]

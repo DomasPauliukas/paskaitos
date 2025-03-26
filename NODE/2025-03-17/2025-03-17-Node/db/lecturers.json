@@ -2,16 +2,21 @@
   {
     "firstName": "Toms",
     "lastName": "Smith",
-    "department": "Science",
     "email": "tomsmith@123.gmail.com",
     "yearsOfExperience": "12",
     "office": "Room 204",
+    "subjects": [
+      "be848d72-fc95-450c-9ecd-1f3e87a8dcb7"
+    ],
+    "groups": [
+      "7490da7c-80c4-4a79-8158-aa3dc5961478",
+      "8efb4218-8728-4f1a-b136-6bef299ffffc"
+    ],
     "id": "89411444-413b-4910-9f27-735d000082a0"
   },
   {
     "firstName": "Miley",
     "lastName": "Cyrus",
-    "department": "Biology",
     "email": "mileycyrus@gmai.com",
     "yearsOfExperience": "8",
     "office": "Room 305",
@@ -20,7 +25,6 @@
   {
     "firstName": "Harry",
     "lastName": "Styles",
-    "department": "Music",
     "email": "harrystyles@gmai.com",
     "yearsOfExperience": "15",
     "office": "Room 101",
@@ -29,7 +33,6 @@
   {
     "firstName": "David",
     "lastName": "Brown",
-    "department": "Engineering",
     "email": "davidbrown@gmail.com",
     "yearsOfExperience": "5",
     "office": "Room 204",
@@ -38,28 +41,66 @@
   {
     "firstName": "Sophia",
     "lastName": "Williams",
-    "department": "Humanities",
     "email": "sophie@gmail.com",
     "yearsOfExperience": "10",
     "office": "Room 312",
     "id": "36a1d4a6-daad-49a3-aa4f-35df9826d0bc"
   },
   {
-    "firstName": "Leyla",
-    "lastName": "MontGomez",
-    "department": "Law",
-    "email": "leyla@gmail.com",
-    "yearsOfExperience": "11",
-    "office": "Room 85",
-    "id": "32f6c426-2d2a-4e74-983b-adac7e80e625"
-  },
-  {
     "firstName": "Gabija",
     "lastName": "Micelytė",
-    "department": "Fashion & Style",
     "email": "Gabifashion@gmail.com",
     "yearsOfExperience": "5",
     "office": "Room 211",
     "id": "cf1b823f-1eda-40b8-9485-8739aa44ee02"
+  },
+  {
+    "firstName": "Lukas",
+    "lastName": "Lukaitis",
+    "email": "domas0319@gmail.com",
+    "yearsOfExperience": "10",
+    "office": "Room 204",
+    "subjects": [
+      "53e796d7-bfc9-4ac8-addc-91e005d6bbdf"
+    ],
+    "groups": [
+      "01976ac9-1714-45a3-ba14-12027e0ed401",
+      "1fdd36a8-adec-461c-b22a-52311cb13b2c"
+    ],
+    "id": "dd936c80-67b4-41da-9d4e-ec54c29abda2"
+  },
+  {
+    "firstName": "Monika",
+    "lastName": "Monika",
+    "email": "Monika@gmail",
+    "yearsOfExperience": "5}",
+    "office": "555",
+    "subjects": "65354a4c-19e4-4643-a4e2-406967a46b26",
+    "id": "d66b0856-7270-4de7-8674-0bb06cc7cfee"
+  },
+  {
+    "firstName": "Natalija",
+    "lastName": "Williams",
+    "email": "domas0319@gmail.com",
+    "yearsOfExperience": "5}",
+    "office": "Room 312",
+    "subjects": [
+      "65354a4c-19e4-4643-a4e2-406967a46b26"
+    ],
+    "groups": [
+      "8efb4218-8728-4f1a-b136-6bef299ffffc",
+      "974f0cce-4059-42ba-8dfd-3a53f6d0e9c3"
+    ],
+    "id": "a3f49cd3-cc4f-4b64-8c6f-3411bcd58f33"
+  },
+  {
+    "firstName": "Natalija",
+    "lastName": "Bunke",
+    "email": "",
+    "yearsOfExperience": "",
+    "office": "",
+    "id": "eaade86e-e907-410f-92eb-b6197587efd3",
+    "subjects": [],
+    "groups": []
   }
 ]

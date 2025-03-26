@@ -12,6 +12,7 @@ const StudentItem: React.FC = () => {
     const { name, surname, age, email, interests, city } = student || {}
 
     const deleteStudent = async (id: string) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const response = await axios.delete(`${API_URL}/students/${id}`)
         navigate('/Students')
     }

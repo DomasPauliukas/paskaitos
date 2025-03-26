@@ -101,5 +101,6 @@ app.get('*', (req, res, next) => {
         `)
 })
 
+// const PORT = process.env.PORT // is .env failo, kuriame saugomos konstaintos, keys ir pan.  
 const PORT = 3000
 app.listen(PORT, () => console.log(`App is running on port ${PORT}`))

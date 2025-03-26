@@ -61,9 +61,11 @@ router.post('/language-edited', (req, res, next) => {
     res.redirect(`/languages`)
 })
 
-router.post(`/delete-language`, (req, res, next) => {
+router.post('/delete-language', (req, res, next) => {
     const languages = getDataDB('languages')
     const { id } = req.body
+    console.log(id)
+    console.log(languages)
     const deletedLanguage = languages.filter(language => language.id !== id)
     editDataDB('languages', deletedLanguage)
     res.redirect('/languages')

@@ -38,6 +38,21 @@
     <input type="checkbox" name="interests" value="Sports" id="sports" />
     <label for="sports">Sports</label><br />
 </div>
+<div>
+    <label for="group">Select Group:</label>
+    <select name="groupId" id="group">
+      <% groups.forEach(group => { %>
+        <option value="<%= group.id %>"><%= group.name %></option>
+      <% }) %>
+    </select>
+</div>
+<div>
+    <label for="languages">Select your languages:</label><br />
+    <% languages.forEach(language => { %>
+      <input type="checkbox" name="languages" value="<%= language.name %>" id="<%= language.id %>" />
+      <label for="<%= language.id %>"><%= language.name %></label><br />
+    <% }) %>
+  </div>
 
 <button type="submit">Submit</button>
 

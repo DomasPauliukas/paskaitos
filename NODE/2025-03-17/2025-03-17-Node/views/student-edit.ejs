@@ -38,6 +38,27 @@
     <input type="checkbox" name="interests" value="Sports" id="sports" <%= editedStudent.interests.includes('Sports') ? 'checked' : '' %>/>
     <label for="sports">Sports</label><br />
 </div>
+<div>
+    <label for="group">Select Group:</label>
+    <select name="groupId" id="group">
+      <% groups.forEach(group => { %>
+        <option value="<%= group.id %>" <%= editedStudent.groupId === group.id ? 'selected' : '' %> >
+          <%= group.name %>
+        </option>
+      <% }) %>
+    </select>
+  </div>
+  <div>
+    <label for="languages">Select your languages:</label><br />
+    <% languages.forEach(language => { %>
+      <input type="checkbox" name="languages" value="<%= language.name %>" id="<%= language.id %>"
+        <% if (editedStudent.languages && editedStudent.languages.includes(language.name)) { %>
+          checked
+        <% } %>
+      />
+      <label for="<%= language.id %>"><%= language.name %></label><br />
+    <% }) %>
+  </div>
 
 <input type="hidden" value="<%= editedStudent.id%>" name="id"/>
 <button type="Edit">Submit</button>

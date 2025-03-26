@@ -9,6 +9,7 @@ import PageNavigator from "./components/pageNavigator/PageNavigator"
 import StudentItem from "./components/students/StudentItem"
 import CreateStudent from "./components/students/CreateStudent"
 import EditStudent from "./components/students/EditStudent"
+import LecturerItem from "./components/lecturers/LecturerItem"
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
 
 
           <Route path="Lecturers" element={<LecturersPage />}/>
+          <Route path="Lecturers/:id" element={<LecturerItem />}/>
 
 
           <Route path="Groups" element={<GroupsPage />}/>

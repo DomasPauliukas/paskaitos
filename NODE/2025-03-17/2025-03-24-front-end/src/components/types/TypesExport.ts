@@ -7,3 +7,13 @@ export interface Student {
     age: number,
     id: string
 }
+
+export interface Lecturer {
+    firstName: string,
+    lastName: string,
+    email: string,
+    department: string,
+    id: string,
+    office: string,
+    yearsOfExperience: string
+}

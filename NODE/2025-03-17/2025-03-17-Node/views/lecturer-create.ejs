@@ -10,10 +10,6 @@
         <input type="lastName" name="lastName" id="lastName"/>
     </div>
     <div>
-        <label for="department">Department:</label>
-        <input type="department" name="department" id="department"/>
-    </div>
-    <div>
         <label for="email">Email:</label>
         <input type="email" name="email" id="email"/>
     </div>
@@ -24,6 +20,21 @@
     <div>
         <label for="office">Office:</label>
         <input type="office" name="office" id="office"/>
+    </div>
+    <div>
+        <label for="subjects">Select subjects:</label><br />
+        <% subjects.forEach(subject => { %>
+            <input type="checkbox" name="subjects" value="<%= subject.id %>" id="<%= subject.id %>" />
+            <label for="<%= subject.id %>"><%= subject.subject %></label><br />
+        <% }) %>
+    </div>
+
+    <div>
+        <label for="groups">Select student groups:</label><br />
+        <% groups.forEach(group => { %>
+            <input type="checkbox" name="groups" value="<%= group.id %>" id="<%= group.id %>" />
+            <label for="<%= group.id %>"><%= group.name %></label><br />
+        <% }) %>
     </div>
 
     <button type="submit">Create lecturer</button>
