@@ -4,17 +4,17 @@ const express = require('express')
 // const router - routerio failiukas. visur pervadiname siame kode i router. router.get / router.post ir t.t.
 
 const router = express.Router()
-const { v4: uuid } = require('uuid')
 
 
-const { getDataDB, updatedDataDB, editDataDB } = require('../services/FetchingData')
+const { getDataDB } = require('../services/FetchingData')
+const { getStudents, getStudentById, createStudent, updateStudent, deleteStudent } = require('../services/students')
 
 const groups = getDataDB('groups')
 const languages = getDataDB('languages')
 
 
 router.get('/students', (req, res, next) => {
-    const students = getDataDB('students')
+    const students = getStudents()
 
     const data = {
         newStudentButton: {
@@ -28,9 +28,8 @@ router.get('/students', (req, res, next) => {
 })
 
 router.get('/students/:id', (req, res, next) => {
-    const students = getDataDB('students')
     const { id } = req.params
-    const foundStudent = students.find(student => student.id === id)
+    const foundStudent = getStudentById(id)
     
     const data = {
         foundStudent
@@ -43,50 +42,24 @@ router.get('/create-student', (req, res, next) => {
 })
 
 router.post('/student-created', (req, res, next) => {
+    const { body } = req
+    const createdStudent = createStudent(body)
 
-// cia darome, kad visada butu Array objekte, nes jei pridedame viena interest sukurdavo stringa, jei nei vieno - visiskai nieko. dabar visada bus Array. O tai reikalinga nes masyvo ciklus leidziam.
-    
-    const interests = []
-    const languages = []
-
-    if (req.body.interests) {
-        if(typeof req.body.interests === 'string') {
-            interests.push(req.body.interests)
-        } else {
-            interests.push(...req.body.interests)
-        }
-    }
-    if (req.body.languages) {
-        if (typeof req.body.languages === 'string') {
-          languages.push(req.body.languages) // if a single language is selected
-        } else {
-          languages.push(...req.body.languages) // multiple languages selected
-        }
-      }
-
-    const newStudent = {...req.body, age: Number(req.body.age), id: uuid(), interests, languages}
-    updatedDataDB('students', newStudent)
-    // students.push(newStudent)
-
-    res.redirect(`/students/${newStudent.id}`)
+    res.redirect(`/students/${createdStudent.id}`)
 })
 
 router.post('/delete-student', (req, res, next) => {
-    const students = getDataDB('students')
     const { studentId } = req.body
+    deleteStudent(studentId)
 
-    const filteredStudent = students.filter(student => student.id !== studentId)
-    editDataDB('students', filteredStudent)
     res.redirect(`/students`)
 })
 
 router.get('/edit-student/:id', (req, res, next) => {
-    const students = getDataDB('students')
     const { id } = req.params
-    const editedStudent = students.find(student => student.id === id)
+    const editedStudent = getStudentById(id)
 
     const data = {
-        students,
         editedStudent,
         groups,
         languages
@@ -95,42 +68,10 @@ router.get('/edit-student/:id', (req, res, next) => {
 })
 
 router.post('/student-edited', (req, res, next) => {
-    const students = getDataDB('students')
-    const { id } = req.body
+    const { body } = req
+    const updatedStudent = updateStudent(body)
 
-    const updatedStudents = students.map(student => {
-        if (student.id === id) {
-            const interests = []
-            const languages = []
-            if (req.body.interests) {
-                if (typeof req.body.interests === 'string'){
-                    interests.push(req.body.interests)
-                } else {
-                    interests.push(...req.body.interests)
-                }
-            }
-            if (req.body.languages) {
-                if (typeof req.body.languages === 'string') {
-                  languages.push(req.body.languages)
-                } else {
-                  languages.push(...req.body.languages)
-                }
-            }
-            const updatedStudent = {
-                ...req.body,
-                age: Number(req.body.age),
-                interests,
-                languages
-            }
-
-            return updatedStudent
-        } else {
-            return student
-        }
-    })
-    editDataDB('students', updatedStudents)
-
-    res.redirect(`/students/${id}`)
+    res.redirect(`/students/${updatedStudent.id}`)
 })
 
 // exportuojame visa faila pabaigoje

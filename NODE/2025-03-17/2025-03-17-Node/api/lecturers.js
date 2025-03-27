@@ -1,55 +1,42 @@
 const express = require('express')
 
 const router = express.Router()
-const { v4: uuid } = require('uuid')
-
-const { getDataDB, updatedDataDB, editDataDB } = require('../services/FetchingData')
+const { getLecturers, getLecturerById, createLecturer, updateLecturer, deleteLecturer } = require('../services/lecturers')
 
 
 router.get('/', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
+    const lecturers = getLecturers()
     res.send(lecturers)
 
 })
 
 router.get('/:id', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
     const { id } = req.params
-    const selectedLecturer = lecturers.find(lecturer => lecturer.id === id)
+    const foundLecturer = getLecturerById(id)
 
-    res.send(selectedLecturer)
+    res.send(foundLecturer)
 })
 
 router.post('/', (req, res, next) => {
-    const createdLecturers = {...req.body, id: uuid()}
-    updatedDataDB('lecturers', createdLecturers)
+    const { body } = req
+    const createdLecturer = createLecturer(body)
 
-    res.send(createdLecturers)
+    res.send(createdLecturer)
 })
 
 router.put('/:id', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
     const { id } = req.params
-    const editedLecturers = lecturers.map(lecturer => {
-        if(lecturer.id === id) {
-            return {...lecturer, ...req.body}
-        } else {
-            return lecturer
-        }
-    })
-    editDataDB('lecturers', editedLecturers)
+    const { body } = req
+    const editedLecturer = updateLecturer({...body, id})
 
-    res.send(editedLecturers)
+    res.send(editedLecturer)
 })
 
 router.delete('/:id', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
     const { id } = req.params
+    deleteLecturer(id)
 
-    const deletedLecturer = lecturers.filter(lecturer => lecturer.id !== id)
-    editDataDB('lecturers', deletedLecturer)
-
-    res.send(deletedLecturer)
+    res.send({message: 'data was successfully removed', id})
 })
 
 module.exports = router

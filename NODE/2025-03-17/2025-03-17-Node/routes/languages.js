@@ -2,12 +2,10 @@ const express = require('express')
 
 const router = express.Router()
 
-const { v4: uuid } = require('uuid')
-
-const { getDataDB, updatedDataDB, editDataDB } = require('../services/FetchingData')
+const { getLanguages, getLanguageById, createLanguage, updateLanguage, deleteLanguage } = require('../services/languages')
 
 router.get('/languages', (req, res, next) => {
-    const languages = getDataDB('languages')
+    const languages = getLanguages()
     const data = {
         languages
     }
@@ -15,9 +13,8 @@ router.get('/languages', (req, res, next) => {
 })
 
 router.get('/languages/:id', (req, res, next) => {
-    const languages = getDataDB('languages')
     const { id } = req.params
-    const selectedLanguage = languages.find(language => language.id === id)
+    const selectedLanguage = getLanguageById(id)
     const data = {
         selectedLanguage
     }
@@ -30,16 +27,15 @@ router.get('/create-language', (req, res, next) => {
 })
 
 router.post('/language-created', (req, res, next) => {
-    const newLanguage = {...req.body, id: uuid()}
-    updatedDataDB('languages', newLanguage)
+    const { body } = req
+    const newLanguage = createLanguage(body)
 
-    res.redirect('/languages')
+    res.redirect(`/languages/${newLanguage.id}`)
 })
 
 router.get('/edit-language/:id', (req, res, next) => {
-    const languages = getDataDB('languages')
     const { id } = req.params
-    const editedLanguage = languages.find(language => language.id === id)
+    const editedLanguage = getLanguageById(id)
     const data = {
         editedLanguage
     }
@@ -47,27 +43,15 @@ router.get('/edit-language/:id', (req, res, next) => {
 })
 
 router.post('/language-edited', (req, res, next) => {
-    const languages = getDataDB('languages')
-    const { id } = req.body
-    const editedLanguages = languages.map(language => {
-        if (language.id === id) {
-            return req.body
-        } else {
-            return language
-        }
-    })
-    editDataDB('languages', editedLanguages)
+    const { body } = req
+    const updatedLanguage = updateLanguage(body)
 
-    res.redirect(`/languages`)
+    res.redirect(`/languages/${updatedLanguage.id}`)
 })
 
 router.post('/delete-language', (req, res, next) => {
-    const languages = getDataDB('languages')
     const { id } = req.body
-    console.log(id)
-    console.log(languages)
-    const deletedLanguage = languages.filter(language => language.id !== id)
-    editDataDB('languages', deletedLanguage)
+    deleteLanguage(id)
     res.redirect('/languages')
 })
 

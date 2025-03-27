@@ -1,134 +1,62 @@
 [
   {
-    "name": "Domas",
-    "surname": "Pauliukas",
-    "age": 31,
-    "city": "Kaunas",
-    "email": "domas0319@gmail.com",
-    "interests": [
-      "Reading",
-      "Traveling",
-      "Music",
-      "Sports"
-    ],
-    "groupId": "40f296d4-43b2-4c2e-8fe8-5a74d7c9e73f",
-    "languages": [
-      "Javascript",
-      "React"
-    ],
-    "id": "8bdb1dd8-891a-4ef5-84b3-c61ce8f98cfd"
-  },
-  {
-    "name": "Tomas",
-    "surname": "Kuzas",
-    "age": 35,
-    "city": "Vilnius",
-    "email": "Tomas@123.gmail",
-    "interests": [
-      "Reading",
-      "Sports"
-    ],
-    "groupId": "8efb4218-8728-4f1a-b136-6bef299ffffc",
-    "languages": [
-      "React",
-      "Python"
-    ],
-    "id": "cd63b375-3f61-40d7-a2a1-19f98a1eb3b3"
-  },
-  {
-    "name": "Lina",
-    "surname": "Kilkuviene",
-    "age": 40,
-    "city": "Panevezys",
-    "email": "domas0319@gmail.com",
-    "interests": [
-      "Reading",
-      "Music",
-      "Sports"
-    ],
-    "groupId": "8efb4218-8728-4f1a-b136-6bef299ffffc",
-    "languages": [
-      "Javascript",
-      "Python"
-    ],
-    "id": "bd1d2fb2-65e0-4e92-87c5-1bec0a60ec71"
-  },
-  {
-    "name": "Violeta",
-    "surname": "Riaubiskyte",
-    "age": 53,
-    "city": "Vilnius",
-    "email": "Violeta@gmai.com",
-    "interests": [
-      "Traveling",
-      "Music"
-    ],
-    "groupId": "7490da7c-80c4-4a79-8158-aa3dc5961478",
-    "languages": [
-      "Node-JS",
-      "React"
-    ],
-    "id": "6e3b8163-abd0-406c-8775-8e53dd807212"
-  },
-  {
     "name": "Laima",
-    "surname": "Zemaityte",
-    "age": 67,
-    "city": "Mazeikiai",
-    "email": "Laima@gmail.com",
+    "surname": "Pauliuke",
+    "age": 30,
+    "city": "Panevezys",
+    "email": "Domas0319@gmail.com",
+    "interests": [
+      "Reading",
+      "Traveling"
+    ],
     "groupId": "01976ac9-1714-45a3-ba14-12027e0ed401",
     "languages": [
       "Javascript",
-      "Node-JS",
-      "React",
-      "Python"
+      "React"
     ],
-    "id": "044352e6-b6f6-47e3-9b9e-6266a0fff194",
-    "interests": []
+    "id": "e4ad5150-5dfb-41f1-a411-6823c3143e0f"
   },
   {
     "name": "Domas",
     "surname": "Pauliukas",
-    "age": 18,
-    "city": "Vilnius",
-    "email": "Domas@gm.com",
+    "age": 30,
+    "city": "Panevezys",
     "interests": [
-      "Music"
+      "Reading",
+      "Traveling"
     ],
-    "groupId": "1fdd36a8-adec-461c-b22a-52311cb13b2c",
+    "email": "Domas0319@gmail.com",
+    "languages": [
+      "Javascript",
+      "React"
+    ],
+    "id": "9733ced1-e28c-4a8d-b1a2-a600cb8966fb"
+  },
+  {
+    "name": "Tomass",
+    "surname": "Kuzas",
+    "age": 30,
+    "city": "Panevezys",
+    "email": "Domas0319@gmail.com",
+    "interests": [
+      "Reading",
+      "Traveling"
+    ],
     "languages": [
       "Javascript"
     ],
-    "id": "414a03e1-173b-43a0-8b9f-213e6e55d2c3"
+    "id": "d842a396-4ab8-4923-98a4-a3b30e5dd482"
   },
   {
-    "name": "Lina",
-    "surname": "Lina",
-    "age": 40,
-    "city": "Klaipeda",
-    "email": "Lina@gmai.com",
-    "interests": [
-      "Reading"
-    ],
+    "name": "Ofelijas",
+    "surname": "Kuzas",
+    "age": 30,
+    "city": "Panevezys",
+    "email": "Domas0319@gmail.com",
     "languages": [
-      "React",
       "Javascript"
     ],
-    "id": "9688cf56-6d3b-468d-916b-340d82b0a85e",
-    "groupId": "1fdd36a8-adec-461c-b22a-52311cb13b2c"
-  },
-  {
-    "name": "Raminta",
-    "surname": "Raminta",
-    "city": "",
-    "email": "",
-    "interests": [
-      "Music"
-    ],
-    "languages": [
-      "Node-JS"
-    ],
-    "groupId": "974f0cce-4059-42ba-8dfd-3a53f6d0e9c3",
-    "id": "90cc1614-8701-4612-86e0-66f31ceb80fe"
+    "interests": [],
+    "id": "d60aa49c-8301-4c3b-8f1e-f63ec311c997"
   }
 ]

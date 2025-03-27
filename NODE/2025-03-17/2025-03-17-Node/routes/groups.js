@@ -2,12 +2,10 @@ const express = require('express')
 
 const router = express.Router()
 
-const { v4: uuid } = require('uuid')
-
-const { getDataDB, updatedDataDB, editDataDB } = require('../services/FetchingData')
+const { getGroups, getGroupById, createGroup, updateGroup, deleteGroup } = require('../services/groups')
 
 router.get('/groups', (req, res, next) => {
-    const groups = getDataDB('groups')
+    const groups = getGroups()
     const data = {
         groups
     }
@@ -15,9 +13,8 @@ router.get('/groups', (req, res, next) => {
 })
 
 router.get('/groups/:id', (req, res, next) => {
-    const groups = getDataDB('groups')
     const { id } = req.params
-    const selectedGroup = groups.find(group => group.id === id)
+    const selectedGroup = getGroupById(id)
     const data = {
         selectedGroup
     }
@@ -29,15 +26,14 @@ router.get('/create-group', (req, res, next) => {
 })
 
 router.post('/group-created', (req, res, next) => {
-    const newGroup = {...req.body, id: uuid(), number: Number(req.body.number)}
-    updatedDataDB('groups', newGroup)
-    res.redirect(`/groups`)
+    const { body } = req
+    const newGroup = createGroup(body)
+    res.redirect(`/groups/${newGroup.id}`)
 })
 
 router.get('/edit-group/:id', (req, res, next) => {
-    const groups = getDataDB('groups')
     const { id } = req.params
-    const editedGroup = groups.find(group => group.id === id)
+    const editedGroup = getGroupById(id)
     const data = {
         editedGroup
     }
@@ -46,29 +42,15 @@ router.get('/edit-group/:id', (req, res, next) => {
 })
 
 router.post('/group-edited', (req, res, next) => {
-    const groups = getDataDB('groups')
-    const { id } = req.body
-    const editedGroup = groups.map(group => {
-        if( group.id === id) {
-            const editedGr = {
-                ...req.body,
-                number: Number(req.body.number)
-            }
-            return editedGr
-        } else {
-            return group
-        }
-    })
-    editDataDB('groups', editedGroup)
-    res.redirect(`/groups/${id}`)
+    const { body } = req
+    const editedGroup = updateGroup(body)
+    res.redirect(`/groups/${editedGroup.id}`)
 
 })
 
 router.post('/delete-group', (req, res, next) => {
-    const groups = getDataDB('groups')
     const { id } = req.body
-    const deletedGroup = groups.filter(group => group.id !== id)
-    editDataDB('groups', deletedGroup)
+    deleteGroup(id)
 
     res.redirect('/groups')
 })

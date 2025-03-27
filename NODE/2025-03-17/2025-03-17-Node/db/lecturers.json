@@ -1,19 +1,5 @@
 [
   {
-    "firstName": "Toms",
-    "lastName": "Smith",
-    "email": "tomsmith@123.gmail.com",
-    "yearsOfExperience": "12",
-    "office": "Room 204",
-    "subjects": [
-      "53e796d7-bfc9-4ac8-addc-91e005d6bbdf"
-    ],
-    "groups": [
-      "7490da7c-80c4-4a79-8158-aa3dc5961478"
-    ],
-    "id": "89411444-413b-4910-9f27-735d000082a0"
-  },
-  {
     "firstName": "Miley",
     "lastName": "Cyrus",
     "email": "mileycyrus@gmai.com",
@@ -29,13 +15,18 @@
   },
   {
     "firstName": "Harry",
-    "lastName": "Styles",
+    "lastName": "Styless",
     "email": "harrystyles@gmai.com",
     "yearsOfExperience": "15",
     "office": "Room 101",
-    "id": "1a3db8f2-08e7-49ff-b6cb-9c7d06b69b1a",
-    "subjects": [],
-    "groups": []
+    "subjects": [
+      "b3f760f4-93ee-4ca9-bb94-a12c3089b114"
+    ],
+    "groups": [
+      "1fdd36a8-adec-461c-b22a-52311cb13b2c",
+      "974f0cce-4059-42ba-8dfd-3a53f6d0e9c3"
+    ],
+    "id": "1a3db8f2-08e7-49ff-b6cb-9c7d06b69b1a"
   },
   {
     "firstName": "David",
@@ -107,22 +98,5 @@
       "8efb4218-8728-4f1a-b136-6bef299ffffc",
       "7490da7c-80c4-4a79-8158-aa3dc5961478"
     ]
-  },
-  {
-    "firstName": "Laima",
-    "lastName": "Laima",
-    "email": "",
-    "yearsOfExperience": "",
-    "office": "",
-    "subjects": [
-      "65354a4c-19e4-4643-a4e2-406967a46b26",
-      "bfb359ad-6983-4c32-8b10-df35e4cd30ca"
-    ],
-    "groups": [
-      "1fdd36a8-adec-461c-b22a-52311cb13b2c",
-      "7490da7c-80c4-4a79-8158-aa3dc5961478",
-      "8efb4218-8728-4f1a-b136-6bef299ffffc"
-    ],
-    "id": "93684b37-b7bf-48d1-a940-f507dec2b70d"
   }
 ]

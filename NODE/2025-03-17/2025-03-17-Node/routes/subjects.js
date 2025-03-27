@@ -2,13 +2,11 @@ const express = require('express')
 
 const router = express.Router()
 
-const { v4: uuid } = require('uuid')
-
-const { getDataDB, updatedDataDB, editDataDB } = require('../services/FetchingData')
+const { getSubjects, getSubjectById, createSubject, updateSubject, deleteSubject } = require('../services/subjects')
 
 
 router.get('/subjects', (req, res, next) => {
-    const subjects = getDataDB('subjects')
+    const subjects = getSubjects()
     const data = { 
         subjects
     }
@@ -16,11 +14,10 @@ router.get('/subjects', (req, res, next) => {
 })
 
 router.get('/subjects/:id', (req, res, next) => {
-    const subjects = getDataDB('subjects')
     const { id } = req.params
-    const selectedSubject = subjects.find(subject => subject.id === id)
+    const foundSubject = getSubjectById(id)
     const data = {
-        selectedSubject
+        foundSubject
     }
     res.render(`subject`, data)
     
@@ -33,16 +30,15 @@ router.get('/create-subject', (req, res, next) => {
 })
 
 router.post('/subject-created', (req, res, next) => {
-    const newSubject = {...req.body, id: uuid()}
-    updatedDataDB('subjects', newSubject)
+    const { body } = req
+    const newSubject = createSubject(body)
 
-    res.redirect('/subjects')
+    res.redirect(`/subjects/${newSubject.id}`)
 })
 
 router.get('/edit-subject/:id', (req, res, next) => {
-    const subjects = getDataDB('subjects')
     const { id } = req.params
-    const editedSubject = subjects.find(subject => subject.id === id)
+    const editedSubject = getSubjectById(id)
     const data = {
         editedSubject
     }
@@ -50,26 +46,15 @@ router.get('/edit-subject/:id', (req, res, next) => {
 })
 
 router.post('/subject-edited', (req, res, next) => {
-    const subjects = getDataDB('subjects')
-    const { id } = req.body
-    const editedSubject = subjects.map(subject => {
-        if (subject.id === id) {
-            return req.body
-        } else {
-            return subject
-        }
-    })
-    editDataDB('subjects', editedSubject)
-    res.redirect('/subjects')
+    const { body } = req
+    const updatedSubject = updateSubject(body)
+    res.redirect(`/subjects/${updatedSubject.id}`)
     
 })
 
 router.post('/delete-subject', (req, res, next) => {
-    const subjects = getDataDB('subjects')
     const { id } = req.body
-    const newSubjects = subjects.filter(subject => subject.id !== id)
-    editDataDB('subjects', newSubjects)
-
+    deleteSubject(id)
     res.redirect('/subjects')
 })
 

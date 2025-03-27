@@ -1,9 +1,5 @@
 [
   {
-    "subject": "Mathematics",
-    "id": "53e796d7-bfc9-4ac8-addc-91e005d6bbdf"
-  },
-  {
     "subject": "Humanities",
     "id": "65354a4c-19e4-4643-a4e2-406967a46b26"
   },
@@ -22,5 +18,17 @@
   {
     "subject": "Biology",
     "id": "bfb359ad-6983-4c32-8b10-df35e4cd30ca"
+  },
+  {
+    "subject": "Mathematics",
+    "id": "b40494b3-1844-4913-86f9-d81b57e73317"
+  },
+  {
+    "subject": "Fashion & Styles",
+    "id": "b3f760f4-93ee-4ca9-bb94-a12c3089b114"
+  },
+  {
+    "subject": "French",
+    "id": "39de8f95-57cb-4a44-824d-f7ac05c14044"
   }
 ]

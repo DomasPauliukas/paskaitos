@@ -2,15 +2,14 @@ const express = require('express')
 
 const router = express.Router()
 
-const { v4: uuid } = require('uuid')
-
-const { getDataDB, updatedDataDB, editDataDB } = require('../services/FetchingData')
+const { getDataDB } = require('../services/FetchingData')
+const { createLecturer, getLecturers, getLecturerById, updateLecturer, deleteLecturer } = require('../services/lecturers')
 
 const subjects = getDataDB('subjects')
 const groups = getDataDB('groups')
 
 router.get('/lecturers', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
+    const lecturers = getLecturers()
     const data = {
         lecturers
     }
@@ -18,11 +17,10 @@ router.get('/lecturers', (req, res, next) => {
 })
 
 router.get('/lecturers/:id', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
     const { id } = req.params
-    const selectedLecturer = lecturers.find(lecturer => lecturer.id === id)
+    const foundLecturer = getLecturerById(id)
     const data = {
-        selectedLecturer
+        foundLecturer
     }
     res.render(`lecturer`, data)
 })
@@ -33,34 +31,16 @@ router.get('/create-lecturer', (req, res, next) => {
 })
 
 router.post('/lecturer-created', (req, res, next) => {
-    const subjects = []
-    const groups = []
+    const { body } = req
 
-    if (req.body.subjects) {
-        if (typeof req.body.subjects === 'string') {
-            subjects.push(req.body.subjects)
-        } else {
-            subjects.push(...req.body.subjects)
-        }
-    }
+    const createdLecturer = createLecturer(body)
 
-    if (req.body.groups) {
-        if (typeof req.body.groups === 'string') {
-            groups.push(req.body.groups)
-        } else {
-            groups.push(...req.body.groups)
-        }
-    }
-    const createdLecturers = {...req.body, id: uuid(), subjects, groups}
-    updatedDataDB('lecturers', createdLecturers)
-
-    res.redirect('/lecturers')
+    res.redirect(`/lecturers/${createdLecturer.id}`)
 })
 
 router.get('/edit-lecturer/:id', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
     const { id } = req.params
-    const editedLecturer = lecturers.find(lecturer => lecturer.id === id)
+    const editedLecturer = getLecturerById(id)
     const data = {
         editedLecturer,
         subjects,
@@ -70,44 +50,15 @@ router.get('/edit-lecturer/:id', (req, res, next) => {
 })
 
 router.post('/lecturer-edited', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
-    const { id } = req.body
-    let subjects = []
-    let groups = []
+    const { body } = req
+    const editedLecturers = updateLecturer(body)
 
-    if (req.body.subjects) {
-        if (typeof req.body.subjects === 'string') {
-            subjects.push(req.body.subjects)
-        } else {
-            subjects.push(...req.body.subjects)
-        }
-    }
-
-    if (req.body.groups) {
-        if (typeof req.body.groups === 'string') {
-            groups.push(req.body.groups)
-        } else {
-            groups.push(...req.body.groups)
-        }
-    }
-
-    const editedLecturers = lecturers.map(lecturer => {
-        if(lecturer.id === id) {
-            return {...req.body, subjects, groups}
-        } else {
-            return lecturer
-        }
-    })
-    editDataDB('lecturers', editedLecturers)
-    res.redirect('/lecturers')
+    res.redirect(`/lecturers/${editedLecturers.id}`)
 })
 
 router.post('/delete-lecturer', (req, res, next) => {
-    const lecturers = getDataDB('lecturers')
     const { id } = req.body
-
-    const deletedLecturer = lecturers.filter(lecturer => lecturer.id !== id)
-    editDataDB('lecturers', deletedLecturer)
+    deleteLecturer(id)
 
     res.redirect('/lecturers')
 })

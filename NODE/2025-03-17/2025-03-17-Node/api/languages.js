@@ -1,53 +1,42 @@
 const express = require('express')
 
 const router = express.Router()
-const { v4: uuid } = require('uuid')
 
-const { getDataDB, updatedDataDB, editDataDB } = require('../services/FetchingData')
+const { getLanguages, getLanguageById, createLanguage, deleteLanguage, updateLanguage } = require('../services/languages')
 
 
 router.get('/', (req, res, next) => {
-    const languages = getDataDB('languages')
+    const languages = getLanguages()
     res.send(languages)
 })
 
 router.get('/:id', (req, res, next) => {
-    const languages = getDataDB('languages')
     const { id } = req.params
-    const selectedLanguage = languages.find(language => language.id === id)
+    const selectedLanguage = getLanguageById(id)
 
     res.send(selectedLanguage)
 })
 
 router.post('/', (req, res, next) => {
-    const newLanguage = {...req.body, id: uuid()}
-    updatedDataDB('languages', newLanguage)
+    const { body } = req
+    const newLanguage = createLanguage(body)
 
     res.send(newLanguage)
 })
 
 router.put('/:id', (req, res, next) => {
-    const languages = getDataDB('languages')
     const { id } = req.params
-    const editedLanguages = languages.map(language => {
-        if (language.id === id) {
-            return {...language, ...req.body}
-        } else {
-            return language
-        }
-    })
-    editDataDB('languages', editedLanguages)
+    const { body } = req
+    const editedLanguages = updateLanguage({...body, id})
 
     res.send(editedLanguages)
 })
 
 router.delete('/:id', (req, res, next) => {
-    const languages = getDataDB('languages')
     const { id } = req.params
-    const deletedLanguage = languages.filter(language => language.id !== id)
-    editDataDB('languages', deletedLanguage)
+    deleteLanguage(id)
 
-    res.send(deletedLanguage)
+    res.send({message: 'data was successfully removed', id})
 })
 
 module.exports = router

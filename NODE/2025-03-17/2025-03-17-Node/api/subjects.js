@@ -2,54 +2,41 @@ const express = require('express')
 
 const router = express.Router()
 
-const { v4: uuid } = require('uuid')
-
-const { getDataDB, updatedDataDB, editDataDB } = require('../services/FetchingData')
+const { getSubjects, getSubjectById, createSubject, updateSubject, deleteSubject } = require('../services/subjects')
 
 
 router.get('/', (req, res, next) => {
-    const subjects = getDataDB('subjects')
+    const subjects = getSubjects()
     res.send(subjects)
 })
 
 router.get('/:id', (req, res, next) => {
-    const subjects = getDataDB('subjects')
     const { id } = req.params
-    const selectedSubject = subjects.find(subject => subject.id === id)
+    const foundSubject = getSubjectById(id)
 
-    res.send(selectedSubject)
+    res.send(foundSubject)
 })
 
 router.post('/', (req, res, next) => {
-    const newSubject = {...req.body, id: uuid()}
-    updatedDataDB('subjects', newSubject)
+    const { body } = req
+    const newSubject = createSubject(body)
 
     res.send(newSubject)
-
 })
 
 router.put('/:id', (req, res, next) => {
-    const subjects = getDataDB('subjects')
     const { id } = req.params
-    const editedSubject = subjects.map(subject => {
-        if (subject.id === id) {
-            return {...subject, ...req.body}
-        } else {
-            return subject
-        }
-    })
-    editDataDB('subjects', editedSubject)
+    const { body } = req
+    const editedSubject = updateSubject({...body, id})
 
     res.send(editedSubject)
 })
 
 router.delete('/:id', (req, res, next) => {
-    const subjects = getDataDB('subjects')
     const { id } = req.params
-    const newSubjects = subjects.filter(subject => subject.id !== id)
-    editDataDB('subjects', newSubjects)
+    deleteSubject(id)
 
-    res.send(newSubjects)
+    res.send({message: 'data was successfully removed', id})
 })
 
 module.exports = router

@@ -1,19 +1,19 @@
-<%- include('partials/header', { title: `${selectedLecturer.firstName} ${selectedLecturer.lastName}` }) %>
+<%- include('partials/header', { title: `${foundLecturer.firstName} ${foundLecturer.lastName}` }) %>
 
 <a href="/">Go back to home page</a>
 
 <h1>Lecturer</h1>
 <ul> 
-    <li>First name: <%= selectedLecturer.firstName%></li>
-    <li>Last name: <%= selectedLecturer.lastName%></li>
-    <li>Department: <%= selectedLecturer.department%></li>
-    <li>Email: <%= selectedLecturer.email%></li>
-    <li>Experience: <%= selectedLecturer.yearsOfExperience %></li>
-    <li>Office: <%= selectedLecturer.office%></li>
+    <li>First name: <%= foundLecturer.firstName%></li>
+    <li>Last name: <%= foundLecturer.lastName%></li>
+    <li>Department: <%= foundLecturer.department%></li>
+    <li>Email: <%= foundLecturer.email%></li>
+    <li>Experience: <%= foundLecturer.yearsOfExperience %></li>
+    <li>Office: <%= foundLecturer.office%></li>
 </ul>
 
-<a href="/edit-lecturer/<%= selectedLecturer.id %>">Edit lecturer</a>
+<a href="/edit-lecturer/<%= foundLecturer.id %>">Edit lecturer</a>
 <form action="/delete-lecturer" method="POST">
-    <input type="hidden" name="id" value="<%= selectedLecturer.id %>"/>
+    <input type="hidden" name="id" value="<%= foundLecturer.id %>"/>
     <button type="submit">Delete lecturer</button>
 </form>
