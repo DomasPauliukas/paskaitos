@@ -27,9 +27,9 @@ router.get('/students', async (req, res, next) => {
     res.render(`students`, data)
 })
 
-router.get('/students/:id', (req, res, next) => {
+router.get('/students/:id',async (req, res, next) => {
     const { id } = req.params
-    const foundStudent = getStudentById(id)
+    const foundStudent = await getStudentById(id)
     
     const data = {
         foundStudent
@@ -41,23 +41,23 @@ router.get('/create-student', (req, res, next) => {
     res.render(`student-create`, { groups, languages })
 })
 
-router.post('/student-created', (req, res, next) => {
+router.post('/student-created', async (req, res, next) => {
     const { body } = req
-    const createdStudent = createStudent(body)
+    const createdStudent = await createStudent(body)
 
     res.redirect(`/students/${createdStudent.id}`)
 })
 
-router.post('/delete-student', (req, res, next) => {
+router.post('/delete-student', async (req, res, next) => {
     const { studentId } = req.body
-    deleteStudent(studentId)
+    await deleteStudent(studentId)
 
     res.redirect(`/students`)
 })
 
-router.get('/edit-student/:id', (req, res, next) => {
+router.get('/edit-student/:id',async (req, res, next) => {
     const { id } = req.params
-    const editedStudent = getStudentById(id)
+    const editedStudent = await getStudentById(id)
 
     const data = {
         editedStudent,
@@ -67,9 +67,9 @@ router.get('/edit-student/:id', (req, res, next) => {
     res.render(`student-edit`, data)
 })
 
-router.post('/student-edited', (req, res, next) => {
+router.post('/student-edited',async (req, res, next) => {
     const { body } = req
-    const updatedStudent = updateStudent(body)
+    const updatedStudent = await updateStudent(body)
 
     res.redirect(`/students/${updatedStudent.id}`)
 })

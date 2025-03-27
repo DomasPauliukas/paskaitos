@@ -26,7 +26,7 @@ const LecturersPage = () => {
                     <ul>
                         {lecturers.map((lecturer, index) => (
                             <li key={index}>
-                                <Link to={`/Lecturers/${lecturer.id}`}>{lecturer.firstName} {lecturer.lastName}</Link>
+                                <Link to={`/Lecturers/${lecturer._id}`}>{lecturer.firstName} {lecturer.lastName}</Link>
                             </li>
                         ))}
                     </ul>

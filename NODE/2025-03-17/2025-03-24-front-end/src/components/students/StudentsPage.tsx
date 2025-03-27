@@ -16,6 +16,7 @@ const StudentsPage: React.FC = () => {
         fetchStudents()
     }, [])
 
+
     return (
         <div>
             <h1>Students page</h1>
@@ -27,8 +28,8 @@ const StudentsPage: React.FC = () => {
                     <h2>{students.length > 1 ? 'Students:' : 'Student:'}</h2>
                     <ul>
                         {students.map((student) => (
-                            <li key={student.id}>
-                                <Link to={`/Students/${student.id}`}>
+                            <li key={student._id}>
+                                <Link to={`/Students/${student._id}`}>
                                 {student.name} {student.surname}
                                 </Link>
                             </li>

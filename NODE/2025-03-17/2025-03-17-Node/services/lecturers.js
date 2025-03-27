@@ -1,136 +1,54 @@
-const path = require('path')
-const fs = require('fs')
-
-const { v4: uuid } = require('uuid')
+const { ObjectId } = require('mongodb')
+const { getDB } = require('../database')
 
 // GET
-function getLecturers() {
-    const filePath = path.join('db', 'lecturers.json')
-
-    if (!fs.existsSync(filePath)) {
-        throw new Error('File does not exist')
-    }
-
-    const fileContent = fs.readFileSync(filePath)
-
-    const data = JSON.parse(fileContent)
-
+async function getLecturers() {
+    const db = getDB()
+    const data = await db
+                        .collection('lecturers')
+                        .find()
+                        .toArray()
     return data
 }
 
 // GET
-function getLecturerById(id) {
-    const filePath = path.join('db', 'lecturers.json')
-
-    if (!fs.existsSync(filePath)) {
-        throw new Error('File does not exist')
-    }
-
-    const fileContent = fs.readFileSync(filePath)
-
-    const lecturers = JSON.parse(fileContent)
-
-    const foundLecturer = lecturers.find(lecturer => lecturer.id === id)
-
-    return foundLecturer
+async function getLecturerById(id) {
+    const db = getDB()
+    const lecturer = await db
+                        .collection('lecturers')
+                        .findOne({ _id: ObjectId.createFromHexString(id) })
+    return lecturer
 }
 
 // POST
-function createLecturer(body) {
-    const id = uuid()
-    const subjects = []
-    const groups = []
-
-    if (body.subjects) {
-        if (typeof body.subjects === 'string') {
-            subjects.push(body.subjects)
-        } else {
-            subjects.push(...body.subjects)
-        }
-    }
-
-    if (body.groups) {
-        if (typeof body.groups === 'string') {
-            groups.push(body.groups)
-        } else {
-            groups.push(...body.groups)
-        }
-    }
-
-    const newLecturer = { 
-        ...body,
-        subjects,
-        groups,
-        id 
-    }
-
-    const lecturers = getLecturers()
-
-    lecturers.push(newLecturer)
-    
-    const stringifiedData = JSON.stringify(lecturers, null, 2)
-    
-    const filePath = path.join('db', 'lecturers.json')
-    fs.writeFileSync(filePath, stringifiedData)
-
-    return newLecturer
+async function createLecturer(body) {
+    const db = getDB()
+    const response = await db
+                            .collection('lecturers')
+                            .insertOne(body)
+    return response
 }
 
 // UPDATE
-function updateLecturer(data) {
-    const { id } = data
-
-    const lecturers = getLecturers()
-
-    const updatedLecturers = lecturers.map(lecturer => {
-        if (lecturer.id === id) {
-            const subjects = []
-            const groups = []
-
-            if (data.subjects) {
-                if (typeof data.subjects === 'string') {
-                    subjects.push(data.subjects)
-                } else {
-                    subjects.push(...data.subjects)
-                }
-            }
-            if (data.groups) {
-                if (typeof data.groups === 'string') {
-                  groups.push(data.groups)
-                } else {
-                  groups.push(...data.groups)
-                }
-            }
-        
-            const updatedLecturer = { 
-                ...data,
-                subjects,
-                groups
-            }
-
-            return updatedLecturer
-        } else {
-            return lecturer
-        }
-         
-    })
-
-    const stringifiedData = JSON.stringify(updatedLecturers, null, 2)
-    
-    const filePath = path.join('db', 'lecturers.json')
-    fs.writeFileSync(filePath, stringifiedData)
-
-    return data
+async function updateLecturer(data) {
+    const db = getDB()
+    const response = await db
+                            .collection('lecturers')
+                            .updateOne(
+                                { _id: ObjectId.createFromHexString(data.id) },
+                                { $set: data }
+                            )
+//. updateOne({},{}) du obj paduodami, pirmas - redaguojamas objektas, antras - i ka norime pakeisti. (data - tai body yra)
+    return response
 }
 
 // DELETE
-function deleteLecturer(id) {
-    const lecturers = getLecturers()
-    const updatedLecturers = lecturers.filter(lecturer => lecturer.id !== id)
-    
-    const stringifiedData = JSON.stringify(updatedLecturers, null, 2)
-    const filePath = path.join('db', 'lecturers.json')
-    fs.writeFileSync(filePath, stringifiedData)
+async function deleteLecturer(id) {
+    const db = getDB()
+    const response = await db
+                            .collection('lecturers')
+                            .deleteOne({ _id: ObjectId.createFromHexString(id) })
+    return response
 }
 
 module.exports = {

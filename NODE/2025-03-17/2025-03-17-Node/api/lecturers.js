@@ -4,39 +4,60 @@ const router = express.Router()
 const { getLecturers, getLecturerById, createLecturer, updateLecturer, deleteLecturer } = require('../services/lecturers')
 
 
-router.get('/', (req, res, next) => {
-    const lecturers = getLecturers()
-    res.send(lecturers)
+router.get('/',async (req, res, next) => {
+    try {
+        const data = await getLecturers()
+        res.send(data)
+    } catch (error) {
+        res.status(500).send({ error })
+    }
 
 })
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id',async (req, res, next) => {
     const { id } = req.params
-    const foundLecturer = getLecturerById(id)
-
-    res.send(foundLecturer)
+    try {
+        const lecturer = await getLecturerById(id)
+        res.send(lecturer)
+    } catch (error) {
+        res.status(500).send({ error })
+    }
 })
 
-router.post('/', (req, res, next) => {
+router.post('/',async (req, res, next) => {
     const { body } = req
-    const createdLecturer = createLecturer(body)
-
-    res.send(createdLecturer)
+    try {
+        const response = await createLecturer(body)
+        res.send({
+            ...response,
+            body // nebutina cia rasyti, body parodys backende nauja sukurta student
+        })
+    } catch (error) {
+        res.status(500).send({ error })
+    }
 })
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id',async (req, res, next) => {
     const { id } = req.params
     const { body } = req
-    const editedLecturer = updateLecturer({...body, id})
 
-    res.send(editedLecturer)
+    try {
+        const response = await updateLecturer({ ...body, id })
+
+        res.send({ response, body: { ...body, id }})
+    } catch (error) {
+        res.status(500).send({ error })
+    }
 })
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id',async (req, res, next) => {
     const { id } = req.params
-    deleteLecturer(id)
-
-    res.send({message: 'data was successfully removed', id})
+    try {
+        const response = await deleteLecturer(id)
+        res.send({ message: 'Data was successfully removed', id, response })
+    } catch (error) {
+        res.status(500).send({ error })
+    }
 })
 
 module.exports = router

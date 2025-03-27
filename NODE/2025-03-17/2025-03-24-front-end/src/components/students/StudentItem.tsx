@@ -21,6 +21,7 @@ const StudentItem: React.FC = () => {
 
     useEffect(() => {
         const fetchStudent = async () => {
+
             const res = await fetch(`${API_URL}/students/${id}`)
             const data = await res.json()
 

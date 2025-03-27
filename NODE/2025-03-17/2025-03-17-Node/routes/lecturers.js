@@ -8,17 +8,17 @@ const { createLecturer, getLecturers, getLecturerById, updateLecturer, deleteLec
 const subjects = getDataDB('subjects')
 const groups = getDataDB('groups')
 
-router.get('/lecturers', (req, res, next) => {
-    const lecturers = getLecturers()
+router.get('/lecturers',async (req, res, next) => {
+    const lecturers = await getLecturers()
     const data = {
         lecturers
     }
     res.render(`lecturers`, data)
 })
 
-router.get('/lecturers/:id', (req, res, next) => {
+router.get('/lecturers/:id',async (req, res, next) => {
     const { id } = req.params
-    const foundLecturer = getLecturerById(id)
+    const foundLecturer = await getLecturerById(id)
     const data = {
         foundLecturer
     }
@@ -30,17 +30,17 @@ router.get('/create-lecturer', (req, res, next) => {
     res.render(`lecturer-create`, { subjects, groups })
 })
 
-router.post('/lecturer-created', (req, res, next) => {
+router.post('/lecturer-created',async (req, res, next) => {
     const { body } = req
 
-    const createdLecturer = createLecturer(body)
+    const createdLecturer = await createLecturer(body)
 
     res.redirect(`/lecturers/${createdLecturer.id}`)
 })
 
-router.get('/edit-lecturer/:id', (req, res, next) => {
+router.get('/edit-lecturer/:id',async (req, res, next) => {
     const { id } = req.params
-    const editedLecturer = getLecturerById(id)
+    const editedLecturer = await getLecturerById(id)
     const data = {
         editedLecturer,
         subjects,
@@ -49,16 +49,16 @@ router.get('/edit-lecturer/:id', (req, res, next) => {
     res.render(`lecturer-edit`, data)
 })
 
-router.post('/lecturer-edited', (req, res, next) => {
+router.post('/lecturer-edited',async (req, res, next) => {
     const { body } = req
-    const editedLecturers = updateLecturer(body)
+    const editedLecturers = await updateLecturer(body)
 
     res.redirect(`/lecturers/${editedLecturers.id}`)
 })
 
-router.post('/delete-lecturer', (req, res, next) => {
+router.post('/delete-lecturer',async (req, res, next) => {
     const { id } = req.body
-    deleteLecturer(id)
+    await deleteLecturer(id)
 
     res.redirect('/lecturers')
 })
