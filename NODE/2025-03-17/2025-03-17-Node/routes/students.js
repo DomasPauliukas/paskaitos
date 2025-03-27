@@ -13,8 +13,8 @@ const groups = getDataDB('groups')
 const languages = getDataDB('languages')
 
 
-router.get('/students', (req, res, next) => {
-    const students = getStudents()
+router.get('/students', async (req, res, next) => {
+    const students = await getStudents()
 
     const data = {
         newStudentButton: {

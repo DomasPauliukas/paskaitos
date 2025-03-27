@@ -58,6 +58,7 @@ app.use(express.static('public')) // pasiekia public serverio CSS visus
 
 const path = require('path') // nuorodai iki failo
 const fs = require('fs') // kartu reikia su path, rodo turini
+const { connectToDB } = require('./database')
 
 
 
@@ -106,4 +107,14 @@ app.get('*', (req, res, next) => {
 
 // const PORT = process.env.PORT // is .env failo, kuriame saugomos konstaintos, keys ir pan.  
 const PORT = process.env.PORT || 3000
-app.listen(PORT, () => console.log(`App is running on port ${PORT}`))
+ //BE MONGO DB
+// app.listen(PORT, () => console.log(`App is running on port ${PORT}`))
+
+// SU MONGODB
+connectToDB()
+    .then(() => {
+        app.listen(PORT, () => console.log(`Server is running on port ${PORT}.`))
+    })
+    .catch(error => {
+        console.error('Failed to connect to MongoDB: ', error)
+    })
