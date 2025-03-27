@@ -1,91 +1,54 @@
-const path = require('path')
-const fs = require('fs')
-
-const { v4: uuid } = require('uuid')
+const { ObjectId } = require('mongodb')
+const { getDB } = require('../database')
 
 // GET
-function getLanguages() {
-    const filePath = path.join('db', 'languages.json')
-
-    if (!fs.existsSync(filePath)) {
-        throw new Error('File does not exist')
-    }
-
-    const fileContent = fs.readFileSync(filePath)
-
-    const data = JSON.parse(fileContent)
-
+async function getLanguages() {
+    const db = getDB()
+    const data = await db
+                        .collection('languages')
+                        .find()
+                        .toArray()
     return data
 }
 
 // GET
-function getLanguageById(id) {
-    const filePath = path.join('db', 'languages.json')
-
-    if (!fs.existsSync(filePath)) {
-        throw new Error('File does not exist')
-    }
-
-    const fileContent = fs.readFileSync(filePath)
-
-    const languages = JSON.parse(fileContent)
-
-    const foundLanguage = languages.find(language => language.id === id)
-
-    return foundLanguage
+async function getLanguageById(id) {
+    const db = getDB()
+    const student = await db
+                        .collection('languages')
+                        .findOne({ _id: ObjectId.createFromHexString(id) })
+    return student
 }
 
 // POST
-function createLanguage(body) {
-    const id = uuid()
-
-    const newLanguage = { 
-        ...body,
-        id 
-    }
-
-    const languages = getLanguages()
-
-    languages.push(newLanguage)
-    
-    const stringifiedData = JSON.stringify(languages, null, 2)
-    
-    const filePath = path.join('db', 'languages.json')
-    fs.writeFileSync(filePath, stringifiedData)
-
-    return newLanguage
+async function createLanguage(body) {
+    const db = getDB()
+    const response = await db
+                            .collection('languages')
+                            .insertOne(body)
+    return response
 }
 
 // UPDATE
-function updateLanguage(data) {
-    const { id } = data
-
-    const languages = getLanguages()
-
-    const editedLanguages = languages.map(language => {
-        if (language.id === id) {
-            return data
-        } else {
-            return language
-        }
-    })
-
-    const stringifiedData = JSON.stringify(editedLanguages, null, 2)
-    
-    const filePath = path.join('db', 'languages.json')
-    fs.writeFileSync(filePath, stringifiedData)
-
-    return data
+async function updateLanguage(data) {
+    const db = getDB()
+    const response = await db
+                            .collection('languages')
+                            .updateOne(
+                                { _id: ObjectId.createFromHexString(data.id) },
+                                { $set: data }
+                            )
+//. updateOne({},{}) du obj paduodami, pirmas - redaguojamas objektas, antras - i ka norime pakeisti. (data - tai body yra)
+    return response
 }
 
 // DELETE
-function deleteLanguage(id) {
-    const languages = getLanguages()
-    const updatedLanguages = languages.filter(language => language.id !== id)
-    
-    const stringifiedData = JSON.stringify(updatedLanguages, null, 2)
-    const filePath = path.join('db', 'languages.json')
-    fs.writeFileSync(filePath, stringifiedData)
+async function deleteLanguage(id) {
+    const db = getDB()
+    const response = await db
+                            .collection('languages')
+                            .deleteOne({ _id: ObjectId.createFromHexString(id) })
+    return response
 }
 
 module.exports = {

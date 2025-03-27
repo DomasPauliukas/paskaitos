@@ -4,38 +4,58 @@ const router = express.Router()
 
 const { getGroups, getGroupById, createGroup, updateGroup, deleteGroup } = require('../services/groups')
 
-router.get('/', (req, res, next) => {
-    const groups = getGroups()
-    res.send(groups)
+router.get('/',async (req, res, next) => {
+    try {
+        const data = await getGroups()
+        res.send(data)
+    } catch (error) {
+        res.status(500).send({ error })
+    }
 })
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id',async (req, res, next) => {
     const { id } = req.params
-    const selectedGroup = getGroupById(id)
-
-    res.send(selectedGroup)
+    try {
+        const group = await getGroupById(id)
+        res.send(group)
+    } catch (error) {
+        res.status(500).send({ error })
+    }
 })
 
-router.post('/', (req, res, next) => {
+router.post('/',async (req, res, next) => {
     const { body } = req
-    const newGroup = createGroup(body)
-
-    res.send(newGroup)
+    try {
+        const response = await createGroup(body)
+        res.send({
+            ...response,
+            body // nebutina cia rasyti, body parodys backende nauja sukurta student
+        })
+    } catch (error) {
+        res.status(500).send({ error })
+    }
 })
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id',async (req, res, next) => {
     const { id } = req.params
     const { body } = req
-    const editedGroup = updateGroup({...body, id})
+    try {
+        const response = await updateGroup({ ...body, id })
 
-    res.send(editedGroup)
+        res.send({ response, body: { ...body, id }})
+    } catch (error) {
+        res.status(500).send({ error })
+    }
 })
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id',async (req, res, next) => {
     const { id } = req.params
-    deleteGroup(id)
-
-    res.send({message: 'data was successfully removed', id})
+    try {
+        const response = await deleteGroup(id)
+        res.send({ message: 'Data was successfully removed', id, response })
+    } catch (error) {
+        res.status(500).send({ error })
+    }
 })
 
 module.exports = router

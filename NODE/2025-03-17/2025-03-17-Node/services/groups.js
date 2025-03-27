@@ -1,96 +1,54 @@
-const path = require('path')
-const fs = require('fs')
-
-const { v4: uuid } = require('uuid')
+const { ObjectId } = require('mongodb')
+const { getDB } = require('../database')
 
 // GET
-function getGroups() {
-    const filePath = path.join('db', 'groups.json')
-
-    if (!fs.existsSync(filePath)) {
-        throw new Error('File does not exist')
-    }
-
-    const fileContent = fs.readFileSync(filePath)
-
-    const data = JSON.parse(fileContent)
-
+async function getGroups() {
+    const db = getDB()
+    const data = await db
+                        .collection('groups')
+                        .find()
+                        .toArray()
     return data
 }
 
 // GET
-function getGroupById(id) {
-    const filePath = path.join('db', 'groups.json')
-
-    if (!fs.existsSync(filePath)) {
-        throw new Error('File does not exist')
-    }
-
-    const fileContent = fs.readFileSync(filePath)
-
-    const groups = JSON.parse(fileContent)
-
-    const foundGroup = groups.find(group => group.id === id)
-
-    return foundGroup
+async function getGroupById(id) {
+    const db = getDB()
+    const group = await db
+                        .collection('groups')
+                        .findOne({ _id: ObjectId.createFromHexString(id) })
+    return group
 }
 
 // POST
-function createGroup(body) {
-    const id = uuid()
-
-    const newGroup = { 
-        ...body,
-        number: Number(body.number),
-        id 
-    }
-
-    const groups = getGroups()
-
-    groups.push(newGroup)
-    
-    const stringifiedData = JSON.stringify(groups, null, 2)
-    
-    const filePath = path.join('db', 'groups.json')
-    fs.writeFileSync(filePath, stringifiedData)
-
-    return newGroup
+async function createGroup(body) {
+    const db = getDB()
+    const response = await db
+                            .collection('groups')
+                            .insertOne(body)
+    return response
 }
 
 // UPDATE
-function updateGroup(data) {
-    const { id } = data
-
-    const groups = getGroups()
-
-    const editedGroup = groups.map(group => {
-        if( group.id === id) {
-            const editedGr = {
-                ...data,
-                number: Number(data.number)
-            }
-            return editedGr
-        } else {
-            return group
-        }
-    })
-
-    const stringifiedData = JSON.stringify(editedGroup, null, 2)
-    
-    const filePath = path.join('db', 'groups.json')
-    fs.writeFileSync(filePath, stringifiedData)
-
-    return data
+async function updateGroup(data) {
+    const db = getDB()
+    const response = await db
+                            .collection('groups')
+                            .updateOne(
+                                { _id: ObjectId.createFromHexString(data.id) },
+                                { $set: data }
+                            )
+//. updateOne({},{}) du obj paduodami, pirmas - redaguojamas objektas, antras - i ka norime pakeisti. (data - tai body yra)
+    return response
 }
 
 // DELETE
-function deleteGroup(id) {
-    const groups = getGroups()
-    const updatedGroups = groups.filter(group => group.id !== id)
-    
-    const stringifiedData = JSON.stringify(updatedGroups, null, 2)
-    const filePath = path.join('db', 'groups.json')
-    fs.writeFileSync(filePath, stringifiedData)
+async function deleteGroup(id) {
+    const db = getDB()
+    const response = await db
+                            .collection('groups')
+                            .deleteOne({ _id: ObjectId.createFromHexString(id) })
+    return response
 }
 
 module.exports = {
