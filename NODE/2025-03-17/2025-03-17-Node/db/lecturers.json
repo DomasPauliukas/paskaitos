@@ -5,7 +5,9 @@
     "email": "tomsmith@123.gmail.com",
     "yearsOfExperience": "12",
     "office": "Room 204",
-    "subjects": [],
+    "subjects": [
+      "53e796d7-bfc9-4ac8-addc-91e005d6bbdf"
+    ],
     "groups": [
       "7490da7c-80c4-4a79-8158-aa3dc5961478"
     ],

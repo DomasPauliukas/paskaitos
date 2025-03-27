@@ -12,24 +12,6 @@ const { getDataDB, updatedDataDB, editDataDB } = require('../services/FetchingDa
 const groups = getDataDB('groups')
 const languages = getDataDB('languages')
 
-// apacioje funkcija, kuri atnaujina data i json
-
-// function getStudents() {
-//     const filePath = path.join('db', 'students.json')
-    
-//     const fileContent = fs.readFileSync(filePath)
-//     const data = JSON.parse(fileContent)
-    
-//     return data
-// }
-
-// function getStudentById (id) {
-//     const students = getStudents()
-    
-//     return students.find(student => student.id === id)
-    
-// }
-
 
 router.get('/students', (req, res, next) => {
     const students = getDataDB('students')

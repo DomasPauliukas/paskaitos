@@ -1,5 +1,8 @@
 const express = require('express')
 const cors = require('cors') // npm i cors. kad is backendo eitu fetchinti frontende.
+const process = require('process')
+
+require('dotenv').config() // kad veiktu .env failas  npm i dotenv
 
 const app = express()
 
@@ -102,5 +105,5 @@ app.get('*', (req, res, next) => {
 })
 
 // const PORT = process.env.PORT // is .env failo, kuriame saugomos konstaintos, keys ir pan.  
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`App is running on port ${PORT}`))
