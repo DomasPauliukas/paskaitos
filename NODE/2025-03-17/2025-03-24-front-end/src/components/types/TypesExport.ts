@@ -34,6 +34,6 @@ export interface Subject {
 }
 
 export interface Language {
-    name: string,
+    language: string,
     id: string
 }

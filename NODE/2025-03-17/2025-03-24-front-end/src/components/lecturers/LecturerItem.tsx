@@ -39,11 +39,11 @@ if (!lecturer) {
 }
 
 const lecturerSubjects = subjects.filter(subject =>
-    lecturer.subjects.includes(subject.id)
+    lecturer.subjects.includes(subject._id)
   )
 
   const lecturerGroups = groups.filter(group =>
-    lecturer.groups.includes(group.id)
+    lecturer.groups.includes(group._id)
   )
 
     return (
@@ -64,7 +64,7 @@ const lecturerSubjects = subjects.filter(subject =>
       <ul>
         {lecturerSubjects.length > 0 ? (
           lecturerSubjects.map(subject => (
-            <li key={subject.id}>{subject.subject}</li>
+            <li key={subject._id}>{subject.subject}</li>
           ))
         ) : (
           <p>No subjects assigned</p>
@@ -75,7 +75,7 @@ const lecturerSubjects = subjects.filter(subject =>
       <ul>
         {lecturerGroups.length > 0 ? (
           lecturerGroups.map(group => (
-            <li key={group.id}>{group.name}</li>
+            <li key={group._id}>{group.name}</li>
           ))
         ) : (
           <p>No groups assigned</p>

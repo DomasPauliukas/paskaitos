@@ -41,7 +41,7 @@ router.put('/:id',async (req, res, next) => {
     const { id } = req.params
     const { body } = req
     try {
-        const response = await updateLanguage({ ...body, id })
+        const response = await updateLanguage(body, id)
 
         res.send({ response, body: { ...body, id }})
     } catch (error) {

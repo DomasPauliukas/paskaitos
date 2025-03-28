@@ -49,8 +49,8 @@
 <div>
     <label for="languages">Select your languages:</label><br />
     <% languages.forEach(language => { %>
-      <input type="checkbox" name="languages" value="<%= language.name %>" id="<%= language.id %>" />
-      <label for="<%= language.id %>"><%= language.name %></label><br />
+      <input type="checkbox" name="languages" value="<%= language.language %>" id="<%= language.id %>" />
+      <label for="<%= language.id %>"><%= language.language %></label><br />
     <% }) %>
   </div>
 

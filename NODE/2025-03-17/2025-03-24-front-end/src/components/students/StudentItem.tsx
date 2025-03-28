@@ -18,7 +18,7 @@ const StudentItem: React.FC = () => {
         const response = await axios.delete(`${API_URL}/students/${id}`)
         navigate('/Students')
     }
-
+    
     useEffect(() => {
         const fetchStudent = async () => {
 
@@ -39,7 +39,7 @@ const StudentItem: React.FC = () => {
 
     useEffect(() => {
         if (groupId && groups.length > 0) {
-            const group = groups.find(group => group.id === groupId)
+            const group = groups.find(group => group._id === groupId)
             if (group) {
                 setGroupName(group.name)
             }

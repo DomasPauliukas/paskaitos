@@ -30,12 +30,12 @@ async function createSubject(body) {
 }
 
 // UPDATE
-async function updateSubject(data) {
+async function updateSubject(data, id) {
     const db = getDB()
     const response = await db
                             .collection('subjects')
                             .updateOne(
-                                { _id: ObjectId.createFromHexString(data.id) },
+                                { _id: ObjectId.createFromHexString(id) },
                                 { $set: data }
                             )
 //. updateOne({},{}) du obj paduodami, pirmas - redaguojamas objektas, antras - i ka norime pakeisti. (data - tai body yra)

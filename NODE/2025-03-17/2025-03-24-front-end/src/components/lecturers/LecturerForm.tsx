@@ -88,8 +88,8 @@ const LecturerForm: React.FC<LecturerFormProps> = ( {editLecturerData} ) => {
         }
 
         if (editLecturerData) {
-            axios.put(`${API_URL}/lecturers/${editLecturerData.id}`, newLecturer)
-            navigate(`/Lecturers/${editLecturerData.id}`)
+            axios.put(`${API_URL}/lecturers/${editLecturerData._id}`, newLecturer)
+            navigate(`/Lecturers/${editLecturerData._id}`)
         } else {
             axios.post(`${API_URL}/lecturers`, newLecturer)
             navigate('/Lecturers')
@@ -122,9 +122,9 @@ const LecturerForm: React.FC<LecturerFormProps> = ( {editLecturerData} ) => {
             <div>
                 <label htmlFor="subjects">Select subjects:</label><br />
                 {subjects.map(subject => (
-                    <div key={subject.id}>
-                        <input type="checkbox" name="subjects" value={subject.id} id={subject.id} onChange={subjectsHandler} checked={subjectIds.includes(subject.id)}/>
-                        <label htmlFor={subject.id}>{subject.subject}</label><br />
+                    <div key={subject._id}>
+                        <input type="checkbox" name="subjects" value={subject._id} id={subject._id} onChange={subjectsHandler} checked={subjectIds.includes(subject._id)}/>
+                        <label htmlFor={subject._id}>{subject.subject}</label><br />
                     </div>
                 ))}
             </div>
@@ -132,9 +132,9 @@ const LecturerForm: React.FC<LecturerFormProps> = ( {editLecturerData} ) => {
             <div>
                 <label htmlFor="groups">Select student groups:</label><br />
                 {groups.map(group => (
-                    <div key={group.id}>
-                        <input type="checkbox" name="groups" value={group.id} id={group.id} onChange={groupsHandler} checked={groupIds.includes(group.id)}/>
-                        <label htmlFor={group.id}>{group.name}</label><br />
+                    <div key={group._id}>
+                        <input type="checkbox" name="groups" value={group._id} id={group._id} onChange={groupsHandler} checked={groupIds.includes(group._id)}/>
+                        <label htmlFor={group._id}>{group.name}</label><br />
                     </div>
                 ))}
             </div>

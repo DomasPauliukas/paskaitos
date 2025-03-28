@@ -1,6 +1,6 @@
-<%- include('partials/header', { title: `${selectedLanguage.name}` }) %>
+<%- include('partials/header', { title: `${selectedLanguage.language}` }) %>
 
-<h1><%=selectedLanguage.name%></h1>
+<h1><%=selectedLanguage.language%></h1>
 
 <a href="/edit-language/<%= selectedLanguage.id %>">Edit language</a>
 

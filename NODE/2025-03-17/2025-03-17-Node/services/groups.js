@@ -30,12 +30,12 @@ async function createGroup(body) {
 }
 
 // UPDATE
-async function updateGroup(data) {
+async function updateGroup(data, id) {
     const db = getDB()
     const response = await db
                             .collection('groups')
                             .updateOne(
-                                { _id: ObjectId.createFromHexString(data.id) },
+                                { _id: ObjectId.createFromHexString(id) },
                                 { $set: data }
                             )
 //. updateOne({},{}) du obj paduodami, pirmas - redaguojamas objektas, antras - i ka norime pakeisti. (data - tai body yra)

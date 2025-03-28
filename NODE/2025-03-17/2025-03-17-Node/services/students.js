@@ -31,12 +31,12 @@ async function createStudent(body) {
 }
 
 // UPDATE
-async function updateStudent(data) {
+async function updateStudent(data, id) {
     const db = getDB()
     const response = await db
                             .collection('students')
                             .updateOne(
-                                { _id: ObjectId.createFromHexString(data.id) },
+                                { _id: ObjectId.createFromHexString(id) },
                                 { $set: data }
                             )
 //. updateOne({},{}) du obj paduodami, pirmas - redaguojamas objektas, antras - i ka norime pakeisti. (data - tai body yra)

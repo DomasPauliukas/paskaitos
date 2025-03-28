@@ -2,11 +2,10 @@ const express = require('express')
 
 const router = express.Router()
 
-const { getDataDB } = require('../services/FetchingData')
 const { createLecturer, getLecturers, getLecturerById, updateLecturer, deleteLecturer } = require('../services/lecturers')
+const { getSubjects } = require('../services/subjects')
+const { getGroups } = require('../services/groups')
 
-const subjects = getDataDB('subjects')
-const groups = getDataDB('groups')
 
 router.get('/lecturers',async (req, res, next) => {
     const lecturers = await getLecturers()
@@ -25,7 +24,9 @@ router.get('/lecturers/:id',async (req, res, next) => {
     res.render(`lecturer`, data)
 })
 
-router.get('/create-lecturer', (req, res, next) => {
+router.get('/create-lecturer',async (req, res, next) => {
+    const subjects = await getSubjects()
+    const groups = await getGroups()
 
     res.render(`lecturer-create`, { subjects, groups })
 })
@@ -39,6 +40,9 @@ router.post('/lecturer-created',async (req, res, next) => {
 })
 
 router.get('/edit-lecturer/:id',async (req, res, next) => {
+    const subjects = await getSubjects()
+    const groups = await getGroups()
+    
     const { id } = req.params
     const editedLecturer = await getLecturerById(id)
     const data = {

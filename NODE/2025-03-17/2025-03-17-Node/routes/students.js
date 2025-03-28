@@ -6,11 +6,10 @@ const express = require('express')
 const router = express.Router()
 
 
-const { getDataDB } = require('../services/FetchingData')
 const { getStudents, getStudentById, createStudent, updateStudent, deleteStudent } = require('../services/students')
 
-const groups = getDataDB('groups')
-const languages = getDataDB('languages')
+const { getLanguages } = require('../services/languages')
+const { getGroups } = require('../services/groups')
 
 
 router.get('/students', async (req, res, next) => {
@@ -23,7 +22,6 @@ router.get('/students', async (req, res, next) => {
         },
         students
     }
-
     res.render(`students`, data)
 })
 
@@ -38,6 +36,8 @@ router.get('/students/:id',async (req, res, next) => {
 })
 
 router.get('/create-student', (req, res, next) => {
+    const groups = getGroups()
+    const languages = getLanguages()
     res.render(`student-create`, { groups, languages })
 })
 
@@ -57,6 +57,8 @@ router.post('/delete-student', async (req, res, next) => {
 
 router.get('/edit-student/:id',async (req, res, next) => {
     const { id } = req.params
+    const groups = await getGroups()
+    const languages = await getLanguages()
     const editedStudent = await getStudentById(id)
 
     const data = {

@@ -38,7 +38,6 @@ const StudentForm: React.FC<StudentFormProps> = ( {editStudentData} ) => {
         fetchGroups()
         fetchLanguages()
     }, [])
-
     const groupIdHandler = (event: React.ChangeEvent<HTMLSelectElement>) => setGroupId(event.target.value)
     
     const languageHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,7 +77,6 @@ const StudentForm: React.FC<StudentFormProps> = ( {editStudentData} ) => {
         }
     }, [editStudentData])
 
-    
     const formSubmit = (event: React.FormEvent) => {
         event.preventDefault()
         const newStudent = {
@@ -93,8 +91,8 @@ const StudentForm: React.FC<StudentFormProps> = ( {editStudentData} ) => {
         }
     
     if (editStudentData) {
-        axios.put(`${API_URL}/students/${editStudentData.id}`, newStudent)
-        navigate(`/Students/${editStudentData.id}`)
+        axios.put(`${API_URL}/students/${editStudentData._id}`, newStudent)
+        navigate(`/Students/${editStudentData._id}`)
     } else {
         axios.post(`${API_URL}/students`, newStudent)
             .then(() => {
@@ -102,7 +100,6 @@ const StudentForm: React.FC<StudentFormProps> = ( {editStudentData} ) => {
             })
     }
 }
-
     return (
         <div>
           <form onSubmit={formSubmit}>
@@ -146,16 +143,16 @@ const StudentForm: React.FC<StudentFormProps> = ( {editStudentData} ) => {
                 <select name="groupId" id="group" onChange={groupIdHandler} value={groupId}>
                 <option value="">Select group</option>
                 {groups.map(group => (
-                    <option key={group.id} value={group.id}>{group.name}</option>
+                    <option key={group._id} value={group._id}>{group.name}</option>
                 ))}
                 </select>
             </div>
             <div>
                 <label htmlFor="languages">Select your languages:</label><br />
-                {languages.map(language => (
-                    <div key={language.id}>
-                        <input type="checkbox" name="languages" value={language.name} id={language.id} checked={selectedLanguages.includes(language.name)} onChange={languageHandler}/>
-                        <label htmlFor={language.id}>{language.name}</label><br />
+                {languages.map((language, index) => (
+                    <div key={index}>
+                        <input type="checkbox" name="languages" value={language.language} id={language._id} checked={selectedLanguages.includes(language.language)} onChange={languageHandler}/>
+                        <label htmlFor={language._id}>{language.language}</label><br />
                     </div>
                 ))}
   </div>

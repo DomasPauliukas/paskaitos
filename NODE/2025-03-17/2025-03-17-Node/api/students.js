@@ -44,7 +44,7 @@ router.put('/:id',async (req, res, next) => {
     const { body } = req
 
     try {
-        const response = await updateStudent({ ...body, id })
+        const response = await updateStudent(body, id)
 
         res.send({ response, body: { ...body, id }})
     } catch (error) {

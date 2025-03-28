@@ -42,7 +42,7 @@ router.put('/:id',async (req, res, next) => {
     const { body } = req
 
     try {
-        const response = await updateLecturer({ ...body, id })
+        const response = await updateLecturer(body, id)
 
         res.send({ response, body: { ...body, id }})
     } catch (error) {

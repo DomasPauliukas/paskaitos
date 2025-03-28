@@ -1,11 +1,11 @@
-<%- include('partials/header', { title: `Edit (${editedLanguage.name})` }) %>
+<%- include('partials/header', { title: `Edit (${editedLanguage.language})` }) %>
 
-<h1>Edit language (<%= editedLanguage.name %>)</h1>
+<h1>Edit language (<%= editedLanguage.language %>)</h1>
 
 <form action="/language-edited" method="POST">
     <div>
         <label for="language">Edit language:</label>
-        <input type="text" name="name" id="language" value="<%=editedLanguage.name%>"/>
+        <input type="text" name="name" id="language" value="<%=editedLanguage.language%>"/>
 
         <input type="hidden" name="id" value="<%= editedLanguage.id%>"/>
         <button type="submit">Edit</button>

@@ -30,12 +30,12 @@ async function createLanguage(body) {
 }
 
 // UPDATE
-async function updateLanguage(data) {
+async function updateLanguage(data, id) {
     const db = getDB()
     const response = await db
                             .collection('languages')
                             .updateOne(
-                                { _id: ObjectId.createFromHexString(data.id) },
+                                { _id: ObjectId.createFromHexString(id) },
                                 { $set: data }
                             )
 //. updateOne({},{}) du obj paduodami, pirmas - redaguojamas objektas, antras - i ka norime pakeisti. (data - tai body yra)

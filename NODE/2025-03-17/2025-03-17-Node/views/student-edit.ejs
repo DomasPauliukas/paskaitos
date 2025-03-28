@@ -51,12 +51,12 @@
   <div>
     <label for="languages">Select your languages:</label><br />
     <% languages.forEach(language => { %>
-      <input type="checkbox" name="languages" value="<%= language.name %>" id="<%= language.id %>"
-        <% if (editedStudent.languages && editedStudent.languages.includes(language.name)) { %>
+      <input type="checkbox" name="languages" value="<%= language.language %>" id="<%= language.id %>"
+        <% if (editedStudent.languages && editedStudent.languages.includes(language.language)) { %>
           checked
         <% } %>
       />
-      <label for="<%= language.id %>"><%= language.name %></label><br />
+      <label for="<%= language.id %>"><%= language.language %></label><br />
     <% }) %>
   </div>
 

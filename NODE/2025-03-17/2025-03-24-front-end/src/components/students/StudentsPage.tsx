@@ -16,7 +16,6 @@ const StudentsPage: React.FC = () => {
         fetchStudents()
     }, [])
 
-
     return (
         <div>
             <h1>Students page</h1>
