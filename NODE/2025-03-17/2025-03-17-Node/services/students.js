@@ -73,13 +73,18 @@ async function createStudent(body) {
 
     const response = await db
                             .collection('students')
-                            .insertOne(body)
+                            .insertOne({...body, groupId: ObjectId.createFromHexString(body.groupId)})
     return response
 }
 
 // UPDATE
 async function updateStudent(data, id) {
     const db = getDB()
+
+    if (data.groupId && ObjectId.isValid(data.groupId)) {
+        data.groupId = ObjectId.createFromHexString(data.groupId)
+    }
+    
     const response = await db
                             .collection('students')
                             .updateOne(
