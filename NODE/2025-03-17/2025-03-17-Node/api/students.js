@@ -2,7 +2,7 @@ const express = require('express')
 
 const router = express.Router()
 
-const { getStudents, getStudentById, createStudent, updateStudent, deleteStudent } = require('../services/students')
+const { getStudents, getStudentById, createStudent, updateStudent, deleteStudent, getStudentByName, getStudentBy } = require('../services/students')
 
 
 router.get('/', async (req, res, next) => {
@@ -61,6 +61,30 @@ router.delete('/:id',async (req, res, next) => {
     } catch (error) {
         res.status(500).send({ error })
     }
+})
+
+// kuriame savo routes pagal url params.
+
+router.get('/name/:name', async (req, res, next) => {
+    const { name } = req.params
+    try {
+        const data = await getStudentByName(name)
+        res.send(data)
+    } catch (error) {
+        res.status(500).send({ error })
+    }
+
+})
+
+router.get('/:key/:value', async (req, res, next) => {
+    const { key, value } = req.params
+    try {
+        const data = await getStudentBy(key, value)
+        res.send(data)
+    } catch (error) {
+        res.status(500).send({ error })
+    }
+
 })
 
 

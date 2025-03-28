@@ -94,7 +94,6 @@ const LecturerForm: React.FC<LecturerFormProps> = ( {editLecturerData} ) => {
             axios.post(`${API_URL}/lecturers`, newLecturer)
             navigate('/Lecturers')
         }
-
     }
     return(
 
