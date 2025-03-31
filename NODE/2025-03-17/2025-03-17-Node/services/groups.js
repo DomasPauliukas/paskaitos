@@ -1,5 +1,6 @@
 const { ObjectId } = require('mongodb')
 const { getDB } = require('../database')
+const { name } = require('ejs')
 
 // GET
 async function getGroups() {
@@ -17,7 +18,46 @@ async function getGroupById(id) {
     const group = await db
                         .collection('groups')
                         .findOne({ _id: ObjectId.createFromHexString(id) })
-    return group
+
+    const students = await db
+                            .collection('students')
+                            // .find( { groupId: ObjectId.createFromHexString(id)})
+                            .aggregate([
+                                {
+                                    $match: {
+                                        groupId: ObjectId.createFromHexString(id)
+                                    }
+                                },
+                                {
+                                    $project: {
+                                        surname: 0 // exclude (0), nerodo sito key.
+                                        // surname: 1 include(1), su 1, rodys tik ta Key, kuriems nurodysime 1.
+                                    }
+                                }
+                            ])
+                            .toArray()
+    
+    const lecturers = await db
+                                .collection('lecturers')
+                                .aggregate([
+                                    {
+                                        $match: {
+                                            groups: ObjectId.createFromHexString(id)
+                                        }
+                                    },
+                                    {
+                                        $project: {
+                                            firstName: 1,
+                                            lastName: 1
+                                        }
+                                    }
+                                ])
+                                .toArray()
+    return {
+        ...group,
+        students,
+        lecturers
+    }
 }
 
 // POST

@@ -84,7 +84,7 @@ async function updateStudent(data, id) {
     if (data.groupId && ObjectId.isValid(data.groupId)) {
         data.groupId = ObjectId.createFromHexString(data.groupId)
     }
-    
+
     const response = await db
                             .collection('students')
                             .updateOne(
