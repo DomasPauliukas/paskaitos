@@ -2,6 +2,8 @@ const express = require('express')
 const cors = require('cors') // npm i cors. kad is backendo eitu fetchinti frontende.
 const process = require('process')
 
+// npm install nodemon -- watchina node, jsone prie paleidimo nebe node --watch, o nodemon 
+
 require('dotenv').config() // kad veiktu .env failas  npm i dotenv
 
 const app = express()

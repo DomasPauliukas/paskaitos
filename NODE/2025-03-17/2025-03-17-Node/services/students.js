@@ -71,9 +71,12 @@ async function getStudentById(id) {
 async function createStudent(body) {
     const db = getDB()
 
+    const interests = Array.isArray(body.interests) ? body.interests : []
+    const languages = Array.isArray(body.languages) ? body.languages : []
+
     const response = await db
                             .collection('students')
-                            .insertOne({...body, groupId: ObjectId.createFromHexString(body.groupId)})
+                            .insertOne({...body, interests, languages, groupId: ObjectId.createFromHexString(body.groupId)})
     return response
 }
 

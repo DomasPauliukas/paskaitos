@@ -42,15 +42,15 @@
     <label for="group">Select Group:</label>
     <select name="groupId" id="group">
       <% groups.forEach(group => { %>
-        <option value="<%= group.id %>"><%= group.name %></option>
+        <option value="<%= group._id %>"><%= group.name %></option>
       <% }) %>
     </select>
 </div>
 <div>
     <label for="languages">Select your languages:</label><br />
     <% languages.forEach(language => { %>
-      <input type="checkbox" name="languages" value="<%= language.language %>" id="<%= language.id %>" />
-      <label for="<%= language.id %>"><%= language.language %></label><br />
+      <input type="checkbox" name="languages" value="<%= language.language %>" id="<%= language._id %>" />
+      <label for="<%= language._id %>"><%= language.language %></label><br />
     <% }) %>
   </div>
 

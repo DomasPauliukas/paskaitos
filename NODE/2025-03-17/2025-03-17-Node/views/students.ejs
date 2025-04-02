@@ -14,7 +14,7 @@
 <% if (students.length > 0) { %>
     <ul>
         <% students.forEach(student => { %>
-            <li><a href="/students/<%= student.id %>"><%= student.name %> <%= student.surname%></a></li>
+            <li><a href="/students/<%= student._id %>"><%= student.name %> <%= student.surname%></a></li>
         <% }); %>
     </ul>
 <%}%>

@@ -35,17 +35,24 @@ router.get('/students/:id',async (req, res, next) => {
     res.render('student', data)
 })
 
-router.get('/create-student', (req, res, next) => {
-    const groups = getGroups()
-    const languages = getLanguages()
+router.get('/create-student',async (req, res, next) => {
+    const groups = await getGroups()
+    const languages = await getLanguages()
     res.render(`student-create`, { groups, languages })
 })
 
 router.post('/student-created', async (req, res, next) => {
     const { body } = req
-    const createdStudent = await createStudent(body)
+    const interests = body.interests || []
+    const languages = body.languages || [] 
 
-    res.redirect(`/students/${createdStudent.id}`)
+    const createdStudent = await createStudent({
+        ...body,
+        interests,
+        languages
+    })
+
+    res.redirect(`/students`)
 })
 
 router.post('/delete-student', async (req, res, next) => {
@@ -60,7 +67,6 @@ router.get('/edit-student/:id',async (req, res, next) => {
     const groups = await getGroups()
     const languages = await getLanguages()
     const editedStudent = await getStudentById(id)
-
     const data = {
         editedStudent,
         groups,
@@ -71,9 +77,13 @@ router.get('/edit-student/:id',async (req, res, next) => {
 
 router.post('/student-edited',async (req, res, next) => {
     const { body } = req
-    const updatedStudent = await updateStudent(body)
+    const studentId = req.body._id
 
-    res.redirect(`/students/${updatedStudent.id}`)
+    const interests = body.interests || []
+    const languages = body.languages || [] 
+
+    const updatedStudent = await updateStudent({...body, interests, languages}, studentId)
+    res.redirect(`/students/${studentId}`)
 })
 
 // exportuojame visa faila pabaigoje

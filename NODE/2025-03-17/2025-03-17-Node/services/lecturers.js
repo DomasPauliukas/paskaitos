@@ -106,10 +106,74 @@ async function deleteLecturer(id) {
     return response
 }
 
+async function getLectorGroups(lector) {
+    const db = getDB()
+    const response = await db
+                            .collection('lecturers')
+                            // .find({firstName: lector})
+                            .aggregate([
+                                {
+                                    $match: {
+                                        firstName: lector
+                                    }
+                                },
+                                {
+                                    $lookup: {
+                                        from: 'groups',
+                                        localField: 'groups',
+                                        foreignField: '_id',
+                                        as: 'allGroups'
+                                    }
+                                },
+                                {
+                                    $project: {
+                                        groups: 0,
+                                        subjects: 0
+                                    }
+                                }
+                            ])
+                            .toArray()
+    return response
+    
+}
+
+async function getLectorSubjects(lector) {
+    const db = getDB()
+    const response = await db
+                            .collection('lecturers')
+                            .aggregate([
+                                {
+                                    $match: {
+                                        firstName: lector
+                                    }
+                                },
+                                {
+                                    $lookup: {
+                                        from: 'subjects',
+                                        localField: 'subjects',
+                                        foreignField: '_id',
+                                        as: 'allSubjects'
+                                    }
+                                },
+                                {
+                                    $project: {
+                                        groups: 0,
+                                        subjects: 0
+                                    }
+                                }
+
+                            ])
+                            .toArray()
+    return response
+    
+}
+
 module.exports = {
     getLecturers,
     getLecturerById,
     createLecturer,
     updateLecturer,
-    deleteLecturer
+    deleteLecturer,
+    getLectorGroups,
+    getLectorSubjects
 }

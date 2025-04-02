@@ -4,10 +4,10 @@
     <a href="/">Go back to home page</a>
     <a href="/students">All students</a>
     <form action="/delete-student" method="POST">
-        <input type="hidden" name="studentId" value="<%= foundStudent.id%>"/>
+        <input type="hidden" name="studentId" value="<%= foundStudent._id%>"/>
         <button type="submit">Delete student</button>
     </form>
-    <a href="/edit-student/<%= foundStudent.id %>">Edit student</a>
+    <a href="/edit-student/<%= foundStudent._id %>">Edit student</a>
     <h1>Student:</h1>
     <h2><%= foundStudent.name %> <%= foundStudent.surname %></h2>
     <p>Age: <%= foundStudent.age %></p>
