@@ -5,12 +5,14 @@ const process = require('process')
 // npm install nodemon -- watchina node, jsone prie paleidimo nebe node --watch, o nodemon 
 
 require('dotenv').config() // kad veiktu .env failas  npm i dotenv
+require('./database') //visa folderi importuoja (su Mongoose dirbam)
 
 const app = express()
 
 app.use(cors())
 app.use(express.json()) // kad veiktu POST metodas per API
 
+//bodyParser nauja versija, jei raso deprecated, tai imame is express pacio, nebereikia pacio bodyParses instaliuoti, tada butu express.urlencoded. o pacio const bodyParser = require('') - nebereiketu.!!!!!
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended : true}))
 
@@ -60,11 +62,12 @@ app.use(express.static('public')) // pasiekia public serverio CSS visus
 
 const path = require('path') // nuorodai iki failo
 const fs = require('fs') // kartu reikia su path, rodo turini
-const { connectToDB } = require('./database')
+
+// const { connectToDB } = require('./database') 
 
 
 
-
+// cia man rodos nebereikia kai su MongoDB dirbam kodo apacioje
 
 const filePath = path.join('db', 'students.json')
 const fileContent = fs.readFileSync(filePath)
@@ -89,6 +92,11 @@ app.get('/', (req, res, next) => {
     res.render(`index`) // rasome render cia
 })
 
+// su Mongoose testinam
+app.get('/test', (req, res, next) => {
+    res.send('Hello')
+})
+
 
 
 // app.get('/', (req, res, next) => {
@@ -110,13 +118,15 @@ app.get('*', (req, res, next) => {
 // const PORT = process.env.PORT // is .env failo, kuriame saugomos konstaintos, keys ir pan.  
 const PORT = process.env.PORT || 3000
  //BE MONGO DB
-// app.listen(PORT, () => console.log(`App is running on port ${PORT}`))
+app.listen(PORT, () => console.log(`App is running on port ${PORT}`))
+
+
 
 // SU MONGODB
-connectToDB()
-    .then(() => {
-        app.listen(PORT, () => console.log(`Server is running on port ${PORT}.`))
-    })
-    .catch(error => {
-        console.error('Failed to connect to MongoDB: ', error)
-    })
+// connectToDB()
+//     .then(() => {
+//         app.listen(PORT, () => console.log(`Server is running on port ${PORT}.`))
+//     })
+//     .catch(error => {
+//         console.error('Failed to connect to MongoDB: ', error)
+//     })
