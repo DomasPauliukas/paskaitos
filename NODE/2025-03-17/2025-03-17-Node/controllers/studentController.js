@@ -7,9 +7,15 @@ const Student = require('../models/studentModel')
 //     arrow funkcija
 // }
 
+// const students = await Student.find().populate({
+//     path: 'groupId',
+//     select: 'name',
+//     populate: --- GALIMA I POPULATE DETI {} JEI SUDETINGESNIS, CIA JEI GROUPID TURI RELATIONSHIP, TAI GALIMA DAR PRIDETI IR JAM.
+// })
+
 async function getStudents(req, res) {
     try {
-        const students = await Student.find()
+        const students = await Student.find().populate('groupId', 'name number') // antrame parametre rasome, ka prideti, per tarpeli, ID pridedamas savaime.
         res.send(students)
     } catch (error) {
         res.status(500).send(error)

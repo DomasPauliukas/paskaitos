@@ -4,6 +4,11 @@ const Lecturer = require('../models/lecturerModel')
 async function getLecturers(req, res) {
     try {
         const lecturers = await Lecturer.find()
+                                            .populate({
+                                                path: 'groups',
+                                                options: { sort: { number: 1 } }
+                                            })
+                                            .populate('subjects')
         res.send(lecturers)
     } catch (error) {
         res.status(500).send(error)

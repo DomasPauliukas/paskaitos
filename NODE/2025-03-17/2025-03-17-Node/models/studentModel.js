@@ -19,7 +19,14 @@ const studentSchema = new mongoose.Schema({
     },
     city: String,
     email: String,
-    // groupId: String,
+    groupId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Group' // nurodome i koki modeli nukreiptas
+    },
+    // groups: {
+    //     type: [mongoose.Schema.Types.ObjectId],
+    //     ref: 'Group'   RELATIONSHIP KAI GALI BUTI ARRAY
+    // }
     interests: [String],
     languages: [String]
     // phone: {
