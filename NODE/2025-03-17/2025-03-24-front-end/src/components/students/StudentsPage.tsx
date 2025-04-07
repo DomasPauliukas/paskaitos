@@ -5,6 +5,8 @@ import { Student } from "../types/TypesExport"
 
 const StudentsPage: React.FC = () => {
 
+    const token = localStorage.getItem('token')
+
     const [students, setStudents] = useState<Student[]>([])
 
     useEffect(() => {
@@ -20,7 +22,9 @@ const StudentsPage: React.FC = () => {
         <div>
             <h1>Students page</h1>
 
+            {token && 
             <Link to={'/Create-student'}>Add student</Link>
+            }
 
             {students && students.length > 0 ? (
                 <div>
