@@ -36,6 +36,9 @@ const lecturerAPIRoutes = require('./api/lecturers')
 const subjectRoutes = require('./routes/subjects')
 const subjectAPIRoutes = require('./api/subjects')
 
+const userApiRoutes = require('./api/users')
+
+app.use('/api/users', userApiRoutes)
 
 app.use(studentRoutes)
 app.use('/api/students', studentAPIRoutes) // prefix nustatome, visur pradzia vienoda ,nebereikia rasyti visiems routeriams.

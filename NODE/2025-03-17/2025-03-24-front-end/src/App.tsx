@@ -12,6 +12,9 @@ import EditStudent from "./components/students/EditStudent"
 import LecturerItem from "./components/lecturers/LecturerItem"
 import CreateLecturer from "./components/lecturers/CreateLecturer"
 import EditLecturer from "./components/lecturers/EditLecturer"
+import LoginPage from "./components/login/LoginPage"
+import RegisterPage from "./components/register/RegisterPage"
+import ProfilePage from "./components/profile/ProfilePage"
 
 function App() {
 
@@ -22,6 +25,9 @@ function App() {
         <Routes>
 
           <Route index element={<HomePage/>} />
+          <Route path="/login" element={<LoginPage />}/>
+          <Route path="/register" element={<RegisterPage />}/>
+          <Route path="/profile" element={<ProfilePage />}/>
 
           <Route path="Students" element={<StudentsPage />}/>
           <Route path="Students/:id" element={<StudentItem />}/>
