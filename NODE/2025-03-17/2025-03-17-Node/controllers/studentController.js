@@ -14,6 +14,7 @@ const Student = require('../models/studentModel')
 // })
 
 async function getStudents(req, res) {
+    console.log(req.user)  // is cia gauname visa decodinta info is middleware. atsinesem, reiskia viskas jau patikrinta, kad yra token ir pan. paskui galima toliau naudoti is req.user informacija. nes cia jau restrictintas route.
     try {
         const students = await Student.find().populate('groupId', 'name number') // antrame parametre rasome, ka prideti, per tarpeli, ID pridedamas savaime.
         res.send(students)

@@ -1,12 +1,13 @@
 const express = require('express')
 const { getStudents, getStudentById, createStudent, updateStudent, deleteStudent } = require('../controllers/studentController')
+const authMiddleware = require('../middlewares/authMiddleware')
 const router = express.Router()
 
-router.get('/', getStudents)
-router.get('/:id', getStudentById)
-router.post('/', createStudent)
-router.put('/:id', updateStudent)
-router.delete('/:id', deleteStudent)
+router.get('/', authMiddleware, getStudents)
+router.get('/:id', authMiddleware, getStudentById)
+router.post('/', authMiddleware, createStudent)
+router.put('/:id', authMiddleware, updateStudent)
+router.delete('/:id', authMiddleware, deleteStudent)
 
 module.exports = router
 
