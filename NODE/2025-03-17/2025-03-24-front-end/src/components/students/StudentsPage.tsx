@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { API_URL } from "../API_URL"
 import { Link } from "react-router-dom"
 import { Student } from "../types/TypesExport"
 import api from "../../api"
@@ -9,7 +8,6 @@ const StudentsPage: React.FC = () => {
     const [students, setStudents] = useState<Student[]>([])
     const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState(true)
-
     useEffect(() => {
         const fetchStudents = async () => {
             try {

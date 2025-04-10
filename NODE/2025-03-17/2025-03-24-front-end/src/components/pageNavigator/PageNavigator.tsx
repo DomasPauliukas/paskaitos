@@ -15,10 +15,10 @@ const PageNavigator: React.FC = () => {
             <NavLink to={'/Subjects'} end>Subjects</NavLink>
             <NavLink to={'/Groups'} end>Groups</NavLink>
             <NavLink to={'/Languages'} end>Languages</NavLink>
-            <NavLink to={'/profile'} end>Profile</NavLink>
             {user ? (
                 <>
                 <NavLink to={'/dashboard'} end>Dashboard</NavLink>
+                <NavLink to={'/dashboard/profile'} end>Profile</NavLink>
                 <NavLink to={'/dashboard/settings'} end>Settings</NavLink>
                 <LogoutButton/>
                 </>

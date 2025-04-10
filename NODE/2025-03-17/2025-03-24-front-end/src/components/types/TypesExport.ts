@@ -5,7 +5,7 @@ export interface Student {
     email: string,
     interests: string[],
     age: number,
-    id: string,
+    _id: string,
     groupId: string,
     languages: string[],
 }

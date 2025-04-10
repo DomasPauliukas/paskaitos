@@ -65,7 +65,6 @@ app.use(express.static('public')) // pasiekia public serverio CSS visus
 
 const path = require('path') // nuorodai iki failo
 const fs = require('fs') // kartu reikia su path, rodo turini
-const authMiddleware = require('./middlewares/authMiddleware')
 
 // const { connectToDB } = require('./database') 
 

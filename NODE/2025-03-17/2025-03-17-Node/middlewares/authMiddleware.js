@@ -10,9 +10,9 @@ const authMiddleware = (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        const decoded = jwt.verify(token, process.env.JWT_SECRET) // decodinam ir galim pasiekti user info FE. i state idedami visa user ir bus visa sukurto tokeno info (ka ten pridejome, ta matysime FE)
 
-        req.user = decoded // galima paskui prie route issimti per req.user.
+        req.user = decoded // galima paskui prie route issimti per req.user backende
 
         next()
     } catch (error) {

@@ -4,7 +4,7 @@ const authMiddleware = require('../middlewares/authMiddleware')
 const router = express.Router()
 
 router.get('/', getStudents)
-router.get('/:id', authMiddleware, getStudentById)
+router.get('/:id', getStudentById)
 router.post('/', authMiddleware, createStudent)
 router.put('/:id', authMiddleware, updateStudent)
 router.delete('/:id', authMiddleware, deleteStudent)

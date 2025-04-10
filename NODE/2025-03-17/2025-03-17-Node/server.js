@@ -1,5 +1,3 @@
-console.log('ouu yeah')
-
 // SERVERIO SUKURIMAS
 
 const http = require('http')

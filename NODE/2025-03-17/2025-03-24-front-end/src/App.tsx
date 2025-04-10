@@ -31,7 +31,6 @@ function App() {
           <Route index element={<HomePage/>} />
           <Route path="/login" element={<LoginPage />}/>
           <Route path="/register" element={<RegisterPage />}/>
-          <Route path="/profile" element={<ProfilePage />}/>
 
           <Route path="Students" element={<StudentsPage />}/>
           <Route path="Students/:id" element={<StudentItem />}/>
@@ -59,6 +58,7 @@ function App() {
         <Route element={<PrivateRoute/>}>
           <Route path="dashboard">
             <Route index element={<DashboardPage/>}/>
+            <Route path="profile" element={<ProfilePage />}/>
             <Route path="settings" element={<SettingsPage/>} />
           </Route>
         </Route>

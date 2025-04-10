@@ -17,6 +17,7 @@ interface AuthContextType {
     loginUser: (token: string) => void,
     logoutUser: () => void
     loading: boolean
+    updateUser: (updatedUser: Partial<DecodedUser>) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -62,8 +63,18 @@ const logoutUser = () => {
     setUser(null)
 }
 
+const updateUser = (updatedUser: Partial<DecodedUser>) => {
+    setUser(prevState => {
+        if (!prevState) return prevState
+        return {
+            ...prevState,
+            ...updatedUser
+        }
+    })
+}
+
     return (
-        <AuthContext.Provider value={{ user, loginUser, logoutUser, loading }}>
+        <AuthContext.Provider value={{ user, loginUser, logoutUser, updateUser, loading }}>
             {children}
         </AuthContext.Provider>
     )

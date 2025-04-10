@@ -25,7 +25,7 @@ const LoginPage: React.FC = () => {
             if (token) {
                 loginUser(token) // funkcija is konteksto
                 // localStorage.setItem('token', token)
-                navigate('/profile')
+                navigate('/dashboard/profile')
             }
         } catch (error) {
             console.log('Failed to login!', error) // galima ta error issivesti kur reikia FE, kurti state ir gauti kintamaji

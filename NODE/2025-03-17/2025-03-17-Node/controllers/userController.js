@@ -26,7 +26,7 @@ const register = async (req, res) => {
         await newUser.save()
 
         res.send({ message: 'user registered successfully'})
-        // cia reikia kazka dar codint, kad liktu is karto prisijunges useris po registracijos. token kurti ar kazka (?)
+        // cia reikia kazka dar codint, kad liktu is karto prisijunges useris po registracijos. token kurti ar kazka (?) kaip ir login'e logika, ta pati cia reikia. kur token(?)
     } catch (error) {
         res.status(500).send(error)
     }
@@ -53,9 +53,9 @@ const login = async (req, res) => {
 
     const token = jwt.sign( // cia kai loginames, ka pridedame i tokena. galime prideti ka reikia. paskui issitrauksime per decode FRONTENDE
         {
-            id: user._id,
             username: user.username,
-            email: user.email
+            email: user.email,
+            id: user._id
         },
         process.env.JWT_SECRET,
         { expiresIn: '1h' } // uz kiek laiko islogins user. 
@@ -67,7 +67,33 @@ const login = async (req, res) => {
     }
 }
 
+const updateUser = async (req, res) => {
+    const { username } = req.body
+    const { id } = req.user
+
+    if (!username) {
+        return res.status(400).send({ message: 'Username is required' })
+    }
+
+    try {
+
+        const updatedUser = await User.findByIdAndUpdate(
+            id, // pagal id suranda
+            { username }, // atnaujina username
+            { new : true} // issaugo
+        )
+        if (!updatedUser) {
+            return res.status(404).send({message: 'User is not found'})
+        }
+        
+        res.send({ message: 'User updated', user: updatedUser })
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
+
 module.exports = {
     register,
-    login
+    login,
+    updateUser
 }
