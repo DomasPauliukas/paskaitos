@@ -15,9 +15,13 @@ import EditLecturer from "./components/lecturers/EditLecturer"
 import LoginPage from "./components/login/LoginPage"
 import RegisterPage from "./components/register/RegisterPage"
 import ProfilePage from "./components/profile/ProfilePage"
+import PrivateRoute from "./components/privateRoute/PrivateRoute"
+import DashboardPage from "./components/dashboard/DashboardPage"
+import SettingsPage from "./components/settings/SettingsPage"
+import { useAuth } from "./AuthContext"
 
 function App() {
-
+  const { user } = useAuth()
   return (
     <>
       <BrowserRouter>
@@ -31,15 +35,18 @@ function App() {
 
           <Route path="Students" element={<StudentsPage />}/>
           <Route path="Students/:id" element={<StudentItem />}/>
-          <Route path="Create-student" element={<CreateStudent />}/>
-          <Route path="Edit-student/:id" element={<EditStudent />}/>
+        {user && (
+          <>
+            <Route path="Create-student" element={<CreateStudent />}/>
+            <Route path="Edit-student/:id" element={<EditStudent />}/>
+          </>
+        )}
 
 
           <Route path="Lecturers" element={<LecturersPage />}/>
           <Route path="Lecturers/:id" element={<LecturerItem />}/>
           <Route path="Create-lecturer" element={<CreateLecturer />}/>
           <Route path="Edit-lecturer/:id" element={<EditLecturer />}/>
-
 
           <Route path="Groups" element={<GroupsPage />}/>
 
@@ -48,6 +55,13 @@ function App() {
 
 
           <Route path="Subjects" element={<SubjectsPage />}/>
+
+        <Route element={<PrivateRoute/>}>
+          <Route path="dashboard">
+            <Route index element={<DashboardPage/>}/>
+            <Route path="settings" element={<SettingsPage/>} />
+          </Route>
+        </Route>
 
         </Routes>
       </BrowserRouter>

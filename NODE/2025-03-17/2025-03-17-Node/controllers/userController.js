@@ -51,7 +51,7 @@ const login = async (req, res) => {
         return res.status(400).send({ message: 'Invalid email or password' })
     }
 
-    const token = jwt.sign( // cia kai loginames, ka pridedame i tokena. galime prideti ka reikia. paskui issitrauksime middleware
+    const token = jwt.sign( // cia kai loginames, ka pridedame i tokena. galime prideti ka reikia. paskui issitrauksime per decode FRONTENDE
         {
             id: user._id,
             username: user.username,

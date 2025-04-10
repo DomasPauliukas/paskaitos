@@ -2,9 +2,10 @@ import axios from "axios"
 import { useState } from "react"
 import { API_URL } from "../API_URL"
 import { useNavigate } from "react-router-dom"
+import { useAuth } from "../../AuthContext"
 
 const LoginPage: React.FC = () => {
-
+    const { loginUser } = useAuth()
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
 
@@ -22,7 +23,8 @@ const LoginPage: React.FC = () => {
             const { token } = res.data
 
             if (token) {
-                localStorage.setItem('token', token)
+                loginUser(token) // funkcija is konteksto
+                // localStorage.setItem('token', token)
                 navigate('/profile')
             }
         } catch (error) {

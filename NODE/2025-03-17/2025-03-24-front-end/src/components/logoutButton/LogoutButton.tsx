@@ -1,18 +1,17 @@
 import { useNavigate } from "react-router-dom"
+import { useAuth } from "../../AuthContext"
 
 const LogoutButton: React.FC = () => {
+    const { logoutUser} = useAuth()
     const navigate = useNavigate()
-    const token = localStorage.getItem('token')
     const logoutHandler = () => {
-        localStorage.removeItem('token')
+        // localStorage.removeItem('token')
+        logoutUser() // is konteksto
         navigate('/login')
     }
 
-    if (token) {
-        return (
-            <button onClick={logoutHandler}>Logout</button>
-        )
-    }
-
+    return (
+        <button onClick={logoutHandler}>Logout</button>
+    )
 }
 export default LogoutButton
