@@ -19,6 +19,7 @@ import PrivateRoute from "./components/privateRoute/PrivateRoute"
 import DashboardPage from "./components/dashboard/DashboardPage"
 import SettingsPage from "./components/settings/SettingsPage"
 import { useAuth } from "./AuthContext"
+import AdminDashboardPage from "./components/admin/AdminDashboardPage"
 
 function App() {
   const { user } = useAuth()
@@ -47,6 +48,7 @@ function App() {
           <Route path="Create-lecturer" element={<CreateLecturer />}/>
           <Route path="Edit-lecturer/:id" element={<EditLecturer />}/>
 
+
           <Route path="Groups" element={<GroupsPage />}/>
 
 
@@ -60,6 +62,7 @@ function App() {
             <Route index element={<DashboardPage/>}/>
             <Route path="profile" element={<ProfilePage />}/>
             <Route path="settings" element={<SettingsPage/>} />
+            <Route path="admin" element={<AdminDashboardPage/>} />
           </Route>
         </Route>
 

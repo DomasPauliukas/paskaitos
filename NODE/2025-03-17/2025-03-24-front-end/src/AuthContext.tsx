@@ -8,7 +8,8 @@ interface DecodedUser {
     email: string,
     id: string,
     iat: number,
-    exp: number
+    exp: number,
+    role: string
 }
 
 interface AuthContextType {

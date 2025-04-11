@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const ROLES = require('../config/roles')
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -27,6 +28,12 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    role: {
+        type: String,
+        enum: Object.values(ROLES), // padaro masyva is ROLES values. tas pats kas apacioj.
+        // enum: ['user', 'admin', 'lecturer', 'student'],
+        default: ROLES.USER
     }
 })
 

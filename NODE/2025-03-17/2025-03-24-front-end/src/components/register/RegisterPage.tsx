@@ -26,7 +26,7 @@ const RegisterPage: React.FC = () => {
                 email,
                 password
             }
-            const res = await axios.post(`${API_URL}/users/register`, userInfo)
+            await axios.post(`${API_URL}/users/register`, userInfo)
             navigate('/login')            
         } catch (error) {
             console.log('Failed to create user!', error) // galima ta error issivesti kur reikia FE, kurti state ir gauti kintamaji

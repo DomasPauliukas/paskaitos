@@ -1,8 +1,11 @@
 const express = require('express')
 const { getGroups, getGroupById, createGroup, updateGroup, deleteGroup } = require('../controllers/groupController')
+const authMiddleware = require('../middlewares/authMiddleware')
+const rolesMiddleware = require('../middlewares/rolesMiddleware')
+const ROLES = require('../config/roles')
 const router = express.Router()
 
-router.get('/', getGroups)
+router.get('/', authMiddleware, rolesMiddleware(ROLES.ADMIN), getGroups)
 router.get('/:id', getGroupById)
 router.post('/', createGroup)
 router.put('/:id', updateGroup)

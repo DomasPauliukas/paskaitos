@@ -1,20 +1,17 @@
 import { useAuth } from "../../AuthContext"
 import ROLES from "../../config/roles"
 
-const GroupsPage = () => {
+const AdminDashboardPage: React.FC = () => {
     const { user } = useAuth()
 
-    if(user?.role !== ROLES.ADMIN){
+    if (user?.role !== ROLES.ADMIN) {
         return (
             <p>Access denied</p>
         )
     }
-
+    
     return (
-        <div>
-            <h1>Groups page</h1>
-        </div>
+        <div>AdminDashboardPage</div>
     )
 }
-
-export default GroupsPage
+export default AdminDashboardPage

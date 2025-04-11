@@ -45,6 +45,7 @@ const ProfilePage: React.FC = () => {
             <h1>Profile page</h1>
             <p>Username: {user.username}</p>
             <p>Email: {user.email}</p>
+            <p>role: {user.role}</p>
             
             <form onSubmit={submitHandler}>
 
