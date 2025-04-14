@@ -7,7 +7,8 @@ const GroupsPage = () => {
     if(user?.role !== ROLES.ADMIN){
         return (
             <p>Access denied</p>
-        )
+            )
+        
     }
 
     return (
